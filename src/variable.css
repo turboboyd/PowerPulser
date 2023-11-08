@@ -9,8 +9,9 @@
 
     --border-radius: 12px;
     --border-input: 1px solid rgba(239, 237, 232, 0.30);
-    --border-hover: 1px solid #E6533C;
+    --border-accent: 1px solid #E6533C;
     --border-success: 1px solid #3CBF61;
     --border-error: 1px solid #D80027;
     --border-solid-color: 1px solid rgba(239, 237, 232, 0.20);
+    --background-avatar: rgba(48, 48, 48, 0.30);;
 }

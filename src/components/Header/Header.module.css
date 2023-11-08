@@ -1,0 +1,37 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.logo_wrap {
+  display: flex;
+  gap: 8px;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.link {
+  line-height: 1.5;
+  padding: 20px 26px;
+  display: block;
+  border: var(--border-solid-color);
+  border-radius: var(--border-radius);
+}
+
+.avatart {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: var(--border-accent);
+  background-color: var(--background-avatar);
+}
+
+.button {
+  line-height: 1.5;
+}
