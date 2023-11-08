@@ -1,6 +1,3 @@
-import { lazy } from "react";
-
-
 import {
   WelcomePage_ROUTE,
   DIARY_ROUTE,
@@ -12,23 +9,25 @@ import {
 
 } from "./utils/const";
 
-const WelcomePage = lazy(() => import("./pages/"));
-const AuthPage = lazy(() => import("./pages/AuthPage/AuthPage"));
-const AuthPage = lazy(() => import("./pages/"));
-// const DiaryPage = lazy(() => import("./pages/Basket/Basket"));
-// const Shop = lazy(() => import("./pages/Shop/Shop"));
+import {
+  WelcomePage,
+  AuthPage,
+  DiaryPage,
+  ExercisesPage,
+  NotFound,
+  ProductsPage,
+  ProfilePage,
+} from "./pages";
 
-// const DevicePage = lazy(() => import("./pages/DevicePage/DevicePage"));
-export const NotFound = lazy(() => import("./pages/"));
+  console.log("<AuthPage/>: ", <AuthPage />);
+
+
 
 
 
 export const authRoutes = [ 
 
-  {
-    path: PROFILE_ROUTE,
-    Element: <Basket />,
-  },
+
 ];
 
 export const publicRoutes = [
@@ -38,24 +37,15 @@ export const publicRoutes = [
   },
   {
     path: SIGNG_UP_ROUTE,
-    Element: <AuthPage />,
+    Element: <AuthPage/>,
   },
   {
     path: SIGN_IN_ROUTE,
-    Element: <AuthPage />,
+    Element: <AuthPage/>,
   },
   {
     path: DIARY_ROUTE,
-    Element: <AuthPage />,
-  },
-  {
-    path: PRODUCT_ROUTE,
-    Element: <P />,
-  },
-
-  {
-    path: EXERCISES_ROUTE,
-    Element: <Shop />,
+    Element: <DiaryPage />,
   },
 ];
 

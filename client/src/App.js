@@ -1,7 +1,10 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import { authRoutes, publicRoutes, NotFound } from "../routes";
-import Layout from "./Layout/Layout";
+
+import Layout from "./components/Layout/Layout";
+import { authRoutes, publicRoutes } from "./routes";
+import { NotFound } from "./pages";
+
 
 function App() {
   return (
@@ -10,11 +13,14 @@ function App() {
         {authRoutes.map(({ path, Element }) => (
           <Route key={path} path={path} element={Element} exact></Route>
         ))}
-        {publicRoutes.map(({ path, Element }) => (
-          <Route key={path} path={path} element={Element}></Route>
-        ))}
-        {/* <Route path="*" element={<Navigate to={SHOP_ROUTE} />} /> */}
-        <Route path="*" element={NotFound} />
+        {console.log('publicRoutes: ', publicRoutes)}
+        {publicRoutes.map(({ path, Element }) =>
+
+        
+        console.log('Element: ', Element)
+
+        )}
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );

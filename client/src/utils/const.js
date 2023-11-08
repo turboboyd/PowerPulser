@@ -2,7 +2,7 @@ export const API_BASE_URL = "http://localhost:3000/api";
 
 export const WELCOME_ROUTE = "/welcome";
 
-export const SIGNG_UP_ROUTE = "/signup ";
+export const SIGNG_UP_ROUTE = "/signup";
 export const SIGN_IN_ROUTE = "/signin";
 
 export const DIARY_ROUTE = "/diary";
