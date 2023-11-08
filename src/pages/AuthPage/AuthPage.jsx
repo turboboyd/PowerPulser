@@ -1,5 +1,7 @@
+import TitlePage from "../../components/TitlePage/TitlePage";
+
 const AuthPage = () => {
-  return <div>AuthPage</div>;
+  return <TitlePage title="AuthPage" />;
 };
 
 export default AuthPage;

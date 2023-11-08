@@ -1,5 +1,7 @@
+import TitlePage from "../../components/TitlePage/TitlePage";
+
 const ExercisesPage = () => {
-  return <div>ExercisesPage</div>;
+  return <TitlePage title="Exercises" />;
 };
 
 export default ExercisesPage;

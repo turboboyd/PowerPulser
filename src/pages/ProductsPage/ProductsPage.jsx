@@ -1,5 +1,7 @@
+import TitlePage from "../../components/TitlePage/TitlePage";
+
 const ProductsPage = () => {
-  return <div>ProductsPage</div>;
+  return <TitlePage title="Products" />;
 };
 
 export default ProductsPage;
