@@ -14,21 +14,15 @@ import {
   AuthPage,
   DiaryPage,
   ExercisesPage,
-  NotFound,
   ProductsPage,
   ProfilePage,
 } from "./pages";
 
-  console.log("<AuthPage/>: ", <AuthPage />);
-
-
-
-
 
 export const authRoutes = [ 
 
-
 ];
+
 
 export const publicRoutes = [
   {
@@ -37,15 +31,27 @@ export const publicRoutes = [
   },
   {
     path: SIGNG_UP_ROUTE,
-    Element: <AuthPage/>,
+    Element: <AuthPage />,
   },
   {
     path: SIGN_IN_ROUTE,
-    Element: <AuthPage/>,
+    Element: <AuthPage />,
   },
   {
     path: DIARY_ROUTE,
     Element: <DiaryPage />,
+  },
+  {
+    path: PROFILE_ROUTE,
+    Element: <ProfilePage />,
+  },
+  {
+    path: PRODUCT_ROUTE,
+    Element: <ProductsPage />,
+  },
+  {
+    path: EXERCISES_ROUTE,
+    Element: <ExercisesPage />,
   },
 ];
 

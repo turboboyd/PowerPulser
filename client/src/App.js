@@ -5,7 +5,6 @@ import Layout from "./components/Layout/Layout";
 import { authRoutes, publicRoutes } from "./routes";
 import { NotFound } from "./pages";
 
-
 function App() {
   return (
     <Routes>
@@ -13,13 +12,9 @@ function App() {
         {authRoutes.map(({ path, Element }) => (
           <Route key={path} path={path} element={Element} exact></Route>
         ))}
-        {console.log('publicRoutes: ', publicRoutes)}
-        {publicRoutes.map(({ path, Element }) =>
-
-        
-        console.log('Element: ', Element)
-
-        )}
+        {publicRoutes.map(({ path, Element }) => (
+          <Route key={path} path={path} element={Element} exact />
+        ))}
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
