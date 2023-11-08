@@ -14,11 +14,11 @@ export default function Layout() {
         <Header />
       </Container>
       <main>
-        <div>
+        <Container>
           <Suspense fallback={<Loader />}>
             <Outlet />
           </Suspense>
-        </div>
+        </Container>
       </main>
     </>
   );

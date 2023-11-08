@@ -1,0 +1,16 @@
+:root{
+    --black-color: #040404;
+    --orange: #E6533C;
+    --orange-1: #EF8964;
+    --beige: #EFA082;
+    --white: #EFEDE8;
+    --header-white-color: #f6f6f6;
+    
+
+    --border-radius: 12px;
+    --border-input: 1px solid rgba(239, 237, 232, 0.30);
+    --border-hover: 1px solid #E6533C;
+    --border-success: 1px solid #3CBF61;
+    --border-error: 1px solid #D80027;
+    --border-solid-color: 1px solid rgba(239, 237, 232, 0.20);
+}

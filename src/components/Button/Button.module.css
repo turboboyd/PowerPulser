@@ -1,0 +1,12 @@
+.button {
+    background-color: var(--orange);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 16px 32px;
+
+
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.125;
+    color:var(--white);
+}
