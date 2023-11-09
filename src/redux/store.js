@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { combineReducers } from "redux";
 import {
   persistStore,
   FLUSH,
@@ -10,20 +9,20 @@ import {
   REGISTER,
 } from "redux-persist";
 
+import productsReducer from './products/productsSlice';
 
-
-const reducer = combineReducers({
-  	
-});
 
 export const store = configureStore({
-  reducer: reducer,
+  reducer: {
+    products: productsReducer,
+  },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
+  devTools: process.env.NODE_ENV === 'development',
 });
 
 export const persistor = persistStore(store);
