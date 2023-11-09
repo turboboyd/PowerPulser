@@ -6,23 +6,19 @@ import {
   PROFILE_ROUTE,
   SIGNG_UP_ROUTE,
   SIGN_IN_ROUTE,
-
 } from "./utils/const";
 
 import {
   WelcomePage,
-  AuthPage,
+  SignUpPage,
+  SignInPage,
   DiaryPage,
   ExercisesPage,
   ProductsPage,
   ProfilePage,
 } from "./pages";
 
-
-export const authRoutes = [ 
-
-];
-
+export const authRoutes = [];
 
 export const publicRoutes = [
   {
@@ -31,11 +27,11 @@ export const publicRoutes = [
   },
   {
     path: SIGNG_UP_ROUTE,
-    Element: <AuthPage />,
+    Element: <SignUpPage />,
   },
   {
     path: SIGN_IN_ROUTE,
-    Element: <AuthPage />,
+    Element: <SignInPage />,
   },
   {
     path: DIARY_ROUTE,
@@ -54,5 +50,3 @@ export const publicRoutes = [
     Element: <ExercisesPage />,
   },
 ];
-
-
