@@ -10,6 +10,9 @@ import LogoPowerPulse from "../../images/svg/PowerPulse.svg";
 import Vectorlogo from "../../images/svg/Vector_logo.svg";
 
 const Header = () => {
+
+  const[isOpen, useisOpen] = isOpen(false)
+
   return (
     <header className={css.header}>
       <Link className={css.logo_wrap} to={DIARY_ROUTE}>
@@ -47,6 +50,10 @@ const Header = () => {
           <div className={css.avatart}></div>
         </Link>
         <Link className={css.button}>Logout</Link>
+      </div>
+
+      <div>
+        <button>Бургер</button>
       </div>
     </header>
   );
