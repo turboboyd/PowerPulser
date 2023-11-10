@@ -4,7 +4,17 @@ import { handleFulfilledRegistration, handleFulfilledLogin, handleFulfilledLogOu
 import { operationsType } from 'redux/auth/authOperationsType';
 
 const contactsInitialState = {
-    data: null,
+    user: {
+        name: '',
+        email: '',
+        height: '',
+        weightCurrent: '',
+        weightDesired: '',
+        birthdayData: null,
+        typeBlood: null,
+        typeActivity: null,
+        gender: null,
+    },
     token: null,
     isSuccesses: false,
     isLoading: false,
