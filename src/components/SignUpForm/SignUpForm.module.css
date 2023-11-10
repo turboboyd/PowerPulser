@@ -18,10 +18,10 @@
   position: relative;
 
   &.error input {
-    border-color: var(--border-error);
+    border-color: var(--error);
   }
   &.success input {
-    border-color: var(--border-success);
+    border-color: var(--success);
   }
   &.success svg[data-status="success"] {
     display: block;
@@ -88,7 +88,7 @@
 }
 
 .svgSuccess {
-  display: none;
+  /* display: none; */
   width: 16px;
   height: 16px;
   fill: var(--border-success);

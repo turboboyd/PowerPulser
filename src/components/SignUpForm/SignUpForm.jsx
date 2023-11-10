@@ -41,7 +41,15 @@ const SignUpForm = () => {
         {(formik) => (
           <Form className={css.form} autoComplete="off">
             <div className={css.formWrapper}>
-              <div className={css.fieldWrapper}>
+              <div
+                className={`${css.fieldWrapper} ${
+                  formik.touched.name && formik.errors.name
+                    ? `${css.error}`
+                    : formik.touched.name && !formik.errors.name
+                    ? `${css.success}`
+                    : ""
+                }`}
+              >
                 <Field
                   className={css.field}
                   type="text"
@@ -63,7 +71,7 @@ const SignUpForm = () => {
 
                 {formik.touched.name && !formik.errors.name && (
                   <div className={css.messageWrapper}>
-                    <svg data-status="success" className={css.svgError}>
+                    <svg className={css.svgSuccess}>
                       <use href={`${sprite}#icon-green`} />
                     </svg>
                     <div className={css.successMessage}>Success name</div>
@@ -71,7 +79,15 @@ const SignUpForm = () => {
                 )}
               </div>
 
-              <div className={css.fieldWrapper}>
+              <div
+                className={`${css.fieldWrapper} ${
+                  formik.touched.email && formik.errors.email
+                    ? `${css.error}`
+                    : formik.touched.email && !formik.errors.email
+                    ? `${css.success}`
+                    : ""
+                }`}
+              >
                 <Field
                   className={css.field}
                   type="email"
@@ -93,7 +109,7 @@ const SignUpForm = () => {
 
                 {formik.touched.email && !formik.errors.email && (
                   <div className={css.messageWrapper}>
-                    <svg data-status="success" className={css.svgError}>
+                    <svg data-status="success" className={css.svgSuccess}>
                       <use href={`${sprite}#icon-green`} />
                     </svg>
                     <div className={css.successMessage}>Success email</div>
@@ -101,7 +117,15 @@ const SignUpForm = () => {
                 )}
               </div>
 
-              <div className={css.fieldWrapper}>
+              <div
+                className={`${css.fieldWrapper} ${
+                  formik.touched.password && formik.errors.password
+                    ? `${css.error}`
+                    : formik.touched.password && !formik.errors.password
+                    ? `${css.success}`
+                    : ""
+                }`}
+              >
                 <Field
                   className={css.field}
                   type={showPassword ? "text" : "password"}
@@ -123,7 +147,7 @@ const SignUpForm = () => {
 
                 {formik.touched.password && !formik.errors.password && (
                   <div className={css.messageWrapper}>
-                    <svg data-status="success" className={css.svgError}>
+                    <svg data-status="success" className={css.svgSuccess}>
                       <use href={`${sprite}#icon-green`} />
                     </svg>
                     <div className={css.successMessage}>Success password</div>
