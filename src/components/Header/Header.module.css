@@ -173,3 +173,9 @@
 .burger_wrap.open {
   transform: translateX(0);
 }
+
+
+.svg{
+  width:32px;
+  height:32px;
+}
