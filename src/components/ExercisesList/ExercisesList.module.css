@@ -1,0 +1,37 @@
+@media (min-width: 768px) {
+  .cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    min-width: 704px;
+    height: 500px;
+    white-space: nowrap;
+    gap: 32px 16px;
+    scrollbar-width: thin;
+    scrollbar-color: #ef8964 rgba(239, 237, 232, 0.1);
+  }
+
+  /* SCROLL */
+
+  .cardContainer::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .cardContainer::-webkit-scrollbar-thumb {
+    background-color: var(--orange-1);
+    border-radius: 5px;
+    height: 156px;
+  }
+
+  .cardContainer::-webkit-scrollbar-track {
+    background-color: rgba(239, 237, 232, 0.1);
+    border-radius: 5px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cardContainer {
+    min-width: 850px;
+  }
+}

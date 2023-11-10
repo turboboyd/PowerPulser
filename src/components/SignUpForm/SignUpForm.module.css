@@ -18,10 +18,10 @@
   position: relative;
 
   &.error input {
-    border-color: var(--border-error);
+    border-color: var(--error);
   }
   &.success input {
-    border-color: var(--border-success);
+    border-color: var(--success);
   }
   &.success svg[data-status="success"] {
     display: block;
@@ -69,4 +69,59 @@
     line-height: 1.5;
     margin-bottom: 4px;
   }
+}
+
+.messageWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 4px;
+  }
+}
+
+.svgError {
+  display: none;
+  width: 16px;
+  height: 16px;
+  fill: var(--border-error);
+}
+
+.svgSuccess {
+  /* display: none; */
+  width: 16px;
+  height: 16px;
+  fill: var(--border-success);
+}
+
+.errorMessage {
+  margin-left: 4px;
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 12px;
+  letter-spacing: 0.12px;
+  color: var(--error);
+  line-height: 1.16;
+}
+
+.successMessage {
+  margin-left: 4px;
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 12px;
+  letter-spacing: 0.12px;
+  color: var(--success);
+  line-height: 1.16;
+}
+
+.buttonEye {
+  position: absolute;
+  top: 15px;
+  left: 90%;
+  background-color: inherit;
+  border: none;
+}
+
+.svgEye {
+  width: 20px;
+  height: 20px;
+  stroke: var(--white);
 }

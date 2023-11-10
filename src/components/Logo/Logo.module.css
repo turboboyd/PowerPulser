@@ -1,0 +1,31 @@
+
+.logo_wrap {
+  display: flex;
+  gap: 8px;
+}
+
+.logo {
+  width: 44px;
+  height: 17px;
+}
+.logo_name {
+  width: 100px;
+  height: 16px;
+}
+
+.svg_logout {
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (max-width: 768px) {
+ 
+  .logo {
+    width: 36px;
+    height: 13px;
+  }
+    .logo_name {
+    width: 82px;
+    height: 12px;
+  }
+}
