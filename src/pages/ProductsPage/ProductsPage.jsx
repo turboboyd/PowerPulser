@@ -1,7 +1,13 @@
-import TitlePage from "../../components/TitlePage/TitlePage";
+import TitlePage from '../../components/TitlePage/TitlePage'
+import ProductsList from '../../components/ProductsList/ProductsList'
 
 const ProductsPage = () => {
-  return <TitlePage title="Products" />;
-};
+  return (
+    <>
+      <TitlePage title="Products" />
+      <ProductsList />
+    </>
+  )
+}
 
-export default ProductsPage;
+export default ProductsPage
