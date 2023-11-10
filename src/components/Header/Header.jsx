@@ -17,7 +17,7 @@ const Header = () => {
   }, []);
 
   return (
-    <>
+    <div className={css.line}>
       <header className={css.header_user}>
         <Logo />
         {isAuth ? (
@@ -81,7 +81,7 @@ const Header = () => {
           <Icon className={css.svg_logout} sprite={sprite} iconId="Log-out" />
         </Link>
       </nav>
-    </>
+    </div>
   );
 };
 
