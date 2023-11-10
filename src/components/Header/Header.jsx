@@ -43,6 +43,7 @@ const Header = () => {
                       sprite={sprite}
                       iconId="Gridicons_user"
                     />
+                  
                   </div>
                 </Link>
               </li>
