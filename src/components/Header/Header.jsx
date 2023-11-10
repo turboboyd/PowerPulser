@@ -1,95 +1,68 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import css from "./Header.module.css";
-import {
-  DIARY_ROUTE,
-  PRODUCT_ROUTE,
-  EXERCISES_ROUTE,
-  PROFILE_ROUTE,
-} from "../../utils/const";
+import { PROFILE_ROUTE } from "../../utils/const";
 
-// import Sprite from "../../images/sv/";
 import sprite from "../../images/svg/InlineSprite.svg";
-
-// const SvgIcon = ({ symbolId, className }) => (
-//   <svg className={className}>
-//     <use xlinkHref={`#${symbolId}`} />
-//   </svg>
-// );import sprite from "../../images/svg/sprite.svg";
+import Icon from "../ComponIcon/Icon";
+import Logo from "../Logo/Logo";
+import RouteList from "../RouteList/RouteList";
 
 const Header = () => {
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(true);
   const [isBurgerOpen, setBurgerOpen] = useState(false);
 
-  const toggleBurger = () => {
-    setBurgerOpen(!isBurgerOpen);
-  };
+  const toggleBurger = useCallback(() => {
+    setBurgerOpen((prevIsBurgerOpen) => !prevIsBurgerOpen);
+  }, []);
 
   return (
     <>
-      <header className={css.header}>
-        <Link className={css.logo_wrap} to={DIARY_ROUTE}>
-          <div>
-            <svg className={css.logo}>
-              <use href={`${sprite}#Icon-Logo`} />
-            </svg>
-          </div>
-          <div>
-            <svg className={css.logo_name}>
-              <use href={`${sprite}#PowerPulse`} />
-            </svg>
-          </div>
-        </Link>
-        <nav className={css.nav}>
-          <ul className={css.list}>
-            <li className={css.item}>
-              <Link className={css.link} to={DIARY_ROUTE}>
-                Diary
-              </Link>
-            </li>
-            <li>
-              <Link className={css.link} to={PRODUCT_ROUTE}>
-                Products
-              </Link>
-            </li>
-            <li>
-              <Link className={css.link} to={EXERCISES_ROUTE}>
-                Exercises
-              </Link>
-            </li>
-          </ul>
-        </nav>
-        <ul className={css.list_user}>
-          <li>
-            <Link>
-              <svg className={css.iconSettings}>
-                <use href={`${sprite}#menu-02`} />
-              </svg>
-            </Link>
-          </li>
-          <li>
-            <Link to={PROFILE_ROUTE}>
-              <div className={css.avatart}></div>
-            </Link>
-          </li>
-          <li>
-            <Link className={css.logout}>
-              Logout{" "}
-              <svg className={css.svg_logout}>
-                <use href={`${sprite}#log-out-01`} />
-              </svg>
-            </Link>
-          </li>
-        </ul>
+      <header className={css.header_user}>
+        <Logo />
+        {isAuth ? (
+          <div className={css.wrap}>
+            <nav className={css.nav}>
+              <RouteList />
+            </nav>
+            <ul className={css.list_user}>
+              <li>
+                <Link>
+                  <Icon
+                    className={css.iconSettings}
+                    sprite={sprite}
+                    iconId="Settings"
+                  />
+                </Link>
+              </li>
+              <li>
+                <Link to={PROFILE_ROUTE}>
+                  <div className={css.avatart}>
+                    <Icon
+                      className={css.svg_user}
+                      sprite={sprite}
+                      iconId="Gridicons_user"
+                    />
+                  </div>
+                </Link>
+              </li>
+              <li className={css.logout_desk}>
+                <Link className={css.logout}>
+                  Logout{" "}
+                  <Icon
+                    className={css.svg_logout}
+                    sprite={sprite}
+                    iconId="Log-out"
+                  />
+                </Link>
+              </li>
+            </ul>
 
-        <button className={css.burger_btn} onClick={toggleBurger}>
-          {/* <img className={css.close} src={iconBurger} alt="OpenMenu" /> */}
-          <div>
-            <svg className={css.svg_burger}>
-              <use href={`${sprite}#menu-02`} />
-            </svg>
+            <button className={css.burger_btn} onClick={toggleBurger}>
+              <Icon className={css.burger_btn} sprite={sprite} iconId="Menu" />
+            </button>
           </div>
-        </button>
+        ) : null}
       </header>
 
       <nav
@@ -98,34 +71,13 @@ const Header = () => {
         }`}
       >
         <button className={css.close_btn} onClick={toggleBurger}>
-          {/* <img className={css.close} src={iconClose} alt="Close" /> */}
-          <svg className={css.svg_burger}>
-            <use href={`${sprite}#x`} />
-          </svg>
+          <Icon className={css.close_btn} sprite={sprite} iconId="Close" />
         </button>
-        <ul className={css.list}>
-          <li className={css.item}>
-            <Link className={css.link} to={DIARY_ROUTE}>
-              Diary
-            </Link>
-          </li>
-          <li>
-            <Link className={css.link} to={PRODUCT_ROUTE}>
-              Products
-            </Link>
-          </li>
-          <li>
-            <Link className={css.link} to={EXERCISES_ROUTE}>
-              Exercises
-            </Link>
-          </li>
-        </ul>
+        <RouteList />
 
         <Link className={css.logout}>
           Logout{" "}
-          <svg className={css.svg_logout}>
-            <use href={`${sprite}#log-out-01`} />
-          </svg>
+          <Icon className={css.svg_logout} sprite={sprite} iconId="Log-out" />
         </Link>
       </nav>
     </>

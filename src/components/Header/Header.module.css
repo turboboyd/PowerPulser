@@ -1,45 +1,14 @@
-.header {
+.header_user {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px 0;
 }
 
-.logo_wrap {
-  display: flex;
-  gap: 8px;
-}
-
-.logo {
-  width: 36px;
-  height: 13px;
-}
-.logo {
-  width: 44px;
-  height: 17px;
-}
-.logo_name {
-  width: 82px;
-  height: 12px;
-}
-.logo_name {
-  width: 100px;
-  height: 16px;
-}
 
 .iconSettings {
   width: 28px;
-  height: 28x;
-}
-
-.svg_burger  {
-  width: 24px;
-  height: 24px;
-}
-
-.svg_burger {
-  width: 32px;
-  height: 32px;
+  height: 28px;
 }
 
 .svg_logout {
@@ -47,33 +16,19 @@
   height: 20px;
 }
 
-.list {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 16px;
+.svg_user {
+  width: 21px;
+  height: 21px;
 }
 
-.link {
-  line-height: 1.5;
-  padding: 20px 26px;
-  display: block;
-  border: var(--border-solid-color);
-  border-radius: var(--border-radius);
-}
 
-.link:hover,
-.link:focus {
-  border: 1px solid var(--white);
-}
-
-.link:active {
-  border: 1px solid var(--white);
-}
 
 .avatart {
-  width: 46px;
-  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 37px;
+  height: 37px;
   border-radius: 50%;
   border: var(--border-accent);
   background-color: var(--background-avatar);
@@ -111,8 +66,11 @@
   transform: translateX(100%);
   transition: transform 200ms;
 }
-
+.burger_btn svg {
+  display: block;
+}
 .burger_btn {
+  overflow: hidden;
   display: none;
   border: none;
   background: none;
@@ -135,45 +93,57 @@
 }
 .nav {
   display: block;
+
 }
 
 .list_user {
-  display: block;
   display: flex;
   align-items: center;
   gap: 16px;
 }
 .logout_desk {
-  fill: red;
+  display: block;
+}
+.wrap{
+  display: flex;
+  align-items: center;
+  gap: 32px;
 }
 @media screen and (max-width: 1439px) {
-  .list_user {
+
+  .logout_desk {
     display: none;
   }
+
   .burger_btn {
     display: block;
   }
-  .list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-  }
 
-  .link {
-    font-size: 14px;
-    line-height: 1.29;
-    padding: 20px 26px;
-    display: block;
-    border: var(--border-solid-color);
-    border-radius: var(--border-radius);
-  }
   .nav {
     display: none;
   }
+    .wrap{
+  gap: 16px;
+ }
 }
 
 @media screen and (max-width: 768px) {
+  .wrap{
+  gap: 14px;
+ }
+  .iconSettings {
+    width: 24px;
+    height: 24px;
+  }
+  .logo {
+    width: 36px;
+    height: 13px;
+  }
+
+  .logo_name {
+    width: 82px;
+    height: 12px;
+  }
   .burger_wrap {
     padding: 20px;
     width: 35%;
