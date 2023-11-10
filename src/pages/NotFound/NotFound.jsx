@@ -1,10 +1,10 @@
 import { WelcomePage_ROUTE } from "../../utils/const"; 
 import { useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import LogoPowerPulse from "../../images/svg/PowerPulse.svg";
-import Vectorlogo from "../../images/svg/Vector_logo.svg";
+
 import css from './NotFound.module.css'
 import Container from "../../components/Container/Container";
+import Logo from "../../components/Logo/Logo";
 
 
 
@@ -16,12 +16,7 @@ const NotFound = () => {
    <div className={css.background}>
     <div className={css.block_error}>
      <Link className={css.logo_wrap} to={WelcomePage_ROUTE}>
-        <div>
-          <img className={css.logo} src={Vectorlogo} alt="Logo" />
-        </div>
-        <div>
-          <img className={css.logo_text} src={LogoPowerPulse} alt="Logo" />
-        </div>
+      <Logo/>
       </Link>
 <h1 className={css.title_one}>404</h1>
 <p className={css.text_error}>  
@@ -33,10 +28,7 @@ const NotFound = () => {
         <Link className={css.link_goHome} to={goHomeLink.current}>
           Go Home
         </Link>
-{/* 
-        <div className={css.backgroundImageWrap}>
-      <div className={css.backgroundImage}></div>
-    </div> */}
+
 </div>
 </div>
   </Container>;
