@@ -4,7 +4,7 @@ import { handleFulfilledRegistration, handleFulfilledLogin, handleFulfilledLogOu
 import { operationsType } from 'redux/auth/authOperationsType';
 
 const contactsInitialState = {
-    data: null,
+    data: null, //додати інші параметри залежно від структури БД
     token: null,
     isSuccesses: false,
     isLoading: false,
@@ -26,4 +26,4 @@ export const authSlice = createSlice({
     },
 });
 
-export default authSlice.reducer
+export const authReducer = authSlice.reducer
