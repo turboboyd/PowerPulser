@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 import Container from "../Container/Container";
 import Header from "../Header/Header";
 import Loader from "../Loader/Loader";
-
+import css from './Layout.module.css'
 
 export default function Layout() {
   return (
@@ -14,11 +14,13 @@ export default function Layout() {
         <Header />
       </Container>
       <main>
-        <Container>
-          <Suspense fallback={<Loader />}>
-            <Outlet />
-          </Suspense>
-        </Container>
+        <section className={css.section}>
+          <Container>
+            <Suspense fallback={<Loader />}>
+              <Outlet />
+            </Suspense>
+          </Container>
+        </section>
       </main>
     </>
   );
