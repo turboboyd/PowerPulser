@@ -4,7 +4,7 @@ import { handleFulfilledRegistration, handleFulfilledLogin, handleFulfilledLogOu
 import { operationsType } from 'redux/auth/authOperationsType';
 
 const contactsInitialState = {
-    data: null, //додати інші параметри залежно від структури БД
+    data: null,
     token: null,
     isSuccesses: false,
     isLoading: false,
