@@ -4,7 +4,7 @@ import {
   PRODUCT_ROUTE,
   EXERCISES_ROUTE,
   PROFILE_ROUTE,
-  SIGNG_UP_ROUTE,
+  SIGN_UP_ROUTE,
   SIGN_IN_ROUTE,
 } from "./utils/const";
 
@@ -26,7 +26,7 @@ export const publicRoutes = [
     Element: <WelcomePage />,
   },
   {
-    path: SIGNG_UP_ROUTE,
+    path: SIGN_UP_ROUTE,
     Element: <SignUpPage />,
   },
   {
