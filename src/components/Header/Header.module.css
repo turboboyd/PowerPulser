@@ -10,6 +10,43 @@
   gap: 8px;
 }
 
+.logo {
+  width: 36px;
+  height: 13px;
+}
+.logo {
+  width: 44px;
+  height: 17px;
+}
+.logo_name {
+  width: 82px;
+  height: 12px;
+}
+.logo_name {
+  width: 100px;
+  height: 16px;
+}
+
+.iconSettings {
+  width: 28px;
+  height: 28x;
+}
+
+.svg_burger  {
+  width: 24px;
+  height: 24px;
+}
+
+.svg_burger {
+  width: 32px;
+  height: 32px;
+}
+
+.svg_logout {
+  width: 20px;
+  height: 20px;
+}
+
 .list {
   display: flex;
   flex-direction: row;
@@ -106,8 +143,8 @@
   align-items: center;
   gap: 16px;
 }
-.logout_desk{
-   fill: red;
+.logout_desk {
+  fill: red;
 }
 @media screen and (max-width: 1439px) {
   .list_user {
@@ -174,8 +211,9 @@
   transform: translateX(0);
 }
 
-
-.svg{
+/* .svg{
   width:32px;
   height:32px;
-}
+  
+  stroke: yellow;
+} */

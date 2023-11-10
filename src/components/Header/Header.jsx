@@ -8,21 +8,14 @@ import {
   PROFILE_ROUTE,
 } from "../../utils/const";
 
-import Sprite from "../../images/svg/menu-02.svg";
-import Icon from "../../images/svg/icons.svg";
+// import Sprite from "../../images/sv/";
+import sprite from "../../images/svg/InlineSprite.svg";
 
-
-
-
-const SvgIcon = ({ symbolId, className }) => (
-  <svg className={className}>
-    <use xlinkHref={`#${symbolId}`} />
-  </svg>
-);
-
-
-
-
+// const SvgIcon = ({ symbolId, className }) => (
+//   <svg className={className}>
+//     <use xlinkHref={`#${symbolId}`} />
+//   </svg>
+// );import sprite from "../../images/svg/sprite.svg";
 
 const Header = () => {
   const [isAuth, setIsAuth] = useState(false);
@@ -37,10 +30,14 @@ const Header = () => {
       <header className={css.header}>
         <Link className={css.logo_wrap} to={DIARY_ROUTE}>
           <div>
-            {/* <img className={css.logo1} src={Vectorlogo} alt="Logo" /> */}
+            <svg className={css.logo}>
+              <use href={`${sprite}#Icon-Logo`} />
+            </svg>
           </div>
           <div>
-            {/* <img className={css.logo2} src={LogoPowerPulse} alt="Logo" /> */}
+            <svg className={css.logo_name}>
+              <use href={`${sprite}#PowerPulse`} />
+            </svg>
           </div>
         </Link>
         <nav className={css.nav}>
@@ -65,7 +62,9 @@ const Header = () => {
         <ul className={css.list_user}>
           <li>
             <Link>
-              {/* <img className={css.iconSettings} alt="Settings" /> */}
+              <svg className={css.iconSettings}>
+                <use href={`${sprite}#menu-02`} />
+              </svg>
             </Link>
           </li>
           <li>
@@ -74,25 +73,22 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <svg className={css.svg}>
-              <use xlinkHref="#log-out-01" />
-            </svg>
-            <svg>
-              <use xlinkHref={`${Icon}#icon-close`} />
-            </svg>
-            {/* <svg>
-              <use xlinkHref={`#${menu_02}`} />
-            </svg> */}
-            <svg>
-              <use xlinkHref="#icon-1" />
-            </svg>
-
-            <SvgIcon symbolId="menu-02" className="menu-icon" />
+            <Link className={css.logout}>
+              Logout{" "}
+              <svg className={css.svg_logout}>
+                <use href={`${sprite}#log-out-01`} />
+              </svg>
+            </Link>
           </li>
         </ul>
 
         <button className={css.burger_btn} onClick={toggleBurger}>
           {/* <img className={css.close} src={iconBurger} alt="OpenMenu" /> */}
+          <div>
+            <svg className={css.svg_burger}>
+              <use href={`${sprite}#menu-02`} />
+            </svg>
+          </div>
         </button>
       </header>
 
@@ -103,6 +99,9 @@ const Header = () => {
       >
         <button className={css.close_btn} onClick={toggleBurger}>
           {/* <img className={css.close} src={iconClose} alt="Close" /> */}
+          <svg className={css.svg_burger}>
+            <use href={`${sprite}#x`} />
+          </svg>
         </button>
         <ul className={css.list}>
           <li className={css.item}>
@@ -122,7 +121,12 @@ const Header = () => {
           </li>
         </ul>
 
-        <Link className={css.logout}>Logout</Link>
+        <Link className={css.logout}>
+          Logout{" "}
+          <svg className={css.svg_logout}>
+            <use href={`${sprite}#log-out-01`} />
+          </svg>
+        </Link>
       </nav>
     </>
   );
