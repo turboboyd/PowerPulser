@@ -6,6 +6,11 @@
   }
   @media screen and (min-width: 1440px) {
     /* max-width: 1400px; */
+    margin: 0 auto;
+    width: 1440px;
+    background: linear-gradient(80deg, #040404 -2.45%, rgba(4, 4, 4, 0) 68.17%),
+      url("../../images/background/bg-img-desktop-1x.jpg"),
+      0px -48px / 94.516% 105.335% no-repeat;
   }
 }
 
