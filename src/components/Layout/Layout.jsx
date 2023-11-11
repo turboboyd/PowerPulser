@@ -6,6 +6,7 @@ import Container from "../Container/Container";
 import Header from "../Header/Header";
 import Loader from "../Loader/Loader";
 import css from './Layout.module.css'
+import Section from "../Container/Section";
 
 export default function Layout() {
   return (
@@ -14,13 +15,14 @@ export default function Layout() {
         <Header />
       </Container>
       <main>
-        {/* <section className={css.section}> */}
-          {/* <Container> */}
+
+        <Section>
+          <Container>
             <Suspense fallback={<Loader />}>
               <Outlet />
             </Suspense>
-          {/* </Container> */}
-        {/* </section> */}
+          </Container>
+        </Section>
       </main>
     </>
   );

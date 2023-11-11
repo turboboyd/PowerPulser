@@ -1,22 +1,6 @@
 import { useState } from 'react';
 import css from './AddProductForm.module.css';
 
-const product = {
-  _id: {
-    $oid: '5d51694802b2373622ff56d4',
-  },
-  weight: 100,
-  calories: 369,
-  category: 'flour',
-  title: 'Dietary oatmeal flour',
-  groupBloodNotAllowed: {
-    1: true,
-    2: false,
-    3: false,
-    4: false,
-  },
-};
-
 const formatDate = (date) => {
   const day = String(date.getDate()).padStart(2, '0');
   const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -24,7 +8,12 @@ const formatDate = (date) => {
   return `${day}/${month}/${year}`;
 };
 
-const AddProductForm = ({ handleModalToggle }) => {
+const AddProductForm = ({
+  product,
+  handleModalProduct,
+  handleModalSuccess,
+  handleSelectedProduct,
+}) => {
   const [amount, setAmount] = useState('');
 
   const handleAmountGrams = (element) => setAmount(element.target.value);
@@ -32,14 +21,16 @@ const AddProductForm = ({ handleModalToggle }) => {
   let date = new Date();
   const formattedDate = formatDate(date);
   const productToDiary = {
-    id: product.id,
+    id: product._id,
     date: formattedDate,
     amount,
     calories,
   };
   const handleAddToDiary = () => {
     console.log(productToDiary);
-    handleModalToggle();
+    handleModalProduct();
+    handleModalSuccess();
+    handleSelectedProduct(productToDiary);
   };
 
   return (
@@ -81,7 +72,7 @@ const AddProductForm = ({ handleModalToggle }) => {
           <button
             className={css.button2}
             type="button"
-            onClick={handleModalToggle}
+            onClick={handleModalProduct}
           >
             Cancel
           </button>
