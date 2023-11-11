@@ -3,6 +3,9 @@ import { registrationUser, loginUser, logOutUser, refreshUser } from 'redux/auth
 import { handleFulfilledRegistration, handleFulfilledLogin, handleFulfilledLogOut, handleFulfilledRefresh, handlePending, handleRejected } from 'redux/auth/authReducer';
 import { operationsType } from 'redux/auth/authOperationsType';
 
+
+
+
 const contactsInitialState = {
     user: {
         name: '',
