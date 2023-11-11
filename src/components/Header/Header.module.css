@@ -2,9 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0;
+  height: 84px;
 }
-
 
 .iconSettings {
   width: 28px;
@@ -20,8 +19,6 @@
   width: 21px;
   height: 21px;
 }
-
-
 
 .avatart {
   display: flex;
@@ -93,7 +90,6 @@
 }
 .nav {
   display: block;
-
 }
 
 .list_user {
@@ -104,13 +100,12 @@
 .logout_desk {
   display: block;
 }
-.wrap{
+.wrap {
   display: flex;
   align-items: center;
   gap: 32px;
 }
 @media screen and (max-width: 1439px) {
-
   .logout_desk {
     display: none;
   }
@@ -122,15 +117,19 @@
   .nav {
     display: none;
   }
-    .wrap{
-  gap: 16px;
- }
+  .wrap {
+    gap: 16px;
+  }
 }
 
 @media screen and (max-width: 768px) {
-  .wrap{
-  gap: 14px;
- }
+  .header_user {
+    height: 61px;
+  }
+
+  .wrap {
+    gap: 14px;
+  }
   .iconSettings {
     width: 24px;
     height: 24px;

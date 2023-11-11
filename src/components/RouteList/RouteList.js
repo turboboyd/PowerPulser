@@ -19,7 +19,6 @@ const RouteList = () => (
       <li key={route.name} className={css.item}>
         <Link className={css.link} to={route.path}>
                 {route.name}
-        
         </Link>
       </li>
     ))}

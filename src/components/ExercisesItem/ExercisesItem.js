@@ -1,5 +1,5 @@
-import React from 'react'
-import sprite from '../../images/svg/sprite.svg'
+import sprite from '../../images/svg/InlineSprite.svg'
+import Icon from '../ComponIcon/Icon'
 
 import css from './ExercisesItem.module.css'
 
@@ -7,18 +7,18 @@ const ExercisesItem = ({ exercise }) => {
   return (
     <div className={css.exerciseWrapper}>
       <div className={css.exerciseCardTopPart}>
-        <p>workout</p>
+        <p className={css.exerciseCardTopDiet}>workout</p>
         <button className={css.exerciseArrow}>
           Start
-          <svg className={css.exerciseArrowSvg}>
-            <use href={sprite + '#icon-arrow-right'}></use>
-          </svg>
+          <Icon
+            className={css.exerciseArrowSvg}
+            sprite={sprite}
+            iconId="Arrow"
+          />
         </button>
       </div>
       <div className={css.exerciseName}>
-        <svg className={css.exerciseManSvg}>
-          <use href={sprite + '#icon-running-man'}></use>
-        </svg>
+        <Icon className={css.exerciseManSvg} sprite={sprite} iconId="Runner" />
         <h3 className={css.exerciseNameText}>{exercise.name}</h3>
       </div>
       <ul className={css.exerciseCardLowPart}>
