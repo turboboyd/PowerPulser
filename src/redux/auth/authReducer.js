@@ -11,32 +11,30 @@ export const handleRejected = (state, { payload }) => {
 export const handleFulfilledRegistration = (state, { payload }) => {
     state.error = null;
     state.user = payload.user;
-    state.isSuccesses = true;
     state.isLoading = false;
-    state.token = payload.token
     state.isRefreshing = false;
 };
-export const handleFulfilledLogin = (state, { payload }) => {
-   
+export const handleFulfilledVerify = (state) => {
+    state.isVerify = true;
+};
+export const handleFulfilledLogin = (state, { payload }) => { 
     state.error = null;
     state.user = payload.user;
-    state.isSuccesses = true;
     state.isLoading = false;
-    state.token = payload.token;
     state.isRefreshing = false
 };
 export const handleFulfilledLogOut = (state) => {
     state.error = null;
     state.user = null;
-    state.isSuccesses = false;
+    state.isVerify = false;
     state.isLoading = false;
-    state.token = null;
+    state.user.token = null;
     state.isRefreshing = false
 };
 
 export const handleFulfilledRefresh = (state, { payload }) => {
-    state.user = payload;
-    state.isSuccesses = true;
+    state.user = payload.user;
+    state.isVerify = true;
     state.isLoading = false;
     state.isRefreshing = false;
 };

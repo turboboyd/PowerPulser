@@ -1,4 +1,3 @@
-import React from "react";
 import sprite from "../../images/svg/InlineSprite.svg";
 
 function Icon({ className, iconId }) {

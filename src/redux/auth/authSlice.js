@@ -1,22 +1,24 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit'
-import { registrationUser, loginUser, logOutUser, refreshUser } from 'redux/auth/authOperations';
-import { handleFulfilledRegistration, handleFulfilledLogin, handleFulfilledLogOut, handleFulfilledRefresh, handlePending, handleRejected } from 'redux/auth/authReducer';
-import { operationsType } from 'redux/auth/authOperationsType';
+import { registrationUser, loginUser, logOutUser, refreshUser, verifyUser } from './authOperation';
+import { handleFulfilledRegistration, handleFulfilledLogin, handleFulfilledLogOut, handleFulfilledRefresh, handlePending, handleRejected, handleFulfilledVerify } from './authReducer';
+import { operationsType } from './authOperationsType';
 
 const contactsInitialState = {
     user: {
-        name: '',
         email: '',
-        height: '',
-        weightCurrent: '',
-        weightDesired: '',
-        birthdayData: null,
-        typeBlood: null,
-        typeActivity: null,
-        gender: null,
+        name: '',
+        token: '',
+        ProfileSettings: {
+            height: '',
+            currentWeight: '',
+            desiredWeight: '',
+            birthday: null,
+            blood: null,
+            levelActivity: null,
+            sex: null,
+        }
     },
-    token: null,
-    isSuccesses: false,
+    isVerify: false,
     isLoading: false,
     isRefreshing: false,
     error: null
@@ -28,6 +30,7 @@ export const authSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(registrationUser.fulfilled, handleFulfilledRegistration)
+            .addCase(verifyUser.fulfilled, handleFulfilledVerify)
             .addCase(loginUser.fulfilled, handleFulfilledLogin)
             .addCase(logOutUser.fulfilled, handleFulfilledLogOut)
             .addCase(refreshUser.fulfilled, handleFulfilledRefresh)
