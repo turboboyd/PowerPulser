@@ -1,4 +1,6 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
@@ -6,6 +8,8 @@ import { useState } from "react";
 import sprite from "../../images/svg/sprite.svg";
 import css from "../SignUpForm/SignUpForm.module.css";
 import Button from "../Button/Button";
+
+import { loginUser } from "../../redux/auth/authOperation";
 
 const emailRegex = /^\w+(\.?\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 const passwordRegex =
@@ -20,17 +24,24 @@ const SignInSchema = Yup.object().shape({
     .required("Required field"),
 });
 
+
+const initialValues = {
+  email: '',
+  password: '',
+};
+
 const SignInForm = () => {
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
+  const handleSubmit = ({ email, password }, { resetForm }) => {
+    dispatch(loginUser({ email, password }));
     resetForm();
   };
   return (
     <>
       <Formik
-        initialValues={{ email: "", password: "" }}
+        initialValues={initialValues}
         validationSchema={SignInSchema}
         onSubmit={handleSubmit}
       >

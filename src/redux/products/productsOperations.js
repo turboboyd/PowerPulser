@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { instance } from "redux/services/instanceAPI";
+import { instance } from "../services/instanceAPI";
 import { BACKEND_PRODUCT_URL } from "../../utils/const";
-import { token } from "redux/services/tokenAPI";
+import { token } from "../services/tokenAPI";
 
 export const fetchProducts = createAsyncThunk('products/fetchProducts',
     async (_, thunkAPI) => {
