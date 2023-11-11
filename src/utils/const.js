@@ -17,11 +17,11 @@ export const WelcomePage_ROUTE = "/";
 
 export const BACKEND_API_BASE_URL = "http://localhost:5000/api";
 
-export const BACKEND_SIGN_UP_URL = "/users/signup";
-export const BACKEND_SIGN_IN_URL = "/users/signin";
-export const BACKEND_LOGOUT_URL = "/users/logout";
-export const BACKEND_REFRESH_URL = "/users/refresh";
-export const BACKEND_DIARY_URL = "/diary";
-export const BACKEND_PRODUCT_URL = "/products";
+export const BACKEND_SIGN_UP_URL = "/api/users/register";
+export const BACKEND_SIGN_IN_URL = "/api/users/login";
+export const BACKEND_LOGOUT_URL = "/api/users/logout";
+export const BACKEND_REFRESH_URL = "/api/users/current";
+export const BACKEND_PRODUCT_URL = "/api/products";
 export const BACKEND_EXERCISES_URL = "/exercises";
+export const BACKEND_DIARY_URL = "/diary";
 export const BACKEND_PROFILE_URL = "/profile";
