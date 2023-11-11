@@ -12,7 +12,7 @@ const ExercisesList = () => {
       <div>
         <button className={css.exerciseArrow}>
           Back
-          <Icon className={css.exerciseArrowSvg} iconId="Arrow" />
+          <Icon className={css.exerciseArrowSvg} iconId="Arrow-back" />
         </button>
         <h3 className={css.exercisesTitle}>Waist</h3>
       </div>
@@ -22,7 +22,7 @@ const ExercisesList = () => {
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 export default ExercisesList
