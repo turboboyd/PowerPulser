@@ -1,0 +1,22 @@
+.backgroundContainer {
+  width: 300%;
+
+  background-image: linear-gradient(
+      170deg,
+      #040404 3.66%,
+      rgba(4, 4, 4, 0) 19.15%
+    ),
+    linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
+    url('../../images/background/side-view-people-training-gym-1x.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .backgroundContainer::after {
+    background-image: url('../../images/background/side-view-people-training-gym-2x.jpg');
+  }
+}

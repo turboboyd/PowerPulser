@@ -1,7 +1,5 @@
-import sprite from '../../images/svg/InlineSprite.svg'
-import Icon from '../ComponIcon/Icon'
-
 import css from './ExercisesItem.module.css'
+import Icon from '../ComponIcon/Icon'
 
 const ExercisesItem = ({ exercise }) => {
   return (
@@ -10,15 +8,11 @@ const ExercisesItem = ({ exercise }) => {
         <p className={css.exerciseCardTopDiet}>workout</p>
         <button className={css.exerciseArrow}>
           Start
-          <Icon
-            className={css.exerciseArrowSvg}
-            sprite={sprite}
-            iconId="Arrow"
-          />
+          <Icon className={css.exerciseArrowSvg} iconId="Arrow" />
         </button>
       </div>
       <div className={css.exerciseName}>
-        <Icon className={css.exerciseManSvg} sprite={sprite} iconId="Runner" />
+        <Icon className={css.exerciseManSvg} iconId="Runner" />
         <h3 className={css.exerciseNameText}>{exercise.name}</h3>
       </div>
       <ul className={css.exerciseCardLowPart}>
