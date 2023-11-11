@@ -1,0 +1,21 @@
+
+@media screen and (min-width: 1440px) {
+  .bgImg {
+    position: absolute;
+    z-index: -1;
+    width: 670px;
+    height: 902px;
+    top: -152px;
+    left: 770px;
+    background-image: var(--desk-background-linear-gradient),
+      url("../../../images/background/bg-img-tablet-1x.jpg");
+    background-repeat: no-repeat;
+  }
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .backgroundContainer::after {
+      background-image: url("../../../images/background/bg-img-tablet-2x.jpg");
+    }
+  }
+}
