@@ -1,3 +1,46 @@
+.exerciseArrowSvg {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  stroke: rgba(239, 237, 232, 0.4);
+}
+.exerciseArrow:hover .exerciseArrowSvg,
+.exerciseArrow:focus .exerciseArrowSvg {
+  stroke: var(--header-white-color);
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+.exerciseArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+  background: none;
+  border: none;
+  color: rgba(239, 237, 232, 0.4);
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.28;
+  margin-top: 10px;
+  margin-bottom: 12px;
+}
+
+.exerciseArrow:hover,
+.exerciseArrow:focus {
+  color: var(--white);
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+.exercisesTitle {
+  color: #efede8;
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.16;
+  margin-bottom: 20px;
+}
+
 @media (min-width: 768px) {
   .cardContainer {
     display: flex;
@@ -10,6 +53,16 @@
     gap: 32px 16px;
     scrollbar-width: thin;
     scrollbar-color: #ef8964 rgba(239, 237, 232, 0.1);
+  }
+
+  .exerciseArrow {
+    margin-top: 32px;
+    margin-bottom: 21px;
+  }
+
+  .exercisesTitle {
+    margin-bottom: 32px;
+    font-size: 32px;
   }
 
   /* SCROLL */
@@ -33,5 +86,11 @@
 @media (min-width: 1200px) {
   .cardContainer {
     min-width: 850px;
+  }
+  .cardContainerBackground {
+    display: flex;
+  }
+  .exerciseArrow {
+    font-size: 16px;
   }
 }
