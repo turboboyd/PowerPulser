@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { useState } from "react";
 
 import css from "./SignUpForm.module.css";
 import sprite from "../../images/svg/sprite.svg";
 
 import Button from "../Button/Button";
+
+import { registrationUser } from "../../redux/auth/authOperation";
 
 const emailRegex = /^\w+(\.?\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 const passwordRegex =
@@ -23,18 +25,25 @@ const SignUpSchema = Yup.object().shape({
     .required("Required field"),
 });
 
+const initialValues = {
+  name: '',
+  email: '',
+  password: '',
+};
+
 const SignUpForm = () => {
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
+  const handleSubmit = ({ name, email, password }, { resetForm }) => {
+    dispatch(registrationUser({ name, email, password }));
     resetForm();
   };
 
   return (
     <>
       <Formik
-        initialValues={{ name: "", email: "", password: "" }}
+        initialValues={initialValues}
         validationSchema={SignUpSchema}
         onSubmit={handleSubmit}
       >
@@ -170,7 +179,7 @@ const SignUpForm = () => {
                 </button>
               </div>
             </div>
-            <Button type="submit" text="Sign Up" />
+            <Button type="button" text="Sign Up" />
           </Form>
         )}
       </Formik>
