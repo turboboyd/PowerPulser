@@ -74,11 +74,6 @@
   width: 32px;
   height: 32px;
 }
-.burger_btn img,
-.close_btn img {
-  width: 100%;
-  height: 100%;
-}
 
 .close_btn {
   border: none;
@@ -87,6 +82,7 @@
   margin-right: 0;
   width: 32px;
   height: 32px;
+  stroke: var(--white);
 }
 .nav {
   display: block;
@@ -156,6 +152,7 @@
   .burger_btn {
     width: 24px;
     height: 24px;
+
   }
 }
 
