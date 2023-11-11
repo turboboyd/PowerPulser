@@ -11,10 +11,11 @@ const initialState = {
 const productsSlice = createSlice({
     name: 'products',
     initialState: initialState,
-    extraReducers: {
-        [fetchProducts.pending]: handlePending,
-        [fetchProducts.rejected]: handleRejected,
-        [fetchProducts.fulfilled]: handleFulfilled,
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchProducts.pending, handlePending)
+            .addCase(fetchProducts.rejected, handleRejected)
+            .addCase(fetchProducts.fulfilled, handleFulfilled)
     }
 });
 
