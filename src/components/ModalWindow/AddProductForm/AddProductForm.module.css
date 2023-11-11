@@ -115,6 +115,10 @@
   &:focus {
     background-color: var(--orange-1);
   }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 @media (min-width: 768px) {

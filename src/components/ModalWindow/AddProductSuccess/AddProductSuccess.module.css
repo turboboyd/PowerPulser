@@ -83,16 +83,24 @@
   gap: 8px;
   align-items: center;
   justify-content: center;
+  color: rgba(239, 237, 232, 0.3);
+  transition: scale 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:focus,
+  &:hover {
+    color: var(--orange);
+    scale: 1.2;
+  }
 }
 
 .link {
   font-size: 14px;
   line-height: 1.29;
-  color: rgba(239, 237, 232, 0.3);
 }
 
 .iconArrow {
   width: 16px;
   height: 16px;
-  stroke: rgba(239, 237, 232, 0.3);
+  stroke: currentColor;
+  scale: 1;
 }
