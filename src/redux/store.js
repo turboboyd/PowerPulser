@@ -18,7 +18,7 @@ import { productsFilterReducer } from "./productsFilter/productsFilterSlice";
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  whitelist: ['user'],
 };
 
 export const store = configureStore({
