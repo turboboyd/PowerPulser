@@ -38,3 +38,8 @@ export const handleFulfilledRefresh = (state, { payload }) => {
     state.isLoading = false;
     state.isRefreshing = false;
 };
+
+export const handleFulfilledProfileSettings = (state, { payload }) => {
+    state.user.profileSettings = payload;
+    state.isLoading = false;
+};

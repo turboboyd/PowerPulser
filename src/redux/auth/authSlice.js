@@ -1,6 +1,6 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit'
-import { registrationUser, loginUser, logOutUser, refreshUser, verifyUser } from './authOperation';
-import { handleFulfilledRegistration, handleFulfilledLogin, handleFulfilledLogOut, handleFulfilledRefresh, handlePending, handleRejected, handleFulfilledVerify } from './authReducer';
+import { registrationUser, loginUser, logOutUser, refreshUser, verifyUser, addProfileSettings, updateProfileSettings } from './authOperation';
+import { handleFulfilledRegistration, handleFulfilledLogin, handleFulfilledLogOut, handleFulfilledRefresh, handlePending, handleRejected, handleFulfilledVerify, handleFulfilledProfileSettings } from './authReducer';
 import { operationsType } from './authOperationsType';
 
 const contactsInitialState = {
@@ -8,7 +8,7 @@ const contactsInitialState = {
         email: '',
         name: '',
         token: '',
-        ProfileSettings: {
+        profileSettings: {
             height: '',
             currentWeight: '',
             desiredWeight: '',
@@ -34,6 +34,8 @@ export const authSlice = createSlice({
             .addCase(loginUser.fulfilled, handleFulfilledLogin)
             .addCase(logOutUser.fulfilled, handleFulfilledLogOut)
             .addCase(refreshUser.fulfilled, handleFulfilledRefresh)
+            .addCase(addProfileSettings.fulfilled, handleFulfilledProfileSettings)
+            .addCase(updateProfileSettings.fulfilled, handleFulfilledProfileSettings)
             .addMatcher(isAnyOf(...operationsType('pending')), handlePending)
             .addMatcher(isAnyOf(...operationsType('rejected')), handleRejected)
     },
