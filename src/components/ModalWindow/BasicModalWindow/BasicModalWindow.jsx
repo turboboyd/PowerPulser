@@ -1,5 +1,4 @@
 import css from './BasicModalWindow.module.css';
-import sprite from '../../../images/svg/InlineSprite.svg';
 import { createPortal } from 'react-dom';
 import Icon from '../../ComponIcon/Icon';
 
@@ -14,7 +13,7 @@ const BasicModalWindow = ({ children, handleModalToggle }) => {
           type="button"
           onClick={handleModalToggle}
         >
-          <Icon className={css.iconClose} iconId="Close" sprite={sprite} />
+          <Icon className={css.iconClose} iconId="Close" />
         </button>
         {children}
       </div>

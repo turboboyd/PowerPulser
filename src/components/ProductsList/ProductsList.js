@@ -1,10 +1,10 @@
-import productsData from '../../RESOURCES/resources/products.json'
+import productsData from '../../RESOURCES/resources/products.json';
 
-import css from './../ExercisesList/ExercisesList.module.css'
-import ProductsItem from '../ProductsItem/ProductsItem'
+import css from './../ExercisesList/ExercisesList.module.css';
+import ProductsItem from '../ProductsItem/ProductsItem';
 
 const ProductsList = () => {
-  const products = productsData.slice(0, 20)
+  const products = productsData.slice(0, 20);
 
   return (
     <div className={css.cardContainer}>
@@ -12,7 +12,7 @@ const ProductsList = () => {
         <ProductsItem key={product.id} product={product} />
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default ProductsList
+export default ProductsList;
