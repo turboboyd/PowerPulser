@@ -1,0 +1,57 @@
+.section {
+  @media screen and (min-width: 768px) {
+    display: flex;
+
+    /* margin: 0 32px; */
+  }
+  @media screen and (min-width: 1440px) {
+    /* max-width: 1400px; */
+  }
+}
+
+.wrapper {
+  margin-top: 32px;
+}
+
+.logo {
+  margin-top: 32px;
+}
+
+.title {
+  padding-top: 90px;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 105.263%;
+  letter-spacing: 0.38px;
+  @media screen and (min-width: 768px) {
+    padding-top: 140px;
+    font-size: 70px;
+    line-height: 111.429%;
+    letter-spacing: 0.7px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding-top: 152px;
+    margin-right: 76px;
+    width: 598px;
+  }
+}
+
+.buttonWrapper {
+  margin-top: 52px;
+  margin-bottom: 246px;
+  @media screen and (min-width: 768px) {
+    margin-top: 80px;
+  }
+}
+
+.link {
+  margin-right: 14px;
+}
+
+.svg {
+  position: absolute;
+  top: 372px;
+  left: 121px;
+  width: 185px;
+  height: 67px;
+}

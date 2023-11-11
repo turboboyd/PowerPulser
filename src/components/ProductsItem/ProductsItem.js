@@ -1,4 +1,3 @@
-import sprite from '../../images/svg/InlineSprite.svg'
 import Icon from '../ComponIcon/Icon'
 
 import css from './../ExercisesItem/ExercisesItem.module.css'
@@ -23,15 +22,11 @@ const ProductsItem = ({ product }) => {
         )}
         <button className={css.exerciseArrow}>
           Add
-          <Icon
-            className={css.exerciseArrowSvg}
-            sprite={sprite}
-            iconId="Arrow"
-          />
+          <Icon className={css.exerciseArrowSvg} iconId="Arrow" />
         </button>
       </div>
       <div className={css.exerciseName}>
-        <Icon className={css.exerciseManSvg} sprite={sprite} iconId="Runner" />
+        <Icon className={css.exerciseManSvg} iconId="Runner" />
         <h3 className={css.exerciseNameText}>{product.title}</h3>
       </div>
       <ul className={css.exerciseCardLowPart}>
