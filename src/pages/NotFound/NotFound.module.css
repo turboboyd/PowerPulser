@@ -1,6 +1,9 @@
-
+.notFoundContainer{
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+}
 .block_error{
-  gap: 14px;
   background-color: var(--orange);
   width: 240px;
   min-height: 812px;
@@ -18,10 +21,12 @@
   width: 36px;
   height: 13px;
   flex-shrink: 0;
-fill:var(--white);
+  fill:var(--white);
+  fill-opacity: 1;
+  stroke: var(--white); 
  } 
 
- .logo_text {
+ .logo_name {
   width: 82px;
   height: 12px;
   flex-shrink: 0;
@@ -45,7 +50,7 @@ fill:var(--white);
 }
 
 .link_goHome {
-  margin-top: 28px;
+margin-top: 28px;
 display: inline-flex;
 padding: 12px 40px;
 justify-content: center;
@@ -53,16 +58,22 @@ align-items: center;
 gap: 10px;
 border-radius: 12px;
 border: 1px solid var(--background-avatar);
+font-size: 16px;
+font-weight: 500;
+line-height: 1.13; 
 }
 
 .background {
- 
-  width: 110%;
-  background-image:linear-gradient(170deg, #040404 3.66%, rgba(4, 4, 4, 0.00) 19.15%), 
-  linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0.00) 66.68%), 
-  url('../../images/background/side-view-people-training-gym-1x.jpg');
-  background-size: inherit;
-  background-position: 105px bottom;
+  position: relative;
+  width: 375px;
+  height: 100vh;
+  max-height: 812px;
+ background-image: linear-gradient(170deg, #040404 3.66%, rgba(4, 4, 4, 0.00) 19.15%),
+   linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0.00) 66.68%),
+   url('../../images/background/side-view-people-training-gym-1x.jpg');
+  
+  background-size: contain;
+  background-position: 150px 410px;
   background-repeat: no-repeat;
 }
 @media (min-device-pixel-ratio: 2),
@@ -71,5 +82,113 @@ border: 1px solid var(--background-avatar);
   .backgroundContainer {
       background-image:url('../../images/background/side-view-people-training-gym-2x.jpg');
   }
+}
+
+/* -----Mobile----------------- */
+.notFoundContainer{
+  width: 375px;
+ }
+
+/* -----------------Tablet-------------------- */
+
+@media (min-width: 768px) {
+  .block_error{
+    width: 420px;
+    min-height: 1024px;
+    padding: 32px;
+  }
+  .notFoundContainer{
+    width: 768px;
+  }
+  .logo {
+    width: 44px;
+    height: 17px;
+    flex-shrink: 0;
+  } 
+  
+   .logo_name {
+    width: 100px;
+    height: 15px;
+  } 
+  
+  
+  .title_one {
+    margin-top: 260px;
+    font-size: 160px;
+    line-height: 0.94;
+    letter-spacing: 1.6px;
+  }
+  
+  .text_error {
+    margin-top: 28px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .link_goHome {
+  padding: 16px 60px;
+  border-radius: 12px;
+  font-size: 20px;
+  line-height: 1.2; 
+}
+  
+  
+.background {
+  width: 768px;
+  max-height: 1024px;
+  background-image: linear-gradient(170deg, #040404 3.66%, rgba(4, 4, 4, 0.00) 19.15%),
+   linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0.00) 66.68%),
+   url('../../images/background/side-view-people-training-gym-1x.jpg');
+    
+  
+  background-size: 670px;
+  background-position: 360px 290px;
+  background-repeat: no-repeat;
+}
+@media (min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+  .backgroundContainer {
+      background-image:url('../../images/background/side-view-people-training-gym-2x.jpg');
+  }
+}
+}
+
+/* --------------------Desctop----------------- */
+@media (min-width: 1440px) {
+  .notFoundContainer{
+    width: 1440px;
+  }
+
+  .block_error{
+    width: 670px;
+    min-height: 800px;
+    padding: 32px 96px;
+  }
+   
+  
+  .title_one {
+    margin-top: 170px;
+     }
+  
+ 
+  
+.background {
+  min-width: 1440px;
+  max-height: 800px;
+  background-image: linear-gradient(170deg, #040404 3.66%, rgba(4, 4, 4, 0.00) 19.15%),
+   linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0.00) 66.68%),
+   url('../../images/background/side-view-people-training-gym-1x.jpg');
+  background-size: auto;
+  background-position: right;
+  background-repeat: no-repeat;
+}
+@media (min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+  .backgroundContainer {
+      background-image:url('../../images/background/side-view-people-training-gym-2x.jpg');
+  }
+}
 }
 

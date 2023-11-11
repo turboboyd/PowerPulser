@@ -15,8 +15,8 @@ function App() {
         {publicRoutes.map(({ path, Element }) => (
           <Route key={path} path={path} element={Element} exact />
         ))}
-        <Route path="*" element={<NotFound />} />
       </Route>
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
