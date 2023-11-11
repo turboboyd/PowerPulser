@@ -119,5 +119,5 @@
 <path id="Vector_2" d="M7 12H17" stroke="#EFEDE8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 </symbol><symbol viewBox="0 0 24 24" id="Close">
-<path d="M18 6L6 18M6 6L18 18" stroke="#EFEDE8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M18 6L6 18M6 6L18 18"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </symbol></svg>
