@@ -34,24 +34,20 @@
       @media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
-  .backgroundContainer::after {
-    background-image: url('../../images/background/bg-img-tablet-2x.jpg');
+  .backgroundContainer::after {background-image: url('../../images/background/bg-img-tablet-2x.jpg');}
   }
-}
 }
 
 @media screen and (min-width: 1440px) {
   .bgImg {
     top: -152px;
     left: 770px;
-    background-image: var(--background-linear-gradient) url("../../images/background/bg-img-tablet-1x.jpg");
-    /* background-image: url("../../images/bg-img-desktop-1x.jpg");
-
-    @media (min-device-pixel-ratio: 2),
-      (-webkit-min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: url("../../images/bg-img-desktop-2x.jpg");
-    } */
+    background-image: var(--desk-background-linear-gradient), url("../../images/background/bg-img-tablet-1x.jpg");
+  }
+  @media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .backgroundContainer::after {
+    background-image: url('../../images/background/bg-img-tablet-2x.jpg');}
   }
 }
