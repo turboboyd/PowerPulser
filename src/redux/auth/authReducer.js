@@ -13,7 +13,7 @@ export const handleFulfilledRegistration = (state, { payload }) => {
     state.user = payload.user;
     state.isSuccesses = true;
     state.isLoading = false;
-    state.token = payload.token
+    // state.token = payload.user.token
     state.isRefreshing = false;
 };
 export const handleFulfilledLogin = (state, { payload }) => {
@@ -22,7 +22,7 @@ export const handleFulfilledLogin = (state, { payload }) => {
     state.user = payload.user;
     state.isSuccesses = true;
     state.isLoading = false;
-    state.token = payload.token;
+    // state.token = payload.token;
     state.isRefreshing = false
 };
 export const handleFulfilledLogOut = (state) => {
@@ -30,7 +30,7 @@ export const handleFulfilledLogOut = (state) => {
     state.user = null;
     state.isSuccesses = false;
     state.isLoading = false;
-    state.token = null;
+    state.user.token = null;
     state.isRefreshing = false
 };
 
