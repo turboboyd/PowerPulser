@@ -7,7 +7,7 @@
 
 .link {
   line-height: 1.5;
-  padding: 20px 26px;
+  padding: 10px 26px;
   display: block;
   border: var(--border-solid-color);
   border-radius: var(--border-radius);
@@ -35,8 +35,6 @@
   .link {
     font-size: 14px;
     line-height: 1.29;
-    padding: 20px 26px;
-    display: block;
     border: var(--border-solid-color);
     border-radius: var(--border-radius);
   }
