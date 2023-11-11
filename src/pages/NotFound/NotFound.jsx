@@ -1,10 +1,11 @@
 import { WelcomePage_ROUTE } from "../../utils/const"; 
 import { useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-
+import sprite from "../../images/svg/InlineSprite.svg";
 import css from './NotFound.module.css'
-import Container from "../../components/Container/Container";
-import Logo from "../../components/Logo/Logo";
+// import Container from "../../components/Container/Container";
+// import Logo from "../../components/Logo/Logo";
+import Icon from "../../components/ComponIcon/Icon";
 
 
 
@@ -12,12 +13,17 @@ const NotFound = () => {
   const location = useLocation();
   const goHomeLink = useRef(location?.state?.from ?? WelcomePage_ROUTE);
 
-  return  <Container> 
+  return  <section className={css.notFoundContainer}> 
    <div className={css.background}>
     <div className={css.block_error}>
-     <Link className={css.logo_wrap} to={WelcomePage_ROUTE}>
-      <Logo/>
-      </Link>
+    <Link className={css.logo_wrap } to={WelcomePage_ROUTE }>
+      <div>
+        <Icon className={css.logo} sprite={sprite} iconId="Weight" />
+      </div>
+      <div>
+        <Icon className={css.logo_name} sprite={sprite} iconId="PowerPulse" />
+      </div>
+    </Link>
 <h1 className={css.title_one}>404</h1>
 <p className={css.text_error}>  
   Sorry, you have reached a page that we could not find. It seems
@@ -31,7 +37,7 @@ const NotFound = () => {
 
 </div>
 </div>
-  </Container>;
+  </section>;
 };
 
 export default NotFound;
