@@ -15,11 +15,11 @@ export default function Layout() {
       </Container>
       <main>
         <section className={css.section}>
-          <Container>
+          {/* <Container> */}
             <Suspense fallback={<Loader />}>
               <Outlet />
             </Suspense>
-          </Container>
+          {/* </Container> */}
         </section>
       </main>
     </>
