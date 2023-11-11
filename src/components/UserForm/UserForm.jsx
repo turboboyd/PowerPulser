@@ -1,9 +1,9 @@
 import { Formik, Field, Form } from "formik";
-// import * as yup from "yup";
 
 import css from "./UserForm.module.css";
 import Button from "../Button/Button";
 import RadioButton from "./RadioButton/RadioButton";
+import userFormShemas from "../../utils/shemas/userFormShemas";
 
 const UseForm = () => {
   const initialValues = {
@@ -23,7 +23,11 @@ const UseForm = () => {
   };
   return (
     <>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={userFormShemas}
+        onSubmit={handleSubmit}
+      >
         {(formik) => (
           <Form>
             <div className={css.formWrapper}>
