@@ -1,5 +1,6 @@
 .bgImg {  
   position: absolute;
+  z-index: -1;
   top: 241px;
   left: 77px;
   width: 446px;

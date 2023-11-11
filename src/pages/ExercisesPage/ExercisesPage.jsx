@@ -1,21 +1,19 @@
-import TitlePage from '../../components/TitlePage/TitlePage'
-import ExercisesList from '../../components/ExercisesList/ExercisesList'
-import ContainerBackground from '../../components/ContainerBackground/ContainerBackground'
+import TitlePage from "../../components/TitlePage/TitlePage";
+import ExercisesList from "../../components/ExercisesList/ExercisesList";
+import WaistBackgroundImage from "../../components/BackgroundImage/Waist/WaistBackgroundImage";
 
-import css from './../../components/ExercisesList/ExercisesList.module.css'
-import Container from '../../components/Container/Container'
+import css from "./../../components/ExercisesList/ExercisesList.module.css";
 
 const ExercisesPage = () => {
   return (
-    <ContainerBackground>
-      <Container>
-        <TitlePage title="" />
-        <div className={css.cardContainerBackground}>
-          <ExercisesList />
-        </div>
-      </Container>
-    </ContainerBackground>
+    <>
+      <TitlePage title="Exercises" />
+      <div className={css.cardContainerBackground}>
+        <ExercisesList />
+      </div>
+      <WaistBackgroundImage />
+    </>
   );
-}
+};
 
-export default ExercisesPage
+export default ExercisesPage;
