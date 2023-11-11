@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const instance = axios.create({
-//   baseURL: 'baseURL http//power-pulse...',
+  baseURL: 'https://power-pulse-dq7h.onrender.com',
 });
