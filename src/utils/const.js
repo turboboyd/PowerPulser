@@ -13,8 +13,6 @@ export const WelcomePage_ROUTE = "/";
 
 
 
-
-
 export const BACKEND_API_BASE_URL = "http://localhost:5000/api";
 
 export const BACKEND_SIGN_UP_URL = "/api/users/register";

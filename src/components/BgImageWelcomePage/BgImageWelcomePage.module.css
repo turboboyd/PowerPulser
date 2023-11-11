@@ -1,58 +1,57 @@
-.bgImg {
-  background-image: url("../../images/bg-img-mobile-1x.jpg");
-
+.bgImg {  
+  position: absolute;
+  top: 241px;
+  left: 77px;
+  width: 446px;
+  height: 669px;
+  background-image: var(--background-linear-gradient), url("../../images/background/bg-img-mobile-1x.jpg");
   background-repeat: no-repeat;
-  background-position: right;
-  background-size: contain;
-  width: 298px;
-
-  @media (min-device-pixel-ratio: 2),
-    (-webkit-min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    background-image: linear-gradient(
-        168deg,
-        #040404 14.75%,
-        rgba(4, 4, 4, 0) 52.97%
-      ),
-      linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
-      url("../../images/bg-img-mobile-2x.jpg");
+}
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .backgroundContainer::after {
+    background-image: url('../../images/background/bg-img-mobile-2x.jpg');
   }
 }
 
+
+
 @media screen and (min-width: 375px) {
-  .bgImg {
+  /* .bgImg {
     background-position-y: bottom;
-  }
+  } */
 }
 
 @media screen and (min-width: 768px) {
   .bgImg {
-    background-size: 100%;
-    width: 437px;
-    background-image: url("../../images/bg-img-tablet-1x.jpg");
-    @media (min-device-pixel-ratio: 2),
-      (-webkit-min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: url("../../images/bg-img-tablet-2x.jpg");
-    }
+    top: 131px;
+    left: 331px;
+    width: 670px;
+    height: 1005px;
+    background-image: var(--background-linear-gradient), url("../../images/background/bg-img-tablet-1x.jpg");
   }
+      @media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .backgroundContainer::after {
+    background-image: url('../../images/background/bg-img-tablet-2x.jpg');
+  }
+}
 }
 
 @media screen and (min-width: 1440px) {
   .bgImg {
-    background-size: 100%;
-    background-position: top right;
-    margin-top: revert-layer;
-    width: 670px;
-    background-image: url("../../images/bg-img-desktop-1x.jpg");
+    top: -152px;
+    left: 770px;
+    background-image: var(--background-linear-gradient) url("../../images/background/bg-img-tablet-1x.jpg");
+    /* background-image: url("../../images/bg-img-desktop-1x.jpg");
 
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       background-image: url("../../images/bg-img-desktop-2x.jpg");
-    }
+    } */
   }
 }

@@ -1,7 +1,8 @@
 .backgroundContainer {
   margin: 0 auto;
   width: 1440px;
-  background: linear-gradient(80deg, #040404 -2.45%, rgba(4, 4, 4, 0.00) 68.17%), url('../../images/background/bg-img-desktop-1x.jpg'),  0px -48px / 94.516% 105.335% no-repeat;
+  height: 800px;
+  background: linear-gradient(80deg, #040404 -2.45%, rgba(4, 4, 4, 0.00) 68.17%), url('../../images/background/bg-img-desktop-1x.jpg'),  0px -48px / 94.516% 105.335%;
   /* background-image: 
   
   linear-gradient(
@@ -12,7 +13,7 @@
     linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0) 66.68%),
     url('../../images/background/bg-img-desktop-1x.jpg'); */
   /* background-size: cover; */
-  background-position: 963px 0px ;
+  background-position: 963px -200px ;
   background-repeat: no-repeat;
 }
 
