@@ -14,13 +14,13 @@ export default function Layout() {
         <Header />
       </Container>
       <main>
-        <section className={css.section}>
+        {/* <section className={css.section}> */}
           {/* <Container> */}
             <Suspense fallback={<Loader />}>
               <Outlet />
             </Suspense>
           {/* </Container> */}
-        </section>
+        {/* </section> */}
       </main>
     </>
   );
