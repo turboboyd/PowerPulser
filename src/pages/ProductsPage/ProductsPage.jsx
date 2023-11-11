@@ -1,5 +1,5 @@
-import TitlePage from '../../components/TitlePage/TitlePage'
-import ProductsList from '../../components/ProductsList/ProductsList'
+import TitlePage from '../../components/TitlePage/TitlePage';
+import ProductsList from '../../components/ProductsList/ProductsList';
 
 const ProductsPage = () => {
   return (
@@ -7,7 +7,7 @@ const ProductsPage = () => {
       <TitlePage title="Products" />
       <ProductsList />
     </>
-  )
-}
+  );
+};
 
-export default ProductsPage
+export default ProductsPage;
