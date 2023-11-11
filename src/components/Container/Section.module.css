@@ -1,0 +1,20 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  width: 375px;
+  min-height: 812px;
+}
+
+@media (min-width: 768px) {
+  .section {
+    width: 768px;
+    min-height: 812px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .section {
+    width: 1440px;
+  }
+}
