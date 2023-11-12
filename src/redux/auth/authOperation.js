@@ -79,16 +79,6 @@ export const logOutUser = createAsyncThunk('auth/logOutUser', async (_, thunkAPI
 
 //------------ settings profile --------------------- //
 
-// export const getProfileSettings = createAsyncThunk('auth/getProfileSettings', async (_, thunkAPI) => {
-//     try {
-//         token.set(tokenState(thunkAPI));
-//         const { data } = await instance.get(BACKEND_PROFILE_URL);
-//         return data;
-//     } catch (error) {
-//         return thunkAPI.rejectWithValue(error.message);
-//     }
-// });
-
 export const addProfileSettings = createAsyncThunk('auth/addProfileSettings', async (credentials, thunkAPI) => {
 // credentials: {
 //     height: number;

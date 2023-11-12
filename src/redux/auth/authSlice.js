@@ -7,7 +7,6 @@ const contactsInitialState = {
     user: {
         email: '',
         name: '',
-        token: '',
         profileSettings: {
             height: '',
             currentWeight: '',
@@ -18,6 +17,7 @@ const contactsInitialState = {
             sex: null,
         }
     },
+    token: '',
     isVerify: false,
     isLoading: false,
     isRefreshing: false,

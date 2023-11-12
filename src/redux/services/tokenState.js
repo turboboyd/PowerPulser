@@ -1,1 +1,1 @@
-export const tokenState = (thunkAPI) => thunkAPI.getState().auth.user.token;
+export const tokenState = (thunkAPI) => thunkAPI.getState().auth.token;
