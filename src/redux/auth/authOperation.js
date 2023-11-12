@@ -25,7 +25,7 @@ export const registrationUser = createAsyncThunk('auth/registrationUser', async 
 export const verifyUser = createAsyncThunk('auth/verifyUser', async (verificationToken , thunkAPI) => {
     try {
         const { data } = await instance.get(`${BACKEND_VERIFY_URL}/${verificationToken}`);
-        token.set(data.user.token)
+        token.set(data.token)
         return data
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
@@ -50,7 +50,7 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (credentials, 
     // };
     try {
         const { data } = await instance.post(BACKEND_SIGN_IN_URL, credentials);
-        token.set(data.user.token)
+        token.set(data.token)
         // toast.success('LOGIN SUCCESS!', optionNotification);
         return data
     } catch (error) {

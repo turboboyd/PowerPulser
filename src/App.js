@@ -12,11 +12,10 @@ import { selectIsVerify } from "./redux/auth/authSelectors";
 
 function App() {
   const dispatch = useDispatch();
-  const { isRefreshing} = useAuth;
+  const { isRefreshing} = useAuth();
   const isVerify = useSelector(selectIsVerify);
 
-
-   useEffect(() => {
+  useEffect(() => { 
     dispatch(refreshUser());
   }, [dispatch]);
 
