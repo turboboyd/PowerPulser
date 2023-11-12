@@ -47,6 +47,61 @@ const categoriesList = categories?.map(el => ({
   label: capitalizeFirstLeter(el),
 }));
 
+const customStyles = {
+    control: provided => ({
+      ...provided,
+      backgroundColor: 'trasparent', // Стилизация фона окна
+      // height: height,
+      // width: width,
+      appearance: 'none', // Removing default appearance
+      WebkitAppearance: 'none',
+      MozAppearance: 'none',
+    }),
+    option: (provided, { isFocused, isSelected }) => ({
+      ...provided,
+
+      backgroundColor: isSelected
+        ? 'rgba(28, 28, 28, 1)'
+        : isFocused
+        ? 'rgba(28, 28, 28, 1)'
+        : 'rgba(28, 28, 28, 1)', // Стилизация фона активной опции и ховера
+      color: isSelected ? '#E6533C' : '#EFEDE8', // Стилизация цвета текста активной опции в списке
+      padding: '14px',
+    }),
+    menu: provided => ({
+      ...provided,
+      backgroundColor: 'rgba(28, 28, 28, 1)', //  фон для списка
+    }),
+    singleValue: provided => ({
+      ...provided,
+      color: '#EFEDE8', // Цвет текста активного селектора в окне
+    }),
+    indicatorSeparator: provided => ({
+      ...provided,
+      backgroundColor: 'transparent', // Цвет разделителя
+    }),
+    dropdownIndicator: provided => ({
+      ...provided,
+      color: '#EFEDE8',
+    }),
+    container: provided => ({
+      ...provided,
+      border: '1px solid rgba(239, 237, 232, 0.30)',
+      borderRadius: '12px',
+      outline: 'none',
+    }),
+    menuList: base => ({
+      ...base,
+      borderRadius: '12px', // Бордер при скроле
+
+      '::-webkit-scrollbar': {
+        display: 'none',
+      },
+      overflowY: 'scroll',
+    }),
+  };
+
+
 // Компонент ProductsFilter
 const ProductsFilter = () => {
   const dispatch = useDispatch();
@@ -143,6 +198,7 @@ const ProductsFilter = () => {
         <div className={styles['select-wrapper']}>
           <Select
             className={styles['select-wrapper']}
+            styles={customStyles}
             value={category}
             onChange={onCategoriesChange}
             placeholder="Categories"
@@ -170,6 +226,7 @@ const ProductsFilter = () => {
           <Select
             className={styles['select-wrapper']}
             onChange={onRecomendedChange}
+            styles={customStyles}
             value={recommended}
             theme={theme => ({
               ...theme,
