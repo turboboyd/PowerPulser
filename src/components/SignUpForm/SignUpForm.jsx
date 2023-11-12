@@ -5,11 +5,11 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 import css from "./SignUpForm.module.css";
-import sprite from "../../images/svg/sprite.svg";
 
 import Button from "../Button/Button";
 
 import { registrationUser } from "../../redux/auth/authOperation";
+import Icon from "../ComponIcon/Icon";
 
 const emailRegex = /^\w+(\.?\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 const passwordRegex =
@@ -26,9 +26,9 @@ const SignUpSchema = Yup.object().shape({
 });
 
 const initialValues = {
-  name: '',
-  email: '',
-  password: '',
+  name: "",
+  email: "",
+  password: "",
 };
 
 const SignUpForm = () => {
@@ -67,9 +67,11 @@ const SignUpForm = () => {
                 />
 
                 <div className={css.messageWrapper}>
-                  <svg data-status="error" className={css.svgError}>
-                    <use href={`${sprite}#icon-red`} />
-                  </svg>
+                  <Icon
+                    data-status="error"
+                    className={css.svgError}
+                    iconId={"icon-red"}
+                  />
 
                   <ErrorMessage
                     className={css.errorMessage}
@@ -80,9 +82,11 @@ const SignUpForm = () => {
 
                 {formik.touched.name && !formik.errors.name && (
                   <div className={css.messageWrapper}>
-                    <svg className={css.svgSuccess}>
-                      <use href={`${sprite}#icon-green`} />
-                    </svg>
+                    <Icon
+                      data-status="error"
+                      className={css.svgSuccess}
+                      iconId={"icon-green"}
+                    />
                     <div className={css.successMessage}>Success name</div>
                   </div>
                 )}
@@ -105,9 +109,11 @@ const SignUpForm = () => {
                 />
 
                 <div className={css.messageWrapper}>
-                  <svg data-status="error" className={css.svgError}>
-                    <use href={`${sprite}#icon-red`} />
-                  </svg>
+                  <Icon
+                    data-status="error"
+                    className={css.svgError}
+                    iconId={"icon-red"}
+                  />
 
                   <ErrorMessage
                     className={css.errorMessage}
@@ -118,9 +124,11 @@ const SignUpForm = () => {
 
                 {formik.touched.email && !formik.errors.email && (
                   <div className={css.messageWrapper}>
-                    <svg data-status="success" className={css.svgSuccess}>
-                      <use href={`${sprite}#icon-green`} />
-                    </svg>
+                    <Icon
+                      data-status="error"
+                      className={css.svgSuccess}
+                      iconId={"icon-green"}
+                    />
                     <div className={css.successMessage}>Success email</div>
                   </div>
                 )}
@@ -143,9 +151,11 @@ const SignUpForm = () => {
                 />
 
                 <div className={css.messageWrapper}>
-                  <svg data-status="error" className={css.svgError}>
-                    <use href={`${sprite}#icon-red`} />
-                  </svg>
+                  <Icon
+                    data-status="error"
+                    className={css.svgError}
+                    iconId={"icon-red"}
+                  />
 
                   <ErrorMessage
                     className={css.errorMessage}
@@ -156,9 +166,11 @@ const SignUpForm = () => {
 
                 {formik.touched.password && !formik.errors.password && (
                   <div className={css.messageWrapper}>
-                    <svg data-status="success" className={css.svgSuccess}>
-                      <use href={`${sprite}#icon-green`} />
-                    </svg>
+                    <Icon
+                      data-status="error"
+                      className={css.svgSuccess}
+                      iconId={"icon-green"}
+                    />
                     <div className={css.successMessage}>Success password</div>
                   </div>
                 )}
@@ -168,13 +180,9 @@ const SignUpForm = () => {
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
-                    <svg className={css.svgEye}>
-                      <use href={`${sprite}#icon-eye`} />
-                    </svg>
+                    <Icon className={css.svgEye} iconId={"icon-eye"} />
                   ) : (
-                    <svg className={css.svgEye}>
-                      <use href={`${sprite}#icon-eye-off`} />
-                    </svg>
+                    <Icon className={css.svgEye} iconId={"icon-eye-off"} />
                   )}
                 </button>
               </div>
