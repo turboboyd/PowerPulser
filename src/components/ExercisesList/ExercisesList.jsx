@@ -17,12 +17,12 @@ const ExercisesList = () => {
         <h3 className={css.exercisesTitle}>Waist</h3>
       </div>
       <div className={css.cardContainer}>
-        {exercises.map((exercise) => (
-          <ExercisesItem key={exercise.id} exercise={exercise} />
-        ))}
+        {exercises.map((exercise) => {
+          return <ExercisesItem key={exercise._id.$oid} exercise={exercise} />
+        })}
       </div>
     </div>
-  );
+  )
 }
 
 export default ExercisesList

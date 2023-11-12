@@ -1,32 +1,34 @@
-import Icon from '../ComponIcon/Icon';
-import css from './../ExercisesItem/ExercisesItem.module.css';
-import { useState } from 'react';
-import BasicModalWindow from '../../components/ModalWindow/BasicModalWindow/BasicModalWindow';
-import AddProductForm from '../ModalWindow/AddProductForm/AddProductForm';
-import AddProductSuccess from '../ModalWindow/AddProductSuccess/AddProductSuccess';
+import Icon from '../ComponIcon/Icon'
+import css from './../ExercisesItem/ExercisesItem.module.css'
+import { useState } from 'react'
+import BasicModalWindow from '../../components/ModalWindow/BasicModalWindow/BasicModalWindow'
+import AddProductForm from '../ModalWindow/AddProductForm/AddProductForm'
+import AddProductSuccess from '../ModalWindow/AddProductSuccess/AddProductSuccess'
 
 const ProductsItem = ({ product }) => {
-  const isAllowed = true;
-  const [modalProduct, setModalProduct] = useState(false);
-  const [modalSuccess, setModalSuccess] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState('');
+  const userBloodType = 1
+
+  const [modalProduct, setModalProduct] = useState(false)
+  const [modalSuccess, setModalSuccess] = useState(false)
+  const [selectedProduct, setSelectedProduct] = useState('')
 
   const handleModalProduct = () => {
-    setModalProduct((state) => !state);
-  };
+    setModalProduct((state) => !state)
+  }
 
   const handleModalSuccess = () => {
-    setModalSuccess((state) => !state);
-  };
+    setModalSuccess((state) => !state)
+  }
 
   const handleSelectedProduct = (data) => {
-    setSelectedProduct(data);
-  };
+    setSelectedProduct(data)
+  }
   return (
     <div className={css.exerciseWrapper}>
       <div className={css.productsCardTopPart}>
         <p className={css.exerciseCardTopDiet}>diet</p>
-        {isAllowed ? (
+        {product.groupBloodNotAllowed &&
+        product.groupBloodNotAllowed[userBloodType] ? (
           <div className={css.productRecommended}>
             <p className={css.productRecommendedTrue}></p>
             <p>Recommended</p>
@@ -80,6 +82,6 @@ const ProductsItem = ({ product }) => {
         </li>
       </ul>
     </div>
-  );
-};
-export default ProductsItem;
+  )
+}
+export default ProductsItem
