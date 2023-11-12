@@ -50,16 +50,14 @@ const Header = () => {
             </nav>
             <ul className={css.list_user}>
               <li>
-                <Link>
+                <Link to={PROFILE_ROUTE}>
                   <Icon className={css.iconSettings} iconId="Settings" />
                 </Link>
               </li>
               <li>
-                <Link to={PROFILE_ROUTE}>
-                  <div className={css.avatart}>
-                    <Icon className={css.svg_user} iconId="Gridicons_user" />
-                  </div>
-                </Link>
+                <div className={css.avatart}>
+                  <Icon className={css.svg_user} iconId="Gridicons_user" />
+                </div>
               </li>
               <li className={css.logout_desk}>
                 <Link className={css.logout}>
