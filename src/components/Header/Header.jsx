@@ -23,7 +23,6 @@ const Header = () => {
 
   const handleOverlayClick = useCallback(
     (event) => {
-      console.log(event.target.dataset.type);
       if (isBurgerOpen && !event.target.closest('[data-type="burger-nav"]')) {
         setBurgerOpen(false);
       }

@@ -1,18 +1,3 @@
-.form {
-  width: 100%;
-
-  @media screen and (min-width: 768px) {
-    width: 364px;
-  }
-}
-
-.formWrapper {
-  margin-bottom: 28px;
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 64px;
-  }
-}
 
 .fieldWrapper {
   position: relative;
@@ -38,6 +23,7 @@
     }
   }
 }
+
 
 .field {
   width: 100%;
@@ -69,7 +55,8 @@
     line-height: 1.5;
     margin-bottom: 4px;
   }
-} 
+}
+
 
 .messageWrapper {
   display: flex;
@@ -80,14 +67,6 @@
   }
 }
 
-.svgError {
-  display: none;
-  width: 16px;
-  height: 16px;
-  fill: var(--border-error);
-} 
-
-
 .errorMessage {
   margin-left: 4px;
   font-feature-settings: "clig" off, "liga" off;
@@ -97,6 +76,28 @@
   line-height: 1.16;
 }
 
+.svgError {
+  display: none;
+  width: 16px;
+  height: 16px;
+  fill: var(--border-error);
+}
+
+.svgSuccess {
+  /* display: none; */
+  width: 16px;
+  height: 16px;
+  fill: var(--border-success);
+}
+
+
+.svgError {
+  display: none;
+  width: 16px;
+  height: 16px;
+  fill: var(--border-error);
+}
+
 .successMessage {
   margin-left: 4px;
   font-feature-settings: "clig" off, "liga" off;
@@ -104,18 +105,4 @@
   letter-spacing: 0.12px;
   color: var(--success);
   line-height: 1.16;
-}
-
-.buttonEye {
-  position: absolute;
-  top: 15px;
-  left: 90%;
-  background-color: inherit;
-  border: none;
-}
-
-.svgEye {
-  width: 20px;
-  height: 20px;
-  stroke: var(--white);
 }
