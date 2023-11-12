@@ -4,6 +4,11 @@ import { handleFulfilled, handlePending, handleRejected } from './productsReduce
 
 const initialState = {
     items: [],
+    filters: {
+        search: "",
+        category: "",
+        recommended: "",
+    },
     isLoading: false,
     error: null
 };
