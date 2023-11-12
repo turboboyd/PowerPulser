@@ -6,11 +6,19 @@ import { PROFILE_ROUTE } from "../../utils/const";
 import Icon from "../ComponIcon/Icon";
 import Logo from "../Logo/Logo";
 import RouteList from "../RouteList/RouteList";
+import { useDispatch } from "react-redux";
+import { logOutUser } from "../../redux/auth/authOperation";
+
 
 const Header = () => {
+   const dispatch = useDispatch(); 
   const [isAuth, setIsAuth] = useState(true);
   const [isBurgerOpen, setBurgerOpen] = useState(false);
 
+
+  const handleLogout = useCallback(() => {
+    dispatch(logOutUser());
+  }, [dispatch]);
   const toggleBurger = useCallback(() => {
     setBurgerOpen((prevIsBurgerOpen) => !prevIsBurgerOpen);
   }, []);
@@ -20,7 +28,7 @@ const Header = () => {
       setBurgerOpen(false);
     }
   }, []);
-
+  
   const handleOverlayClick = useCallback(
     (event) => {
       if (isBurgerOpen && !event.target.closest('[data-type="burger-nav"]')) {
@@ -29,6 +37,7 @@ const Header = () => {
     },
     [isBurgerOpen]
   );
+  
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
@@ -60,7 +69,7 @@ const Header = () => {
                 </div>
               </li>
               <li className={css.logout_desk}>
-                <Link className={css.logout}>
+                <Link onClick={handleLogout} className={css.logout}>
                   Logout <Icon className={css.svg_logout} iconId="Log-out" />
                 </Link>
               </li>
@@ -88,7 +97,7 @@ const Header = () => {
         </button>
         <RouteList />
 
-        <Link className={css.logout}>
+        <Link onClick={handleLogout} to="/" className={css.logout}>
           Logout <Icon className={css.svg_logout} iconId="Log-out" />
         </Link>
       </nav>
