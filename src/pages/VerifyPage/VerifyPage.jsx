@@ -12,7 +12,6 @@ const VerifyPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await dispatch(verifyUser(id));
-      console.log('response: ', response);
       if (response.error) {
         return navigate("/");
       }
