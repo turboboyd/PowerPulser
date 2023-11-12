@@ -8,12 +8,12 @@ import "./App.css";
 import Layout from "./components/Layout/Layout";
 import { authRoutes, publicRoutes } from "./routes";
 import { NotFound } from "./pages";
-import { selectIsVerify } from "./redux/auth/authSelectors";
+
 
 function App() {
   const dispatch = useDispatch();
-  const { isRefreshing} = useAuth();
-  const isVerify = useSelector(selectIsVerify);
+  const { isRefreshing, isVerify } = useAuth();
+
 
   useEffect(() => { 
     dispatch(refreshUser());
@@ -28,7 +28,7 @@ function App() {
               authRoutes.map(({ path, Element }) => (
                 <Route key={path} path={path} element={Element} exact></Route>
               ))}
-            {!isVerify && publicRoutes.map(({ path, Element }) => (
+            { publicRoutes.map(({ path, Element }) => (
               <Route key={path} path={path} element={Element} exact />
             ))}
             <Route path="*" element={<NotFound />} />
