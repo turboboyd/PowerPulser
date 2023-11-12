@@ -53,7 +53,7 @@ const SignUpForm = () => {
               <div style={{ position: "relative" }}>
                 <FormField
                   fieldName="password"
-                  fieldType={(formik) => (showPassword ? "text" : "password")}
+                  fieldType={showPassword ? "text" : "password"}
                   placeholder="Password"
                   formik={formik}
                   successMessage="Success password"

@@ -22,7 +22,7 @@ const FormField = ({
   >
     <Field
       className={css.field}
-      type={isPassword ? fieldType(formik) : fieldType}
+      type={fieldType}
       name={fieldName}
       placeholder={placeholder}
     />
