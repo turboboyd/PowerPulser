@@ -24,7 +24,9 @@ export const registrationUser = createAsyncThunk('auth/registrationUser', async 
 
 export const verifyUser = createAsyncThunk('auth/verifyUser', async (verificationToken , thunkAPI) => {
     try {
-        await instance.get(`${BACKEND_VERIFY_URL}/:${verificationToken}`);
+        const { data } = await instance.get(`${BACKEND_VERIFY_URL}/${verificationToken}`);
+        token.set(data.user.token)
+        return data
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
     }
