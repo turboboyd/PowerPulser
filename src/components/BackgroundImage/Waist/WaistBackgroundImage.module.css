@@ -5,11 +5,13 @@
     z-index: -1;
     width: 670px;
     height: 902px;
-    top: -152px;
-    left: 770px;
+    top: 0px;
+    left: 963px;
+    border: 1px solid var(--black-color);
     background-image: var(--desk-background-linear-gradient),
       url("../../../images/background/bg-img-tablet-1x.jpg");
     background-repeat: no-repeat;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
