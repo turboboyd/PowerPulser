@@ -4,7 +4,7 @@ import { BACKEND_PRODUCT_URL } from "../../utils/const";
 import { token } from "../services/tokenAPI";
 
 export const fetchProducts = createAsyncThunk('products/fetchProducts',
-    async (_, thunkAPI) => {
+    async (credentials, thunkAPI) => {
         try {
             const tokenAPI = thunkAPI.getState().auth.token;
             token.set(tokenAPI);

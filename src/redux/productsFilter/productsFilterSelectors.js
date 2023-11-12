@@ -1,1 +1,1 @@
-export const selectProductsFilters = state => state.productsFilter;
+// export const selectProductsFilters = state => state.productsFilter;
