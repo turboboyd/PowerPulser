@@ -9,8 +9,10 @@ export const DIARY_ROUTE = "/diary";
 export const PRODUCT_ROUTE = "/products";
 export const EXERCISES_ROUTE = "/exercises";
 export const PROFILE_ROUTE = "/profile";
-export const WelcomePage_ROUTE = "/";
+export const WELCOME_PAGE_ROUTE = "/";
 
+
+;
 
 
 export const BACKEND_API_BASE_URL = "http://localhost:5000/api";
