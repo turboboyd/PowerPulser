@@ -17,7 +17,7 @@ export const VERIFY_ROUTE = '/verify'
 export const BACKEND_API_BASE_URL = "http://localhost:5000/api";
 
 export const BACKEND_SIGN_UP_URL = "/api/users/register";
-export const BACKEND_VERIFY_URL = "/verify";
+export const BACKEND_VERIFY_URL = "/api/users/verify";
 
 export const BACKEND_SIGN_IN_URL = "/api/users/login";
 export const BACKEND_LOGOUT_URL = "/api/users/logout";
