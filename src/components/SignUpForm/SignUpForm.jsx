@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import SignUpSchema from "../ShemaForm/SignUpSchema";
@@ -7,7 +7,7 @@ import Button from "../Button/Button";
 import Icon from "../ComponIcon/Icon";
 import FormField from "../Form/FormField/FormField";
 import { registrationUser } from "../../redux/auth/authOperation";
-import BackgroundImage from "../BackgroundImage/BackgroundImage";
+
 
 const initialValues = {
   name: "",
@@ -22,7 +22,10 @@ const SignUpForm = () => {
     dispatch(registrationUser({ name, email, password }));
     resetForm();
   };
-
+  
+  const handleClick = useCallback(() => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  }, []);
   return (
     <>
       <Formik
@@ -50,9 +53,7 @@ const SignUpForm = () => {
               <div style={{ position: "relative" }}>
                 <FormField
                   fieldName="password"
-                  fieldType={(formik) =>
-                    showPassword ? "text" : "password"
-                  }
+                  fieldType={(formik) => (showPassword ? "text" : "password")}
                   placeholder="Password"
                   formik={formik}
                   successMessage="Success password"
@@ -61,7 +62,7 @@ const SignUpForm = () => {
                 <button
                   className={css.buttonEye}
                   type="button"
-                  onClick={() => setShowPassword(!showPassword)}
+                  onClick={handleClick}
                 >
                   <Icon
                     className={css.svgEye}
