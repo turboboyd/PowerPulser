@@ -2,102 +2,66 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 import sprite from '../../../images/svg/InlineSprite.svg';
-import { selectCategoriesProducts } from '../../../redux/Products/productsSelectors';
-import { getCategories } from '../../../redux/Products/productsOperations';
-import { filterReducer } from '../../../redux/Products/productsSlice';
-import "./ProductsFilter.module.css";
+import { productsFilterAction } from '../../../redux/productsFilter/productsFilterSlice';
+// filterReducer
+import styles from  "./ProductsFilter.module.css";
 
-const firstLeter = string => {
+// Опции для селекторов
+const optionsRec = [
+  { value: 'all', label: 'All' },
+  { value: 'recommended', label: 'Recommended ' },
+  { value: 'notRecommended', label: 'Not recommended' },
+];
+
+// Категории продуктов
+const categories = [
+  'alcoholic drinks',
+  'berries',
+  'cereals',
+  'dairy',
+  'dried fruits',
+  'eggs',
+  'fish',
+  'flour',
+  'fruits',
+  'meat',
+  'mushrooms',
+  'nuts',
+  'oils and fats',
+  'poppy',
+  'sausage',
+  'seeds',
+  'sesame',
+  'soft drinks',
+  'vegetables and herbs',
+];
+// Функция для преобразования первой буквы в верхний регистр
+const capitalizeFirstLeter = string => {
   const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
   return newString;
 };
 
-const optionsRec = [
-  { value: null, label: 'All' },
-  { value: 'false', label: 'Recommended ' },
-  { value: 'true', label: 'Not recommended' },
-];
+// Преобразование категорий для селектора
+const categoriesList = categories?.map(el => ({
+  value: el,
+  label: capitalizeFirstLeter(el),
+}));
 
+// Компонент ProductsFilter
 const ProductsFilter = () => {
   const dispatch = useDispatch();
-
-  const categoriesList = useSelector(selectCategoriesProducts)?.map(el => ({
-    value: el,
-    label: firstLeter(el),
-  }));
-
-  useEffect(() => {
-    dispatch(getCategories());
-  }, [dispatch]);
-
-
-  const customStyles = {
-    control: provided => ({
-      ...provided,
-      backgroundColor: 'trasparent', // Стилизація фона вікна
-      width: width,
-      height: height,
-      appearance: 'none', // Removing default appearance
-      WebkitAppearance: 'none',
-      MozAppearance: 'none',
-    }),
-    option: (provided, { isFocused, isSelected }) => ({
-      ...provided,
-      fontSize: '14px',
-      lineHeight: '18px',
-      backgroundColor: isSelected
-        ? 'rgba(28, 28, 28, 1)'
-        : isFocused
-        ? 'rgba(28, 28, 28, 1)'
-        : 'rgba(28, 28, 28, 1)', // Стилізфція фону ховера
-      color: isSelected ? '#E6533C' : '#EFEDE8', // Стилизація кольору текста активной опції у пошуку
-      padding: '14px',
-    }),
-    menu: provided => ({
-      ...provided,
-      backgroundColor: 'rgba(28, 28, 28, 1)', //  фон для списку
-    }),
-    singleValue: provided => ({
-      ...provided,
-      color: '#EFEDE8', // коліт тексту активного селектору
-    }),
-    indicatorSeparator: provided => ({
-      ...provided,
-      backgroundColor: 'transparent', // колір розподілювача
-    }),
-    dropdownIndicator: provided => ({
-      ...provided,
-      color: '#EFEDE8',
-    }),
-    container: provided => ({
-      ...provided,
-      border: '1px solid rgba(239, 237, 232, 0.30)',
-      borderRadius: '12px',
-      outline: 'none',
-      fontSize: '14px',
-      lineHeight: '18px',
-    }),
-    menuList: base => ({
-      ...base,
-      borderRadius: '12px', // Бордер при скролі
-
-      '::-webkit-scrollbar': {
-        display: 'none',
-      },
-      overflowY: 'scroll',
-    }),
-  };
   const [hiddenBtnClose, setHiddenBtnClose] = useState(false);
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('');
   const [recommended, setRecommended] = useState(optionsRec[0]);
 
-  const onChangeSearch = e => {
-    const text = e.target.value;
+  // Обработчик изменения ввода для поиска
+  const onChangeSearch = event => {
+    const text = event.target.value;
     setHiddenBtnClose(text.length > 0);
     setSearch(text);
     dispatch(
-      filterReducer({
+      productsFilterAction({
         search: text,
         category: category.value,
         recommended: recommended.value,
@@ -105,32 +69,35 @@ const ProductsFilter = () => {
     );
   };
 
-  const onCategoriesChange = e => {
-    setCategory(e);
+  // Обработчик изменения категории
+  const onCategoriesChange = event => {
+    setCategory(event);
     dispatch(
-      filterReducer({
-        category: e.value,
+      productsFilterAction({
+        category: event.value,
         search,
         recommended: recommended.value,
       }),
     );
   };
 
-  const onRecommendedChange = e => {
-    setRecommended(e);
+  // Обработчик изменения рекомендаций
+  const onRecomendedChange = event => {
+    setRecommended(event);
     dispatch(
-      filterReducer({
-        recommended: e.value,
+      productsFilterAction({
+        recommended: event.value,
         search,
         category: category.value,
       }),
     );
   };
 
+  // Обработчик удаления текста из поля поиска
   const delTextInput = () => {
     setSearch('');
     dispatch(
-      filterReducer({
+      productsFilterAction({
         search: '',
         category: category.value,
         recommended: recommended.value,
@@ -139,87 +106,90 @@ const ProductsFilter = () => {
     setHiddenBtnClose(false);
   };
 
-    return (
-      <ul className="containerForm">
-      <div className="filter-title">Filters</div>
+  return (
+    <ul className={styles['products-filter-list']}>
+      {/* Поиск */}
       <li>
-        <label className="form">
+        <label className={styles['products-filter-label']}>
           <input
             value={search}
             onChange={onChangeSearch}
             name="productSearch"
             type="text"
             placeholder="Search"
-            className="inputForm"
+            className={styles['products-filter-search']}
           />
+          {/* Кнопка для закрытия поиска */}
           <button
+            className={styles['products-btn-clouse']}
             onClick={delTextInput}
-            style={{ display: hiddenBtnClose ? 'block' : 'none' }}
             type="button"
-            className="search-btn"
           >
-            <svg className="close-btn" fill="#e6533c" width="18px" height="18px">
-              <use xlinkHref={`${sprite}#Close`}></use>
+            <svg className={styles['products-svg-clouse']}>
+              <use href={`${sprite}#Close`}></use>
             </svg>
           </button>
-          <button type="button" className="button">
-            <svg className="search" width="18px" height="18px">
-              <use xlinkHref={`${sprite}#Search`}></use>
+          {/* Кнопка для запуска поиска */}
+          <button className={styles['products-btn-search']} type="button">
+            <svg className={styles['products-svg-search']}>
+              <use href={`${sprite}#Search`}></use>
             </svg>
           </button>
         </label>
       </li>
+      
+      {/* Выбор категории */}
       <li>
-        <div>
+        <div className={styles['select-wrapper']}>
           <Select
+            className={styles['select-wrapper']}
             value={category}
             onChange={onCategoriesChange}
-            theme={theme => ({
-              ...theme,
-
-              colors: {
-                ...theme.colors,
-                primary50: 'rgba(255, 255, 255, 0.10)', // Колір фона при натисканні на селект в меню
-                primary: 'transparent',
-                neutral40: '#EFEDE8', // ховер на іконку
-                neutral20: 'transparent', // дефолтний бордер
-                neutral30: 'transparent', // дефолтний ховер бордер
-                neutral50: 'rgba(239, 237, 232, 1)', // колір плейсхолдера
-                neutral80: 'rgba(239, 237, 232, 1)',
-              },
-            })}
-            styles={customStyles}
+            placeholder="Categories"
             options={categoriesList || []}
-          />
-        </div>
-      </li>
-      <li>
-        <div>
-          <Select
-            value={recommended}
-            onChange={onRecommendedChange}
-            options={optionsRec}
             theme={theme => ({
               ...theme,
-
               colors: {
                 ...theme.colors,
-                primary50: 'rgba(255, 255, 255, 0.10)', // Колір фона при натисканні на селект в меню
+                primary50: 'rgba(255, 255, 255, 0.10)',
                 primary: 'transparent',
-                neutral40: '#EFEDE8', // ховер на іконку
-                neutral20: 'transparent', // дефолтний бордер
-                neutral30: 'transparent', // дефолтний ховер бордер
-                neutral50: 'rgba(239, 237, 232, 1)', // цвет плейсхолдера
+                neutral40: '#EFEDE8',
+                neutral20: 'transparent',
+                neutral30: 'transparent',
+                neutral50: 'rgba(239, 237, 232, 1)',
                 neutral80: 'rgba(239, 237, 232, 1)',
               },
             })}
-            styles={customStyles}
           />
         </div>
       </li>
-     </ul>
+      
+      {/* Выбор рекомендаций */}
+      <li>
+        <div className={styles['select-wrapper']}>
+          <Select
+            className={styles['select-wrapper']}
+            onChange={onRecomendedChange}
+            value={recommended}
+            theme={theme => ({
+              ...theme,
+              colors: {
+                ...theme.colors,
+                primary50: 'rgba(255, 255, 255, 0.10)',
+                primary: 'transparent',
+                neutral40: '#EFEDE8',
+                neutral20: 'transparent',
+                neutral30: 'transparent',
+                neutral50: 'rgba(239, 237, 232, 1)',
+                neutral80: 'rgba(239, 237, 232, 1)',
+              },
+            })}
+            options={optionsRec}
+          />
+        </div>
+      </li>
+    </ul>
   );
 };
-
 
 export default ProductsFilter;
