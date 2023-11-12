@@ -50,11 +50,11 @@
 @media screen and (min-width: 1449px) {
   .link:hover,
   .link:focus {
-    border: transparent;
+    border: 1px solid transparent;
     background-color: var(--orange);
   }
 
   .link:active {
-    background-color: var(--orange);
+    background-color: 1px solid var(--orange);
   }
 }

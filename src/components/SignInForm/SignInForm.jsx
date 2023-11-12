@@ -2,32 +2,18 @@ import React from "react";
 import { useDispatch } from "react-redux";
 
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import * as Yup from "yup";
+import SignInSchema from "../ShemaForm/SignInSchema";
 import { useState } from "react";
 
-import sprite from "../../images/svg/sprite.svg";
 import css from "../SignUpForm/SignUpForm.module.css";
 import Button from "../Button/Button";
 
 import { loginUser } from "../../redux/auth/authOperation";
-
-const emailRegex = /^\w+(\.?\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-const passwordRegex =
-  /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,32}$/;
-
-const SignInSchema = Yup.object().shape({
-  email: Yup.string()
-    .matches(emailRegex, "Invalid email format")
-    .required("Required field"),
-  password: Yup.string()
-    .matches(passwordRegex, "Must contain at least 1 capital and 1 digit")
-    .required("Required field"),
-});
-
+import Icon from "../ComponIcon/Icon";
 
 const initialValues = {
-  email: '',
-  password: '',
+  email: "",
+  password: "",
 };
 
 const SignInForm = () => {
@@ -38,6 +24,7 @@ const SignInForm = () => {
     dispatch(loginUser({ email, password }));
     resetForm();
   };
+
   return (
     <>
       <Formik
@@ -64,9 +51,11 @@ const SignInForm = () => {
                   placeholder="Email"
                 />
                 <div className={css.messageWrapper}>
-                  <svg data-status="error" className={css.svgError}>
-                    <use href={`${sprite}#icon-red`} />
-                  </svg>
+                  <Icon
+                    data-status="error"
+                    className={css.svgError}
+                    iconId={"icon-red"}
+                  />
 
                   <ErrorMessage
                     className={css.errorMessage}
@@ -77,9 +66,11 @@ const SignInForm = () => {
 
                 {formik.touched.email && !formik.errors.email && (
                   <div className={css.messageWrapper}>
-                    <svg data-status="success" className={css.svgSuccess}>
-                      <use href={`${sprite}#icon-green`} />
-                    </svg>
+                    <Icon
+                      data-status="success"
+                      className={css.svgSuccess}
+                      iconId={"icon-green"}
+                    />
                     <div className={css.successMessage}>Success email</div>
                   </div>
                 )}
@@ -102,9 +93,11 @@ const SignInForm = () => {
                 />
 
                 <div className={css.messageWrapper}>
-                  <svg data-status="error" className={css.svgError}>
-                    <use href={`${sprite}#icon-red`} />
-                  </svg>
+                  <Icon
+                    data-status="error"
+                    className={css.svgError}
+                    iconId={"icon-red"}
+                  />
 
                   <ErrorMessage
                     className={css.errorMessage}
@@ -115,9 +108,14 @@ const SignInForm = () => {
 
                 {formik.touched.password && !formik.errors.password && (
                   <div className={css.messageWrapper}>
-                    <svg data-status="success" className={css.svgSuccess}>
+                    {/* <svg data-status="success" className={css.svgSuccess}>
                       <use href={`${sprite}#icon-green`} />
-                    </svg>
+                    </svg> */}
+                    <Icon
+                      data-status="error"
+                      className={css.svgError}
+                      iconId={"icon-green"}
+                    />
                     <div className={css.successMessage}>Success password</div>
                   </div>
                 )}
@@ -127,13 +125,9 @@ const SignInForm = () => {
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
-                    <svg className={css.svgEye}>
-                      <use href={`${sprite}#icon-eye`} />
-                    </svg>
+                    <Icon className={css.svgEye} iconId={"icon-eye"} />
                   ) : (
-                    <svg className={css.svgEye}>
-                      <use href={`${sprite}#icon-eye-off`} />
-                    </svg>
+                    <Icon className={css.svgEye} iconId={"icon-eye-off"} />
                   )}
                 </button>
               </div>

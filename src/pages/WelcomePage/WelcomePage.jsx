@@ -17,7 +17,7 @@ const WelcomePage = () => {
         <h1 className={css.title}>
           Transforming your body shape with Power Pulse
         </h1>
-        <Icon className={css.exerciseArrowSvg} iconId="" />
+        <Icon className={css.exerciseArrowSvg} iconId="icon-line" />
         <div className={css.buttonWrapper}>
           <Link className={css.link} to="/signup">
             <Button type="submit" text="Sign Up" />
