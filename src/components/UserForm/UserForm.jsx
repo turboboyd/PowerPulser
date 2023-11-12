@@ -32,7 +32,7 @@ const UseForm = () => {
           <Form>
             <div className={css.formWrapper}>
               <div>
-                <p className={css.titleName}></p>
+                <p className={css.titleName}>Basic info</p>
                 <Field
                   className={css.input}
                   name="name"
@@ -42,7 +42,7 @@ const UseForm = () => {
               </div>
               <div>
                 <Field
-                  className={css.input}
+                  className={`${css.input} ${css.inputEmail}`}
                   type="text"
                   name="email"
                   // defaultValue={user.email}
@@ -51,47 +51,66 @@ const UseForm = () => {
                 />
               </div>
             </div>
+            {/* input Field */}{" "}
+            <div className={css.inputContainer}>
+              <div className={css.inputWrapper}>
+                <div className={css.fieldContainer}>
+                  <label className={css.labelInput} htmlFor="height">
+                    Height
+                  </label>
+                  <Field
+                    className={css.field}
+                    type="number"
+                    name="height"
+                    id="height"
+                    placeholder=""
+                  />
+                </div>
 
-            {/* input Field */}
-            <div className={css.inputWrapper}>
-              <div>
-                <Field type="number" name="height" id="height" placeholder="" />
-                <label htmlFor="height">Height</label>
+                <div className={css.fieldContainer}>
+                  <label className={css.labelInput} htmlFor="currentWeight">
+                    Current Weight
+                  </label>
+                  <Field
+                    className={css.field}
+                    type="number"
+                    name="currentWeight"
+                    id="currentWeight"
+                    placeholder=""
+                  />
+                </div>
               </div>
 
-              <div>
-                <Field
-                  type="number"
-                  name="currentWeight"
-                  id="currentWeight"
-                  placeholder=""
-                />
-                <label htmlFor="currentWeight">Current Weight</label>
+              <div className={css.inputWrapper}>
+                <div className={css.fieldContainer}>
+                  <label className={css.labelInput} htmlFor="desiredWeight">
+                    Desired Weight
+                  </label>
+                  <Field
+                    className={css.field}
+                    type="number"
+                    name="desiredWeight"
+                    id="desiredWeight"
+                    placeholder=""
+                  />
+                </div>
+
+                <div className={css.fieldContainer}>
+                  <label className={css.labelInput} htmlFor="date"></label>
+                  <Field
+                    className={css.field}
+                    type="date"
+                    name="birthday"
+                    id="birthday"
+                  />
+                </div>
               </div>
             </div>
-
-            <div className={css.inputWrapper}>
-              <div>
-                {" "}
-                <Field
-                  type="number"
-                  name="desiredWeight"
-                  id="desiredWeight"
-                  placeholder=""
-                />
-                <label htmlFor="desiredWeight">Desired Weight</label>
-              </div>
-
-              <div>
-                <Field type="date" name="birthday" id="birthday" />
-                <label htmlFor="date">Birthday</label>
-              </div>
-            </div>
-
             {/* RadioButton */}
+            <p className={`${css.titleName} ${css.titleBlood}`}>Blood</p>
             <div className={css.radioWrapper}>
-              <div>
-                <div>
+              <div className={css.radioContainer}>
+                <div className={css.radioBloodContainer}>
                   <RadioButton
                     name="blood"
                     value="1"
@@ -128,8 +147,7 @@ const UseForm = () => {
                     onChange={() => formik.setFieldValue("blood", "4")}
                   />
                 </div>
-
-                <div>
+                <div className={css.radioSexContainer}>
                   <RadioButton
                     name="sex"
                     id="male"
@@ -148,7 +166,6 @@ const UseForm = () => {
                   />
                 </div>
               </div>
-
               {/* levelActively */}
               <div className={css.levelActivityWrapper}>
                 <RadioButton
@@ -160,6 +177,7 @@ const UseForm = () => {
                   onChange={() => formik.setFieldValue("levelActivity", "1")}
                 />
                 <RadioButton
+                  className={css.levelInput}
                   name="levelActivity"
                   value="2"
                   id="levelActivity2"
@@ -194,8 +212,7 @@ const UseForm = () => {
                 />
               </div>
             </div>
-
-            <Button type="submit" text="Save" />
+            <Button className={css.buttonSave} type="submit" text="Save" />
           </Form>
         )}
       </Formik>

@@ -11,6 +11,7 @@ const RadioOption = ({ id, name, value, checked, label, onChange }) => (
       checked={checked}
       onChange={onChange}
     />
+
     <label className={css.radioLabel} htmlFor={id}>
       {label}
     </label>
