@@ -13,6 +13,7 @@
 .svg_logout {
   width: 20px;
   height: 20px;
+  stroke: var(--white);
 }
 
 .svg_user {
@@ -35,6 +36,10 @@
   display: flex;
   line-height: 1.5;
   gap: 8px;
+  border: none;
+  background: transparent;
+  line-height: 1.5;
+  color: var(--white);
 }
 
 .menu {
@@ -95,6 +100,12 @@
 }
 .logout_desk {
   display: block;
+  display: flex;
+
+}
+.logout_desk svg {
+    stroke: #E6533C;
+
 }
 .wrap {
   display: flex;

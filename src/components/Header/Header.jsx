@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCallback, useState, useEffect } from "react";
 import css from "./Header.module.css";
 import { PROFILE_ROUTE } from "../../utils/const";
@@ -11,14 +11,16 @@ import { logOutUser } from "../../redux/auth/authOperation";
 
 
 const Header = () => {
-   const dispatch = useDispatch(); 
+  const dispatch = useDispatch(); 
+  const navigate = useNavigate();
   const [isAuth, setIsAuth] = useState(true);
   const [isBurgerOpen, setBurgerOpen] = useState(false);
 
 
   const handleLogout = useCallback(() => {
     dispatch(logOutUser());
-  }, [dispatch]);
+    navigate('/')
+  }, [dispatch, navigate]);
   const toggleBurger = useCallback(() => {
     setBurgerOpen((prevIsBurgerOpen) => !prevIsBurgerOpen);
   }, []);
@@ -68,11 +70,13 @@ const Header = () => {
                   <Icon className={css.svg_user} iconId="Gridicons_user" />
                 </div>
               </li>
-              <li className={css.logout_desk}>
-                <Link onClick={handleLogout} className={css.logout}>
-                  Logout <Icon className={css.svg_logout} iconId="Log-out" />
-                </Link>
-              </li>
+
+              <button
+                onClick={handleLogout}
+                className={`${css.logout_desk} ${css.logout}`}
+              >
+                Logout <Icon className={css.svg_logout} iconId="Log-out" />
+              </button>
             </ul>
 
             <button
@@ -97,9 +101,9 @@ const Header = () => {
         </button>
         <RouteList />
 
-        <Link onClick={handleLogout} to="/" className={css.logout}>
+        <button onClick={handleLogout} to="/" className={css.logout}>
           Logout <Icon className={css.svg_logout} iconId="Log-out" />
-        </Link>
+        </button>
       </nav>
     </div>
   );
