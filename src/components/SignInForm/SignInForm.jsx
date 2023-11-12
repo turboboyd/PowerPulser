@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import * as Yup from "yup";
+import SignInSchema from "../ShemaForm/SignInSchema";
 import { useState } from "react";
 
 import css from "../SignUpForm/SignUpForm.module.css";
@@ -11,23 +11,9 @@ import Button from "../Button/Button";
 import { loginUser } from "../../redux/auth/authOperation";
 import Icon from "../ComponIcon/Icon";
 
-const emailRegex = /^\w+(\.?\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-const passwordRegex =
-  /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,32}$/;
-
-const SignInSchema = Yup.object().shape({
-  email: Yup.string()
-    .matches(emailRegex, "Invalid email format")
-    .required("Required field"),
-  password: Yup.string()
-    .matches(passwordRegex, "Must contain at least 1 capital and 1 digit")
-    .required("Required field"),
-});
-
-
 const initialValues = {
-  email: '',
-  password: '',
+  email: "",
+  password: "",
 };
 
 const SignInForm = () => {
