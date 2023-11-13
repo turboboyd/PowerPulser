@@ -17,7 +17,7 @@ const NotFound = () => {
         <div className={css.block_error}>
           <Link className={css.logo_wrap} to={WELCOME_PAGE_ROUTE}>
             <div>
-              <Icon className={css.logo} sprite={sprite} iconId="Weight" />
+              <Icon className={css.logo} sprite={sprite} iconId="icon-Vector-white" />
             </div>
             <div>
               <Icon
