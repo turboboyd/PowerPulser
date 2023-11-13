@@ -1,0 +1,89 @@
+.dayProducts {
+  padding: 16px;
+  margin-top: 40px;
+
+  max-width: 335px;
+  max-height: 1064px;
+  overflow-y: auto;
+
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.2);
+  background: rgba(239, 237, 232, 0.05);
+}
+
+.diaryNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  margin-bottom: 22px;
+}
+
+.diarySubtitle {
+  color: rgba(239, 237, 232, 0.5);
+
+  font-size: 14px;
+  font-weight: 400; /**/
+  line-height: 1.28;
+}
+
+.notFoundPlugTextWrap {
+  min-height: 335px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notFoundPlugText {
+  color: rgba(239, 237, 232, 0.3);
+
+  font-size: 14px;
+  line-height: 1.28;
+}
+
+@media (min-width: 768px) {
+  .dayProducts {
+    max-width: 704px;
+    max-height: 234px;
+
+    padding: 16px;
+    margin-top: 0px;
+  }
+
+  .diaryNav {
+    margin-bottom: 16px;
+  }
+
+  .notFoundPlugTextWrap {
+    min-height: 155px;
+  }
+
+  .notFoundPlugText {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+@media (min-width: 1440px) {
+  .dayProducts {
+    max-width: 826px;
+  }
+}
+
+/* SCROLL */
+
+.dayProducts::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dayProducts::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background: rgba(239, 237, 232, 0.1);
+  height: 9px;
+}
+
+.dayProducts::-webkit-scrollbar-track {
+  height: 20px;
+  border-radius: 12px;
+}
