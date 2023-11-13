@@ -40,7 +40,7 @@ const FormField = ({
     {formik.touched[fieldName] && !formik.errors[fieldName] && (
       <div className={css.messageWrapper}>
         <Icon
-          data-status="error"
+          data-status="success"
           className={css.svgSuccess}
           iconId={"icon-green"}
         />
