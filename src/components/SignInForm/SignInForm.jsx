@@ -112,8 +112,8 @@ const SignInForm = () => {
                       <use href={`${sprite}#icon-green`} />
                     </svg> */}
                     <Icon
-                      data-status="error"
-                      className={css.svgError}
+                      data-status="success"
+                      className={css.svgSuccess}
                       iconId={"icon-green"}
                     />
                     <div className={css.successMessage}>Success password</div>
