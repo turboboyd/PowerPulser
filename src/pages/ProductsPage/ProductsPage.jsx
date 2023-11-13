@@ -1,6 +1,6 @@
 import TitlePage from '../../components/TitlePage/TitlePage';
 import ProductsList from '../../components/ProductsList/ProductsList';
-import ProductsFilter from '../../components/Products/ProductsFilter/ProductsFilter';
+import ProductsFilter from '../../components/ProductsFilter/ProductsFilter';
 
 const ProductsPage = () => {
   return (

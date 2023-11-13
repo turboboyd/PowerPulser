@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
-import sprite from '../../../images/svg/InlineSprite.svg';
+import sprite from '../../images/svg/InlineSprite.svg';
 import { setFilter  } from '../../redux/products/productsSlice';
 // filterReducer
 import styles from  "./ProductsFilter.module.css";

@@ -45,6 +45,7 @@
 .products-btn-clouse,
 .products-btn-search {
     background: transparent;
+    border-color: transparent;
     position: absolute;
     top: calc(50% - 16px / 2);
 }
