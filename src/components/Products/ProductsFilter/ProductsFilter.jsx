@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 import sprite from '../../../images/svg/InlineSprite.svg';
-import { productsFilterAction } from '../../../redux/productsFilter/productsFilterSlice';
+import { setFilter  } from '../../../redux/products/productsSlice';
 // filterReducer
 import styles from  "./ProductsFilter.module.css";
 
@@ -116,7 +116,7 @@ const ProductsFilter = () => {
     setHiddenBtnClose(text.length > 0);
     setSearch(text);
     dispatch(
-      productsFilterAction({
+      setFilter ({
         search: text,
         category: category.value,
         recommended: recommended.value,
@@ -128,7 +128,7 @@ const ProductsFilter = () => {
   const onCategoriesChange = event => {
     setCategory(event);
     dispatch(
-      productsFilterAction({
+      setFilter ({
         category: event.value,
         search,
         recommended: recommended.value,
@@ -140,7 +140,7 @@ const ProductsFilter = () => {
   const onRecomendedChange = event => {
     setRecommended(event);
     dispatch(
-      productsFilterAction({
+      setFilter ({
         recommended: event.value,
         search,
         category: category.value,
@@ -152,7 +152,7 @@ const ProductsFilter = () => {
   const delTextInput = () => {
     setSearch('');
     dispatch(
-      productsFilterAction({
+      setFilter ({
         search: '',
         category: category.value,
         recommended: recommended.value,
