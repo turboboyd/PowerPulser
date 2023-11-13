@@ -11,24 +11,27 @@ import Section from "../../components/Container/Section";
 
 const WelcomePage = () => {
   return (
-    <>
+    <Container>
+      <Logo className={css.logo} />{' '}
       <div className={css.wrapper}>
-        <Logo />{" "}
         <h1 className={css.title}>
-          Transforming your body shape with Power Pulse
+          Transforming your <span className={css.bodyText}>body</span> shape
+          with Power Pulse
         </h1>
-        <Icon className={css.exerciseArrowSvg} iconId="icon-line" />
+        <div className={css.icon}>
+          <Icon className={css.exerciseArrowSvg} iconId="icon-line" />
+        </div>
         <div className={css.buttonWrapper}>
           <Link className={css.link} to="/signup">
-            <Button type="submit" text="Sign Up" />
+            <Button type="submit" className={css.buttonSignUp} text="Sign Up" />
           </Link>
           <Link to="/signin">
-            <Button type="submit" text="Sign In" />
+            <Button type="submit" className={css.buttonSignIn} text="Sign In" />
           </Link>
         </div>
       </div>
       <BackgroundImage />
-    </>
+    </Container>
   );
 };
 

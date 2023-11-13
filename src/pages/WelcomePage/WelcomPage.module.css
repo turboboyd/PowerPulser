@@ -1,11 +1,9 @@
-
+/* 
 .wrapper {
   margin-top: 32px;
 }
 
-.logo {
-  margin-top: 32px;
-}
+
 
 .title {
   padding-top: 90px;
@@ -19,6 +17,7 @@
     line-height: 111.429%;
     letter-spacing: 0.7px;
   }
+  
   @media screen and (min-width: 1440px) {
     padding-top: 152px;
     margin-right: 76px;
@@ -29,19 +28,111 @@
 .buttonWrapper {
   margin-top: 52px;
   margin-bottom: 246px;
-  @media screen and (min-width: 768px) {
-    margin-top: 80px;
-  }
 }
 
 .link {
   margin-right: 14px;
+
 }
 
-.svg {
+
+
+
+
+.logo {
+  margin-top: 154px;
+}
+
+
+
+/*===================MOBILE */
+.title {
+    width: 335px;
+  font-size: 38px;
+  font-weight: 500;
+  letter-spacing: 0.38px;
+}
+
+.wrapper {
+    margin-top: 127px;
+}
+
+.buttonWrapper {
+  display: flex;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+  .body-text {
+  position: relative;
+}
+
+.exerciseArrowSvg {
   position: absolute;
-  top: 372px;
-  left: 121px;
+  top: 290px;
+  left: 72px;
   width: 185px;
   height: 67px;
+} 
+
+
+.buttonSignUp {
+  width: 136px;
+  background-color: transparent;
+  border: 1px solid #EFEDE8;
+  opacity: 0.7;
+  transition: background-color 0.2s;
+}
+
+.buttonSignIn {
+  width: 130px;
+  background-color: transparent;
+  border: 1px solid #EFEDE8;
+  opacity: 0.7;
+  transition: background-color 0.2s;
+}
+
+.buttonSignUp:hover,
+.buttonSignUp:focus {
+  background-color: #E6533C;
+}
+
+.buttonSignIn:hover,
+.buttonSignIn:focus {
+  background-color: #E6533C;
+}
+
+
+.icon {
+  width: 140px;
+}
+
+@media screen and (min-width: 375px) {
+
+}
+
+
+
+/* ===============TABLET */
+
+/* ==============DESKTOP */
+
+@media screen and (min-width: 1440px) {
+  .wrapper {
+    margin-top: 152px;
+    margin-right: 76px;
+    width: 598px;
+  }
+
+  .body-text {
+  position: relative;
+}
+
+.exerciseArrowSvg {
+  position: absolute;
+  top: 290px;
+  left: 72px;
+  width: 185px;
+  height: 67px;
+} 
 }
