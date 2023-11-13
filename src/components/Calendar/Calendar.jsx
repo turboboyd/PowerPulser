@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import styled from "styled-components";
-import DayDashboard from "./DayDashboard";
-import DayExercises from "./DayExercises";
-import DayProducts from "./DayProducts";
+import DayDashboard from "../DayDashboard";
+import DayExercises from "../DayExercises";
+import DayProducts from "../DayProducts";
 
 const Container = styled.div`
   display: flex;
@@ -14,6 +14,12 @@ const Container = styled.div`
 const CalendarIcon = styled.span`
   margin-right: 10px;
   cursor: pointer;
+`;
+
+const StyledDatePicker = styled(DatePicker)`
+  border: 1px solid #efa082;
+  border-radius: 4px;
+  padding: 5px;
 `;
 
 const ParentComponent = ({ user }) => {
@@ -34,6 +40,7 @@ const ParentComponent = ({ user }) => {
   };
 
   const toggleCalendar = () => {
+    console.log("Calendar is toggled");
     setCalendarOpen(!calendarOpen);
   };
 
@@ -45,7 +52,7 @@ const ParentComponent = ({ user }) => {
         <div onClick={toggleCalendar}>
           <span>{selectedDate.toLocaleDateString("en-GB")}</span>
           {calendarOpen && (
-            <DatePicker
+            <StyledDatePicker
               selected={selectedDate}
               onChange={(date) => {
                 setSelectedDate(date);
