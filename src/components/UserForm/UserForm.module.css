@@ -1,0 +1,150 @@
+.formWrapper {
+  margin-top: 20px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 40px;
+    width: 700px;
+  }
+  @media screen and (min-width: 768px) {
+    margin-top: 32px;
+  }
+}
+
+.titleName {
+  margin-bottom: 4px;
+  font-size: 12px;
+  color: rgba(239, 237, 232, 0.5);
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+}
+
+.input {
+  align-items: center;
+  width: 335px;
+  padding: 14px;
+  gap: 10px;
+  font-family: Roboto;
+  font-size: 14;
+  line-height: 1.28;
+  border-radius: 12px;
+  border: var(--border-input);
+  background-color: transparent;
+  color: var(--white);
+
+  @media screen and (min-width: 1440px) {
+    font-size: 16;
+    line-height: 1.5;
+  }
+}
+
+.inputEmail {
+  margin-top: 14px;
+  color: rgba(239, 237, 232, 0.6);
+}
+
+.inputContainer {
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    gap: 32px;
+  }
+}
+
+.inputWrapper {
+  display: inline-flex;
+  align-items: flex-end;
+  margin-top: 14px;
+  gap: 14px;
+}
+
+.fieldContainer {
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.labelInput {
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(239, 237, 232, 0.5);
+}
+
+.field {
+  align-items: center;
+  width: 160px;
+  padding: 14px;
+  gap: 10px;
+  border-radius: 12px;
+  border: var(--border-input);
+  background-color: transparent;
+  color: var(--white);
+
+  @media screen and (min-width: 768px) {
+    margin-top: 8px;
+  }
+}
+
+.radioWrapper {
+  display: flex;
+  flex-wrap: wrap;
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: column;
+  }
+}
+
+.titleBlood {
+  margin-top: 20px;
+}
+.radioContainer {
+  display: flex;
+}
+.radioBloodContainer {
+  display: flex;
+  margin-right: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 32px;
+  }
+}
+
+.radioSexContainer {
+  display: flex;
+}
+
+.levelActivityWrapper {
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 32px;
+    margin-bottom: 38px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 48px;
+  }
+}
+
+.levelInput {
+  margin-right: 0;
+}
+
+.buttonSave {
+  padding: 16px 50px;
+  width: 144px;
+}
