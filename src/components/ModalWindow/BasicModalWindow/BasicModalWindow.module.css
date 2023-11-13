@@ -27,16 +27,12 @@
   right: 14px;
   background-color: transparent;
   border: none;
+}
 
-  &:hover svg {
-    stroke: var(--orange);
-    scale: 1.2;
-  }
-
-  &:focus svg {
-    stroke: var(--orange);
-    scale: 1.2;
-  }
+.button svg:hover,
+.button svg:focus {
+  stroke: var(--orange);
+  scale: 1.2;
 }
 
 .iconClose {

@@ -1,18 +1,26 @@
-import productsData from '../../RESOURCES/resources/products.json';
+import { useDispatch, useSelector } from 'react-redux'
+import { selectProducts } from './../../redux/products/productsSelectors'
+import { useEffect } from 'react'
+import { fetchProducts } from './../../redux/products/productsOperations'
 
-import css from './../ExercisesList/ExercisesList.module.css';
-import ProductsItem from '../ProductsItem/ProductsItem';
+import ProductsItem from '../ProductsItem/ProductsItem'
+import css from './../ExercisesList/ExercisesList.module.css'
 
 const ProductsList = () => {
-  const products = productsData.slice(0, 20);
+  const dispatch = useDispatch()
+  const products = useSelector(selectProducts)
+
+  useEffect(() => {
+    dispatch(fetchProducts())
+  }, [dispatch])
 
   return (
     <div className={css.cardContainer}>
-      {products.map((product) => (
-        <ProductsItem key={product.id} product={product} />
-      ))}
+      {products.items.map((product) => {
+        return <ProductsItem key={product._id} product={product} />
+      })}
     </div>
-  );
-};
+  )
+}
 
-export default ProductsList;
+export default ProductsList

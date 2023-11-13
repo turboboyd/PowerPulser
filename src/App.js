@@ -15,8 +15,7 @@ function App() {
   const { isRefreshing, isVerify } = useAuth();
 
 
-
-   useEffect(() => {
+  useEffect(() => { 
     dispatch(refreshUser());
   }, [dispatch]);
 
