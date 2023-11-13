@@ -1,0 +1,32 @@
+.diaryPage {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 80px;
+  margin-top: 40px;
+}
+
+@media (min-width: 768px) {
+  .diaryPage {
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  .sectionWrap {
+    margin-top: 32px;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 1440px) {
+  .sectionWrap {
+    margin-top: 32px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+  }
+}
