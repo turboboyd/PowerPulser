@@ -2,18 +2,26 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import styled from "styled-components";
-import DayDashboard from "../DayDashboard";
-import DayExercises from "../DayExercises";
-import DayProducts from "../DayProducts";
+import DayDashboard from '../DayDashboard/DayDashboard';
+import DayExercises from '../DayExercises/DayExercises';
+import DayProducts from '../DayProducts/DayProducts';
+import CalendarIconPNG from '../../images/calendar.png';
 
 const Container = styled.div`
   display: flex;
   align-items: center;
+  margin-right: 10px;
 `;
 
 const CalendarIcon = styled.span`
-  margin-right: 10px;
   cursor: pointer;
+  color: orange;
+  font-size: 1.2em;
+  margin-right: 10px;
+  background: url(${CalendarIconPNG}) no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
 `;
 
 const StyledDatePicker = styled(DatePicker)`
@@ -34,10 +42,12 @@ const ParentComponent = ({ user }) => {
   };
 
   const handleNextDay = () => {
-    const nextDate = new Date(selectedDate);
-    nextDate.setDate(nextDate.getDate() + 1);
+  const nextDate = new Date(selectedDate);
+  nextDate.setDate(nextDate.getDate() + 1);
+  if (nextDate <= new Date()) {
     setSelectedDate(nextDate);
-  };
+  }
+};
 
   const toggleCalendar = () => {
     console.log("Calendar is toggled");
@@ -46,30 +56,27 @@ const ParentComponent = ({ user }) => {
 
   return (
     <div>
-      <Container>
+      <div onClick={toggleCalendar}>
+        <span>{selectedDate.toLocaleDateString("en-GB")}</span>
+      </div>
+      {calendarOpen && (
+        <div>
+          <StyledDatePicker
+            selected={selectedDate}
+            onChange={(date) => {
+              setSelectedDate(date);
+              toggleCalendar();
+            }}
+            minDate={userRegistrationDate}
+            maxDate={new Date()} 
+          />
+        </div>
+      )}
+      <div>
         <CalendarIcon onClick={handlePrevDay}>{"<"}</CalendarIcon>
         <CalendarIcon onClick={handleNextDay}>{">"}</CalendarIcon>
-        <div onClick={toggleCalendar}>
-          <span>{selectedDate.toLocaleDateString("en-GB")}</span>
-          {calendarOpen && (
-            <StyledDatePicker
-              selected={selectedDate}
-              onChange={(date) => {
-                setSelectedDate(date);
-                toggleCalendar();
-              }}
-              minDate={userRegistrationDate}
-              maxDate={new Date()}
-            />
-          )}
-        </div>
-      </Container>
-
-      <DayDashboard selectedDate={selectedDate} />
-      <DayExercises selectedDate={selectedDate} />
-      <DayProducts selectedDate={selectedDate} />
+      </div>
     </div>
   );
-};
-
+}
 export default ParentComponent;
