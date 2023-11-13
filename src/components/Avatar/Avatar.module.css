@@ -1,0 +1,28 @@
+.avatarWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 100px;
+  border: var(--border-accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconAvatar {
+  fill: var(--background-avatar);
+}
+.iconUpload {
+  position: relative;
+  top: -13px;
+  left: 0px;
+  width: 24px;
+  height: 24px;
+}

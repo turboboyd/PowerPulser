@@ -1,0 +1,36 @@
+.iconWarning {
+  width: 24px;
+  height: 24px;
+  fill: var(--beige);
+  stroke: var(--white);
+  stroke-width: 0;
+}
+.svg_logout {
+  width: 20px;
+  height: 20px;
+  stroke: var(--orange);
+}
+.logout {
+  display: flex;
+  line-height: 1.5;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  line-height: 1.5;
+  color: var(--white);
+}
+
+.warningWrap {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.warningText {
+  color: rgba(239, 237, 232, 0.3);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.28;
+
+  max-width: 303px;
+}
