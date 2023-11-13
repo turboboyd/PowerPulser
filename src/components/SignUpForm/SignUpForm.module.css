@@ -27,7 +27,7 @@
     display: block;
   }
   &.error svg[data-status="error"] {
-    display: block;
+    /* display: block; */
   }
   &:not(:last-child):not(.error):not(.success) {
     margin-bottom: 14px;
@@ -85,6 +85,9 @@
   width: 16px;
   height: 16px;
   fill: var(--border-error);
+}
+.fieldWrapper.error .svgError {
+  display: block;
 }
 
 .svgSuccess {
