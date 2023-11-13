@@ -28,7 +28,7 @@
 
 .exerciseArrow:hover,
 .exerciseArrow:focus {
-  color: var(--white);
+  color: var(--header-white-color);
   transform: scale(1.1);
   transition: transform 0.3s ease;
 }
@@ -85,7 +85,7 @@
 
 @media (min-width: 1200px) {
   .cardContainer {
-    min-width: 850px;
+    width: 850px;
   }
   .cardContainerBackground {
     display: flex;
