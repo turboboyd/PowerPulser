@@ -17,7 +17,6 @@
   display: flex;
   gap: 8px;
   color: #efede8;
-  font-family: Roboto;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -25,7 +24,6 @@
 }
 
 .exerciseCardTopDiet {
-  font-family: Roboto;
   font-size: 12px;
   font-weight: 700;
   line-height: normal;
@@ -43,7 +41,6 @@
   color: var(--orange);
   background: none;
   border: none;
-  font-family: Roboto;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.28;
@@ -90,7 +87,6 @@
   overflow: hidden;
   white-space: nowrap;
   max-width: 240px;
-  font-family: Roboto;
   font-size: 20px;
   font-weight: 400;
   line-height: 1.2;
@@ -104,7 +100,6 @@
   display: flex;
   column-gap: 16px;
   color: rgba(239, 237, 232, 0.4);
-  font-family: Roboto;
   font-size: 12px;
   font-weight: 400;
   line-height: 1.5;
@@ -148,8 +143,6 @@
   margin-right: 16px;
   gap: 8px;
   color: #efede8;
-
-  font-family: Roboto;
   font-size: 12px;
   font-weight: 400;
   line-height: 1.5;
@@ -174,7 +167,7 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1440px) {
   .exerciseWrapper {
     width: 405px;
   }
