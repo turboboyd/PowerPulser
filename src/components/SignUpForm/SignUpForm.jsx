@@ -22,9 +22,9 @@ const initialValues = {
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
+
   const { isVerify, user } = useAuth();
-  console.log('isVerify: ', isVerify);
-  console.log('user: ', user);
+
 
   const handleSubmit = ({ name, email, password }, { resetForm }) => {
     dispatch(registrationUser({ name, email, password }));

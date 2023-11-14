@@ -1,6 +1,6 @@
-import React from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-
+import { Link, useNavigate } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { SignInSchema, SignUpSchema } from "../../utils/shemas";
 import { useState } from "react";
@@ -11,6 +11,7 @@ import Button from "../Button/Button";
 import { loginUser } from "../../redux/auth/authOperation";
 import Icon from "../ComponIcon/Icon";
 import { useAuth } from "../../hooks/useAuth";
+import { DIARY_ROUTE, PROFILE_ROUTE } from "../../utils/const";
 
 const initialValues = {
   email: "",
@@ -21,16 +22,26 @@ const SignInForm = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
+  const navigate = useNavigate();
+
   const { isVerify, user } = useAuth();
   console.log("isVerify: ", isVerify);
   console.log("user: ", user);
 
   const handleSubmit = ({ email, password }, { resetForm }) => {
-    console.log('email, password : ', email, password );
+    console.log("email, password : ", email, password);
     dispatch(loginUser({ email, password }));
     resetForm();
   };
 
+  useEffect(() => {
+    if (isVerify && !user.profile_settings) {
+      navigate(PROFILE_ROUTE);
+    }
+    if (isVerify && user.profile_settings) {
+      navigate(DIARY_ROUTE);
+    }
+  }, [isVerify, navigate, user.profile_settings]);
   return (
     <>
       <Formik
