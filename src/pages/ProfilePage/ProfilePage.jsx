@@ -6,12 +6,10 @@ import css from "./ProfilePage.module.css";
 const ProfilePage = () => {
   return (
     <>
-      <div className={css.pageWrapper}>
-        <TitlePage title="Profile Settings" />
-        <div className={css.container}>
-          <UseForm />
-          <UserCard />
-        </div>
+      <TitlePage title="Profile Settings" className={css.title} />
+      <div className={css.container}>
+        <UseForm />
+        <UserCard />
       </div>
     </>
   );

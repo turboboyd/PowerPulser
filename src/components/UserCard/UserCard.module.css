@@ -6,7 +6,9 @@
   }
 
   @media screen and (min-width: 1440px) {
-    margin-top: 32px;
+    margin-top: 27px;
+    padding-left: 49px;
+    border-left: var(--border-solid-color);
   }
 }
 
@@ -75,7 +77,7 @@
   background: transparent;
   color: var(--white);
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
     margin-right: 155px;
   }
 }

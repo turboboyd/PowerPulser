@@ -1,5 +1,5 @@
-.pageWrapper {
-  padding-top: 40px;
+.title {
+  margin-bottom: 40px;
 }
 
 .container {
@@ -8,6 +8,6 @@
 
   @media screen and (min-width: 1440px) {
     flex-direction: row;
-    /* justify-content: space-between; */
+    justify-content: space-between;
   }
 }
