@@ -1,0 +1,6 @@
+.exercisesContainer {
+  display: flex;
+  gap: 32px 15px;
+  align-items: center;
+  flex-wrap: wrap;
+}
