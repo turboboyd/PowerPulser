@@ -32,7 +32,7 @@ export const verifyUser = createAsyncThunk('auth/verifyUser', async (verificatio
     }
 });
 
-export const resendVerifyUser = createAsyncThunk('auth/verifyUser', async (credentials, thunkAPI) => {
+export const resendVerifyUser = createAsyncThunk('auth/verifyUser1', async (credentials, thunkAPI) => {
     // credentials: {
     //     email: string;
     // };
