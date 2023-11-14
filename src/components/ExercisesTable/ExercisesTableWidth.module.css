@@ -1,0 +1,41 @@
+@media (min-width: 768px) {
+  .widthBody {
+    width: 90px;
+  }
+  .widthEquipment {
+    width: 132px;
+  }
+  .widthName {
+    width: 128px;
+  }
+  .widthTarget {
+    width: 84зч;
+  }
+  .widthBurned {
+    width: 78px;
+  }
+  .widthTime {
+    width: 72px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .widthBody {
+    width: 115px;
+  }
+  .widthEquipment {
+    width: 157px;
+  }
+  .widthName {
+    width: 131px;
+  }
+  .widthTarget {
+    width: 106px;
+  }
+  .widthBurned {
+    width: 91px;
+  }
+  .widthTime {
+    width: 82px;
+  }
+}

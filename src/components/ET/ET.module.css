@@ -1,0 +1,111 @@
+.diaryMainItem {
+  margin-bottom: 40px;
+}
+
+.table {
+  width: 100%;
+}
+
+.element {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.elementWrap {
+  display: flex;
+  gap: 16px;
+}
+
+.nameCategory {
+  max-width: 70px;
+
+  color: #ef8964;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.nameValue {
+  padding: 10px 14px;
+
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.3);
+
+  color: #efede8;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.28;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.elementWrap .nameValue {
+  width: 75px;
+}
+
+.elementWrap .nameValue:not(:last-child) {
+  width: auto;
+}
+
+.trashImg {
+  width: 20px;
+  height: 20px;
+}
+
+.nameTrash {
+  visibility: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .diaryMainItem:not(:first-child) .nameCategory {
+    display: none;
+  }
+
+  .diaryMainItem {
+    margin-bottom: 8px;
+  }
+
+  .table {
+    display: flex;
+    gap: 8px;
+  }
+
+  .element {
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .elementWrap {
+    gap: 8px;
+  }
+
+  .bodyTable {
+    display: flex;
+    gap: 8px;
+  }
+
+  .bodyTable .nameValue {
+    width: 120px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .bodyTable .nameValue {
+    width: 140px;
+  }
+
+  .elementWrap .nameValue {
+  width: 90px;
+}
+}
