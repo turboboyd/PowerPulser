@@ -1,0 +1,15 @@
+.exerciseItemWrap {
+  position: relative;
+}
+
+.exerciseItem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.exerciseItemWrap img {
+  width: 237px;
+  height: 206px;
+}
