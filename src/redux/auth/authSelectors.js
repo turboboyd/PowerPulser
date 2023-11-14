@@ -3,3 +3,5 @@ export const selectIsVerify = state => state.auth.isVerify;
 export const selectIsLoading = state => state.auth.isLoading;
 export const selectIsRefreshing = state => state.auth.isRefreshing;
 
+export const selectStatus = state => state.auth.status;
+
