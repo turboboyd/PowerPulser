@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate, useResolvedPath } from 'react-router-dom';
 import css from './ExercisesCategories.module.css'
-import { EXERCISES_ROUTE, WELCOME_PAGE_ROUTE } from '../../utils/const';
+import { CATEGORIES_FILTER, EXERCISES_ROUTE, WELCOME_PAGE_ROUTE } from '../../utils/const';
 
-const categoryFilters = ['Body parts', 'Muscles', 'Equipment']
+
 const ExercisesCategories = ({ category: initialCategory, setCategory }) => {
   const [category, setInitialCategory] = useState(initialCategory || categoryFilters[0]);
     const path = useResolvedPath();
@@ -21,17 +21,17 @@ const ExercisesCategories = ({ category: initialCategory, setCategory }) => {
       }, [path.pathname]); 
 
      useEffect(() => {
-        handleButtonClick(categoryFilters[0]);
+        handleButtonClick(CATEGORIES_FILTER[0]);
     }, []); 
 
     const handleButtonClick = (value) => {
       setInitialCategory(value);
       setCategory(value);   
     };
-  
+
     return (
           <ul className={css.list}>
-              {categoryFilters.map((filter, index) => {
+              {CATEGORIES_FILTER.map((filter, index) => {
                   return (<li key={index} className={css.item} >
                       <button
                           type='button'
