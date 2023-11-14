@@ -12,6 +12,7 @@ const ProductsPage = () => {
 
       <ProductsFilter/>
       <ProductsList />
+        <ProductsList />
       <ProductsBackgroundImage />
 
     </>
