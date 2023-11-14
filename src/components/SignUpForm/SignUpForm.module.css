@@ -26,9 +26,9 @@
   &.success svg[data-status="success"] {
     display: block;
   }
-  &.error svg[data-status="error"] {
-    /* display: block; */
-  }
+  /* &.error svg[data-status="error"] {
+    display: block;
+  } */
   &:not(:last-child):not(.error):not(.success) {
     margin-bottom: 14px;
   }
