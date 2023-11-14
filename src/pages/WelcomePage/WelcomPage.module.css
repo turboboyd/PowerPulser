@@ -62,6 +62,7 @@
 }
 /* ==============button info callories */
 
+@media screen and (min-width: 320px) {
 .calButton {
  width: 119px;
  height: 76px;
@@ -74,8 +75,8 @@
 
 
 .calIcon {
-  width: 20px; 
-  height: 20px; 
+  width: 12px; 
+  height: 12px; 
   background-color: #EFA082; 
   border-radius: 50%; 
 
@@ -132,8 +133,8 @@
   border-radius: 50%; 
 
   fill: white;
-  left: 53px;
-  top: 360px;
+  left: 143px;
+  top: 580px;
 }
 
 .smallTextPlay {
@@ -145,10 +146,19 @@
     align-self:baseline
 }
 
-
-
 .boldTextPlay {
     align-self: flex-start; 
+}
+
+.polygon {
+  margin-top: 220px;
+  margin-left: 90px;
+}
+
+.runner {
+  margin-left: 200px;
+  margin-top: 80px;
+}
 }
 
 
@@ -189,8 +199,69 @@
   gap: 20px;
   margin-top: 50px;
 }
+/* ===============button play */
+.iconPlay {
+    width: 40px; 
+  height: 40px; 
+  fill: white;
+  left: 345px;
+  top: 740px;
+}
+
+.boldTextPlay {
+  font-size: 24px;
+}
+
+.smallTextPlay {
+  font-size: 16px;
+}
+
+.buttonPlay {
+ width: 206px;
+ height: 96px;
+  cursor: pointer;
+}
+
+.polygon {
+  margin-top: 180px;
+  margin-left: 280px;
+}
+
+.textPlay {
+  margin-left: 75px;
+}
+
+/* ============button runner */
+.calIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.runner {
+  margin-left: 200px;
+  margin-top: 80px;
+}
+
+.calButton {
+ width: 180px;
+ height: 110px;
+}
+
+.boldText {
+  font-size: 48px;
+}
+
+.smallText {
+  font-size: 16px;
+}
+
+.runner {
+  margin-left: 500px;
+  margin-top: 80px;
+}
 
 }
+
 
 
 /* ==============DESKTOP */
@@ -202,12 +273,33 @@
   }
 
 
+
+
 .exerciseArrowSvg {
  left: 73px;
    top: 285px;
   width: 230px;
   height: 67px;
 } 
+
+.iconPlay {
+
+  left: 15px;
+  top: 30px;
+}
+
+.runner {
+  position: absolute;
+  top: 455px;
+  right: 40px;
+}
+
+
+.polygon {
+  position: absolute;
+    top: 215px;
+  left: 500px;
+}
 }
 
 
