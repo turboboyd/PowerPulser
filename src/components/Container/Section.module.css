@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  overflow: hidden;
+  /* overflow-x: hidden; */
   margin: 0 auto;
   width: 375px;
   min-height: 812px;
