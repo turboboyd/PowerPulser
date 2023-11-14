@@ -1,8 +1,8 @@
 import { lazy } from "react";
 export const WelcomePage = lazy(() => import("./WelcomePage/WelcomePage"));
-// export const AuthPage = lazy(() => import("./AuthPage/AuthPage"));
-export const SignUpPage = lazy(() => import("./SignUpPage/SignUpPage"));
-export const SignInPage = lazy(() => import("./SignInPage/SignInPage"));
+export const AuthPage = lazy(() => import("./AuthPage/AuthPage"));
+// export const SignUpPage = lazy(() => import("./SignUpPage1/SignUpPage"));
+// export const SignInPage = lazy(() => import("./SignInPage1/SignInPage"));
 export const DiaryPage = lazy(() => import("./DiaryPage/DiaryPage"));
 export const ExercisesPage = lazy(() =>
   import("./ExercisesPage/ExercisesPage")
