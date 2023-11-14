@@ -1,0 +1,22 @@
+@media screen and (min-width: 1440px) {
+  .productsBgImg {
+    position: absolute;
+    z-index: -1;
+    width: 807px;
+    height: 716px;
+    top: 0px;
+    left: 942px;
+    border: 1px solid var(--black-color);
+    background-image: var(--background-linear-gradient-products),
+      url('../../../images/background/bg-products-desktop-1x.jpg');
+    background-repeat: no-repeat;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .backgroundContainer::after {
+      background-image: url('../../../images/background/bg-products-desktop-2x.jpg');
+    }
+  }
+}
