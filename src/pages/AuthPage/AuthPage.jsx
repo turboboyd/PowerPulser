@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import css from "../SignUpPage/SignUpPage.module.css";
+import css from "./AuthPage.module.css";
 import BackgroundImage from "../../components/BackgroundImage/BackgroundImage";
 import { SIGN_IN_ROUTE, SIGN_UP_ROUTE } from "../../utils/const";
 import SignUpForm from "../../components/Form/SignUpForm/SignUpForm";
