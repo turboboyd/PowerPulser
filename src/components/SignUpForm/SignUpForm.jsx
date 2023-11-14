@@ -1,12 +1,15 @@
 import React, { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import SignUpSchema from "../../utils/shemas/ShemaForm/SignUpSchema";
+
 import css from "./SignUpForm.module.css";
 import Button from "../Button/Button";
 import Icon from "../ComponIcon/Icon";
 import FormField from "../Form/FormField/FormField";
 import { registrationUser } from "../../redux/auth/authOperation";
+import { SignInSchema, SignUpSchema } from "../../utils/shemas";
+import { useAuth } from "../../hooks/useAuth";
+
 
 const initialValues = {
   name: "",
@@ -14,9 +17,15 @@ const initialValues = {
   password: "",
 };
 
+
+
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
+  const { isVerify, user } = useAuth();
+  console.log('isVerify: ', isVerify);
+  console.log('user: ', user);
+
   const handleSubmit = ({ name, email, password }, { resetForm }) => {
     dispatch(registrationUser({ name, email, password }));
     resetForm();

@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import SignInSchema from "../../utils/shemas/ShemaForm/SignInSchema";
+import { SignInSchema, SignUpSchema } from "../../utils/shemas";
 import { useState } from "react";
 
 import css from "../SignUpForm/SignUpForm.module.css";
@@ -10,6 +10,7 @@ import Button from "../Button/Button";
 
 import { loginUser } from "../../redux/auth/authOperation";
 import Icon from "../ComponIcon/Icon";
+import { useAuth } from "../../hooks/useAuth";
 
 const initialValues = {
   email: "",
@@ -20,7 +21,12 @@ const SignInForm = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
+  const { isVerify, user } = useAuth();
+  console.log("isVerify: ", isVerify);
+  console.log("user: ", user);
+
   const handleSubmit = ({ email, password }, { resetForm }) => {
+    console.log('email, password : ', email, password );
     dispatch(loginUser({ email, password }));
     resetForm();
   };
@@ -33,7 +39,7 @@ const SignInForm = () => {
         onSubmit={handleSubmit}
       >
         {(formik) => (
-          <Form className={css.form} autoComplete="off">
+          <Form className={css.form}>
             <div className={css.formWrapper}>
               <div
                 className={`${css.fieldWrapper} ${
