@@ -5,7 +5,7 @@ import { CATEGORIES_FILTER, EXERCISES_ROUTE, WELCOME_PAGE_ROUTE } from '../../ut
 
 
 const ExercisesCategories = ({ category: initialCategory, setCategory }) => {
-  const [category, setInitialCategory] = useState(initialCategory || categoryFilters[0]);
+  const [category, setInitialCategory] = useState(initialCategory || CATEGORIES_FILTER[0]);
     const path = useResolvedPath();
     const navigate = useNavigate();
     const currentPathNameRef = useRef(path.pathname);
