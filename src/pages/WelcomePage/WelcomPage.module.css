@@ -1,51 +1,24 @@
-/* 
-.wrapper {
-  margin-top: 32px;
-}
-
-
-
-.title {
-  padding-top: 90px;
-  font-size: 38px;
-  font-weight: 500;
-  line-height: 105.263%;
-  letter-spacing: 0.38px;
-  @media screen and (min-width: 768px) {
-    padding-top: 140px;
-    font-size: 70px;
-    line-height: 111.429%;
-    letter-spacing: 0.7px;
-  }
-  
-  @media screen and (min-width: 1440px) {
-    padding-top: 152px;
-    margin-right: 76px;
-    width: 598px;
-  }
-}
-
-.buttonWrapper {
-  margin-top: 52px;
-  margin-bottom: 246px;
-}
-
-.link {
-  margin-right: 14px;
-
-}
-
-
-
-
 
 .logo {
-  margin-top: 154px;
+  margin-top: 24px;
 }
 
 
+.buttonWrapper {
+  display: flex;
+  gap: 14px;
+  margin-top: 30px;
+}
 
-/*===================MOBILE */
+.wrapper {
+    margin-top: 80px;
+}
+
+.body-text {
+  position: relative;
+}
+
+
 .title {
     width: 335px;
   font-size: 38px;
@@ -53,25 +26,11 @@
   letter-spacing: 0.38px;
 }
 
-.wrapper {
-    margin-top: 127px;
-}
-
-.buttonWrapper {
-  display: flex;
-  gap: 16px;
-  margin-top: 30px;
-}
-
-  .body-text {
-  position: relative;
-}
-
 .exerciseArrowSvg {
   position: absolute;
-  top: 290px;
-  left: 72px;
-  width: 185px;
+  top: 155px;
+  left: 22px;
+  width: 105px;
   height: 67px;
 } 
 
@@ -101,19 +60,138 @@
 .buttonSignIn:focus {
   background-color: #E6533C;
 }
+/* ==============button info callories */
 
-
-.icon {
-  width: 140px;
+.calButton {
+ width: 119px;
+ height: 76px;
+  background-color: #EF8964;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
 }
 
-@media screen and (min-width: 375px) {
 
+.calIcon {
+  width: 20px; 
+  height: 20px; 
+  background-color: #EFA082; 
+  border-radius: 50%; 
+
+  fill: white;
+}
+
+.textSvg {
+  display: flex;
+  margin-left: 18px;
+  align-items: flex-start;  
+}
+
+.boldText {
+  position: relative;
+  font-weight: 700;
+  font-size: 24px;
+    align-self: flex-end; 
+}
+
+
+.smallText {
+  font-size: 12px;
+  margin-left: 5px;
+  font-weight: 700;
+  color: #EFEDE8;
+  opacity: 0.65;
+    align-self: flex-end;  
+}
+
+/* ============button play */
+
+.buttonPlay {
+ width: 146px;
+ height: 66px;
+  background-color: #303030;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.textPlay {
+  margin-left: 56px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.iconPlay {
+  position: absolute;
+  width: 20px; 
+  height: 20px; 
+  background-color: #EF8964; 
+  border-radius: 50%; 
+
+  fill: white;
+  left: 53px;
+  top: 360px;
+}
+
+.smallTextPlay {
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #EFEDE8;
+  opacity: 0.65;
+    align-self:baseline
+}
+
+
+
+.boldTextPlay {
+    align-self: flex-start; 
 }
 
 
 
 /* ===============TABLET */
+
+@media screen and (min-width: 768px) {
+.logo {
+  margin-top: 32px;
+}
+.wrapper {
+    margin-top: 130px;
+}
+
+.title {
+    width: 598px;
+  font-size: 70px;
+  font-weight: 500;
+}
+
+.buttonSignUp {
+  width: 190px;
+}
+
+.buttonSignIn {
+  width: 182px;
+}
+
+.exerciseArrowSvg {
+  top: 265px;
+  left: 13px;
+  width: 230px;
+  height: 67px;
+} 
+
+.buttonWrapper {
+  display: flex;
+  gap: 20px;
+  margin-top: 50px;
+}
+
+}
+
 
 /* ==============DESKTOP */
 
@@ -121,18 +199,16 @@
   .wrapper {
     margin-top: 152px;
     margin-right: 76px;
-    width: 598px;
   }
 
-  .body-text {
-  position: relative;
-}
 
 .exerciseArrowSvg {
-  position: absolute;
-  top: 290px;
-  left: 72px;
-  width: 185px;
+ left: 73px;
+   top: 285px;
+  width: 230px;
   height: 67px;
 } 
 }
+
+
+
