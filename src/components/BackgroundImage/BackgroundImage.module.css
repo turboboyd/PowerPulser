@@ -41,7 +41,7 @@
 
 @media screen and (min-width: 1440px) {
   .bgImg {
-    top: -152px;
+    top: -216px;
     left: 770px;
     background-image: var(--desk-background-linear-gradient), url("../../images/background/bg-img-tablet-1x.jpg");
   }
