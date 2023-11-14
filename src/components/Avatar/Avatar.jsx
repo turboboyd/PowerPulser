@@ -14,7 +14,7 @@ const Avatar = () => {
         <div className={css.avatar}>
           <Icon className={css.iconAvatar} iconId={"icon-avatar"} />
         </div>
-        <form action="">
+        <form className={css.form}>
           <input
             type="file"
             name="file"
@@ -26,8 +26,8 @@ const Avatar = () => {
             <Icon className={css.iconUpload} iconId={"icon-add-avatar"} />
           </label>
         </form>
-        <p>{user.name}</p>
-        <p>User</p>
+        <p className={css.textUserName}>{user.name}</p>
+        <p className={css.textUser}>User</p>
       </div>
     </>
   );

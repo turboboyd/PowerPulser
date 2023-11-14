@@ -1,3 +1,27 @@
+.avatarWrapper {
+  margin-top: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 64px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-top: 32px;
+  }
+}
+
+.statisticsWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 32px;
+  }
+}
+
 .iconWarning {
   width: 24px;
   height: 24px;
@@ -5,32 +29,53 @@
   stroke: var(--white);
   stroke-width: 0;
 }
-.svg_logout {
-  width: 20px;
-  height: 20px;
-  stroke: var(--orange);
-}
-.logout {
-  display: flex;
-  line-height: 1.5;
-  gap: 8px;
-  border: none;
-  background: transparent;
-  line-height: 1.5;
-  color: var(--white);
-}
 
 .warningWrap {
   display: flex;
   gap: 8px;
   align-items: flex-start;
+  margin-bottom: 40px;
+  @media screen and (min-width: 768px) {
+    justify-content: center;
+    margin-bottom: 32px;
+  }
 }
 
 .warningText {
-  color: rgba(239, 237, 232, 0.3);
+  font-family: Roboto;
   font-size: 14px;
   font-weight: 400;
-  line-height: 1.28;
+  line-height: 1.29;
 
   max-width: 303px;
+  color: rgba(239, 237, 232, 0.3);
+  @media screen and (min-width: 768px) {
+    max-width: 360px;
+  }
+}
+
+.svg_logout {
+  width: 20px;
+  height: 20px;
+  stroke: var(--orange);
+}
+
+.logout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  gap: 8px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.29;
+  border: none;
+  background: transparent;
+  color: var(--white);
+
+  @media screen and (min-width: 768px) {
+    margin-right: 155px;
+  }
 }

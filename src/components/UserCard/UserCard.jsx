@@ -20,10 +20,11 @@ const UserCard = () => {
 
   return (
     <>
-      <div>
+      <div className={css.avatarWrapper}>
         <Avatar />
-        <div>
+        <div className={css.statisticsWrapper}>
           <StatisticsItem
+            className={css.statistics}
             statisticsName={"Daily calorie intake"}
             statisticsValue={"0"}
             statisticsIcon={"Fluent_food"}
