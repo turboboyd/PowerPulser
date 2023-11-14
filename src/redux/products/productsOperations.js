@@ -5,9 +5,9 @@ import { token } from "../services/tokenAPI";
 import { tokenState } from "../services/tokenState";
 
 export const fetchProducts = createAsyncThunk('products/fetchProducts',
-    async (credentials, thunkAPI) => {
+    async (params, thunkAPI) => {
         try {
-            const paramsURL = Object.keys(credentials).map(key => `${key}=${credentials[key]}`).join('&')
+            const paramsURL = Object.keys(params).map(key => `${key}=${params[key]}`).join('&')
             
             token.set(tokenState(thunkAPI));
             const { data } = await instance.get(`${BACKEND_PRODUCT_URL}?${paramsURL}`);
