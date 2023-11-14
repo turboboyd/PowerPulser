@@ -3,9 +3,6 @@ import { instance } from "../services/instanceAPI";
 import { token } from "../services/tokenAPI";
 import { BACKEND_LOGOUT_URL, BACKEND_PROFILE_URL, BACKEND_REFRESH_URL, BACKEND_SIGN_IN_URL, BACKEND_SIGN_UP_URL, BACKEND_VERIFY_URL } from "../../utils/const";
 import { tokenState } from "../services/tokenState";
-// import { toast } from 'react-toastify';
-
-//react-toastify не підключена бібліотека, прописано як один із варіантів нотіфікашки
 
 export const registrationUser = createAsyncThunk('auth/registrationUser', async (credentials, thunkAPI) => {
     // credentials: {
@@ -15,7 +12,6 @@ export const registrationUser = createAsyncThunk('auth/registrationUser', async 
     // };
     try {
         const { data } = await instance.post(BACKEND_SIGN_UP_URL, credentials);
-        // toast.success('REGISTRATION SUCCESS!', optionNotification);
         return data
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
@@ -51,7 +47,6 @@ export const loginUser = createAsyncThunk('auth/loginUser', async (credentials, 
     try {
         const { data } = await instance.post(BACKEND_SIGN_IN_URL, credentials);
         token.set(data.token)
-        // toast.success('LOGIN SUCCESS!', optionNotification);
         return data
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);

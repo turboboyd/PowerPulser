@@ -18,7 +18,7 @@ const productsSlice = createSlice({
     initialState: initialState,
     reducers: {
         setFilter: (state, { payload }) => {
-            state.filter = payload;
+            state.filters = payload;
         },
     },
     extraReducers: (builder) => {

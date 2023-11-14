@@ -11,8 +11,8 @@ import {
 } from "redux-persist";
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice'
+import { exercisesReducer } from "./exercises/exercisesSlice";
 import { productsReducer } from './products/productsSlice';
-// import { productsFilterReducer } from "./productsFilter/productsFilterSlice";
 
 
 const authPersistConfig = {
@@ -24,7 +24,7 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     products: productsReducer,
-    // productsFilter: productsFilterReducer,
+    exercises: exercisesReducer,
     auth: persistReducer(authPersistConfig, authReducer),
   },
   middleware: (getDefaultMiddleware) =>
