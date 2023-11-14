@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import SignInSchema from "../ShemaForm/SignInSchema";
+import SignInSchema from "../../utils/shemas/ShemaForm/SignInSchema";
 import { useState } from "react";
 
 import css from "../SignUpForm/SignUpForm.module.css";

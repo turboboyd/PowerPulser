@@ -1,13 +1,12 @@
 import React, { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import SignUpSchema from "../ShemaForm/SignUpSchema";
+import SignUpSchema from "../../utils/shemas/ShemaForm/SignUpSchema";
 import css from "./SignUpForm.module.css";
 import Button from "../Button/Button";
 import Icon from "../ComponIcon/Icon";
 import FormField from "../Form/FormField/FormField";
 import { registrationUser } from "../../redux/auth/authOperation";
-
 
 const initialValues = {
   name: "",
@@ -22,7 +21,7 @@ const SignUpForm = () => {
     dispatch(registrationUser({ name, email, password }));
     resetForm();
   };
-  
+
   const handleClick = useCallback(() => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   }, []);
