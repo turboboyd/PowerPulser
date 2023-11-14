@@ -10,11 +10,11 @@ const ExercisesCategories = ({ category: initialCategory, setCategory }) => {
     const navigate = useNavigate();
     const currentPathNameRef = useRef(path.pathname);
 
-    // useEffect(() => {
-    //     if (currentPathNameRef.current !== EXERCISES_ROUTE) {
-    //       navigate(WELCOME_PAGE_ROUTE);
-    //     }
-    //   }, [category, navigate]);
+    useEffect(() => {
+        if (currentPathNameRef.current !== EXERCISES_ROUTE) {
+          navigate(WELCOME_PAGE_ROUTE);
+        }
+      }, [category, navigate]);
 
       useEffect(() => {
         currentPathNameRef.current = path.pathname;
@@ -48,40 +48,3 @@ const ExercisesCategories = ({ category: initialCategory, setCategory }) => {
 export default ExercisesCategories;
 
 
-/* <div className={css.form_filter}>
-    <label className={css.label_filter}>
-      <input 
-                className={css.input_filter} 
-                type="radio" 
-                name="category" 
-                value="body" 
-                checked={category === 'body'}
-                onChange={handleOptionChange}
-                />
-      Body parts
-    </label>
-
-    <label className={css.label_filter}>
-    <input 
-                className={css.input_filter} 
-                type="radio" 
-                name="category" 
-                value="muscles" 
-                checked={category === 'muscles'}
-                onChange={handleOptionChange}
-                />
-      Muscles
-    </label>
-
-    <label className={css.label_filter}>
-    <input 
-                className={css.input_filter} 
-                type="radio" 
-                name="category" 
-                value="equipment" 
-                checked={category === 'equipment'}
-                onChange={handleOptionChange}
-                />
-      Equipment
-    </label>
-  </div> */
