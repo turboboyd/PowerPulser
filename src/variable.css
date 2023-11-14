@@ -15,6 +15,7 @@
   --border-error: 1px solid #d80027;
   --border-solid-color: 1px solid rgba(239, 237, 232, 0.2);
   --background-avatar: rgba(48, 48, 48, 0.3);
+  --color-no-activ: rgba(239, 237, 232, 0.40);
 
   --background-linear-gradient: linear-gradient(168deg, #040404 14.75%, rgba(4, 4, 4, 0.00) 52.97%), linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0.00) 66.68%);
   --desk-background-linear-gradient: linear-gradient(80deg, #040404 -2.45%, rgba(4, 4, 4, 0.00) 68.17%);

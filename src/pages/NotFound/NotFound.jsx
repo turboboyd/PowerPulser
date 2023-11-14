@@ -3,15 +3,13 @@ import { useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import sprite from "../../images/svg/InlineSprite.svg";
 import css from "./NotFound.module.css";
-// import Container from "../../components/Container/Container";
-// import Logo from "../../components/Logo/Logo";
 import Icon from "../../components/ComponIcon/Icon";
 import BackgroundImage from "../../components/BackgroundImage/BackgroundImage";
 
 const NotFound = () => {
   const location = useLocation();
   const goHomeLink = useRef(location?.state?.from ?? WELCOME_PAGE_ROUTE);
-
+  
   return (
     <>
         <div className={css.block_error}>
