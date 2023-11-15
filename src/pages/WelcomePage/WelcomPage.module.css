@@ -28,7 +28,7 @@
 
 .exerciseArrowSvg {
   position: absolute;
-  top: 155px;
+  top: 130px;
   left: 22px;
   width: 105px;
   height: 67px;
@@ -60,108 +60,18 @@
 .buttonSignIn:focus {
   background-color: #E6533C;
 }
-/* ==============button info callories */
-
-@media screen and (min-width: 320px) {
-.calButton {
- width: 119px;
- height: 76px;
-  background-color: #EF8964;
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-}
-
-
-.calIcon {
-  width: 12px; 
-  height: 12px; 
-  background-color: #EFA082; 
-  border-radius: 50%; 
-
-  fill: white;
-}
-
-.textSvg {
-  display: flex;
-  margin-left: 18px;
-  align-items: flex-start;  
-}
-
-.boldText {
-  position: relative;
-  font-weight: 700;
-  font-size: 24px;
-    align-self: flex-end; 
-}
-
-
-.smallText {
-  font-size: 12px;
-  margin-left: 5px;
-  font-weight: 700;
-  color: #EFEDE8;
-  opacity: 0.65;
-    align-self: flex-end;  
-}
-
-/* ============button play */
-
-.buttonPlay {
- width: 146px;
- height: 66px;
-  background-color: #303030;
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-}
-
-.textPlay {
-  margin-left: 56px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-.iconPlay {
-  position: absolute;
-  width: 20px; 
-  height: 20px; 
-  background-color: #EF8964; 
-  border-radius: 50%; 
-
-  fill: white;
-  left: 143px;
-  top: 580px;
-}
-
-.smallTextPlay {
-  margin-top: 4px;
-  font-size: 12px;
-  font-weight: 400;
-  color: #EFEDE8;
-  opacity: 0.65;
-    align-self:baseline
-}
-
-.boldTextPlay {
-    align-self: flex-start; 
-}
-
+  
 .polygon {
-  margin-top: 220px;
-  margin-left: 90px;
+  margin-top: 200px;
+  margin-left: 80px;
 }
-
 .runner {
-  margin-left: 200px;
-  margin-top: 80px;
-}
-}
+  margin-left: 220px;
+  margin-top: 120px;
 
-
+}
+ 
+ 
 
 /* ===============TABLET */
 
@@ -188,81 +98,23 @@
 }
 
 .exerciseArrowSvg {
-  top: 265px;
+  top: 235px;
   left: 13px;
   width: 230px;
   height: 67px;
 } 
-
-.buttonWrapper {
-  display: flex;
-  gap: 20px;
-  margin-top: 50px;
-}
-/* ===============button play */
-.iconPlay {
-    width: 40px; 
-  height: 40px; 
-  fill: white;
-  left: 345px;
-  top: 740px;
-}
-
-.boldTextPlay {
-  font-size: 24px;
-}
-
-.smallTextPlay {
-  font-size: 16px;
-}
-
-.buttonPlay {
- width: 206px;
- height: 96px;
-  cursor: pointer;
-}
-
+ 
 .polygon {
   margin-top: 180px;
   margin-left: 280px;
 }
-
-.textPlay {
-  margin-left: 75px;
-}
-
-/* ============button runner */
-.calIcon {
-  width: 16px;
-  height: 16px;
-}
-
 .runner {
-  margin-left: 200px;
+  margin-left: 700px;
   margin-top: 80px;
-}
-
-.calButton {
- width: 180px;
- height: 110px;
-}
-
-.boldText {
-  font-size: 48px;
-}
-
-.smallText {
-  font-size: 16px;
-}
-
-.runner {
-  margin-left: 500px;
-  margin-top: 80px;
-}
 
 }
 
-
+}
 
 /* ==============DESKTOP */
 
@@ -272,21 +124,13 @@
     margin-right: 76px;
   }
 
-
-
-
 .exerciseArrowSvg {
  left: 73px;
    top: 285px;
   width: 230px;
   height: 67px;
 } 
-
-.iconPlay {
-
-  left: 15px;
-  top: 30px;
-}
+ 
 
 .runner {
   position: absolute;
