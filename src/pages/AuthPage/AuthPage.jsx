@@ -11,7 +11,7 @@ const AuthPage = () => {
   const title = isLoginPage ? "Sign Up" : "Sign In";
   const titleLink = !isLoginPage ? "Sign Up" : "Sign In";
   const link = !isLoginPage ? SIGN_UP_ROUTE : SIGN_IN_ROUTE;
-  const text = isLoginPage
+  const text = !isLoginPage
     ? "Welcome! Please enter your credentials to login to the platform:"
     : " Thank you for your interest in our platform. To complete the registration process, please provide us with the following information.";
 
