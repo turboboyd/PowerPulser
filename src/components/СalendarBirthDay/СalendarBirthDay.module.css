@@ -1,0 +1,21 @@
+.datePicker {
+        align-items: center;
+        width: 160px;
+        padding: 14px;
+        gap: 10px;
+        border-radius: 12px;
+        border: var(--border-input);
+        background-color: transparent;
+        color: var(--white);
+        outline: none;
+
+    @media screen and (min-width: 1440px) {
+        font-size: 16;
+        line-height: 1.5;
+    }
+}
+
+.customCalendar {
+    /* Ваши стили для календаря */
+    /* Убедитесь, что эти стили совпадают с вашими стилями для остальных полей */
+}

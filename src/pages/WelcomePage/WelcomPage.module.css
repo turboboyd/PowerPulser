@@ -1,47 +1,150 @@
 
-.wrapper {
-  margin-top: 32px;
+.logo {
+  margin-top: 24px;
 }
 
+
+.buttonWrapper {
+  display: flex;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.wrapper {
+    margin-top: 80px;
+}
+
+.body-text {
+  position: relative;
+}
+
+
+.title {
+    width: 335px;
+  font-size: 38px;
+  font-weight: 500;
+  letter-spacing: 0.38px;
+}
+
+.exerciseArrowSvg {
+  position: absolute;
+  top: 130px;
+  left: 22px;
+  width: 105px;
+  height: 67px;
+} 
+
+
+.buttonSignUp {
+  width: 136px;
+  background-color: transparent;
+  border: 1px solid #EFEDE8;
+  opacity: 0.7;
+  transition: background-color 0.2s;
+}
+
+.buttonSignIn {
+  width: 130px;
+  background-color: transparent;
+  border: 1px solid #EFEDE8;
+  opacity: 0.7;
+  transition: background-color 0.2s;
+}
+
+.buttonSignUp:hover,
+.buttonSignUp:focus {
+  background-color: #E6533C;
+}
+
+.buttonSignIn:hover,
+.buttonSignIn:focus {
+  background-color: #E6533C;
+}
+  
+.polygon {
+  margin-top: 200px;
+  margin-left: 80px;
+}
+.runner {
+  margin-left: 220px;
+  margin-top: 120px;
+
+}
+ 
+ 
+
+/* ===============TABLET */
+
+@media screen and (min-width: 768px) {
 .logo {
   margin-top: 32px;
 }
+.wrapper {
+    margin-top: 130px;
+}
 
 .title {
-  padding-top: 90px;
-  font-size: 38px;
-  font-weight: 500;
-  line-height: 105.263%;
-  letter-spacing: 0.38px;
-  @media screen and (min-width: 768px) {
-    padding-top: 140px;
-    font-size: 70px;
-    line-height: 111.429%;
-    letter-spacing: 0.7px;
-  }
-  @media screen and (min-width: 1440px) {
-    padding-top: 152px;
-    margin-right: 76px;
     width: 598px;
-  }
+  font-size: 70px;
+  font-weight: 500;
 }
 
-.buttonWrapper {
-  margin-top: 52px;
-  margin-bottom: 246px;
-  @media screen and (min-width: 768px) {
-    margin-top: 80px;
-  }
+.buttonSignUp {
+  width: 190px;
 }
 
-.link {
-  margin-right: 14px;
+.buttonSignIn {
+  width: 182px;
 }
 
-.svg {
-  position: absolute;
-  top: 372px;
-  left: 121px;
-  width: 185px;
+.exerciseArrowSvg {
+  top: 235px;
+  left: 13px;
+  width: 230px;
   height: 67px;
+} 
+ 
+.polygon {
+  margin-top: 180px;
+  margin-left: 280px;
 }
+.runner {
+  margin-left: 700px;
+  margin-top: 80px;
+
+}
+
+}
+
+/* ==============DESKTOP */
+
+@media screen and (min-width: 1440px) {
+  .wrapper {
+    margin-top: 152px;
+    margin-right: 76px;
+  }
+
+.exerciseArrowSvg {
+ left: 73px;
+   top: 285px;
+  width: 230px;
+  height: 67px;
+} 
+ 
+
+.runner {
+  position: absolute;
+  top: 455px;
+  right: 40px;
+}
+
+
+.polygon {
+  position: absolute;
+    top: 215px;
+  left: 500px;
+}
+}
+
+
+

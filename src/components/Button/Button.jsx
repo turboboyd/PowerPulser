@@ -1,7 +1,11 @@
-import css from './Button.module.css'
+import React from 'react';
 
-const Button = ({text}) => {
-  return <button className={css.button}>{text}</button>;
+import css from './Button.module.css';
+
+const Button = ({ text, className }) => {
+  const buttonClass = `${css.button} ${className || ''}`;
+
+  return <button className={buttonClass}>{text}</button>;
 };
 
 export default Button;
