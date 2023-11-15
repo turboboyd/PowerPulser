@@ -9,8 +9,8 @@ import styles from  "./ProductsFilter.module.css";
 // Опции для селекторов
 const optionsRec = [
   { value: 'all', label: 'All' },
-  { value: 'recommended', label: 'Recommended ' },
-  { value: 'notRecommended', label: 'Not recommended' },
+  { value: true, label: 'Recommended' },
+  { value: false, label: 'Not recommended' },
 ];
 
 // Категории продуктов
@@ -109,6 +109,9 @@ const ProductsFilter = () => {
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('');
   const [recommended, setRecommended] = useState(optionsRec[0]);
+  // const [page, setPage] = useState(1); // Устанавливаем начальное значение страницы
+  const [limit, setLimit] = useState(20); // Устанавливаем начальное значение лимита
+
 
   // Обработчик изменения ввода для поиска
   const onChangeSearch = event => {
@@ -120,6 +123,9 @@ const ProductsFilter = () => {
         search: text,
         category: category.value,
         recommended: recommended.value,
+        page: 1,
+          // page: page || 1, // Если page не передан, устанавливаем значение по умолчанию 1
+        limit: limit || 20, // Если limit не передан, устанавливаем значение по умолчанию 20
       }),
     );
   };

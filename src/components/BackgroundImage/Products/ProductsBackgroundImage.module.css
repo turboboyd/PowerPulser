@@ -4,7 +4,7 @@
     z-index: -1;
     width: 807px;
     height: 716px;
-    top: 0px;
+    top: -70px;
     left: 1012px;
     background-image: var(--background-linear-gradient-products),
       url('../../../images/background/bg-products-desktop-1x.jpg');

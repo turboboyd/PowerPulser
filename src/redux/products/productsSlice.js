@@ -8,6 +8,8 @@ const initialState = {
         search: "",
         category: "",
         recommended: "",
+        // page: 1, // Начинаем с первой страницы
+        limit: 20,// Устанавливаем лимит на 20 элементов на странице
     },
     isLoading: false,
     error: null

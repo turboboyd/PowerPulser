@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import css from "./NotFound.module.css";
+import Icon from "../../components/ComponIcon/Icon";
 import BackgroundImage from "../../components/BackgroundImage/BackgroundImage";
 
 const NotFound = () => {
