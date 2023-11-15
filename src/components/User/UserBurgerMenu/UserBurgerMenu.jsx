@@ -1,9 +1,7 @@
-import { Link } from "react-router-dom";
-import { PROFILE_ROUTE } from "../../../utils/const";
 import css from "./UserBurgerMenu.module.css";
 import Icon from "../../ComponIcon/Icon";
-import UserNav from "../UserNav/UserNav"
-
+import UserNav from "../UserNav/UserNav";
+import { CloseBtn } from "../../Button";
 
 const UserBurgerMenu = ({ handleLogout, isBurgerOpen, toggleBurger }) => {
   return (
@@ -13,14 +11,16 @@ const UserBurgerMenu = ({ handleLogout, isBurgerOpen, toggleBurger }) => {
         isBurgerOpen ? `${css.burger_wrap} ${css.open}` : `${css.burger_wrap}`
       }`}
     >
-      <button className={css.close_btn} onClick={toggleBurger}>
-        <Icon className={css.close_btn} iconId="Close" />
-      </button>
-      <UserNav />
+      <CloseBtn click={toggleBurger} />
+
+      <nav className={css.user_nav_bureger}>
+        <UserNav />
+      </nav>
 
       <button onClick={handleLogout} to="/" className={css.logout}>
         Logout <Icon className={css.svg_logout} iconId="Log-out" />
       </button>
+
     </div>
   );
 };

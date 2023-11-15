@@ -2,14 +2,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 84px;
+  height: 62px;
 }
 
 .header_user_not {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 48px;
+
 }
 
 .iconSettings {
@@ -120,6 +121,7 @@
   gap: 32px;
 }
 @media screen and (max-width: 1439px) {
+
   .logout_desk {
     display: none;
   }
@@ -136,10 +138,8 @@
   }
 }
 
-@media screen and (max-width: 768px) {
-  .header_user {
-    height: 61px;
-  }
+@media screen and (max-width: 767px) {
+  
 
   .wrap {
     gap: 14px;
@@ -194,6 +194,16 @@
 .burger_wrap.open {
   transform: translateX(0);
 }
+
+@media screen and (min-width: 768px) {
+   .header_user {
+    height: 84px;
+  }
+  .header_user_not{
+    height: 64px;
+  }
+}
+
 
 /* .svg{
   width:32px;

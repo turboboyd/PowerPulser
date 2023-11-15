@@ -85,6 +85,7 @@ const ParentComponent = ({ user, registrationDate }) => {
   alt="calendar icon"
   className={CalendarStyles.calendarIcon}
   onClick={toggleCalendar}
+  style={{ fill: "#fff" }}
 />
         <div>
           <span

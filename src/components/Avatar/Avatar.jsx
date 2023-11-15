@@ -2,12 +2,25 @@ import Icon from "../ComponIcon/Icon";
 import css from "./Avatar.module.css";
 
 import { selectUser } from "../../redux/auth/authSelectors";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+// import { updateAvatar } from "../../redux/auth/authOperation";
 
 const Avatar = () => {
   const user = useSelector(selectUser);
+  const dispatch = useDispatch();
 
-  const handleChangeAvatar = () => {};
+  const handleChangeAvatar = (e) => {
+    let formData = new FormData();
+    const file = e.target.files[0];
+
+    formData.append("avatar", file);
+
+    console.log("Selected File:", file);
+    console.log("FormData:", [...formData]);
+
+    // dispatch(updateAvatar(formData));
+  };
+
   return (
     <>
       <div className={css.avatarWrapper}>

@@ -10,9 +10,7 @@ export const PRODUCT_ROUTE = "/products";
 export const EXERCISES_ROUTE = "/exercises";
 export const PROFILE_ROUTE = "/profile";
 export const WELCOME_PAGE_ROUTE = "/";
-export const VERIFY_ROUTE = '/verify'
-
-
+export const VERIFY_ROUTE = "/verify";
 
 export const BACKEND_API_BASE_URL = "http://localhost:5000/api";
 
@@ -31,4 +29,4 @@ export const BACKEND_DIARY_EXERCISES_URL = "/api/diary/exercises/";
 export const BACKEND_PROFILE_URL = "/api/profileSettings";
 export const BACKEND_AVATAR_URL = "/api/avatar";
 
-export const CATEGORIES_FILTER = ['Body parts', 'Muscles', 'Equipment']
+export const CATEGORIES_FILTER = ["Body parts", "Muscles", "Equipment"];
