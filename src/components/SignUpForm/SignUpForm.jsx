@@ -58,10 +58,10 @@ const SignUpForm = () => {
                 formik={formik}
                 successMessage="Success email"
               />
-              <div style={{ position: "relative" }}>
+              <div style={{ position: 'relative' }}>
                 <FormField
                   fieldName="password"
-                  fieldType={showPassword ? "text" : "password"}
+                  fieldType={showPassword ? 'text' : 'password'}
                   placeholder="Password"
                   formik={formik}
                   successMessage="Success password"
@@ -74,11 +74,12 @@ const SignUpForm = () => {
                 >
                   <Icon
                     className={css.svgEye}
-                    iconId={showPassword ? "icon-eye" : "icon-eye-off"}
+                    iconId={showPassword ? 'icon-eye' : 'icon-eye-off'}
                   />
                 </button>
               </div>
             </div>
+            
             <Button type="button" text="Sign Up" />
           </Form>
         )}
