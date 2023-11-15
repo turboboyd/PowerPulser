@@ -11,13 +11,12 @@ import {
 
 import {
   WelcomePage,
-  SignUpPage,
-  SignInPage,
   DiaryPage,
   ExercisesPage,
   ProductsPage,
   ProfilePage,
   VerifyPage,
+  AuthPage,
 } from "./pages";
 
 export const authRoutes = [
@@ -46,11 +45,11 @@ export const publicRoutes = [
   },
   {
     path: SIGN_UP_ROUTE,
-    Element: <SignUpPage />,
+    Element: <AuthPage />,
   },
   {
     path: SIGN_IN_ROUTE,
-    Element: <SignInPage />,
+    Element: <AuthPage />,
   },
   {
     path: VERIFY_ROUTE + "/:id",
