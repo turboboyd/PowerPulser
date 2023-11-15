@@ -7,6 +7,13 @@
 .logo {
   width: 44px;
   height: 17px;
+  stroke: var(--orange);
+  fill: var(--orange)
+}
+
+.logo_white{
+  stroke: var(--white);
+  fill:var(--white)
 }
 .logo_name {
   width: 100px;
