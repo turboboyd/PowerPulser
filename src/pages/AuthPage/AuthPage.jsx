@@ -9,7 +9,7 @@ const AuthPage = () => {
   const location = useLocation();
   const isLoginPage = location.pathname === SIGN_UP_ROUTE;
   const title = isLoginPage ? "Sign Up" : "Sign In";
-  const titleBtn = !isLoginPage ? "Sign Up" : "Sign In";
+  const titleLink = !isLoginPage ? "Sign Up" : "Sign In";
   const link = !isLoginPage ? SIGN_UP_ROUTE : SIGN_IN_ROUTE;
   const text = isLoginPage
     ? "Welcome! Please enter your credentials to login to the platform:"
@@ -20,11 +20,11 @@ const AuthPage = () => {
       <Container>
         <h1 className={css.title}>{title}</h1>
         <p className={css.text}>{text}</p>
-        <AuthForm isSignUp={isLoginPage} titleBtn={titleBtn} />
+        <AuthForm isSignUp={isLoginPage} title={title} />
         <div className={css.textWrapper}>
           <p className={css.textHint}>Don’t have an account?</p>
           <Link className={css.link} to={link}>
-            {titleBtn}
+            {titleLink}
           </Link>
         </div>
         <BackgroundImage />

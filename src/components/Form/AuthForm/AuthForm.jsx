@@ -23,7 +23,7 @@ const initialValuesSignIn = {
   password: "",
 };
 
-const AuthForm = ({ isSignUp, titleBtn }) => {
+const AuthForm = ({ isSignUp, title }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { showPassword, handleClick } = useShowPassword();
@@ -68,7 +68,8 @@ const AuthForm = ({ isSignUp, titleBtn }) => {
         {(formik) => (
           <Form className={css.form}>
             <div className={css.formWrapper}>
-              {isSignUp && renderFormField("name", "text", "Name", formik, "Success name")}
+              {isSignUp &&
+                renderFormField("name", "text", "Name", formik, "Success name")}
               {renderFormField(
                 "email",
                 "email",
@@ -97,7 +98,7 @@ const AuthForm = ({ isSignUp, titleBtn }) => {
                 </button>
               </div>
             </div>
-            <Button text={titleBtn} />
+            <Button text={title} />
           </Form>
         )}
       </Formik>
