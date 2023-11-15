@@ -50,6 +50,8 @@
   line-height: 1.29;
   margin-bottom: 2px;
   outline: none;
+  
+
 
   &:hover {
     border-color: var(--orange);
