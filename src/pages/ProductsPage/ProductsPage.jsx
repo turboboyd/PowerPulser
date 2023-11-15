@@ -9,8 +9,9 @@ const ProductsPage = () => {
   return (
     <Section>
       <Container>
+        <div className={css.containerProducts}>
         <TitlePage title="Products" />
-
+        </div>
         <ProductsFilter />
         <ProductsList />
         <ProductsList />

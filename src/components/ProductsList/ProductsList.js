@@ -11,7 +11,7 @@ const ProductsList = () => {
   const products = useSelector(selectProducts)
 
   useEffect(() => {
-    dispatch(fetchProducts())
+    dispatch(fetchProducts('null'))
   }, [dispatch])
 
   return (
