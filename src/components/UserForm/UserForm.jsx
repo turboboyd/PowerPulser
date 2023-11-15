@@ -14,7 +14,7 @@ const UseForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
 
-  const { name, email, profileSettings } = user;
+  const { name, profileSettings } = user;
   const {
     height = 0,
     currentWeight = 0,
@@ -26,7 +26,6 @@ const UseForm = () => {
 
   const initialValues = {
     name,
-    email,
     height,
     currentWeight,
     desiredWeight,
@@ -40,7 +39,6 @@ const UseForm = () => {
 
   const handleSubmit = ({
     name,
-    email,
     height,
     currentWeight,
     desiredWeight,
@@ -51,7 +49,6 @@ const UseForm = () => {
   }) => {
     const data = {
       name,
-      email,
       profileSettings: {
         height,
         currentWeight,
