@@ -10,7 +10,8 @@ import { loginUser, registrationUser } from "../../../redux/auth/authOperation";
 import { SignUpSchema, SignInSchema } from "../../../utils/shemas";
 import { useAuth } from "../../../hooks/useAuth";
 import { DIARY_ROUTE, PROFILE_ROUTE } from "../../../utils/const";
-import useShowPassword from "../../../utils/userShowPassword";
+import useShowPassword from "../../../hooks/useShowPassword";
+
 
 const initialValuesSignUp = {
   name: "",
