@@ -3,6 +3,7 @@ import css from "./AuthPage.module.css";
 import BackgroundImage from "../../components/BackgroundImage/BackgroundImage";
 import { SIGN_IN_ROUTE, SIGN_UP_ROUTE } from "../../utils/const";
 import AuthForm from "../../components/Form/AuthForm/AuthForm";
+import { Container, Section } from "../../components/Container";
 
 const AuthPage = () => {
   const location = useLocation();
@@ -15,18 +16,20 @@ const AuthPage = () => {
     : " Thank you for your interest in our platform. To complete the registration process, please provide us with the following information.";
 
   return (
-    <>
-      <h1 className={css.title}>{title}</h1>
-      <p className={css.text}>{text}</p>
-      <AuthForm isSignUp={isLoginPage} titleBtn={titleBtn} />
-      <div className={css.textWrapper}>
-        <p className={css.textHint}>Don’t have an account?</p>
-        <Link className={css.link} to={link}>
-          {titleBtn}
-        </Link>
-      </div>
-      <BackgroundImage />
-    </>
+    <Section className={css.section}>
+      <Container>
+        <h1 className={css.title}>{title}</h1>
+        <p className={css.text}>{text}</p>
+        <AuthForm isSignUp={isLoginPage} titleBtn={titleBtn} />
+        <div className={css.textWrapper}>
+          <p className={css.textHint}>Don’t have an account?</p>
+          <Link className={css.link} to={link}>
+            {titleBtn}
+          </Link>
+        </div>
+        <BackgroundImage />
+      </Container>
+    </Section>
   );
 };
 

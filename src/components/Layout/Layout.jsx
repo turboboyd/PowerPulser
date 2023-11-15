@@ -15,17 +15,17 @@ export default function Layout() {
 
 
   return (
-    <>
+    <div className={css.section}>
       <Header />
       <main>
-        <Section>
-          <Container>
+        {/* <Section>
+          <Container> */}
             <Suspense fallback={<Loader />}>
               <Outlet/>
             </Suspense>
-          </Container>
-        </Section>
+          {/* </Container>
+        </Section> */}
       </main>
-    </>
+    </div>
   );
 }

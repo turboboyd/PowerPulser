@@ -1,6 +1,5 @@
-.section {
-  position: relative;
-  /* overflow-x: hidden; */
+/* .section {
+
   margin: 0 auto;
   width: 375px;
   min-height: 812px;
@@ -17,4 +16,4 @@
   .section {
     width: 1440px;
   }
-}
+} */
