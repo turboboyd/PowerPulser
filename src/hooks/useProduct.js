@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { selectProducts, selectProductsError, selectProductsIsLoading } from "../redux/products/productsSelectors";
 
-export const useProducts = () => {
+export const useProduct = () => {
     const products = useSelector(selectProducts);
     const productsIsLoading = useSelector(selectProductsIsLoading);
     const productsError = useSelector(selectProductsError);
