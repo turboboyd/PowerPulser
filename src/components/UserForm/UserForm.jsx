@@ -1,4 +1,4 @@
-import { Formik, Field, Form } from "formik";
+import { Formik, Field, Form, ErrorMessage } from "formik";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -13,7 +13,7 @@ const UseForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
 
-  const { name, email, profileSettings } = user;
+  const { name, profileSettings } = user;
   const {
     height = 0,
     currentWeight = 0,
@@ -25,7 +25,6 @@ const UseForm = () => {
 
   const initialValues = {
     name,
-    email,
     height,
     currentWeight,
     desiredWeight,
@@ -39,7 +38,6 @@ const UseForm = () => {
 
   const handleSubmit = ({
     name,
-    email,
     height,
     currentWeight,
     desiredWeight,
@@ -50,7 +48,6 @@ const UseForm = () => {
   }) => {
     const data = {
       name,
-      email,
       profileSettings: {
         height,
         currentWeight,
@@ -149,6 +146,31 @@ const UseForm = () => {
                 </div>
               </div>
             </div>
+            <ErrorMessage
+              className={css.errorMessage}
+              name="name"
+              component="div"
+            />
+            <ErrorMessage
+              className={css.errorMessage}
+              name="height"
+              component="div"
+            />
+            <ErrorMessage
+              className={css.errorMessage}
+              name="currentWeight"
+              component="div"
+            />
+            <ErrorMessage
+              className={css.errorMessage}
+              name="desiredWeight"
+              component="div"
+            />
+            <ErrorMessage
+              className={css.errorMessage}
+              name="birthday"
+              component="div"
+            />
             {/* RadioButton */}
             <p className={`${css.titleName} ${css.titleBlood}`}>Blood</p>
             <div className={css.radioWrapper}>

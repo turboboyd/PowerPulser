@@ -10,14 +10,9 @@ import { useSelector } from "react-redux";
 import { selectIsVerify } from "../../redux/auth/authSelectors";
 
 export default function Layout() {
-  const isVerify = useSelector(selectIsVerify);
-
-
   return (
     <>
-      {isVerify && <Container>
-        <Header />
-      </Container>}
+      <Header />
       <main>
         <Section>
           <Container>

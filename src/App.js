@@ -13,7 +13,7 @@ import { NotFound } from "./pages";
 function App() {
   const dispatch = useDispatch();
   const { isRefreshing, isVerify } = useAuth();
-
+  
 
   useEffect(() => { 
     dispatch(refreshUser());
