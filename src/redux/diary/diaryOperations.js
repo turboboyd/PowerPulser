@@ -4,7 +4,7 @@ import { token } from "../services/tokenAPI";
 import { tokenState } from "../services/tokenState";
 import { BACKEND_DIARY_EXERCISES_URL, BACKEND_DIARY_PRODUCTS_URL, BACKEND_DIARY_URL } from "../../utils/const";
 
-export const fetchAllDiary = createAsyncThunk('auth/fetchAllDiary', async (_, thunkAPI) => {
+export const fetchAllDiary = createAsyncThunk('diary/fetchAllDiary', async (_, thunkAPI) => {
     try {
         token.set(tokenState(thunkAPI));
         const { data } = await instance.get(BACKEND_DIARY_URL);
@@ -14,7 +14,7 @@ export const fetchAllDiary = createAsyncThunk('auth/fetchAllDiary', async (_, th
     }
 });
 
-export const addProductDiary = createAsyncThunk('auth/addProductDiary', async (credentials, thunkAPI) => {
+export const addProductDiary = createAsyncThunk('diary/addProductDiary', async (credentials, thunkAPI) => {
     // credentials: {
     //     date: "2023-11-13",
     //     product: "5d51694902b2373622ff5773",
@@ -31,7 +31,7 @@ export const addProductDiary = createAsyncThunk('auth/addProductDiary', async (c
     }
 });
 
-export const deleteProductDiary = createAsyncThunk('auth/deleteProductDiary', async (idProduct, thunkAPI) => {
+export const deleteProductDiary = createAsyncThunk('diary/deleteProductDiary', async (idProduct, thunkAPI) => {
     try {
         token.set(tokenState(thunkAPI));
         const { data } = await instance.delete(`${BACKEND_DIARY_PRODUCTS_URL}/${idProduct}` );
@@ -41,7 +41,7 @@ export const deleteProductDiary = createAsyncThunk('auth/deleteProductDiary', as
     }
 });
 
-export const addExercisesDiary = createAsyncThunk('auth/addExercisesDiary', async (credentials, thunkAPI) => {
+export const addExercisesDiary = createAsyncThunk('diary/addExercisesDiary', async (credentials, thunkAPI) => {
     // credentials: {
     //     date: "2023-11-13",
     //     product: "5d51694902b2373622ff5773",
@@ -58,7 +58,7 @@ export const addExercisesDiary = createAsyncThunk('auth/addExercisesDiary', asyn
     }
 });
 
-export const deleteExercisesDiary = createAsyncThunk('auth/deleteExercisesDiary', async (idExercises, thunkAPI) => {
+export const deleteExercisesDiary = createAsyncThunk('diary/deleteExercisesDiary', async (idExercises, thunkAPI) => {
     try {
         token.set(tokenState(thunkAPI));
         const { data } = await instance.delete(`${BACKEND_DIARY_EXERCISES_URL}/${idExercises}` );

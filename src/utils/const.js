@@ -29,5 +29,6 @@ export const BACKEND_DIARY_URL = "/api/diary";
 export const BACKEND_DIARY_PRODUCTS_URL = "/api/diary/products/";
 export const BACKEND_DIARY_EXERCISES_URL = "/api/diary/exercises/";
 export const BACKEND_PROFILE_URL = "/api/profileSettings";
+export const BACKEND_AVATAR_URL = "/api/avatar";
 
 export const CATEGORIES_FILTER = ['Body parts', 'Muscles', 'Equipment']
