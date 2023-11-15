@@ -1,0 +1,77 @@
+/* ===========MOBILE */
+@media screen and (min-width: 320px) {
+.calButton {
+    /* display: flex; */
+ width: 146px;
+ height: 66px;
+  background-color: #303030;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+}
+
+.calIcon {
+position: absolute;
+    margin-top: 18px;
+    margin-left: 18px;
+  width: 30px; 
+  height: 30px; 
+  background-color: #EFA082; 
+  border-radius: 50%; 
+
+  fill: white;
+}
+
+.textSvg {
+padding-top: 14px;
+position: relative;
+}
+
+
+.boldText {
+    margin-left: 56px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+
+.smallText {
+    margin-left: 56px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #EFEDE8;
+  opacity: 0.65;
+}
+}
+
+/* ===============TABLET */
+
+@media screen and (min-width: 768px) {
+    .calIcon {
+  width: 40px; 
+  height: 40px; 
+      margin-top: 24px;
+    margin-left: 23px;
+}
+
+.calButton {
+ width: 206px;
+ height: 96px;
+}
+
+.boldText {
+  font-size: 24px;
+  margin-left: 75px;
+}
+.smallText {
+  font-size: 16px;
+    margin-left: 75px;
+
+}
+
+.textSvg {
+    padding-top: 20px;
+}
+}
+
+ /* ============DESKTOP */
