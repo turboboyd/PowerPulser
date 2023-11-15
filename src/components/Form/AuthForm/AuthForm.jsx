@@ -68,8 +68,7 @@ const AuthForm = ({ isSignUp, titleBtn }) => {
         {(formik) => (
           <Form className={css.form}>
             <div className={css.formWrapper}>
-              {isSignUp &&
-                renderFormField("name", "text", "Name", formik, "Success name")}
+              {isSignUp && renderFormField("name", "text", "Name", formik, "Success name")}
               {renderFormField(
                 "email",
                 "email",
