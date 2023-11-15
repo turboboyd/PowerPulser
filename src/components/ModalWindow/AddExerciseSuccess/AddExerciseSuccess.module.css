@@ -37,14 +37,14 @@
 .text1 {
   font-size: 14px;
   line-height: 1.29;
-  color: rgba(239, 237, 232, 0.3);
+  color: var(--semiwhite);
   margin-bottom: 4px;
 }
 
 .text2 {
   font-size: 14px;
   line-height: 1.29;
-  color: rgba(239, 237, 232, 0.3);
+  color: var(--semiwhite);
   margin-bottom: 24px;
 }
 

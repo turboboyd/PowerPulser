@@ -9,19 +9,29 @@
   }
 }
 
-.image {
+.imageWrapper {
   width: 270px;
   height: 226px;
+  overflow: hidden;
+  background-color: white;
   border-radius: 12px;
   margin-bottom: 14px;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 226px;
+  height: 226px;
 }
 
 .textTime {
   font-size: 10px;
   line-height: 1.4;
-  color: rgba(239, 237, 232, 0.3);
+  color: var(--semiwhite);
   text-align: center;
 }
 
@@ -60,7 +70,7 @@
   height: auto;
   padding: 12px 18px;
   border-radius: 12px;
-  border: 1px solid rgba(239, 237, 232, 0.2);
+  border: var(--border-solid-color);
   background: rgba(239, 237, 232, 0.05);
 }
 
@@ -74,7 +84,7 @@
 .cardText {
   font-size: 12px;
   line-height: 1.33;
-  color: rgba(239, 237, 232, 0.3);
+  color: var(--semiwhite);
   margin-bottom: 4px;
 }
 

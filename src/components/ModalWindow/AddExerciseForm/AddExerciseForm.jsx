@@ -2,19 +2,6 @@ import { useState } from 'react';
 import css from './AddExerciseForm.module.css';
 import Timer from '../../Timer/Timer';
 
-// const exercise = {
-//   _id: {
-//     $oid: '64f2458d6f67bc34bae4f801',
-//   },
-//   bodyPart: 'upper arms',
-//   equipment: 'leverage machine',
-//   gifUrl: 'https://ftp.goit.study/img/power-pulse/gifs/0019.gif',
-//   name: 'assisted triceps dip (kneeling)',
-//   target: 'triceps',
-//   burnedCalories: 233,
-//   time: 3,
-// };
-
 const formatDate = (date) => {
   const day = String(date.getDate()).padStart(2, '0');
   const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -55,11 +42,13 @@ const AddExerciseForm = ({
     <div className={css.container}>
       <div className={css.wrapper}>
         <div>
-          <img
-            className={css.image}
-            src={exercise.gifUrl}
-            alt="Exercise example"
-          />
+          <div className={css.imageWrapper}>
+            <img
+              className={css.image}
+              src={exercise.gifUrl}
+              alt="Exercise example"
+            />
+          </div>
           <p className={css.textTime}>Time</p>
 
           <div className={css.timerWrapper}>

@@ -14,7 +14,7 @@
 .modalWrapper {
   border: var(--border-solid-color);
   position: absolute;
-  overflow: auto;
+  overflow-y: auto;
   display: flex;
   justify-content: center;
   border-radius: 12px;

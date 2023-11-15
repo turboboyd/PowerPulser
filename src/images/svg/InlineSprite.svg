@@ -124,6 +124,9 @@
 </symbol><symbol viewBox="0 0 24 24" id="Close">
 <path d="M18 6L6 18M6 6L18 18"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </symbol>
+<symbol id="Pause" viewBox="0 0 29 32">
+<path fill="none" stroke="#efede8" style="stroke: var(--color1, #efede8)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="4.16" d="M3.731 28.8v-25.6M25.065 28.8v-25.6"></path>
+</symbol>
 
 
 

@@ -29,7 +29,7 @@
   border-radius: 12px;
   border: var(--border-accent);
   background-color: inherit;
-  color: rgba(239, 237, 232, 0.3);
+  color: var(--semiwhite);
 }
 
 @media (min-width: 768px) {
@@ -51,7 +51,7 @@
   color: var(--white);
 
   &::placeholder {
-    color: rgba(239, 237, 232, 0.3);
+    color: var(--semiwhite);
     text-align: right;
     /* 
     &::-webkit-outer-spin-button,
@@ -72,7 +72,7 @@
 .text {
   font-size: 12px;
   line-height: 1.5;
-  color: rgba(239, 237, 232, 0.3);
+  color: var(--semiwhite);
   margin-bottom: 24px;
 }
 

@@ -62,7 +62,7 @@ const Timer = ({
           <button className={css.button} onClick={handleToggleTimer}>
             <Icon
               className={css.icon}
-              iconId={isTimerPlaying ? 'Chevron' : 'Polygon'}
+              iconId={isTimerPlaying ? 'Pause' : 'Polygon'}
             />
           </button>
           <p className={css.text}>
