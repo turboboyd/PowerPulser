@@ -82,12 +82,15 @@
 @media (min-width: 1440px) {
   .cardContainer {
     width: 850px;
-    margin-top: 148px;
   }
   .cardContainerBackground {
     display: flex;
   }
   .exerciseArrow {
     font-size: 16px;
+  }
+  .containerProducts {
+    display: flex;
+    margin-top: 68px;
   }
 }
