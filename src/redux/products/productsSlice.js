@@ -8,6 +8,8 @@ const initialState = {
         search: "",
         category: "",
         recommended: "",
+        // page: 1, // Начинаем с первой страницы
+        limit: 20,// Устанавливаем лимит на 20 элементов на странице
     },
     isLoading: false,
     error: null
@@ -18,7 +20,7 @@ const productsSlice = createSlice({
     initialState: initialState,
     reducers: {
         setFilter: (state, { payload }) => {
-            state.filter = payload;
+            state.filters = payload;
         },
     },
     extraReducers: (builder) => {
