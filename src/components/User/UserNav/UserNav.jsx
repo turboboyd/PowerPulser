@@ -12,18 +12,18 @@ const routes = [
   { path: EXERCISES_ROUTE, name: "Exercises" },
 ];
 
-const RouteList = () => (
-  <nav className={css.nav}>
-    <ul className={css.list}>
+const UserNav = () => {
+  return (
+    <ul className={css.user_list}>
       {routes.map((route) => (
-        <li key={route.name} className={css.item}>
+        <li key={route.name} className={css.user_item}>
           <Link className={css.link} to={route.path}>
             {route.name}
           </Link>
         </li>
       ))}
     </ul>
-  </nav>
-);
+  );
+};
 
-export default RouteList;
+export default UserNav;

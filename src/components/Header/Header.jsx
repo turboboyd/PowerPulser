@@ -23,7 +23,6 @@ const Header = () => {
 
   const [isNotFoundPage, setIsNotFoundPage] = useState(false);
 
-
   const handleLogout = useCallback(() => {
     dispatch(logOutUser());
     navigate("/");
@@ -57,7 +56,6 @@ const Header = () => {
     };
   }, [handleKeyDown, handleOverlayClick]);
 
-  
   useEffect(() => {
     const allPaths = [...authRoutes, ...publicRoutes].map(
       (route) => route.path
@@ -71,9 +69,10 @@ const Header = () => {
         <Logo isNotFoundPage={isNotFoundPage} />
         {isVerify && (
           <div className={css.wrap}>
-            <UserNav />
+            <nav className={css.nav}>
+              <UserNav />
+            </nav>
             <UserBar handleLogout={handleLogout} />
-
             <button
               data-type="burger-nav"
               className={css.burger_btn}
