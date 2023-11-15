@@ -1,0 +1,72 @@
+.avatarWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+  }
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  height: 90px;
+  border-radius: 100px;
+  border: var(--border-accent);
+
+  @media screen and (min-width: 768px) {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.iconAvatar {
+  fill: var(--background-avatar);
+  width: 62px;
+  height: 62px;
+  @media screen and (min-width: 768px) {
+    width: 102px;
+    height: 102px;
+  }
+}
+
+.iconUpload {
+  position: relative;
+  top: -13px;
+  left: 0px;
+  width: 24px;
+  height: 24px;
+
+  @media screen and (min-width: 768px) {
+    top: -18px;
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.textUserName {
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.11;
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    line-height: 1.17;
+  }
+}
+
+.textUser {
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.29;
+  color: rgba(239, 237, 232, 0.5);
+}

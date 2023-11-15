@@ -4,23 +4,31 @@ import { useParams, useNavigate } from "react-router-dom";
 import { verifyUser } from "../../redux/auth/authOperation";
 import { PROFILE_ROUTE } from "../../utils/const";
 
+import { selectStatus, selectUser } from "../../redux/auth/authSelectors";
+import { useAuth } from "../../hooks/useAuth";
+
 const VerifyPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { isVerify, status } = useAuth();
+
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await dispatch(verifyUser(id));
-      if (response.error) {
-        return navigate("/");
-      }
-      navigate(PROFILE_ROUTE);
-    };
-    fetchData();
-  }, [dispatch, id, navigate]);
+    dispatch(verifyUser(id));
+  }, [dispatch, id, ]);
 
-  return <div>sfssf</div>;
+  
+  useEffect(() => {
+    if (status === "fulfilled") {
+      navigate(PROFILE_ROUTE);
+    }
+    if (status === "rejected" && !isVerify) {
+      navigate("/");
+    }
+  }, [status, navigate, isVerify]);
+
+  return <div></div>;
 };
 
 export default VerifyPage;

@@ -1,3 +1,4 @@
 export const selectProducts = state => state.products;
-// export const selectProductsFilters = state => state.productsFilter;
+export const selectProductsIsLoading = state => state.products.isLoading;
+export const selectProductsError = state => state.products.error;
 

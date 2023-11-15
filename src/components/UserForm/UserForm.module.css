@@ -36,6 +36,7 @@
   border: var(--border-input);
   background-color: transparent;
   color: var(--white);
+  outline: none;
 
   @media screen and (min-width: 1440px) {
     font-size: 16;
@@ -92,6 +93,7 @@
   border: var(--border-input);
   background-color: transparent;
   color: var(--white);
+  outline: none;
 
   @media screen and (min-width: 768px) {
     margin-top: 8px;
@@ -147,4 +149,15 @@
 .buttonSave {
   padding: 16px 50px;
   width: 144px;
+}
+
+.errorMessage {
+  margin-top: 4px;
+  margin-left: 4px;
+  margin-bottom: 4px;
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 12px;
+  letter-spacing: 0.12px;
+  color: var(--error);
+  line-height: 1.16;
 }
