@@ -76,35 +76,19 @@ export const logOutUser = createAsyncThunk('auth/logOutUser', async (_, thunkAPI
 
 //------------ settings profile --------------------- //
 
-export const addProfileSettings = createAsyncThunk('auth/addProfileSettings', async (credentials, thunkAPI) => {
-// credentials: {
-//     height: number;
-//     currentWeight: number; 
-//     desiredWeight: number; 
-//     birthday: date; 
-//     blood: number; 
-//     sex: string; 
-//     levelActivity: number; 
-// }
-    try {
-        token.set(tokenState(thunkAPI));
-        const { data } = await instance.post(BACKEND_PROFILE_URL, credentials);
-        return data;
-    } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
-    }
-});
-
 export const updateProfileSettings = createAsyncThunk('auth/updateProfileSettings', async (credentials, thunkAPI) => {
-// credentials: {
-//     height: number;
-//     currentWeight: number; 
-//     desiredWeight: number; 
-//     birthday: date; 
-//     blood: number; 
-//     sex: string; 
-//     levelActivity: number; 
-// }
+    // credentials = {
+    //     name: 'string', required
+    //     profileSettings: {
+    //         height: number, required
+    //         currentWeight: number, required
+    //         desiredWeight: number ,required
+    //         birthday: date, required
+    //         blood: number, required
+    //         sex: string, required
+    //         levelActivity: number, required
+    //     }
+    // };
     try {
         token.set(tokenState(thunkAPI));
         const { data } = await instance.put(BACKEND_PROFILE_URL, credentials);
