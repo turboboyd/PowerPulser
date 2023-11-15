@@ -10,3 +10,9 @@
     line-height: 1.125;
     color:var(--white);
 }
+
+@media screen and (min-width: 768px) {
+    .button {
+        font-size: 20px;
+    }
+}
