@@ -1,7 +1,6 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { fetchExercisesFilter, fetchExercisesItemsSelectedFilter } from './exercisesOperations';
 import { operationsType } from './exercisesOperationsType';
-// import { fetchProducts } from './productsOperations';
 import { handleFulfilledFilter, handlePending, handleRejected } from './exercisesReducers';
 
 const initialState = {
