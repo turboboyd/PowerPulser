@@ -27,3 +27,5 @@ export const BACKEND_EXERCISES_URL = "/api/exercises";
 export const BACKEND_EXERCISES_FILTER_URL = "/api/exercises/types";
 export const BACKEND_DIARY_URL = "/diary";
 export const BACKEND_PROFILE_URL = "/api/profileSettings";
+
+export const CATEGORIES_FILTER = ['Body parts', 'Muscles', 'Equipment']
