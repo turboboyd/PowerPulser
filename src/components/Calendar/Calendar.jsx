@@ -8,12 +8,12 @@ import DayProducts from "../DayProducts/DayProducts";
 import calendarIcon from "../../images/calendar.png";
 
 const CustomInput = ({ value, onClick }) => (
-  <div style={{ backgroundColor: "#e6533c", color: "white" }}>
+  <div style={{ backgroundColor: "black", color: "white" }}>
     <input
       className={CalendarStyles.datePicker}
       value={value}
       onClick={onClick}
-      style={{ backgroundColor: "#e6533c", color: "white" }}
+      style={{ backgroundColor: "black", color: "white" }}
     />
   </div>
 );
