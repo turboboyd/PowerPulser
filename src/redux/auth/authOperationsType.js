@@ -1,4 +1,4 @@
-import { addProfileSettings, loginUser, logOutUser, refreshUser, registrationUser, resendVerifyUser, updateProfileSettings, } from "./authOperation";
+import { loginUser, logOutUser, refreshUser, registrationUser, resendVerifyUser, updateProfileSettings, } from "./authOperation";
 
-const operationsThunk = [registrationUser, loginUser, logOutUser, refreshUser, resendVerifyUser, addProfileSettings, updateProfileSettings];
+const operationsThunk = [registrationUser, loginUser, logOutUser, refreshUser, resendVerifyUser, updateProfileSettings];
 export const operationsType = (type) => operationsThunk.map(operation => operation[type]);
