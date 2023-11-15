@@ -1,0 +1,57 @@
+:root {
+    --black-color: #000000;
+    --e6533c-color: #e6533c;
+    --custom-icon-color: #f5f1f1;
+}
+
+.container {
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
+
+.arrowSpan {
+    cursor: pointer;
+    font-size: 1.5em;
+    margin: 0 10px;
+}
+
+.datePicker {
+    width: 150px;
+    border: 1px solid var(--black-color);
+    border-radius: 4px;
+    padding: 5px;
+    margin-right: 10px;
+    margin-left: 5px;
+    background: var(--black-color);
+    color:var(--custom-icon-color);
+}
+
+.calendarIcon {
+    cursor: pointer;
+    margin-left: 5px;
+    width: 15px;
+    color: var(--custom-icon-color);
+}
+
+.dateText,
+.calendarIcon {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.visible {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.arrowSpan {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
