@@ -2,9 +2,6 @@ import React, { useState, forwardRef } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import CalendarStyles from "./Calendar.module.css";
-import DayDashboard from "../DayDashboard/DayDashboard";
-import DayExercises from "../DayExercises/DayExercises";
-import DayProducts from "../DayProducts/DayProducts";
 import calendarIcon from "../../images/calendar.png";
 
 const CustomInput = forwardRef(({ value, onClick, onChange }, ref) => {
@@ -131,7 +128,7 @@ const ParentComponent = ({ user, registrationDate }) => {
         </div>
       </div>
 
-      <DayProducts
+      {/* <DayProducts
         selectedDate={selectedDate}
         products={[]}
         handleDeleteProduct={handleDeleteProduct}
@@ -141,7 +138,7 @@ const ParentComponent = ({ user, registrationDate }) => {
         exercises={[]}
         handleDeleteExercise={handleDeleteExercise}
       />
-      <DayDashboard selectedDate={selectedDate} />
+      <DayDashboard selectedDate={selectedDate} /> */}
     </div>
   );
 };
