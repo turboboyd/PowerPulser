@@ -92,7 +92,18 @@ const customStyles = {
     ...base,
     borderRadius: '12px', // Бордер при скроле
     '::-webkit-scrollbar': {
-      display: 'none',
+      width: '8px', // Ширина полосы прокрутки
+    },
+    '::-webkit-scrollbar-thumb': {
+      backgroundColor: 'rgba(239, 237, 232, 0.1)', // Цвет полосы прокрутки
+      borderRadius: '12px', // Скругление углов полосы прокрутки
+      height: '147px', // Высота полосы прокрутки
+      // Отступ справа
+  
+    },
+    '::-webkit-scrollbar-track': {
+      backgroundColor: 'rgba(28, 28, 28, 1)', // Цвет фона полосы прокрутки
+      borderRadius: '12px', // Скругление углов фона полосы прокрутки
     },
     overflowY: 'scroll',
   }),
@@ -247,3 +258,4 @@ const ProductsFilter = () => {
 };
 
 export default ProductsFilter;
+
