@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import css from './AddProductForm.module.css';
+import { addProductDiary } from '../../../redux/diary/diaryOperations';
 
 const formatDate = (date) => {
   const day = String(date.getDate()).padStart(2, '0');
@@ -16,6 +18,8 @@ const AddProductForm = ({
 }) => {
   const [amount, setAmount] = useState('');
 
+  const dispatch = useDispatch();
+
   const handleAmountGrams = (element) => setAmount(element.target.value);
   const calories = Math.round((amount * product.calories) / 100);
   let date = new Date();
@@ -27,10 +31,10 @@ const AddProductForm = ({
     calories,
   };
   const handleAddToDiary = () => {
-    console.log(productToDiary);
     handleModalProduct();
     handleModalSuccess();
     handleSelectedProduct(productToDiary);
+    dispatch(addProductDiary(productToDiary));
   };
 
   return (

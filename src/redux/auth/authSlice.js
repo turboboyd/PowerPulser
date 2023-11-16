@@ -16,6 +16,7 @@ const contactsInitialState = {
             blood: null,
             levelActivity: null,
             sex: null,
+            bmr: 0,
         }
     },
     status: null,

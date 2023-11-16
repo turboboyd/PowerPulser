@@ -12,15 +12,18 @@ const ExercisesItem = ({ exercise }) => {
 
   const handleModalExercise = () => {
     setModalExercise((state) => !state);
+    document.body.classList.toggle('body-scroll-lock');
   };
 
   const handleModalSuccess = () => {
     setModalSuccess((state) => !state);
+    document.body.classList.toggle('body-scroll-lock');
   };
 
   const handleSelectedExercise = (data) => {
     setSelectedExercise(data);
   };
+
   return (
     <div className={css.exerciseWrapper}>
       <div className={css.exerciseCardTopPart}>

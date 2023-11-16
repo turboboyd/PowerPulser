@@ -1,7 +1,7 @@
 import css from './BasicModalWindow.module.css';
 import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
-import Icon from '../../ComponIcon/Icon';
+import CloseButton from '../../CloseButton/CloseButton';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -29,13 +29,7 @@ const BasicModalWindow = ({ children, handleModalToggle }) => {
   return createPortal(
     <div className={css.backdrop} onClick={handleBackdropClick}>
       <div className={css.modalWrapper}>
-        <button
-          className={css.button}
-          type="button"
-          onClick={handleModalToggle}
-        >
-          <Icon className={css.iconClose} iconId="Close" />
-        </button>
+        <CloseButton handleCloseModal={handleModalToggle} />
         {children}
       </div>
     </div>,
