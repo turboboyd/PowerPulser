@@ -27,7 +27,6 @@ const AddProductForm = ({
     calories,
   };
   const handleAddToDiary = () => {
-    console.log(productToDiary);
     handleModalProduct();
     handleModalSuccess();
     handleSelectedProduct(productToDiary);

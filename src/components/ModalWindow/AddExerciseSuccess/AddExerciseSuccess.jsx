@@ -11,11 +11,10 @@ const AddExerciseSuccess = ({ handleModalSuccess, selectedExercise }) => {
       <img className={css.image} src={thumb} alt="Thumb up icon" />
       <strong className={css.title}>Well done</strong>
       <p className={css.text1}>
-        Your time:
-        <span className={css.textTime}>{selectedExercise.time}</span>
+        Your time: <span className={css.textTime}>{selectedExercise.time}</span>
       </p>
       <p className={css.text2}>
-        Burned calories:
+        Burned calories:{' '}
         <span className={css.textCalories}>{selectedExercise.calories}</span>
       </p>
 
@@ -23,7 +22,11 @@ const AddExerciseSuccess = ({ handleModalSuccess, selectedExercise }) => {
         Next exercise
       </button>
       <div className={css.linkWrapper}>
-        <NavLink to={DIARY_ROUTE} className={css.link}>
+        <NavLink
+          to={DIARY_ROUTE}
+          className={css.link}
+          onClick={handleModalSuccess}
+        >
           To the diary
         </NavLink>
         <Icon className={css.iconArrow} iconId="Arrow" />
