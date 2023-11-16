@@ -5,9 +5,11 @@ import ExercisesTable from "../ExercisesTable/ExercisesTable";
 
 import execrcisesData from "../../RESOURCES/resources/exercises.json";
 
-const execrcises = execrcisesData.slice(0, 5);
+const execrcises = execrcisesData.slice(0, 0);
 
 const DayExercises = ({ selectedDate }) => {
+
+  
   return (
     <>
       <div className={css.dayExecrcises}>

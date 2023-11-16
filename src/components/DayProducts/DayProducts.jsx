@@ -3,12 +3,14 @@ import css from "./DayProducts.module.css";
 
 import { PRODUCT_ROUTE } from "../../utils/const";
 import ButtonAddItem from "../ButtonAddItem/ButtonAddItem";
-import productsData from "../../RESOURCES/resources/products.json";
 import ProductsTable from "../ProductsTable/ProductsTable";
 
-const products = productsData.slice(0, 2);
+import { useSelector } from "react-redux";
+import { selectDiaryProducts } from "../../redux/diary/diarySelectors";
 
 const DayProducts = () => {
+  const products = useSelector(selectDiaryProducts);
+
   return (
     <div className={css.dayProducts}>
       <div className={css.dayScrollWrap}>

@@ -75,8 +75,12 @@
 
 @media (min-width: 1440px) {
   .dayProducts {
-    max-width: 826px;
+    min-width: 826px;
   }
+
+  /* .dayExecrcises .notFoundPlugText {
+    min-width: 826px;
+  } */
 }
 
 /* SCROLL */
