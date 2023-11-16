@@ -4,11 +4,10 @@ import css from "./DiaryPage.module.css";
 
 import TitlePage from "../../components/TitlePage/TitlePage";
 import { Container, Section } from "../../components/Container";
+
+import DayDashboard from "../../components/DayDashboard/DayDashboard";
 import DayExercises from "../../components/DayExercises/DayExercises";
 import DayProducts from "../../components/DayProducts/DayProducts";
-import DayDashboard from "../../components/DayDashboard/DayDashboard";
-import { useEffect } from "react";
-import { fetchAllDiary } from "../../redux/diary/diaryOperations";
 
 const DiaryPage = () => {
   const dispatch = useDispatch();
@@ -34,5 +33,6 @@ const DiaryPage = () => {
     </Section>
   );
 };
+
 
 export default DiaryPage;
