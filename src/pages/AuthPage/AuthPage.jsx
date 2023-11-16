@@ -4,6 +4,7 @@ import BackgroundImage from "../../components/BackgroundImage/BackgroundImage";
 import { SIGN_IN_ROUTE, SIGN_UP_ROUTE } from "../../utils/const";
 import AuthForm from "../../components/Form/AuthForm/AuthForm";
 import { Container, Section } from "../../components/Container";
+import StatisticsInfo from "../../components/StatisticsInfo/StatisticsInfo";
 
 const AuthPage = () => {
   const location = useLocation();
@@ -27,6 +28,7 @@ const AuthPage = () => {
             {titleLink}
           </Link>
         </div>
+        <StatisticsInfo/>
         <BackgroundImage />
       </Container>
     </Section>
