@@ -17,8 +17,11 @@ const CustomInput = forwardRef(({ value, onClick, onChange }, ref) => {
       <input
         ref={ref}
         className={CalendarStyles.datePicker}
-        value={value}
-        onClick={onClick}
+        value={value}  
+        onClick={(e) => {
+          onClick();
+          e.preventDefault();
+        }}
         onChange={handleChange}
         style={{ backgroundColor: "black", color: "white" }}
       />
@@ -32,7 +35,15 @@ const DatePickerStyles = `
     background-color:  #e6533c;
     color: white;
   }
-  `;
+  .react-datepicker__year-option{
+    background-color:  #e6533c;
+    color: black;
+    
+    }
+    .react-datepicker__year-read-view{
+      display:none;
+    }
+`;
 
 const ParentComponent = ({ user, registrationDate }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -89,19 +100,21 @@ const ParentComponent = ({ user, registrationDate }) => {
           onChange={handleCalendarChange}
           minDate={userRegistrationDate}
           maxDate={new Date()}
+          onClick={toggleCalendar}
           calendarClassName={CalendarStyles.customCalendar}
           dayClassName={dayClassName}
-          customInput={<CustomInput onChange={(value) => setSelectedDate(value)} />}
-          open={calendarOpen} 
+          customInput={<CustomInput value={selectedDate} onChange={(value) => setSelectedDate(value)} />}  
+          open={calendarOpen}
         />
 
-        <img
+          <img
           src={calendarIcon}
           alt="calendar icon"
           className={CalendarStyles.calendarIcon}
           onClick={toggleCalendar}
-          style={{ fill: "#fff", cursor: "pointer" }}
-        />
+          style={{ fill: "#ffffff", cursor: "pointer" }}
+          />
+
         <div>
           <span
             className={`${CalendarStyles.arrowSpan} ${CalendarStyles.prevArrow}`}

@@ -1,18 +1,41 @@
-import React, { useState } from "react"; 
+import React, { useState, forwardRef } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import CalendarStyles from "./СalendarBirthDay.module.css"; 
 
-const CustomInput = ({ value, onClick }) => (
-        <div style={{ backgroundColor: "black", color: "white" }}>
-    <input
+const CustomInput = forwardRef(({ value, onClick, onChange }, ref) => {
+    const handleChange = (e) => {
+    onChange(e.target.value);
+    };
+
+    return (
+    <div style={{ backgroundColor: "black", color: "white" }}>
+        <input
+        ref={ref}
         className={CalendarStyles.datePicker}
-        value={value}
-        onClick={onClick}
-        style={{ backgroundColor: " black", color: "white" }}
-    />
+        value={value}  
+        onClick={(e) => {
+            onClick();
+            e.preventDefault();
+        }}
+        onChange={handleChange}
+        style={{ backgroundColor: "black", color: "white" }}
+        />
     </div>
-);
+    );
+});
+
+
+const DatePickerStyles = `
+    .react-datepicker__header {
+    background-color:  #e6533c;
+    color: white;
+    }
+    .react-datepicker__year-option{
+      background-color:  #e6533c;
+    color: white;    
+    }
+`;
 
 const CalendarComponent = ({ minDate }) => {
     const [selectedDate, setSelectedDate] = useState(new Date("2000-01-01"));
@@ -50,7 +73,8 @@ const CalendarComponent = ({ minDate }) => {
 };
 
     return (
-    <div>
+        <div>
+            <style>{DatePickerStyles}</style>
         <div className={CalendarStyles.container}>
         <DatePicker
             showYearDropdown
