@@ -10,6 +10,9 @@
 }
 
 .exerciseItemWrap img {
-  width: 237px;
-  height: 206px;
-}
+  width: 100%;
+  height: 100%;
+  max-width: 237px;
+  max-height: 206px;
+  object-fit: cover;
+  }

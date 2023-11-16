@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState, useEffect, forwardRef } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import CalendarStyles from "./Calendar.module.css";
@@ -14,7 +14,7 @@ const CustomInput = forwardRef(({ value, onClick, onChange }, ref) => {
       <input
         ref={ref}
         className={CalendarStyles.datePicker}
-        value={value}  
+        value={value}
         onClick={(e) => {
           onClick();
           e.preventDefault();
@@ -25,7 +25,6 @@ const CustomInput = forwardRef(({ value, onClick, onChange }, ref) => {
     </div>
   );
 });
-
 
 const DatePickerStyles = `
   .react-datepicker__header {
@@ -47,6 +46,20 @@ const ParentComponent = ({ user, registrationDate }) => {
   const [calendarOpen, setCalendarOpen] = useState(false);
   const userRegistrationDate = new Date(registrationDate);
 
+  useEffect(() => {
+    const handleEscapeKey = (event) => {
+      if (event.key === "Escape") {
+        setCalendarOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleEscapeKey);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscapeKey);
+    };
+  }, []); 
+
   const handlePrevDay = () => {
     const prevDate = new Date(selectedDate);
     prevDate.setDate(prevDate.getDate() - 1);
@@ -59,14 +72,6 @@ const ParentComponent = ({ user, registrationDate }) => {
     if (nextDate <= new Date()) {
       setSelectedDate(nextDate);
     }
-  };
-
-  const handleDeleteProduct = (productId) => {
-    console.log(`Deleting product with ID ${productId}`);
-  };
-
-  const handleDeleteExercise = (exerciseId) => {
-    console.log(`Deleting exercise with ID ${exerciseId}`);
   };
 
   const toggleCalendar = () => {
@@ -88,7 +93,7 @@ const ParentComponent = ({ user, registrationDate }) => {
   return (
     <div>
       <style>{DatePickerStyles}</style>
-      
+
       <div className={CalendarStyles.container}>
         <DatePicker
           showYearDropdown
@@ -100,17 +105,17 @@ const ParentComponent = ({ user, registrationDate }) => {
           onClick={toggleCalendar}
           calendarClassName={CalendarStyles.customCalendar}
           dayClassName={dayClassName}
-          customInput={<CustomInput value={selectedDate} onChange={(value) => setSelectedDate(value)} />}  
+          customInput={<CustomInput value={selectedDate} onChange={(value) => setSelectedDate(value)} />}
           open={calendarOpen}
         />
 
-          <img
+        <img
           src={calendarIcon}
           alt="calendar icon"
           className={CalendarStyles.calendarIcon}
           onClick={toggleCalendar}
           style={{ fill: "#ffffff", cursor: "pointer" }}
-          />
+        />
 
         <div>
           <span
@@ -127,18 +132,6 @@ const ParentComponent = ({ user, registrationDate }) => {
           </span>
         </div>
       </div>
-
-      {/* <DayProducts
-        selectedDate={selectedDate}
-        products={[]}
-        handleDeleteProduct={handleDeleteProduct}
-      />
-      <DayExercises
-        selectedDate={selectedDate}
-        exercises={[]}
-        handleDeleteExercise={handleDeleteExercise}
-      />
-      <DayDashboard selectedDate={selectedDate} /> */}
     </div>
   );
 };
