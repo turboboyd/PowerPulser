@@ -1,6 +1,5 @@
 import React from "react";
 import css from "./StatisticsInfo.module.css";
-import VideoInfo from "../Info/VideoInfo";
 import Icon from "../ComponIcon/Icon";
 
 const StatisticsInfo = () => {
