@@ -65,7 +65,7 @@ const ExercisesSubcategoriesList = () => {
             {index + 1}
           </span>
         ))}
-      </div>
+    </div>
     </div>
   );
 };
