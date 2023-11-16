@@ -24,14 +24,22 @@ const UseForm = () => {
     levelActivity = 0,
   } = profileSettings || {};
 
+  const birthdayDate = profileSettings
+    ? new Date(profileSettings.birthday)
+    : new Date("2000-01-01");
+  
+    const formattedBirthday = `${birthdayDate.getFullYear()}-${String(
+      birthdayDate.getMonth() + 1
+  ).padStart(2, "0")}-${String(birthdayDate.getDate()).padStart(2, "0")}`;
+  
+  
   const initialValues = {
     name,
     height,
+    email: user.email,
     currentWeight,
     desiredWeight,
-    birthday: profileSettings
-      ? new Date(profileSettings.birthday).toISOString()
-      : "2000-01-01",
+    birthday: formattedBirthday,
     blood,
     sex: sex.toString(),
     levelActivity,
@@ -60,7 +68,8 @@ const UseForm = () => {
       },
     };
     dispatch(updateProfileSettings(data));
-
+    let invalidDate = new Date("invalid date");
+    console.log(invalidDate.toISOString()); 
     console.log(data);
   };
   return (

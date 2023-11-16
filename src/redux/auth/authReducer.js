@@ -45,6 +45,7 @@ export const handleFulfilledProfileSettings = (state, { payload }) => {
   state.user.profileSettings = payload;
   state.isLoading = false;
   state.error = null;
+  state.isRefreshing = false;
 };
 
 // 
