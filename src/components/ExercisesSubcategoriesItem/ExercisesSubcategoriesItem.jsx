@@ -1,5 +1,5 @@
-import React from 'react'
-import css from './ExercisesSubcategoriesItem.module.css'
+import React from 'react';
+import css from './ExercisesSubcategoriesItem.module.css';
 
 const ExercisesSubcategoriesItem = ({ exercise }) => {
   return (
@@ -7,7 +7,7 @@ const ExercisesSubcategoriesItem = ({ exercise }) => {
       <span className={css.exerciseItem}>{exercise.name}</span>
       <img src={exercise.imgURL} alt={exercise.filter} />
     </div>
-  )
+  );
 }
 
-export default ExercisesSubcategoriesItem
+export default ExercisesSubcategoriesItem;

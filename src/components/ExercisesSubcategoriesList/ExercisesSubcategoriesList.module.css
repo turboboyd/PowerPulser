@@ -3,4 +3,35 @@
   gap: 32px 15px;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.slider-container {
+  width: 100%;
+  margin-top: 20px;
+}
+
+
+.slider-ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  
+}
+
+
+.slider-li {
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  
+}
+
+
+.active {
+  text-decoration: underline;
+  
 }
