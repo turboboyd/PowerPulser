@@ -103,9 +103,8 @@
   }
 }
 
+
 .select-wrapper {
-  display: flex;
-  justify-content: space-between;
   @media screen and (min-width: 375px) {
     width: 158px;
     height: 46px;
@@ -120,3 +119,4 @@
     width: 192px;
   }
 }
+
