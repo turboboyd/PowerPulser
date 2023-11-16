@@ -55,7 +55,8 @@ const customStyles = {
       // width: width,
       appearance: 'none', // Removing default appearance
       WebkitAppearance: 'none',
-      MozAppearance: 'none',
+    MozAppearance: 'none',
+    margin: '7px',
     }),
     option: (provided, { isFocused, isSelected }) => ({
       ...provided,
