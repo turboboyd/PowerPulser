@@ -1,11 +1,10 @@
-import { Link } from "react-router-dom";
-import Button from "../../components/Button/Button";
-import BackgroundImage from "../../components/BackgroundImage/BackgroundImage";
-import css from "./WelcomPage.module.css";
-import Container from "../../components/Container/Container";
-import Icon from "../../components/ComponIcon/Icon";
-import { Section } from "../../components/Container";
-import StatisticsInfo from "../../components/StatisticsInfo/StatisticsInfo";
+import { Link } from 'react-router-dom'
+import BackgroundImage from '../../components/BackgroundImage/BackgroundImage'
+import css from './WelcomPage.module.css'
+import Container from '../../components/Container/Container'
+import Icon from '../../components/ComponIcon/Icon'
+import { Section } from '../../components/Container'
+import StatisticsInfo from '../../components/StatisticsInfo/StatisticsInfo'
 
 const WelcomePage = () => {
   return (
@@ -19,19 +18,18 @@ const WelcomePage = () => {
           <Icon className={css.exerciseArrowSvg} iconId="icon-line" />
         </div>
         <div className={css.buttonWrapper}>
-          <Link className={css.link} to="/signup">
-            <Button type="submit" className={css.buttonSignUp} text="Sign Up" />
+          <Link className={css.buttonSignUp} to="/signup">
+            sign up
           </Link>
-          <Link to="/signin">
-            <Button type="submit" className={css.buttonSignIn} text="Sign In" />
+          <Link className={css.buttonSignIn} to="/signin">
+            sign in
           </Link>
         </div>
-
         <StatisticsInfo />
         <BackgroundImage />
       </Container>
     </Section>
-  );
-};
+  )
+}
 
-export default WelcomePage;
+export default WelcomePage

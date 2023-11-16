@@ -1,24 +1,11 @@
 .section {
-  padding-top: 66px;
-
-  @media screen and (min-width: 768px) {
-    padding-top: 140px;
-
-
-
-    
-  }
-  @media screen and (min-width: 1440px) {
-    padding-top: 152px;
-    padding-bottom: 114px;
-  }
+  margin-top: 90px;
 }
-
 
 .buttonWrapper {
   display: flex;
   gap: 14px;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .wrapper {
@@ -34,55 +21,55 @@
   font-size: 38px;
   font-weight: 500;
   letter-spacing: 0.38px;
-  
 }
 
 .exerciseArrowSvg {
   position: absolute;
   z-index: -1;
-  top: 147px;
+  top: 172px;
   left: 12px;
   width: 98px;
   height: 67px;
 }
 
+.buttonSignUp,
+.buttonSignIn {
+  border-radius: 12px;
+  padding: 12px 20px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  text-align: center;
+  text-transform: capitalize;
+}
+
 .buttonSignUp {
   width: 136px;
-  background-color: transparent;
-  border: 1px solid #efede8;
-  opacity: 0.7;
-  transition: background-color 0.2s;
+  background-color: var(--orange);
 }
 
 .buttonSignIn {
   width: 130px;
-  background-color: transparent;
-  border: 1px solid #efede8;
-  opacity: 0.7;
-  transition: background-color 0.2s;
+  border: 1px solid rgba(239, 237, 232, 0.3);
 }
 
 .buttonSignUp:hover,
 .buttonSignUp:focus {
-  background-color: #e6533c;
+  background-color: var(--orange-1);
 }
 
 .buttonSignIn:hover,
 .buttonSignIn:focus {
-  background-color: #e6533c;
+  border-color: var(--orange);
 }
-
-
-
 /* ===============TABLET */
 
 @media screen and (min-width: 768px) {
+  .section {
+    margin-top: 140px;
+  }
   .exerciseArrowSvg {
-
-    top: 284px;
+    top: 288px;
     left: 13px;
     width: 185px;
-    height: 67px;
   }
   .logo {
     margin-top: 32px;
@@ -94,9 +81,14 @@
   .title {
     width: 598px;
     font-size: 70px;
-    font-weight: 500;
     line-height: 1.12;
     letter-spacing: 0.7px;
+  }
+
+  .buttonSignUp,
+  .buttonSignIn {
+    padding: 16px 60px;
+    font-size: 20px;
   }
 
   .buttonSignUp {
@@ -107,22 +99,26 @@
     width: 182px;
   }
 
-
+  .buttonWrapper {
+    gap: 20px;
+    margin-top: 64px;
+  }
 }
 
 /* ==============DESKTOP */
 
 @media screen and (min-width: 1440px) {
+  .section {
+    margin-top: 152px;
+  }
   .wrapper {
     margin-top: 152px;
     margin-right: 76px;
   }
 
   .exerciseArrowSvg {
-    left: 73px;
+    left: 77px;
     top: 300px;
-    width: 185px;
-    height: 67px;
   }
 
   .runner {
