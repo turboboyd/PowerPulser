@@ -9,7 +9,6 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-right: 10px;
 }
 
 .arrowSpan {
@@ -19,19 +18,15 @@
 }
 
 .datePicker {
-    width: 150px;
-    border: 1px solid var(--black-color);
-    border-radius: 4px;
-    padding: 5px;
-    margin-right: 10px;
-    margin-left: 5px;
+    width: 95px;
+    border: none;
     background: var(--black-color);
     color:var(--custom-icon-color);
 }
 
 .calendarIcon {
+    fill:#f5f1f1;
     cursor: pointer;
-    margin-left: 5px;
     width: 15px;
     color: var(--custom-icon-color);
 }
@@ -55,3 +50,11 @@
     margin-right: 10px;
 }
 
+.customCalendar {
+    background-color:var(--e6533c-color);
+    border-radius: 5px;
+    padding: 10px;
+}
+.customCalendar__header{
+    background: var(--e6533c-color);
+}

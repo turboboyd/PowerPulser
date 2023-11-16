@@ -1,5 +1,6 @@
 :root {
   --black-color: #040404;
+  --card-info-color: #303030;
   --orange: #e6533c;
   --orange-1: #ef8964;
   --beige: #efa082;
@@ -15,7 +16,8 @@
   --border-error: 1px solid #d80027;
   --border-solid-color: 1px solid rgba(239, 237, 232, 0.2);
   --background-avatar: rgba(48, 48, 48, 0.3);
-
+  --color-no-activ: rgba(239, 237, 232, 0.40);
+  --color-info-tex: rgba(239, 237, 232, 0.65);
   --background-linear-gradient: linear-gradient(
       168deg,
       #040404 14.75%,

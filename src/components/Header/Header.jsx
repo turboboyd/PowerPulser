@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useCallback, useState, useEffect } from "react";
 import css from "./Header.module.css";
 import { PROFILE_ROUTE } from "../../utils/const";
@@ -12,17 +12,22 @@ import { useAuth } from "../../hooks/useAuth";
 import UserBar from "../User/UserBar/UserBar";
 import UserBurgerMenu from "../User/UserBurgerMenu/UserBurgerMenu";
 import Container from "../Container/Container";
+import { authRoutes, publicRoutes } from "../../routes";
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
   const [isBurgerOpen, setBurgerOpen] = useState(false);
   const { isVerify } = useAuth();
+
+  const [isNotFoundPage, setIsNotFoundPage] = useState(false);
 
   const handleLogout = useCallback(() => {
     dispatch(logOutUser());
     navigate("/");
   }, [dispatch, navigate]);
+
   const toggleBurger = useCallback(() => {
     setBurgerOpen((prevIsBurgerOpen) => !prevIsBurgerOpen);
   }, []);
@@ -51,15 +56,23 @@ const Header = () => {
     };
   }, [handleKeyDown, handleOverlayClick]);
 
+  useEffect(() => {
+    const allPaths = [...authRoutes, ...publicRoutes].map(
+      (route) => route.path
+    );
+    setIsNotFoundPage(!allPaths.includes(location.pathname));
+  }, [location]);
+
   return (
     <Container className={css.line} onClick={handleOverlayClick}>
       <header className={isVerify ? css.header_user : css.header_user_not}>
-        <Logo />
+        <Logo isNotFoundPage={isNotFoundPage} />
         {isVerify && (
           <div className={css.wrap}>
-            <UserNav />
+            <nav className={css.nav}>
+              <UserNav />
+            </nav>
             <UserBar handleLogout={handleLogout} />
-
             <button
               data-type="burger-nav"
               className={css.burger_btn}
@@ -78,7 +91,6 @@ const Header = () => {
           toggleBurger={toggleBurger}
         />
       )}
-      
     </Container>
   );
 };

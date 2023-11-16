@@ -9,8 +9,8 @@ import styles from  "./ProductsFilter.module.css";
 // Опции для селекторов
 const optionsRec = [
   { value: 'all', label: 'All' },
-  { value: 'recommended', label: 'Recommended ' },
-  { value: 'notRecommended', label: 'Not recommended' },
+  { value: true, label: 'Recommended' },
+  { value: false, label: 'Not recommended' },
 ];
 
 // Категории продуктов
@@ -55,7 +55,8 @@ const customStyles = {
       // width: width,
       appearance: 'none', // Removing default appearance
       WebkitAppearance: 'none',
-      MozAppearance: 'none',
+    MozAppearance: 'none',
+    margin: '7px',
     }),
     option: (provided, { isFocused, isSelected }) => ({
       ...provided,
@@ -110,6 +111,7 @@ const ProductsFilter = () => {
   const [category, setCategory] = useState('');
   const [recommended, setRecommended] = useState(optionsRec[0]);
 
+
   // Обработчик изменения ввода для поиска
   const onChangeSearch = event => {
     const text = event.target.value;
@@ -120,6 +122,8 @@ const ProductsFilter = () => {
         search: text,
         category: category.value,
         recommended: recommended.value,
+        page: 1,
+        limit: 20, 
       }),
     );
   };

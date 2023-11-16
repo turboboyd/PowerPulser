@@ -11,12 +11,12 @@ const ProductsList = () => {
   const products = useSelector(selectProducts)
 
   useEffect(() => {
-    dispatch(fetchProducts())
+    dispatch(fetchProducts('null'))
   }, [dispatch])
 
   return (
     <div className={css.cardContainer}>
-      {products.items.map((product) => {
+      {products.map((product) => {
         return <ProductsItem key={product._id} product={product} />
       })}
     </div>

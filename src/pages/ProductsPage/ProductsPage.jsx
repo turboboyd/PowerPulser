@@ -1,22 +1,23 @@
-
-import TitlePage from '../../components/TitlePage/TitlePage';
-import ProductsList from '../../components/ProductsList/ProductsList';
-import ProductsFilter from '../../components/ProductsFilter/ProductsFilter';
-import ProductsBackgroundImage from '../../components/BackgroundImage/Products/ProductsBackgroundImage'
-import css from './../../components/ExercisesList/ExercisesList.module.css'
+import TitlePage from "../../components/TitlePage/TitlePage";
+import ProductsList from "../../components/ProductsList/ProductsList";
+import ProductsFilter from "../../components/ProductsFilter/ProductsFilter";
+import ProductsBackgroundImage from "../../components/BackgroundImage/Products/ProductsBackgroundImage";
+import css from "./../../components/ExercisesList/ExercisesList.module.css";
+import { Container, Section } from "../../components/Container";
 
 const ProductsPage = () => {
   return (
-    <>
-      <TitlePage title="Products" />
-
-      <ProductsFilter/>
-      <ProductsList />
+    <Section>
+      <Container>
+        <div className={css.containerProducts}>
+        <TitlePage title="Products" />
+        </div>
+        <ProductsFilter />
         <ProductsList />
-      <ProductsBackgroundImage />
+        <ProductsBackgroundImage />
+      </Container>
+    </Section>
+  );
+};
 
-    </>
-  )
-}
-
-export default ProductsPage
+export default ProductsPage;

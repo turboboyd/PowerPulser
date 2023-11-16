@@ -8,12 +8,13 @@ import RadioButton from "./RadioButton/RadioButton";
 import userFormShemas from "../../utils/shemas/userFormShemas";
 import { updateProfileSettings } from "../../redux/auth/authOperation";
 import { selectUser } from "../../redux/auth/authSelectors";
+import CalendarComponent from '../СalendarBirthDay/СalendarBirthDay';
 
 const UseForm = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
 
-  const { name, email, profileSettings } = user;
+  const { name, profileSettings } = user;
   const {
     height = 0,
     currentWeight = 0,
@@ -25,7 +26,6 @@ const UseForm = () => {
 
   const initialValues = {
     name,
-    email,
     height,
     currentWeight,
     desiredWeight,
@@ -39,7 +39,6 @@ const UseForm = () => {
 
   const handleSubmit = ({
     name,
-    email,
     height,
     currentWeight,
     desiredWeight,
@@ -50,7 +49,6 @@ const UseForm = () => {
   }) => {
     const data = {
       name,
-      email,
       profileSettings: {
         height,
         currentWeight,
@@ -138,17 +136,20 @@ const UseForm = () => {
                   />
                 </div>
 
-                <div className={css.fieldContainer}>
-                  <label className={css.labelInput} htmlFor="date"></label>
-                  <Field
-                    className={css.field}
-                    type="date"
-                    name="birthday"
-                    id="birthday"
-                  />
-                </div>
-              </div>
+              <div className={css.fieldContainer}>
+              <label className={css.labelInput} htmlFor="birthday">
+                Birthday
+              </label>
+              <CalendarComponent
+                minDate={new Date("1900-01-01")}
+                onBirthdayChange={(date) =>
+                  formik.setFieldValue("birthday", date)
+                }
+              />
             </div>
+            </div>
+          </div>
+
             <ErrorMessage
               className={css.errorMessage}
               name="name"

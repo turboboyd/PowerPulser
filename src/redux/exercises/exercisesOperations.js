@@ -4,7 +4,7 @@ import { token } from "../services/tokenAPI";
 import { tokenState } from "../services/tokenState";
 import { BACKEND_EXERCISES_FILTER_URL, BACKEND_EXERCISES_URL } from "../../utils/const";
 
-export const fetchExercisesFilter = createAsyncThunk('auth/fetchExercisesFilter', async (params, thunkAPI) => {
+export const fetchExercisesFilter = createAsyncThunk('exercises/fetchExercisesFilter', async (params, thunkAPI) => {
     // const params = {
     //     type: 'string', ('Body parts', 'Muscles', 'Equipment')
     //     page: 'string' || Number, 
@@ -20,7 +20,7 @@ export const fetchExercisesFilter = createAsyncThunk('auth/fetchExercisesFilter'
     }
 });
 
-export const fetchExercisesItemsSelectedFilter = createAsyncThunk('auth/fetchExercisesItemsSelectedFilter', async (params, thunkAPI) => {
+export const fetchExercisesItemsSelectedFilter = createAsyncThunk('exercises/fetchExercisesItemsSelectedFilter', async (params, thunkAPI) => {
     //   const params = {
     //     idType: 'string', 
     //     page: 'string' || Number, 
