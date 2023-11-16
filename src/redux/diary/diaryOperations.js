@@ -4,10 +4,11 @@ import { token } from "../services/tokenAPI";
 import { tokenState } from "../services/tokenState";
 import { BACKEND_DIARY_EXERCISES_URL, BACKEND_DIARY_PRODUCTS_URL, BACKEND_DIARY_URL } from "../../utils/const";
 
-export const fetchAllDiary = createAsyncThunk('diary/fetchAllDiary', async (_, thunkAPI) => {
+export const fetchAllDiary = createAsyncThunk('diary/fetchAllDiary', async (params, thunkAPI) => {
     try {
         token.set(tokenState(thunkAPI));
-        const { data } = await instance.get(BACKEND_DIARY_URL);
+        const paramsURL = Object.keys(params).map(key => `${key}=${params[key]}`).join('&')
+        const { data } = await instance.get(`${BACKEND_DIARY_URL}?${paramsURL}`);
         return data;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
