@@ -25,7 +25,7 @@
 }
 
 .calendarIcon {
-    filter: brightness(0);
+    fill:#f5f1f1;
     cursor: pointer;
     width: 15px;
     color: var(--custom-icon-color);
@@ -54,4 +54,7 @@
     background-color:var(--e6533c-color);
     border-radius: 5px;
     padding: 10px;
+}
+.customCalendar__header{
+    background: var(--e6533c-color);
 }

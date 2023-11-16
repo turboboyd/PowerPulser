@@ -18,7 +18,11 @@ const AddProductSuccess = ({ handleModalSuccess, selectedProduct }) => {
         Next product
       </button>
       <div className={css.linkWrapper}>
-        <NavLink to={DIARY_ROUTE} className={css.link}>
+        <NavLink
+          to={DIARY_ROUTE}
+          className={css.link}
+          onClick={handleModalSuccess}
+        >
           To the diary
         </NavLink>
         <Icon className={css.iconArrow} iconId="Arrow" />

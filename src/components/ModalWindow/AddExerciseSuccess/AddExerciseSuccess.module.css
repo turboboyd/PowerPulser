@@ -1,8 +1,14 @@
 .container {
-  padding: 48px 89px;
+  padding: 48px 80px;
   display: flex;
   flex-direction: column;
   text-align: center;
+}
+
+@media (min-width: 375px) {
+  .container {
+    padding: 48px 80px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -37,14 +43,14 @@
 .text1 {
   font-size: 14px;
   line-height: 1.29;
-  color: rgba(239, 237, 232, 0.3);
+  color: var(--semiwhite);
   margin-bottom: 4px;
 }
 
 .text2 {
   font-size: 14px;
   line-height: 1.29;
-  color: rgba(239, 237, 232, 0.3);
+  color: var(--semiwhite);
   margin-bottom: 24px;
 }
 
@@ -63,7 +69,7 @@
 }
 
 .button {
-  padding: 12px 32px;
+  padding: 12px 24px;
   background-color: var(--orange);
   color: var(--white);
   border-radius: 12px;
@@ -76,6 +82,12 @@
   &:focus,
   &:hover {
     background-color: var(--orange);
+  }
+}
+
+@media (min-width: 375px) {
+  .button {
+    padding: 14px 32px;
   }
 }
 

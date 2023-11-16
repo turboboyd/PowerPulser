@@ -14,3 +14,15 @@
         line-height: 1.5;
     }
 }
+:root {
+    --black-color: #000000;
+    --e6533c-color: #e6533c;
+    --custom-icon-color: #f5f1f1;
+}
+
+.customCalendar {
+    background-color: var(--e6533c-color);
+    border-radius: 5px;
+    padding: 10px;
+}
+

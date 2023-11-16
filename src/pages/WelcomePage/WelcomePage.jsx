@@ -1,22 +1,16 @@
 import { Link } from "react-router-dom";
-
 import Button from "../../components/Button/Button";
-import Logo from "../../components/Logo/Logo";
 import BackgroundImage from "../../components/BackgroundImage/BackgroundImage";
 import css from "./WelcomPage.module.css";
 import Container from "../../components/Container/Container";
 import Icon from "../../components/ComponIcon/Icon";
-
-import VideoInfo from '../../components/ButtonInfo/VideoInfo';
-import CalInfo from "../../components/ButtonInfo/Calinfo"
+import { Section } from "../../components/Container";
+import StatisticsInfo from "../../components/StatisticsInfo/StatisticsInfo";
 
 const WelcomePage = () => {
   return (
-    <Container>
-      <div className={css.logo}>
-        <Logo />{' '}
-      </div>
-      <div className={css.wrapper}>
+    <Section className={css.section}>
+      <Container>
         <h1 className={css.title}>
           Transforming your <span className={css.bodyText}>body</span> shape
           with Power Pulse
@@ -32,17 +26,11 @@ const WelcomePage = () => {
             <Button type="submit" className={css.buttonSignIn} text="Sign In" />
           </Link>
         </div>
-        <div className={css.polygon}>
-          <VideoInfo />
-        </div>
 
-        <div className={css.runner}>
-          <CalInfo />
-        </div>
-      </div>
-
-      <BackgroundImage />
-    </Container>
+        <StatisticsInfo />
+        <BackgroundImage />
+      </Container>
+    </Section>
   );
 };
 

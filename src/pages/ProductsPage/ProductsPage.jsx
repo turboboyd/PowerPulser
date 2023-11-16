@@ -14,7 +14,6 @@ const ProductsPage = () => {
         </div>
         <ProductsFilter />
         <ProductsList />
-        <ProductsList />
         <ProductsBackgroundImage />
       </Container>
     </Section>
