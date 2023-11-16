@@ -9,8 +9,10 @@ import ParentComponent from "../../components/Calendar/Calendar";
 const DiaryPage = () => {
   return (
     <div className={css.diaryPage}>
-      <TitlePage title="Diary" />
-      <ParentComponent />
+      <div className={css.sectionWrap}>
+        <TitlePage title="Diary" />
+        <ParentComponent />
+      </div>
       <div className={css.sectionWrap}>
         <DayDashbroad />
         <div>
