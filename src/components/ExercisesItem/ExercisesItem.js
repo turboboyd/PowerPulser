@@ -22,8 +22,8 @@ const ExercisesItem = ({ exercise }) => {
 
   const handleSelectedExercise = (data) => {
     setSelectedExercise(data);
-    // dispatch!
   };
+
   return (
     <div className={css.exerciseWrapper}>
       <div className={css.exerciseCardTopPart}>
