@@ -26,6 +26,14 @@ const CustomInput = forwardRef(({ value, onClick, onChange }, ref) => {
   );
 });
 
+
+const DatePickerStyles = `
+  .react-datepicker__header {
+    background-color:  #e6533c;
+    color: white;
+  }
+  `;
+
 const ParentComponent = ({ user, registrationDate }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [calendarOpen, setCalendarOpen] = useState(false);
@@ -71,6 +79,8 @@ const ParentComponent = ({ user, registrationDate }) => {
 
   return (
     <div>
+      <style>{DatePickerStyles}</style>
+      
       <div className={CalendarStyles.container}>
         <DatePicker
           showYearDropdown
@@ -82,6 +92,7 @@ const ParentComponent = ({ user, registrationDate }) => {
           calendarClassName={CalendarStyles.customCalendar}
           dayClassName={dayClassName}
           customInput={<CustomInput onChange={(value) => setSelectedDate(value)} />}
+          open={calendarOpen} 
         />
 
         <img
@@ -89,7 +100,7 @@ const ParentComponent = ({ user, registrationDate }) => {
           alt="calendar icon"
           className={CalendarStyles.calendarIcon}
           onClick={toggleCalendar}
-          style={{ fill: "#fff" }}
+          style={{ fill: "#fff", cursor: "pointer" }}
         />
         <div>
           <span
