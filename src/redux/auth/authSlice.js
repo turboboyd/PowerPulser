@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit'
-import { registrationUser, loginUser, logOutUser, refreshUser, verifyUser, addProfileSettings, updateProfileSettings } from './authOperation';
+import { registrationUser, loginUser, logOutUser, refreshUser, verifyUser, updateProfileSettings } from './authOperation';
 import { handleFulfilledRegistration, handleFulfilledLogin, handleFulfilledLogOut, handleFulfilledRefresh, handlePending, handleRejected, handleFulfilledVerify, handleFulfilledProfileSettings, handleVerifyRejected } from './authReducer';
 import { operationsType } from './authOperationsType';
 
@@ -7,6 +7,7 @@ const contactsInitialState = {
     user: {
         email: '',
         name: '',
+        registrDate: '',
         profileSettings: {
             height: '',
             currentWeight: '',
@@ -35,7 +36,6 @@ export const authSlice = createSlice({
           .addCase(loginUser.fulfilled, handleFulfilledLogin)
           .addCase(logOutUser.fulfilled, handleFulfilledLogOut)
           .addCase(refreshUser.fulfilled, handleFulfilledRefresh)
-          .addCase(addProfileSettings.fulfilled, handleFulfilledProfileSettings)
           .addCase(
             updateProfileSettings.fulfilled,
             handleFulfilledProfileSettings

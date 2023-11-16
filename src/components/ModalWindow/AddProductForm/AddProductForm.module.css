@@ -1,5 +1,11 @@
 .container {
-  padding: 48px 24px;
+  padding: 48px 8px;
+}
+
+@media (min-width: 375px) {
+  .container {
+    padding: 48px 24px;
+  }
 }
 
 @media (min-width: 768px) {

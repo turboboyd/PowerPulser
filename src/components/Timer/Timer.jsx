@@ -1,7 +1,8 @@
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Icon from '../ComponIcon/Icon';
 import css from './Timer.module.css';
+import formatTimeTimer from '../../utils/formatTimeTimer';
 
 const Timer = ({
   burnedCalories,
@@ -20,17 +21,6 @@ const Timer = ({
     setKey((prevKey) => prevKey + 1);
   };
 
-  const children = ({ remainingTime }) => {
-    const newTime = remainingTime;
-    setRestTime(newTime);
-    const minutes = Math.floor(remainingTime / 60);
-    const seconds = remainingTime % 60;
-
-    return `${minutes < 10 ? '0' : ''}${minutes}:${
-      seconds < 10 ? '0' : ''
-    }${seconds}`;
-  };
-
   const handleBurnedCalories = ({ remainingTime }) => {
     const duration = Number(time) * 60;
     setExerciseTime(duration - remainingTime);
@@ -40,6 +30,16 @@ const Timer = ({
     setDynamicCalories(dynamicBurnedCalories);
   };
 
+  useEffect(() => {
+    if (isTimerPlaying) {
+      const timer = setInterval(() => {
+        setRestTime((prevTime) => prevTime - 1);
+      }, 1000);
+
+      return () => clearInterval(timer);
+    }
+  }, [isTimerPlaying]);
+
   return (
     <>
       <div>
@@ -47,16 +47,16 @@ const Timer = ({
           key={key}
           size={124}
           isPlaying={isTimerPlaying}
-          duration={180}
+          duration={time * 60}
           colors={'var(--orange)'}
           strokeWidth={4}
           trailColor=" rgba(239, 237, 232, 0.3)"
-          initialRemainingTime={restTime}
+          initialRemainingTime={time * 60 + restTime}
           onUpdate={(remainingTime) => {
             handleBurnedCalories({ remainingTime });
           }}
         >
-          {({ remainingTime }) => <div>{children({ remainingTime })}</div>}
+          {({ remainingTime }) => <div>{formatTimeTimer(remainingTime)}</div>}
         </CountdownCircleTimer>
         <div className={css.buttonWrapper}>
           <button className={css.button} onClick={handleToggleTimer}>

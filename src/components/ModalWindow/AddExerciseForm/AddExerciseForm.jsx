@@ -1,17 +1,8 @@
 import { useState } from 'react';
 import css from './AddExerciseForm.module.css';
 import Timer from '../../Timer/Timer';
-
-const formatDate = (date) => {
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const year = date.getFullYear();
-  return `${year}-${month}-${day}`;
-};
-
-const capitalizedWord = (word) => {
-  return word.substring(0, 1).toUpperCase() + word.substring(1);
-};
+import formatDate from '../../../utils/formatData';
+import ModalExercisesList from '../../ModalExercisesList/ModalExercisesList';
 
 const AddExerciseForm = ({
   handleModalExercise,
@@ -32,7 +23,6 @@ const AddExerciseForm = ({
   };
 
   const handleAddToDiary = () => {
-    console.log(exerciseToDiary);
     handleModalExercise();
     handleModalSuccess();
     handleSelectedExercise(exerciseToDiary);
@@ -64,33 +54,7 @@ const AddExerciseForm = ({
         </div>
 
         <div className={css.listWrapper}>
-          <ul className={css.cardList}>
-            <li className={css.cardItem}>
-              <p className={css.cardText}>Name:</p>
-              <strong className={css.cardTitle}>
-                {capitalizedWord(exercise.name)}
-              </strong>
-            </li>
-            <li className={css.cardItem}>
-              <p className={css.cardText}>Body part:</p>
-              <strong className={css.cardTitle}>
-                {capitalizedWord(exercise.bodyPart)}
-              </strong>
-            </li>
-            <li className={css.cardItem}>
-              <p className={css.cardText}>Target:</p>
-              <strong className={css.cardTitle}>
-                {capitalizedWord(exercise.target)}
-              </strong>
-            </li>
-            <li className={css.cardItem}>
-              <p className={css.cardText}>Equipment:</p>
-              <strong className={css.cardTitle}>
-                {capitalizedWord(exercise.equipment)}
-              </strong>
-            </li>
-          </ul>
-
+          <ModalExercisesList exercise={exercise} />
           <button
             className={css.button}
             type="button"

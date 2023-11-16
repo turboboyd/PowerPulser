@@ -1,11 +1,35 @@
 .container {
-  padding: 48px 32px;
+  padding: 48px 8px;
+  height: 95vh;
+  overflow: auto;
+}
+
+@media (min-width: 375px) {
+  .container {
+    padding: 48px 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    height: auto;
+    padding: 48px 32px;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 768px) {
   .wrapper {
     display: flex;
+    flex-direction: row;
     gap: 16px;
+    align-items: stretch;
   }
 }
 
@@ -16,8 +40,6 @@
   background-color: white;
   border-radius: 12px;
   margin-bottom: 14px;
-  margin-left: auto;
-  margin-right: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,61 +73,14 @@
   }
 }
 
-.cardList {
+.listWrapper {
   display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 24px;
-  gap: 8px;
-  width: 302px;
-}
-
-@media (min-width: 768px) {
-  .cardList {
-    width: 346px;
-  }
-}
-
-.cardItem {
-  width: 147px;
-  height: auto;
-  padding: 12px 18px;
-  border-radius: 12px;
-  border: var(--border-solid-color);
-  background: rgba(239, 237, 232, 0.05);
-}
-
-@media (min-width: 768px) {
-  .cardItem {
-    width: 169px;
-    height: auto;
-  }
-}
-
-.cardText {
-  font-size: 12px;
-  line-height: 1.33;
-  color: var(--semiwhite);
-  margin-bottom: 4px;
-}
-
-.cardTitle {
-  font-size: 14px;
-  line-height: 1.29;
-  color: var(--white);
-  margin-bottom: 4px;
-}
-
-@media (min-width: 768px) {
-  .cardTitle {
-    font-size: 16px;
-    line-height: 1.29;
-  }
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 @media (min-width: 768px) {
   .listWrapper {
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
   }
@@ -132,6 +107,12 @@
 
   &:disabled {
     cursor: not-allowed;
+  }
+}
+
+@media (min-width: 375px) {
+  .button {
+    margin-left: 0;
   }
 }
 

@@ -1,8 +1,14 @@
 .container {
-  padding: 48px 89px;
+  padding: 48px 80px;
   display: flex;
   flex-direction: column;
   text-align: center;
+}
+
+@media (min-width: 375px) {
+  .container {
+    padding: 48px 89px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -52,7 +58,7 @@
 }
 
 .button {
-  padding: 12px 32px;
+  padding: 12px 24px;
   background-color: var(--orange);
   color: var(--white);
   border-radius: 12px;
@@ -69,6 +75,12 @@
 
   &:focus {
     background-color: var(--orange-1);
+  }
+}
+
+@media (min-width: 375px) {
+  .button {
+    padding: 12px 32px;
   }
 }
 

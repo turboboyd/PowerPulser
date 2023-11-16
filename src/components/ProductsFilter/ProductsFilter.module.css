@@ -30,6 +30,7 @@
 
 @media screen and (min-width: 768px) {
   .products-filter-search {
+    height: 52px;
     width: 236px;
   }
 }
@@ -37,7 +38,6 @@
 @media screen and (min-width: 1440px) {
   .products-filter-search {
     width: 236px;
-    height: 52px;
     font-size: 16px;
     line-height: 24px;
   }
@@ -47,7 +47,7 @@
   background: transparent;
   border-color: transparent;
   position: absolute;
-  top: calc(50% - 16px / 2);
+  top: calc(50% - 20px / 2);
 }
 
 .products-btn-clouse {
@@ -103,16 +103,20 @@
   }
 }
 
+
 .select-wrapper {
   @media screen and (min-width: 375px) {
     width: 158px;
+    height: 46px;
   }
 
   @media screen and (min-width: 768px) {
     width: 173px;
+    height: 52px;
   }
 
   @media screen and (min-width: 1440px) {
     width: 192px;
   }
 }
+
