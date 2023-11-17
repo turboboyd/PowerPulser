@@ -16,15 +16,20 @@ import formatDate from "../../utils/formatData";
 const DiaryPage = () => {
   const dispatch = useDispatch();
 
-  const [date, setDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
+  console.log(selectedDate);
 
   useEffect(() => {
+    const date = {
+      date: selectedDate,
+    };
     dispatch(fetchAllDiary(date));
-  }, [dispatch]);
+  }, [dispatch, selectedDate]);
 
   const handleDate = (date) => {
     const formatedDate = formatDate(date);
-    setDate(formatedDate);
+    setSelectedDate(formatedDate);
   };
 
   return (

@@ -10,6 +10,7 @@ import { selectDiaryProducts } from "../../redux/diary/diarySelectors";
 
 const DayProducts = () => {
   const products = useSelector(selectDiaryProducts);
+  console.log(products);
 
   return (
     <div className={css.dayProducts}>
