@@ -59,3 +59,36 @@
 .sliderLi.active::after {
   opacity: 1;
 }
+
+.pagination span {
+  cursor: pointer;
+  margin-right: 8px;
+  padding: 0;
+  font-size: 8px;
+  background-color: rgba(247, 245, 240, 0.1);
+  
+}
+
+.pagination span:hover {
+  background-color:rgba(230, 83, 60, 1);
+}
+
+.pagination span.active {
+  background-color:rgba(230, 83, 60, 1);
+  /* Set the color for the active page number */
+  font-weight: bold;
+}
+
+.paginationDot {
+  width: 8px;
+  height: 8px;
+  border: 1px solid rgba(239, 237, 232, 0.1);
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.activeDot {
+  background-color: rgba(230, 83, 60, 1);
+  border: 1px solid rgba(230, 83, 60, 1);
+}
