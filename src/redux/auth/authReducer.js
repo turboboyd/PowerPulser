@@ -1,5 +1,9 @@
 export const handlePending = (state) => {
   state.isLoading = true;
+};
+
+export const handlePendingRefresh = (state) => {
+  state.isLoading = true;
   state.isRefreshing = true;
 };
 export const handlePendingUpdateProfileSettings = (state) => {
