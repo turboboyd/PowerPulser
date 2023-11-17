@@ -4,6 +4,8 @@ import exercisesData from '../../RESOURCES/resources/filters.json';
 import css from './ExercisesSubcategoriesList.module.css';
 
 const ITEMS_PER_PAGE = 10;
+const ITEM_WIDTH = 237; 
+const ITEM_HEIGHT = 206; 
 
 const ExercisesSubcategoriesList = () => {
   const exercises = exercisesData;
@@ -27,32 +29,35 @@ const ExercisesSubcategoriesList = () => {
     <div>
       <div>
         <ul className={css.sliderUl}>
-          <li
-            onClick={() => setSelectedCategory('Body parts')}
-            className={selectedCategory === 'Body parts' ? css.active : ''}
-          >
-            Body Parts
-          </li>
-          <li
-            onClick={() => setSelectedCategory('Equipment')}
-            className={selectedCategory === 'Equipment' ? css.active : ''}
-          >
-            Equipment
-          </li>
-          <li
-            onClick={() => setSelectedCategory('Muscles')}
-            className={selectedCategory === 'Muscles' ? css.active : ''}
-          >
-            Muscles
-          </li>
-        </ul>
+        <li
+        onClick={() => setSelectedCategory('Body parts')}
+        className={`${selectedCategory === 'Body parts' ? `${css.active} ${css.sliderLi}` : css.sliderLi} ${css.bodyParts}`}
+        >
+        Body Parts
+        </li>
+        <li
+        onClick={() => setSelectedCategory('Equipment')}
+        className={`${selectedCategory === 'Equipment' ? `${css.active} ${css.sliderLi}` : css.sliderLi} ${css.equipment}`}
+        >
+        Equipment
+        </li>
+        <li
+        onClick={() => setSelectedCategory('Muscles')}
+        className={`${selectedCategory === 'Muscles' ? `${css.active} ${css.sliderLi}` : css.sliderLi} ${css.muscles}`}
+      >
+      Muscles
+      </li>
+    </ul>
       </div>
       <div className={css.exercisesContainer}>
         {visibleExercises.map((exercise) => (
-          <ExercisesSubcategoriesItem
+          <div
             key={exercise._id.$oid}
-            exercise={exercise}
-          />
+            className={css.exerciseItem}
+            style={{ width: ITEM_WIDTH, height: ITEM_HEIGHT }}
+          >
+            <ExercisesSubcategoriesItem exercise={exercise} />
+          </div>
         ))}
       </div>
       <div className={css.pagination}>
@@ -65,7 +70,7 @@ const ExercisesSubcategoriesList = () => {
             {index + 1}
           </span>
         ))}
-    </div>
+      </div>
     </div>
   );
 };
