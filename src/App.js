@@ -19,19 +19,21 @@ function App() {
   }, [dispatch]);
 
   return (
-     <>
+    <>
+      {!isRefreshing && (
         <Routes>
           <Route path="/" element={<Layout />}>
             {isVerify &&
               authRoutes.map(({ path, Element }) => (
                 <Route key={path} path={path} element={Element} exact></Route>
               ))}
-            { publicRoutes.map(({ path, Element }) => (
+            {publicRoutes.map(({ path, Element }) => (
               <Route key={path} path={path} element={Element} exact />
             ))}
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
+      )}
     </>
   );
 };
