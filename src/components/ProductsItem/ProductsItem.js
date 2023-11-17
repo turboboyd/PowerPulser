@@ -24,8 +24,8 @@ const ProductsItem = ({ product }) => {
 
   const handleSelectedProduct = (data) => {
     setSelectedProduct(data);
-    //  dispatch!
   };
+
   return (
     <div className={css.exerciseWrapper}>
       <div className={css.productsCardTopPart}>

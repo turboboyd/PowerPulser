@@ -20,7 +20,7 @@ const ExercisesCategories = ({ category: initialCategory, setCategory }) => {
         currentPathNameRef.current = path.pathname;
       }, [path.pathname]); 
 
-     useEffect(() => {
+    useEffect(() => {
         handleButtonClick(CATEGORIES_FILTER[0]);
     }, []); 
 
@@ -37,14 +37,12 @@ const ExercisesCategories = ({ category: initialCategory, setCategory }) => {
                           type='button'
                           className={`${css.button_filter}  ${category === filter ? css.active : ''} `}
                           onClick={() => handleButtonClick(filter)}
-                           >
-                         {filter}
-                       </button>
+                            >
+                            {filter}
+                      </button>
                             </li>)
 })}
-        </ul>  
-       )
+          </ul>  
+        )
 }
 export default ExercisesCategories;
-
-

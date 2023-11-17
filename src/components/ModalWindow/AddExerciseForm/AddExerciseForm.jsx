@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import css from './AddExerciseForm.module.css';
 import Timer from '../../Timer/Timer';
 import formatDate from '../../../utils/formatData';
 import ModalExercisesList from '../../ModalExercisesList/ModalExercisesList';
+import { addExercisesDiary } from '../../../redux/diary/diaryOperations';
 
 const AddExerciseForm = ({
   handleModalExercise,
@@ -13,11 +15,13 @@ const AddExerciseForm = ({
   const [dynamicCalories, setDynamicCalories] = useState('');
   const [exerciseTime, setExerciseTime] = useState('');
 
+  const dispatch = useDispatch();
+
   let date = new Date();
   const formattedDate = formatDate(date);
   const exerciseToDiary = {
     date: formattedDate,
-    exerciseId: exercise._id,
+    exercise: exercise._id,
     time: exerciseTime,
     calories: dynamicCalories,
   };
@@ -26,6 +30,7 @@ const AddExerciseForm = ({
     handleModalExercise();
     handleModalSuccess();
     handleSelectedExercise(exerciseToDiary);
+    dispatch(addExercisesDiary(exerciseToDiary));
   };
 
   return (
