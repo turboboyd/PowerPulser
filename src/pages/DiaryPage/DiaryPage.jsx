@@ -18,9 +18,9 @@ const DiaryPage = () => {
 
   const [date, setDate] = useState(new Date());
 
-  // useEffect(() => {
-  //   dispatch(fetchAllDiary(date));
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchAllDiary(date));
+  }, [dispatch]);
 
   const handleDate = (date) => {
     const formatedDate = formatDate(date);
