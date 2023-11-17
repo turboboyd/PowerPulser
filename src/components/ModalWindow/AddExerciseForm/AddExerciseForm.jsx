@@ -21,7 +21,7 @@ const AddExerciseForm = ({
   const formattedDate = formatDate(date);
   const exerciseToDiary = {
     date: formattedDate,
-    exerciseId: exercise._id,
+    exercise: exercise._id,
     time: exerciseTime,
     calories: dynamicCalories,
   };
