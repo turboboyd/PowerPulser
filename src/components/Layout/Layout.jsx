@@ -16,7 +16,7 @@ export default function Layout() {
   return (
     <div className={css.section}>
       <Header />
-      {!isRefreshing ? <main>
+      <main>
         {/* <Section>
           <Container> */}
             <Suspense fallback={<Loader />}>
@@ -24,7 +24,7 @@ export default function Layout() {
             </Suspense>
           {/* </Container>
         </Section> */}
-      </main> : <Loader/>}
+      </main>
     </div>
   );
 }

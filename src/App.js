@@ -11,8 +11,8 @@ import { NotFound } from "./pages";
 
 function App() {
   const dispatch = useDispatch();
-  const { isVerify } = useAuth();
-  
+  const { isVerify, isRefreshing } = useAuth();
+
 
   useEffect(() => { 
     dispatch(refreshUser());
