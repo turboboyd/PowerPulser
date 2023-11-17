@@ -68,8 +68,6 @@ const UseForm = () => {
       },
     };
     dispatch(updateProfileSettings(data));
-    let invalidDate = new Date("invalid date");
-    console.log(invalidDate.toISOString()); 
     console.log(data);
   };
   return (

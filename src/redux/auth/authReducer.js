@@ -1,6 +1,6 @@
 export const handlePending = (state) => {
   state.isLoading = true;
-  state.isRefreshing = true;
+  // state.isRefreshing = true;
 };
 export const handleRejected = (state, { payload }) => {
   state.isLoading = false;
