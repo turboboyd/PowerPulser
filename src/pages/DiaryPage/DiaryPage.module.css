@@ -1,15 +1,29 @@
 .diaryPage {
   display: flex;
   flex-direction: column;
-  margin-bottom: 80px;
-  margin-top: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.calendarWrap {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media (min-width: 768px) {
   .diaryPage {
-    margin-bottom: 0px;
-    margin-top: 0px;
+    position: relative;
+
+    padding-top: 72px;
+    padding-bottom: 0px;
   }
+
+  .calendar {
+    position: absolute;
+    top: 52px;
+    right: 0;
+  }
+
   .sectionWrap {
     margin-top: 32px;
 

@@ -1,76 +1,74 @@
-import css from "./ProductsTable.module.css";
-import widthCss from "./ProductsTableWidth.module.css";
-
+import { useDispatch } from "react-redux";
 import Icon from "../ComponIcon/Icon";
+import css from "./ProductsTable.module.css";
+import { deleteProductDiary } from "../../redux/diary/diaryOperations";
 
 const ProductsTable = ({ products }) => {
+  const dispatch = useDispatch();
+
+  const deleteProduct = (id) => {
+    dispatch(deleteProductDiary(id));
+  };
+
   return (
     <>
       <ul className={css.diaryMainList}>
-        {products.map(({ title, calories, weight, category }) => (
-          <li key={title} className={css.diaryMainItem}>
-            <ul className={css.diaryDetailsList}>
-              <li className={css.diaryDetailsItem}>
-                <span className={css.diaryDetailsItemCategory}>Title</span>
-                <div
-                  className={`${css.diaryDetailsItemValue} ${widthCss.widthTitle}`}
-                >
-                  {title}
-                </div>
-              </li>
-              <li className={css.diaryDetailsItem}>
-                <span className={css.diaryDetailsItemCategory}>Category</span>
-                <div
-                  className={`${css.diaryDetailsItemValue} ${widthCss.widthCategory}`}
-                >
-                  {category}
-                </div>
-              </li>
-              <li className={css.diaryDetailsItem}>
-                <ul className={`${css.diaryDetailsListMob}`}>
-                  <li className={css.diaryDetailsItemMob}>
-                    <span className={css.diaryDetailsItemCategory}>
-                      Calories
-                    </span>
-                    <div
-                      className={`${css.diaryDetailsItemValue} ${css.diaryDetailsWrapValueMob} ${widthCss.widthCalories}`}
-                    >
-                      {calories}
-                    </div>
-                  </li>
-                  <li className={css.diaryDetailsItemMob}>
-                    <span className={css.diaryDetailsItemCategory}>Weight</span>
-                    <div
-                      className={`${css.diaryDetailsItemValue} ${css.diaryDetailsWrapValueMob} ${widthCss.widthWeight}`}
-                    >
-                      {weight}
-                    </div>
-                  </li>
-                  <li className={css.diaryDetailsItemMob}>
-                    <span className={css.diaryDetailsItemCategory}>
-                      Recommend
-                    </span>
-                    <div className={css.diaryTrashWrap}>
-                      <div
-                        className={`${css.diaryDetailsItemValue} ${css.diaryDetailsWrapValueMob}`}
-                      >
-                        <div
-                          className={`${css.diaryProductRecommendWrap}  ${widthCss.widthRecommend}`}
-                        >
-                          <span className={css.diaryProductRecommend}></span>
-                          Yes
-                        </div>
+        {products.map(
+          ({ _id, title, category, calories, weight, recommended }) => (
+            <li key={_id} className={css.diaryMainItem}>
+              <table className={css.table}>
+                <tbody className={css.bodyTable}>
+                  <tr className={css.element}>
+                    <th className={css.nameCategory}>Title</th>
+                    <td className={css.nameValue}>{title}</td>
+                  </tr>
+                  <tr className={css.element}>
+                    <th className={css.nameCategory}>Category</th>
+                    <td className={css.nameValue}>{category}</td>
+                  </tr>
+                </tbody>
+                <tbody className={css.elementWrap}>
+                  <tr className={css.element}>
+                    <th className={css.nameCategory}>Calories</th>
+                    <td className={css.nameValue}>{calories}</td>
+                  </tr>
+                  <tr className={css.element}>
+                    <th className={css.nameCategory}>Weight</th>
+                    <td className={css.nameValue}>{weight}</td>
+                  </tr>
+                  <tr className={css.element}>
+                    <th className={css.nameCategory}>Recommend</th>
+                    <td className={css.nameValue}>
+                      <div className={`${css.recommendWrap}`}>
+                        <span
+                          className={
+                            recommended
+                              ? `${css.productRecommend}`
+                              : `${css.productNotRecommend}`
+                          }
+                        ></span>
+                        {recommended ? "Yes" : "No"}
                       </div>
-                      <button>
-                        <Icon className={css.trashImg} iconId={"Trash"} />
-                      </button>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        ))}
+                    </td>
+                  </tr>
+                  <tr className={css.element}>
+                    <th className={`${css.nameCategory} ${css.nameTrash}`}>
+                      Trash
+                    </th>
+                    <td
+                      className={css.trashValue}
+                      onClick={() => {
+                        deleteProduct(_id);
+                      }}
+                    >
+                      <Icon className={css.trashImg} iconId={"Trash"} />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          )
+        )}
       </ul>
     </>
   );
