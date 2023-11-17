@@ -4,11 +4,8 @@ import UseForm from "../../components/UserForm/UserForm";
 import UserCard from "../../components/UserCard/UserCard";
 
 import css from "./ProfilePage.module.css";
-import useAuth from "../../hooks/useAuth";
-import Loader from "../../components/Loader/Loader";
 
 const ProfilePage = () => {
-  const { isLoading } = useAuth()
 
   return (
     <>
