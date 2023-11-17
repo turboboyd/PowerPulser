@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { verifyUser } from "../../redux/auth/authOperation";
 import { PROFILE_ROUTE } from "../../utils/const";
 
-import { selectStatus, selectUser } from "../../redux/auth/authSelectors";
-import { useAuth } from "../../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 
 const VerifyPage = () => {
   const { id } = useParams();

@@ -8,7 +8,7 @@ import {
   selectError,
 } from "../redux/auth/authSelectors";
 
-export const useAuth = () => {
+const useAuth = () => {
   const user = useSelector(selectUser);
   const isVerify = useSelector(selectIsVerify);
   const isLoading = useSelector(selectIsLoading);
@@ -24,3 +24,5 @@ export const useAuth = () => {
     error,
   };
 };
+
+export default useAuth;

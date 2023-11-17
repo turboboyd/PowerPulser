@@ -9,15 +9,14 @@ import Section from "../Container/Section";
 import { useSelector } from "react-redux";
 import { selectIsVerify } from "../../redux/auth/authSelectors";
 import { authRoutes, publicRoutes } from "../../routes";
+import useAuth from "../../hooks/useAuth";
 
 export default function Layout() {
-
-
-
+  const { isRefreshing } = useAuth()
   return (
     <div className={css.section}>
       <Header />
-      <main>
+      {!isRefreshing ? <main>
         {/* <Section>
           <Container> */}
             <Suspense fallback={<Loader />}>
@@ -25,7 +24,7 @@ export default function Layout() {
             </Suspense>
           {/* </Container>
         </Section> */}
-      </main>
+      </main> : <Loader/>}
     </div>
   );
 }

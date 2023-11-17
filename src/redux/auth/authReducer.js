@@ -1,6 +1,15 @@
 export const handlePending = (state) => {
   state.isLoading = true;
-  // state.isRefreshing = true;
+  state.isRefreshing = true;
+};
+export const handlePendingUpdateProfileSettings = (state) => {
+  state.isLoading = true;
+  state.error = null;
+
+};
+export const handleRejectedUpdateProfileSettings = (state, { payload }) => {
+  state.isLoading = false;
+  state.error = payload;
 };
 export const handleRejected = (state, { payload }) => {
   state.isLoading = false;
@@ -41,15 +50,6 @@ export const handleFulfilledRefresh = (state, { payload }) => {
   state.isRefreshing = false;
 };
 
-export const handleFulfilledProfileSettings = (state, { payload }) => {
-  state.user.profileSettings = payload;
-  state.isLoading = false;
-  state.error = null;
-  state.isRefreshing = false;
-};
-
-// 
-
 export const handleFulfilledVerify = (state, { payload }) => {
   state.user = payload.user;
   state.token = payload.token;
@@ -64,4 +64,10 @@ export const handleVerifyRejected = (state, { payload }) => {
   state.error = payload;
   state.isLoading = false;
   state.status = "rejected";
+};
+
+export const handleFulfilledUpdateProfileSettings  = (state, { payload }) => {
+  state.user = payload.user;
+  state.isLoading = false;
+  state.error = null;
 };
