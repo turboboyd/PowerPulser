@@ -6,16 +6,19 @@ import UserCard from "../../components/UserCard/UserCard";
 import css from "./ProfilePage.module.css";
 
 const ProfilePage = () => {
+
   return (
-    <Section className={css.section}>
-      <Container>
-        <TitlePage title="Profile Settings" className={css.title} />
-        <div className={css.container}>
-          <UseForm />
-          <UserCard />
-        </div>
-      </Container>
-    </Section>
+    <>
+      <Section className={css.section}>
+        <Container>
+          <TitlePage title="Profile Settings" className={css.title} />
+          <div className={css.container}>
+            <UseForm />
+            <UserCard />
+          </div>
+        </Container>
+      </Section>
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux';
-import { useAuth } from './hooks/useAuth';
+import { useDispatch } from 'react-redux';
+import useAuth from "./hooks/useAuth";
 import { refreshUser } from "./redux/auth/authOperation";
 import "./App.css";
 
@@ -9,11 +9,10 @@ import Layout from "./components/Layout/Layout";
 import { authRoutes, publicRoutes } from "./routes";
 import { NotFound } from "./pages";
 
-
 function App() {
   const dispatch = useDispatch();
-  const { isRefreshing, isVerify } = useAuth();
-  
+  const { isVerify, isRefreshing } = useAuth();
+
 
   useEffect(() => { 
     dispatch(refreshUser());
@@ -28,7 +27,7 @@ function App() {
               authRoutes.map(({ path, Element }) => (
                 <Route key={path} path={path} element={Element} exact></Route>
               ))}
-            { publicRoutes.map(({ path, Element }) => (
+            {publicRoutes.map(({ path, Element }) => (
               <Route key={path} path={path} element={Element} exact />
             ))}
             <Route path="*" element={<NotFound />} />

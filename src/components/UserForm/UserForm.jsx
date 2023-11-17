@@ -1,5 +1,5 @@
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import css from "./UserForm.module.css";
@@ -8,7 +8,7 @@ import RadioButton from "./RadioButton/RadioButton";
 import userFormShemas from "../../utils/shemas/userFormShemas";
 import { updateProfileSettings } from "../../redux/auth/authOperation";
 import { selectUser } from "../../redux/auth/authSelectors";
-import CalendarComponent from "../СalendarBirthDay/СalendarBirthDay";
+// import CalendarComponent from "../СalendarBirthDay/СalendarBirthDay";
 
 const UseForm = () => {
   const dispatch = useDispatch();

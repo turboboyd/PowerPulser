@@ -24,8 +24,8 @@ export const BACKEND_PRODUCT_URL = '/api/products';
 export const BACKEND_EXERCISES_URL = '/api/exercises';
 export const BACKEND_EXERCISES_FILTER_URL = '/api/exercises/types';
 export const BACKEND_DIARY_URL = '/api/diary';
-export const BACKEND_DIARY_PRODUCTS_URL = '/api/diary/products/';
-export const BACKEND_DIARY_EXERCISES_URL = '/api/diary/exercises/';
+export const BACKEND_DIARY_PRODUCTS_URL = '/api/diary/products';
+export const BACKEND_DIARY_EXERCISES_URL = '/api/diary/exercises';
 export const BACKEND_PROFILE_URL = '/api/profileSettings';
 export const BACKEND_AVATAR_URL = '/api/users/avatar';
 

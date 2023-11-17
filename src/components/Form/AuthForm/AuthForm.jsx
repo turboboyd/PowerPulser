@@ -1,14 +1,14 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import css from "./AuthForm.module.css";
 import Button from "../../Button/Button";
 import Icon from "../../ComponIcon/Icon";
 import renderFormField from "../FormField/renderFormField";
 import { loginUser, registrationUser } from "../../../redux/auth/authOperation";
 import { SignUpSchema, SignInSchema } from "../../../utils/shemas";
-import { useAuth } from "../../../hooks/useAuth";
+import useAuth from "../../../hooks/useAuth";
 import { DIARY_ROUTE, PROFILE_ROUTE } from "../../../utils/const";
 import useShowPassword from "../../../hooks/useShowPassword";
 
@@ -46,10 +46,10 @@ const AuthForm = ({ isSignUp, title }) => {
     if (formikRef.current) {
       formikRef.current.resetForm();
     }
-    if (isVerify && !user.profile_settings) {
+    if (isVerify && !user.profileSettings) {
       navigate(PROFILE_ROUTE);
     }
-    if (isVerify && user.profile_settings) {
+    if (isVerify && user.profileSettings) {
       navigate(DIARY_ROUTE);
     }
   }, [isSignUp, isVerify, navigate, user]);
