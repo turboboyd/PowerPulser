@@ -1,87 +1,96 @@
-button {
-  border: none;
-  margin: 0;
-  padding: 0;
-  width: auto;
-  overflow: visible;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  line-height: normal;
-  cursor: pointer;
-  outline: none;
-}
-
 .diaryMainItem:not(:last-child) {
   margin-bottom: 40px;
 }
 
-.diaryDetailsItem:not(:last-child) {
+.table {
+}
+
+.element {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 8px;
   margin-bottom: 16px;
 }
 
-.diaryDetailsItemCategory {
-  color: #ef8964;
-  display: inline-block;
-
-  font-family: Roboto;
-  font-size: 12px;
-  font-weight: 400; /**/
-  line-height: 1.5;
-
-  margin-bottom: 8px;
+.elementWrap tr:nth-last-child(-n + 4) {
+  margin-bottom: 0px;
 }
 
-.diaryDetailsItemValue {
+.elementWrap tr:nth-last-child(n + 3) {
+  margin-right: 16px;
+}
+
+.elementWrap tr:last-child {
+  margin-left: 8px;
+}
+
+.elementWrap {
+  display: flex;
+}
+
+.nameCategory {
+  max-width: 70px;
+
+  color: #ef8964;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.nameValue {
   padding: 10px 14px;
+
+  width: 290px;
 
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.3);
 
   color: #efede8;
   font-size: 14px;
-  font-weight: 400; /**/
+  font-weight: 400;
   line-height: 1.28;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.diaryDetailsWrapValueMob {
-  width: 80px;
+.elementWrap .nameValue {
+  width: 75px;
 }
 
-.diaryDetailsListMob {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.elementWrap .element:last-child {
+  width: 24px;
 }
 
-.diaryDetailsItemMob:not(:last-child) {
-  gap: 16px;
-}
-
-.diaryTrashWrap {
+.recommendWrap {
   display: flex;
   gap: 8px;
   align-items: center;
 }
 
-.diaryProductRecommendWrap {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.diaryProductRecommend {
-  width: 10px;
-  height: 10px;
+.productRecommend {
+  width: 14px;
+  height: 14px;
   border-radius: 10px;
   background: #419b09;
 }
 
-.diaryProductNotRecommend {
-  width: 10px;
-  height: 10px;
+.productNotRecommend {
+  width: 14px;
+  height: 14px;
   border-radius: 10px;
   background: #e9101d;
+}
+
+.trashValue {
+  cursor: pointer;
 }
 
 .trashImg {
@@ -89,71 +98,59 @@ button {
   height: 20px;
 }
 
-@media screen and (max-width: 375px) {
-  .diaryRecommendWrap {
-    justify-content: space-around;
-  }
-
-  .diaryDetailsListWrap {
-    justify-content: space-around;
-  }
-
-  .diaryDetailsItemWrap:not(:last-child) {
-    margin-right: auto;
-  }
+.nameTrash {
+  visibility: hidden;
 }
 
 @media screen and (min-width: 768px) {
-  .diaryDetailsList {
-    display: flex;
-    gap: 8px;
-  }
-
-  .diaryMainList .diaryDetailsItemCategory {
+  .diaryMainItem:not(:first-child) .nameCategory {
     display: none;
-  }
-  .diaryMainList > li:first-child .diaryDetailsItemCategory {
-    display: block;
   }
 
   .diaryMainItem:not(:last-child) {
     margin-bottom: 8px;
   }
 
-  .diaryDetailsItem:not(:last-child) {
-    margin-bottom: 0px;
-  }
-
-  .diaryDetailsItemValue {
-    padding: 8px 14px;
-    padding-right: 45px;
-
-    max-height: 40px;
-
-    font-size: 16px;
-    line-height: 1.5;
-    font-weight: 400; /**/
-
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-
-  .diaryDetailsListMob {
+  .table {
+    display: flex;
     gap: 8px;
   }
 
-  .diaryDetailsWrapValueMob {
+  .element {
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nameValue {
+    padding: 8px 14px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .elementWrap .nameValue {
     width: 90px;
   }
 
-  .diaryTrashWrap {
-    gap: 12px;
+  .elementWrap tr:nth-last-child(n + 3) {
+    margin-right: 8px;
   }
 
-  .diaryProductRecommend {
-    width: 14px;
-    height: 14px;
+  .elementWrap tr:last-child {
+    margin-left: 12px;
+  }
+
+  .bodyTable {
+    display: flex;
+    gap: 8px;
+  }
+
+  .bodyTable .nameValue {
+    width: 120px;
+  }
+
+  .table .bodyTable .element:first-child .nameValue {
+    width: 205px;
   }
 }
 
@@ -162,7 +159,11 @@ button {
     padding-left: 16px;
   }
 
-  .diaryDetailsItemValue {
-    padding-right: 50px;
+  .bodyTable .nameValue {
+    width: 170px;
+  }
+
+  .elementWrap .nameValue {
+    width: 105px;
   }
 }
