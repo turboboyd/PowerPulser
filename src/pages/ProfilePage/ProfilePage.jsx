@@ -12,7 +12,6 @@ const ProfilePage = () => {
 
   return (
     <>
-      {isLoading && <Loader/>}
       <Section className={css.section}>
         <Container>
           <TitlePage title="Profile Settings" className={css.title} />

@@ -8,12 +8,10 @@ import "./App.css";
 import Layout from "./components/Layout/Layout";
 import { authRoutes, publicRoutes } from "./routes";
 import { NotFound } from "./pages";
-import Loader from "./components/Loader/Loader";
-
 
 function App() {
   const dispatch = useDispatch();
-  const { isRefreshing, isVerify } = useAuth();
+  const { isVerify } = useAuth();
   
 
   useEffect(() => { 
@@ -21,22 +19,6 @@ function App() {
   }, [dispatch]);
 
   return (
-    // <>
-    //   {!isRefreshing ? (
-    //     <Routes>
-    //       <Route path="/" element={<Layout />}>
-    //         {isVerify &&
-    //           authRoutes.map(({ path, Element }) => (
-    //             <Route key={path} path={path} element={Element} exact></Route>
-    //           ))}
-    //         { publicRoutes.map(({ path, Element }) => (
-    //           <Route key={path} path={path} element={Element} exact />
-    //         ))}
-    //         <Route path="*" element={<NotFound />} />
-    //       </Route>
-    //     </Routes>
-    //   ) : <Loader/>}
-    // </>
      <>
         <Routes>
           <Route path="/" element={<Layout />}>
