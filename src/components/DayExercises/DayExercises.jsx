@@ -2,14 +2,12 @@ import css from "./DayExercises.module.css";
 import ButtonAddItem from "../ButtonAddItem/ButtonAddItem";
 import { EXERCISES_ROUTE } from "../../utils/const";
 import ExercisesTable from "../ExercisesTable/ExercisesTable";
+import { useSelector } from "react-redux";
+import { selectDiaryExercises } from "../../redux/diary/diarySelectors";
 
-import execrcisesData from "../../RESOURCES/resources/exercises.json";
+const DayExercises = () => {
+  const execrcises = useSelector(selectDiaryExercises);
 
-const execrcises = execrcisesData.slice(0, 0);
-
-const DayExercises = ({ selectedDate }) => {
-
-  
   return (
     <>
       <div className={css.dayExecrcises}>
