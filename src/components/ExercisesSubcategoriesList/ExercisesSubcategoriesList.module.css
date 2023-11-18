@@ -1,41 +1,32 @@
+:root {
+  --items-per-row: 3;
+  --item-width: 335px;
+  --item-height: 206px;
+}
+
 .exercisesContainer {
-
+  overflow-x: auto; 
   display: flex;
-
-
-  gap: 32px 15px;
-  align-items: flex-start;
-  justify-content: space-between;
+  gap: 25px;
   flex-wrap: wrap;
-}
-
-.exerciseItem {
-  flex-basis: calc(33.3333% - 16px);
-  
-  margin-bottom: 20px;
-}
-
-.sliderContainer {
-  display: flex;
-  gap: 32px;
-  overflow: auto;
+  justify-content: space-between;
 }
 
 .sliderUl {
   list-style: none;
   padding: 0;
   display: flex;
-  gap: 32px;
+  gap: 25px;
   cursor: pointer;
-  justify-content: flex-end;
-  margin-left: auto;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
-
 
 .sliderLi {
   cursor: pointer;
   font-weight: 400;
+  line-height: 1.28;
+  font-size: 14px;
   font-family: 'Roboto', sans-serif;
   text-decoration: none;
   color: rgba(239, 237, 232, 1);
@@ -60,35 +51,160 @@
   opacity: 1;
 }
 
-.pagination span {
-  cursor: pointer;
-  margin-right: 8px;
-  padding: 0;
-  font-size: 8px;
-  background-color: rgba(247, 245, 240, 0.1);
+@media screen and (min-width: 375px) {
+  .exercisesContainer {
+    overflow-x: auto;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --item-width: 224px;
+    --item-height: 206px;
+  }
+
+  .exercisesContainer {
+    display: flex;
+    gap: 32px 15px;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .exercisesContainer::after {
+    content: '';
+    flex-basis: calc(ITEM_HEIGHT + 20px);
+    min-height: calc(var(--item-height) + 20px);
+  }
+
+  .exerciseItem {
+    flex-basis: calc(33.3333% - 16px);
+    margin-bottom: 20px;
+  }
+
+  .sliderContainer {
+    display: flex;
+    gap: 32px;
+    overflow: auto;
+  }
+
+  .sliderUl {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 32px;
+    cursor: pointer;
+    justify-content: flex-end;
+    margin-left: auto;
+    margin-bottom: 20px;
+  }
+
+  .sliderLi {
+    cursor: pointer;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    color: rgba(239, 237, 232, 1);
+    position: relative;
+  }
+
+  .sliderLi::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: rgba(230, 83, 60, 1);
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .sliderLi.active::after {
+    opacity: 1;
+  }
+
+  .pagination span {
+    cursor: pointer;
+    margin-right: 8px;
+    padding: 0;
+    font-size: 8px;
+    background-color: rgba(247, 245, 240, 0.1);
+  }
+    .pagination{
+      margin-left: 50%;
+    }
+  .pagination span:hover {
+    background-color: rgba(230, 83, 60, 1);
+  }
+
+  .pagination span.active {
+    background-color: rgba(230, 83, 60, 1);
+    font-weight: bold;
+  }
+
+  .paginationDot {
+    width: 8px;
+    height: 8px;
+    border: 1px solid rgba(239, 237, 232, 0.1);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+  }
+
+  .activeDot {
+    background-color: rgba(230, 83, 60, 1);
+    border: 1px solid rgba(230, 83, 60, 1);
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --items-per-row: 2;
+    --item-width: 237px;
+    --item-height: 206px;
+  }
+
+  .exercisesContainer {
+    display: flex;
+    gap: 32px 15px;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .exerciseItem {
+    flex-basis: calc(20%-16px);
+    margin-bottom: 20px;
+  }
+    .sliderLi {
+      cursor: pointer;
+      font-weight: 400;
+      line-height: 1.5;
+      font-size: 16px;
+      font-family: 'Roboto', sans-serif;
+      text-decoration: none;
+      color: rgba(239, 237, 232, 1);
+      position: relative;
+    }
   
-}
-
-.pagination span:hover {
-  background-color:rgba(230, 83, 60, 1);
-}
-
-.pagination span.active {
-  background-color:rgba(230, 83, 60, 1);
-  /* Set the color for the active page number */
-  font-weight: bold;
-}
-
-.paginationDot {
-  width: 8px;
-  height: 8px;
-  border: 1px solid rgba(239, 237, 232, 0.1);
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 8px;
-}
-
-.activeDot {
-  background-color: rgba(230, 83, 60, 1);
-  border: 1px solid rgba(230, 83, 60, 1);
+    .sliderLi::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: rgba(230, 83, 60, 1);
+      border-radius: 2px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+  
+    .sliderLi.active::after {
+      opacity: 1;
+    }
 }
