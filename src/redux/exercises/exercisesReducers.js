@@ -12,7 +12,8 @@ export const handleFulfilledFilter = (state, { payload }) => {
     state.error = null;
 };
 export const handleFulfilledItemsSelectedFilter = (state, { payload }) => {
-    state.itemsSelectedFilter = payload;
+    state.itemsSelectedFilter.push(...payload);
+    state.getMore = payload.length > 0
     state.isLoading = false;
     state.error = null;
 };
