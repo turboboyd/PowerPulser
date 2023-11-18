@@ -5,6 +5,7 @@ import { SIGN_IN_ROUTE, SIGN_UP_ROUTE } from "../../utils/const";
 import AuthForm from "../../components/Form/AuthForm/AuthForm";
 import { Container, Section } from "../../components/Container";
 import StatisticsInfo from "../../components/StatisticsInfo/StatisticsInfo";
+import Logo from "../../components/Logo/Logo";
 
 const AuthPage = () => {
   const location = useLocation();
@@ -16,23 +17,19 @@ const AuthPage = () => {
     ? "Welcome! Please enter your credentials to login to the platform:"
     : " Thank you for your interest in our platform. To complete the registration process, please provide us with the following information.";
 
-  
   return (
-      <Section className={css.section}>
-        <Container>
-          <h1 className={css.title}>{title}</h1>
-          <p className={css.text}>{text}</p>
-          <AuthForm isSignUp={isLoginPage} title={title} />
-          <div className={css.textWrapper}>
-            <p className={css.textHint}>Don’t have an account?</p>
-            <Link className={css.link} to={link}>
-              {titleLink}
-            </Link>
-          </div>
-          <StatisticsInfo />
-          <BackgroundImage />
-        </Container>
-      </Section>
+    <>
+      <Logo />
+      <h1 className={css.title}>{title}</h1>
+      <p className={css.text}>{text}</p>
+      <AuthForm isSignUp={isLoginPage} title={title} />
+      <div className={css.textWrapper}>
+        <p className={css.textHint}>Don’t have an account?</p>
+        <Link className={css.link} to={link}>
+          {titleLink}
+        </Link>
+      </div>
+    </>
   );
 };
 

@@ -4,33 +4,29 @@ import BackgroundImage from "../../components/BackgroundImage/BackgroundImage";
 import css from "./WelcomPage.module.css";
 import Container from "../../components/Container/Container";
 import Icon from "../../components/ComponIcon/Icon";
-import { Section } from "../../components/Container";
 import StatisticsInfo from "../../components/StatisticsInfo/StatisticsInfo";
+import Logo from "../../components/Logo/Logo";
 
 const WelcomePage = () => {
   return (
-    <Section className={css.section}>
-      <Container>
-        <h1 className={css.title}>
-          Transforming your <span className={css.bodyText}>body</span> shape
-          with Power Pulse
-        </h1>
-        <div className={css.icon}>
-          <Icon className={css.exerciseArrowSvg} iconId="icon-line" />
-        </div>
-        <div className={css.buttonWrapper}>
-          <Link className={css.link} to="/signup">
-            <Button type="submit" className={css.buttonSignUp} text="Sign Up" />
-          </Link>
-          <Link to="/signin">
-            <Button type="submit" className={css.buttonSignIn} text="Sign In" />
-          </Link>
-        </div>
-
-        <StatisticsInfo />
-        <BackgroundImage />
-      </Container>
-    </Section>
+    <>
+      <Logo />
+      <h1 className={css.title}>
+        Transforming your <span className={css.bodyText}>body</span> shape with
+        Power Pulse
+      </h1>
+      <div className={css.icon}>
+        <Icon className={css.exerciseArrowSvg} iconId="icon-line" />
+      </div>
+      <div className={css.buttonWrapper}>
+        <Link className={css.link} to="/signup">
+          <Button type="submit" className={css.buttonSignUp} text="Sign Up" />
+        </Link>
+        <Link to="/signin">
+          <Button type="submit" className={css.buttonSignIn} text="Sign In" />
+        </Link>
+      </div>
+    </>
   );
 };
 

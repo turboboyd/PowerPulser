@@ -1,9 +1,41 @@
-import css from './Section.module.css'
+import {
+  WELCOME_PAGE_ROUTE,
+  PROFILE_ROUTE,
+  DIARY_ROUTE,
+  SIGN_IN_ROUTE,
+  SIGN_UP_ROUTE,
+} from "../../utils/const";
+import StatisticsInfo from "../StatisticsInfo/StatisticsInfo";
+import css from "./Section.module.css";
+import { useLocation } from "react-router-dom";
 
+const Section = ({ children }) => {
+  const location = useLocation();
 
-const Section = ({ children, className}) => {
-  const style = `${css.section} ${className}`;
-  return <section className={style}>{children}</section>;
+  const showStatisticsInfoRoutes = [
+    WELCOME_PAGE_ROUTE,
+    SIGN_UP_ROUTE,
+    SIGN_IN_ROUTE,
+  ];
+
+  const styles = {
+    [WELCOME_PAGE_ROUTE]: css.WELCOME_PAGE_section,
+    [SIGN_UP_ROUTE]: css.AUTH_PAGE_section,
+    [SIGN_IN_ROUTE]: css.AUTH_PAGE_section,
+    [DIARY_ROUTE]: css.SIGN_IN_ROUTE_section,
+  };
+  const sectionStyle = `${css.section} ${
+    styles[location.pathname] || `${css.section}`
+  }`;
+
+  return (
+    <section className={sectionStyle}>
+      {children}
+      {showStatisticsInfoRoutes.includes(location.pathname) && (
+        <StatisticsInfo />
+      )}
+    </section>
+  );
 };
 
 export default Section;

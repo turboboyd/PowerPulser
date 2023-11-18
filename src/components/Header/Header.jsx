@@ -66,7 +66,7 @@ const Header = () => {
 
   return (
     <Container className={css.line} onClick={handleOverlayClick}>
-      {!isNotFoundPage && (
+      {isVerify && (
         <header className={isVerify ? css.header_user : css.header_user_not}>
           <Logo isNotFoundPage={isNotFoundPage} />
           {isVerify && (

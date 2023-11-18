@@ -127,11 +127,11 @@
 
 @media screen and (min-width: 1440px) {
   .polygon_card {
-    top: 536px;
+    top: 384px;
     left: 770px;
   }
   .cal_card {
-    top: 671px;
+    top: 519px;
     left: 1228px;
   }
 }

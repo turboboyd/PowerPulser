@@ -4,21 +4,22 @@ import Header from "../Header/Header";
 import Loader from "../Loader/Loader";
 import css from "./Layout.module.css";
 import useAuth from "../../hooks/useAuth";
+import { Container, Section } from "../Container";
 
 export default function Layout() {
-  const { isLoading } = useAuth()
+  const { isVerify } = useAuth();
   return (
-    <div className={css.section}>
-      <Header />
+    <>
+      {isVerify && <Header />}
       <main>
-        {/* <Section>
-          <Container> */}
+        <Section>
+          <Container>
             <Suspense fallback={<Loader />}>
-               <Outlet/>
+              <Outlet />
             </Suspense>
-          {/* </Container>
-        </Section> */}
+          </Container>
+        </Section>
       </main>
-    </div>
+    </>
   );
 }
