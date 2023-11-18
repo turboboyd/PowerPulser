@@ -13,7 +13,7 @@ const NotFound = () => {
   const isNotFoundPage = true;
   return (
     <>
-      <div className={css.block_error}>
+      {/* <div className={css.block_error}> */}
         <Logo isNotFoundPage={isNotFoundPage}/>
         <h1 className={css.title_one}>404</h1>
         <p className={css.text_error}>
@@ -25,7 +25,7 @@ const NotFound = () => {
         <Link className={css.link_goHome} to={link}>
           {text}
         </Link>
-      </div>
+      {/* </div> */}
     </>
   );
 };
