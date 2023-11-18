@@ -2,7 +2,6 @@ import { DIARY_ROUTE, WELCOME_PAGE_ROUTE } from "../../utils/const";
 import { useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import css from "./NotFound.module.css";
-import BackgroundImage from "../../components/BackgroundImage/BackgroundImage";
 import useAuth from "../../hooks/useAuth";
 import Logo from "../../components/Logo/Logo";
 
@@ -27,7 +26,6 @@ const NotFound = () => {
           {text}
         </Link>
       </div>
-      <BackgroundImage />
     </>
   );
 };
