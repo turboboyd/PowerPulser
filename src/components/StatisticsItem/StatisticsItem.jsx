@@ -5,13 +5,20 @@ const StatisticsItem = ({
   statisticsName,
   statisticsIcon,
   statisticsValue,
-  statisticPrimary = false,
+  statisticPrimary = "",
+  isFulfilledNorm = "",
 }) => {
   return (
     <>
       <li
         className={`${css.statisticItem} ${
           statisticPrimary && css.primaryStatisticItem
+        } ${
+          isFulfilledNorm !== "" && isFulfilledNorm
+            ? css.statisticItemPositive
+            : isFulfilledNorm !== "" && !isFulfilledNorm
+            ? css.statisticItemNegative
+            : ""
         }`}
       >
         <div className={css.statisticTitleWrap}>
