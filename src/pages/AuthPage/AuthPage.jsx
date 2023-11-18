@@ -16,6 +16,7 @@ const AuthPage = () => {
     ? "Welcome! Please enter your credentials to login to the platform:"
     : " Thank you for your interest in our platform. To complete the registration process, please provide us with the following information.";
 
+  
   return (
       <Section className={css.section}>
         <Container>
