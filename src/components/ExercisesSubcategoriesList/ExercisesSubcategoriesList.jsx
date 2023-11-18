@@ -3,10 +3,6 @@ import ExercisesSubcategoriesItem from '../../components/ExercisesSubcategoriesI
 import exercisesData from '../../RESOURCES/resources/filters.json';
 import css from './ExercisesSubcategoriesList.module.css';
 
-const ITEMS_PER_ROW = 3;
-const ITEM_WIDTH = 237;
-const ITEM_HEIGHT = 206;
-
 const ExercisesSubcategoriesList = () => {
   const exercises = exercisesData;
   const [selectedCategory, setSelectedCategory] = useState('Body parts');
@@ -16,11 +12,15 @@ const ExercisesSubcategoriesList = () => {
     (exercise) => exercise.filter === selectedCategory
   );
 
-  const itemsPerPage = ITEMS_PER_ROW * ITEMS_PER_ROW; 
+  const ITEMS_PER_ROW = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--items-per-row'));
+  const ITEM_WIDTH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-width'));
+  const ITEM_HEIGHT = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-height'));
+
+  const itemsPerPage = ITEMS_PER_ROW * ITEMS_PER_ROW;
   const totalPages = Math.ceil(filteredExercises.length / itemsPerPage);
 
   const handlePageChange = (page) => {
-    const newPage = Math.min(Math.max(1, page), totalPages); 
+    const newPage = Math.min(Math.max(1, page), totalPages);
     const newStartIndex = (newPage - 1) * itemsPerPage;
 
     if (newStartIndex < filteredExercises.length) {
@@ -65,7 +65,7 @@ const ExercisesSubcategoriesList = () => {
       </div>
       <div className={css.pagination}>
         {Array.from({ length: totalPages }, (_, index) => (
-            (index * itemsPerPage < filteredExercises.length) && (
+          (index * itemsPerPage < filteredExercises.length) && (
             <span
               key={index + 1}
               onClick={() => handlePageChange(index + 1)}
