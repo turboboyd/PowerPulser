@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
 import Button from "../../components/Button/Button";
-import BackgroundImage from "../../components/BackgroundImage/BackgroundImage";
 import css from "./WelcomPage.module.css";
-import Container from "../../components/Container/Container";
 import Icon from "../../components/ComponIcon/Icon";
-import StatisticsInfo from "../../components/StatisticsInfo/StatisticsInfo";
 import Logo from "../../components/Logo/Logo";
 
 const WelcomePage = () => {
