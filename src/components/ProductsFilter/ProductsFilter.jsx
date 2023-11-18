@@ -6,7 +6,7 @@ import styles from './ProductsFilter.module.css';
 import { Formik, Form, Field } from 'formik';
 import customStyles from './ProductFilterSelectStyles';
 import capitalizedWord from '../../utils/capitalizedWord';
-import selectProductsCategory from '../../redux/products/productsSelectors';
+import {selectProductsCategory} from '../../redux/products/productsSelectors';
 import { fetchProducts } from '../../redux/products/productsOperations';
 
 // Опции для селекторов
@@ -16,33 +16,29 @@ const options = [
   { value: 'false', label: 'Not recommended' },
 ];
 
-// Категории продуктов
-// const categories = useSelector(selectCategoriesProducts);
 
-
-
-// Категории продуктов
-const categories = [
-  'alcoholic drinks',
-  'berries',
-  'cereals',
-  'dairy',
-  'dried fruits',
-  'eggs',
-  'fish',
-  'flour',
-  'fruits',
-  'meat',
-  'mushrooms',
-  'nuts',
-  'oils and fats',
-  'poppy',
-  'sausage',
-  'seeds',
-  'sesame',
-  'soft drinks',
-  'vegetables and herbs',
-];
+// Категории продуктов 
+// const categories = [
+//   'alcoholic drinks',
+//   'berries',
+//   'cereals',
+//   'dairy',
+//   'dried fruits',
+//   'eggs',
+//   'fish',
+//   'flour',
+//   'fruits',
+//   'meat',
+//   'mushrooms',
+//   'nuts',
+//   'oils and fats',
+//   'poppy',
+//   'sausage',
+//   'seeds',
+//   'sesame',
+//   'soft drinks',
+//   'vegetables and herbs',
+// ];
 
 
 
@@ -59,7 +55,7 @@ const ProductsFilter = () => {
   const [category, setCategory] = useState('');
   const [recommended, setRecommended] = useState(options[0]);
 
-  // const categories = useSelector(selectProductsCategory);
+  const categories = useSelector(selectProductsCategory);
 
  // Эффект, который отправляет запрос на получение продуктов при изменении рекомендации, категории или поискового запроса
   useEffect(() => {
@@ -73,10 +69,20 @@ const ProductsFilter = () => {
   }, [recommended, category, search, dispatch]);
 
  // Формирование списка категорий для селектора
- const categoriesList = categories?.map((el) => ({
-  value: el,
-  label: capitalizedWord(el),
-}));
+ const categoriesList = [
+  { value: 'all', label: 'All categories' },
+  ...categories.map(({ _id, name }) => ({
+    value: _id,
+    label: capitalizedWord(name),
+  })),
+];
+
+// // Преобразование категорий для селектора
+// const categoriesList = categories?.map((el) => ({
+//   value: el,
+//   label: capitalizedWord(el),
+// }));
+
 
   // Обработчик отправки формы поиска
 const handleSubmit = (e) => {
