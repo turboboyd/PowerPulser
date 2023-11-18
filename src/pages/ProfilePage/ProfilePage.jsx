@@ -9,15 +9,15 @@ const ProfilePage = () => {
 
   return (
     <>
-      <Section className={css.section}>
-        <Container>
+      {/* <Section className={css.section}>
+        <Container> */}
           <TitlePage title="Profile Settings" className={css.title} />
           <div className={css.container}>
             <UseForm />
             <UserCard />
           </div>
-        </Container>
-      </Section>
+        {/* </Container>
+      </Section> */}
     </>
   );
 };
