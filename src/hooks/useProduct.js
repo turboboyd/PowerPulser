@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
+import { selectProducts, selectProductsCategory, selectProductsError, selectProductsGetMore, selectProductsIsLoading } from "../redux/products/productsSelectors";
 
-import { selectProducts, selectProductsCategory, selectProductsError, selectProductsIsLoading, selectProductsGetMore } from "../redux/products/productsSelectors";
 
 const useProduct = () => {
     const products = useSelector(selectProducts);
@@ -13,8 +13,8 @@ const useProduct = () => {
         products,
         productsIsLoading,
         productsError,
-        category,
         productsGetMore,
+        category,
     };
 };
 
