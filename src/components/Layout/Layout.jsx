@@ -7,6 +7,7 @@ import useAuth from "../../hooks/useAuth";
 import { Container, Section } from "../Container";
 import { authRoutes, publicRoutes } from "../../routes";
 
+
 export default function Layout() {
   const location = useLocation();
   const [isNotFoundPage, setIsNotFoundPage] = useState(false);
