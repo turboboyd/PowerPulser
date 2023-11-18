@@ -22,6 +22,7 @@ const Header = () => {
 
   const [isNotFoundPage, setIsNotFoundPage] = useState(false);
 
+
   const handleLogout = useCallback(() => {
     dispatch(logOutUser());
     navigate("/");
@@ -62,26 +63,29 @@ const Header = () => {
     setIsNotFoundPage(!allPaths.includes(location.pathname));
   }, [location]);
 
+
   return (
     <Container className={css.line} onClick={handleOverlayClick}>
-      <header className={isVerify ? css.header_user : css.header_user_not}>
-        <Logo isNotFoundPage={isNotFoundPage} />
-        {isVerify && (
-          <div className={css.wrap}>
-            <nav className={css.nav}>
-              <UserNav />
-            </nav>
-            <UserBar handleLogout={handleLogout} />
-            <button
-              data-type="burger-nav"
-              className={css.burger_btn}
-              onClick={toggleBurger}
-            >
-              <Icon className={css.burger_btn} iconId="Menu" />
-            </button>
-          </div>
-        )}
-      </header>
+      {!isNotFoundPage && (
+        <header className={isVerify ? css.header_user : css.header_user_not}>
+          <Logo isNotFoundPage={isNotFoundPage} />
+          {isVerify && (
+            <div className={css.wrap}>
+              <nav className={css.nav}>
+                <UserNav />
+              </nav>
+              <UserBar handleLogout={handleLogout} />
+              <button
+                data-type="burger-nav"
+                className={css.burger_btn}
+                onClick={toggleBurger}
+              >
+                <Icon className={css.burger_btn} iconId="Menu" />
+              </button>
+            </div>
+          )}
+        </header>
+      )}
 
       {isVerify && (
         <UserBurgerMenu

@@ -5,11 +5,12 @@ import Icon from "../ComponIcon/Icon";
 import useAuth from "../../hooks/useAuth";
 
 const Logo = ({ isNotFoundPage }) => {
+  console.log('isNotFoundPage: ', isNotFoundPage);
 
 
   const { isVerify } = useAuth();
   const link = isVerify ? DIARY_ROUTE : WELCOME_PAGE_ROUTE;
-
+  
   return (
     <Link className={css.logo_wrap} to={link}>
       <div>
