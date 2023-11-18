@@ -20,16 +20,18 @@ export const fetchExercisesFilter = createAsyncThunk('exercises/fetchExercisesFi
     }
 });
 
-export const fetchExercisesItemsSelectedFilter = createAsyncThunk('exercises/fetchExercisesItemsSelectedFilter', async (params, thunkAPI) => {
+export const fetchExercisesItemsSelectedFilter = createAsyncThunk('exercises/fetchExercisesItemsSelectedFilter', async ({ params, cancelToken }, thunkAPI) => {
     //   const params = {
-    //     idType: 'string', 
+    //     id: 'string', 
     //     page: 'string' || Number, 
     //     limit: 'string' || Number,
     // }
     try {
         const paramsURL = Object.keys(params).map(key => `${key}=${params[key]}`).join('&')
         token.set(tokenState(thunkAPI));
-        const { data } = await instance.get(`${BACKEND_EXERCISES_URL}?${paramsURL}`);
+        const { data } = await instance.get(`${BACKEND_EXERCISES_URL}?${paramsURL}`,{
+                cancelToken: cancelToken,
+        });
         return data;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);

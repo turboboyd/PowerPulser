@@ -5,12 +5,14 @@ import { token } from "../services/tokenAPI";
 import { tokenState } from "../services/tokenState";
 
 export const fetchProducts = createAsyncThunk('products/fetchProducts',
-    async (params, thunkAPI) => {
+    async ({ numberPage, cancelToken }, thunkAPI) => {
         try {
-            const paramsURL = Object.keys(params).map(key => `${key}=${params[key]}`).join('&')
-            
             token.set(tokenState(thunkAPI));
-            const { data } = await instance.get(`${BACKEND_PRODUCT_URL}?${paramsURL}`);
+            const paramsURL = Object.keys(numberPage).map(key => `${key}=${numberPage[key]}`).join('&')
+            const { data } = await instance.get(`${BACKEND_PRODUCT_URL}?${paramsURL}`, {
+                cancelToken: cancelToken,
+            });
+            
             return data
         } catch (e) {
             return thunkAPI.rejectWithValue(e.message);
