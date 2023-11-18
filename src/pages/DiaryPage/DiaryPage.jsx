@@ -37,29 +37,25 @@ const DiaryPage = () => {
   };
 
   return (
-    <Section>
-      <Container>
-        <>
-          <div className={css.diaryPage}>
-            <div className={css.calendarWrap}>
-              <TitlePage title="Diary" />
-              <div className={css.calendar}>
-                <Calendar handleDate={handleDate} />
-              </div>
-            </div>
-            {
-              <div className={css.sectionWrap}>
-                <DayDashboard />
-                <div>
-                  <DayProducts />
-                  <DayExercises />
-                </div>
-              </div>
-            }
+    <>
+      <div className={css.diaryPage}>
+        <div className={css.calendarWrap}>
+          <TitlePage title="Diary" />
+          <div className={css.calendar}>
+            <Calendar handleDate={handleDate} />
           </div>
-        </>
-      </Container>
-    </Section>
+        </div>
+        {
+          <div className={css.sectionWrap}>
+            <DayDashboard />
+            <div>
+              <DayProducts />
+              <DayExercises />
+            </div>
+          </div>
+        }
+      </div>
+    </>
   );
 };
 
