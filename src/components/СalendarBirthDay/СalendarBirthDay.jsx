@@ -23,6 +23,7 @@ const CustomInput = forwardRef(
           }}
           onChange={handleChange}
           onKeyDown={onKeyDown}
+          readOnly
           style={{ backgroundColor: "black", color: "white" }}
         />
       </div>
