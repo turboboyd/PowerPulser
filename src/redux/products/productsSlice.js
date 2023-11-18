@@ -5,6 +5,7 @@ import { handleFulfilled, handleFulfilledCategory, handlePending, handleRejected
 const initialState = {
     items: [],
     category: [],
+    getMore: false,
     isLoading: false,
     error: null
 };
