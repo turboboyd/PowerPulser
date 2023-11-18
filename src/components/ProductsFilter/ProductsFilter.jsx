@@ -6,7 +6,7 @@ import styles from './ProductsFilter.module.css';
 import { Formik, Form, Field } from 'formik';
 import customStyles from './ProductFilterSelectStyles';
 import capitalizedWord from '../../utils/capitalizedWord';
-import selectCategoriesProducts from '../../redux/products/productsSelectors';
+import selectProductsCategory from '../../redux/products/productsSelectors';
 import { fetchProducts } from '../../redux/products/productsOperations';
 
 // Опции для селекторов
@@ -59,7 +59,7 @@ const ProductsFilter = () => {
   const [category, setCategory] = useState('');
   const [recommended, setRecommended] = useState(options[0]);
 
-  // const categories = useSelector(selectCategoriesProducts);
+  // const categories = useSelector(selectProductsCategory);
 
  // Эффект, который отправляет запрос на получение продуктов при изменении рекомендации, категории или поискового запроса
   useEffect(() => {
