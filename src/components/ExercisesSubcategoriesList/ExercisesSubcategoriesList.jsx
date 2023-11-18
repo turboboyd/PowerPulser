@@ -3,10 +3,6 @@ import ExercisesSubcategoriesItem from '../../components/ExercisesSubcategoriesI
 import exercisesData from '../../RESOURCES/resources/filters.json';
 import css from './ExercisesSubcategoriesList.module.css';
 
-const ITEMS_PER_PAGE = 10;
-const ITEM_WIDTH = 237; 
-const ITEM_HEIGHT = 206; 
-
 const ExercisesSubcategoriesList = () => {
   const exercises = exercisesData;
   const [selectedCategory, setSelectedCategory] = useState('Body parts');
@@ -16,41 +12,48 @@ const ExercisesSubcategoriesList = () => {
     (exercise) => exercise.filter === selectedCategory
   );
 
-  const totalPages = Math.ceil(filteredExercises.length / ITEMS_PER_PAGE);
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const endIndex = startIndex + ITEMS_PER_PAGE;
-  const visibleExercises = filteredExercises.slice(startIndex, endIndex);
+  const ITEMS_PER_ROW = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--items-per-row'));
+  const ITEM_WIDTH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-width'));
+  const ITEM_HEIGHT = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-height'));
+
+  const itemsPerPage = ITEMS_PER_ROW * ITEMS_PER_ROW;
+  const totalPages = Math.ceil(filteredExercises.length / itemsPerPage);
 
   const handlePageChange = (page) => {
-    setCurrentPage(page);
+    const newPage = Math.min(Math.max(1, page), totalPages);
+    const newStartIndex = (newPage - 1) * itemsPerPage;
+
+    if (newStartIndex < filteredExercises.length) {
+      setCurrentPage(newPage);
+    }
   };
 
   return (
     <div>
       <div>
         <ul className={css.sliderUl}>
-        <li
-        onClick={() => setSelectedCategory('Body parts')}
-        className={`${selectedCategory === 'Body parts' ? `${css.active} ${css.sliderLi}` : css.sliderLi} ${css.bodyParts}`}
-        >
-        Body Parts
-        </li>
-        <li
-        onClick={() => setSelectedCategory('Equipment')}
-        className={`${selectedCategory === 'Equipment' ? `${css.active} ${css.sliderLi}` : css.sliderLi} ${css.equipment}`}
-        >
-        Equipment
-        </li>
-        <li
-        onClick={() => setSelectedCategory('Muscles')}
-        className={`${selectedCategory === 'Muscles' ? `${css.active} ${css.sliderLi}` : css.sliderLi} ${css.muscles}`}
-      >
-      Muscles
-      </li>
-    </ul>
+          <li
+            onClick={() => setSelectedCategory('Body parts')}
+            className={selectedCategory === 'Body parts' ? `${css.active} ${css.sliderLi}` : css.sliderLi}
+          >
+            Body Parts
+          </li>
+          <li
+            onClick={() => setSelectedCategory('Equipment')}
+            className={selectedCategory === 'Equipment' ? `${css.active} ${css.sliderLi}` : css.sliderLi}
+          >
+            Equipment
+          </li>
+          <li
+            onClick={() => setSelectedCategory('Muscles')}
+            className={selectedCategory === 'Muscles' ? `${css.active} ${css.sliderLi}` : css.sliderLi}
+          >
+            Muscles
+          </li>
+        </ul>
       </div>
       <div className={css.exercisesContainer}>
-        {visibleExercises.map((exercise) => (
+        {filteredExercises.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((exercise) => (
           <div
             key={exercise._id.$oid}
             className={css.exerciseItem}
@@ -62,13 +65,15 @@ const ExercisesSubcategoriesList = () => {
       </div>
       <div className={css.pagination}>
         {Array.from({ length: totalPages }, (_, index) => (
-          <span
-            key={index + 1}
-            onClick={() => handlePageChange(index + 1)}
-            className={currentPage === index + 1 ? css.active : ''}
-          >
-            {index + 1}
-          </span>
+          (index * itemsPerPage < filteredExercises.length) && (
+            <span
+              key={index + 1}
+              onClick={() => handlePageChange(index + 1)}
+              className={currentPage === index + 1 ? `${css.active} ${css.paginationDot} ${css.activeDot}` : css.paginationDot}
+            >
+              &bull;
+            </span>
+          )
         ))}
       </div>
     </div>
