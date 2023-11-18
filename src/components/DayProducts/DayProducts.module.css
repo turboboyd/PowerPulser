@@ -1,14 +1,19 @@
 .dayProducts {
-  padding: 16px;
   margin-top: 40px;
+  padding: 16px 8px 16px 16px;
 
   max-width: 335px;
   max-height: 1064px;
-  overflow-y: auto;
+  overflow: hidden;
 
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
   background: rgba(239, 237, 232, 0.05);
+}
+
+.dayScrollWrap {
+  overflow-y: auto;
+  max-height: 1032px;
 }
 
 .diaryNav {
@@ -23,7 +28,7 @@
   color: rgba(239, 237, 232, 0.5);
 
   font-size: 14px;
-  font-weight: 400; /**/
+  font-weight: 400;
   line-height: 1.28;
 }
 
@@ -47,8 +52,11 @@
     max-width: 704px;
     max-height: 234px;
 
-    padding: 16px;
     margin-top: 0px;
+  }
+
+  .dayScrollWrap {
+    max-height: 207px;
   }
 
   .diaryNav {
@@ -67,23 +75,26 @@
 
 @media (min-width: 1440px) {
   .dayProducts {
-    max-width: 826px;
+    min-width: 826px;
   }
+
+  /* .dayExecrcises .notFoundPlugText {
+    min-width: 826px;
+  } */
 }
 
 /* SCROLL */
 
-.dayProducts::-webkit-scrollbar {
+.dayScrollWrap::-webkit-scrollbar {
   width: 6px;
+  border-radius: 12px;
 }
 
-.dayProducts::-webkit-scrollbar-thumb {
+.dayScrollWrap::-webkit-scrollbar-thumb {
   border-radius: 12px;
   background: rgba(239, 237, 232, 0.1);
-  height: 9px;
 }
 
-.dayProducts::-webkit-scrollbar-track {
-  height: 20px;
+.dayScrollWrap::-webkit-scrollbar-track {
   border-radius: 12px;
 }

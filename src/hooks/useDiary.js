@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { selectDiaryError, selectDiaryExercises, selectDiaryIsLoading, selectDiaryProducts } from "../redux/diary/diarySelectors";
 
-export const useDiary = () => {
+const useDiary = () => {
     const diaryProducts = useSelector(selectDiaryProducts);
     const diaryExercises = useSelector(selectDiaryExercises);
     const diaryIsLoading = useSelector(selectDiaryIsLoading);
@@ -14,3 +14,5 @@ export const useDiary = () => {
         diaryError,
     };
 };
+
+export default useDiary;

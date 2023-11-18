@@ -17,21 +17,21 @@ const AuthPage = () => {
     : " Thank you for your interest in our platform. To complete the registration process, please provide us with the following information.";
 
   return (
-    <Section className={css.section}>
-      <Container>
-        <h1 className={css.title}>{title}</h1>
-        <p className={css.text}>{text}</p>
-        <AuthForm isSignUp={isLoginPage} title={title} />
-        <div className={css.textWrapper}>
-          <p className={css.textHint}>Don’t have an account?</p>
-          <Link className={css.link} to={link}>
-            {titleLink}
-          </Link>
-        </div>
-        <StatisticsInfo/>
-        <BackgroundImage />
-      </Container>
-    </Section>
+      <Section className={css.section}>
+        <Container>
+          <h1 className={css.title}>{title}</h1>
+          <p className={css.text}>{text}</p>
+          <AuthForm isSignUp={isLoginPage} title={title} />
+          <div className={css.textWrapper}>
+            <p className={css.textHint}>Don’t have an account?</p>
+            <Link className={css.link} to={link}>
+              {titleLink}
+            </Link>
+          </div>
+          <StatisticsInfo />
+          <BackgroundImage />
+        </Container>
+      </Section>
   );
 };
 

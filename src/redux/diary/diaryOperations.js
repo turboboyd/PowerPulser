@@ -75,7 +75,7 @@ export const addExercisesDiary = createAsyncThunk(
     try {
       token.set(tokenState(thunkAPI));
       const { data } = await instance.post(
-        BACKEND_DIARY_PRODUCTS_URL,
+        BACKEND_DIARY_EXERCISES_URL,
         credentials
       );
       return data;

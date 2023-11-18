@@ -1,14 +1,13 @@
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useCallback, useState, useEffect } from "react";
 import css from "./Header.module.css";
-import { PROFILE_ROUTE } from "../../utils/const";
 
 import Icon from "../ComponIcon/Icon";
 import Logo from "../Logo/Logo";
 import UserNav from "../User/UserNav/UserNav";
 import { useDispatch } from "react-redux";
 import { logOutUser } from "../../redux/auth/authOperation";
-import { useAuth } from "../../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 import UserBar from "../User/UserBar/UserBar";
 import UserBurgerMenu from "../User/UserBurgerMenu/UserBurgerMenu";
 import Container from "../Container/Container";
