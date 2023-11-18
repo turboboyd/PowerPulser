@@ -290,7 +290,12 @@ const UseForm = () => {
                 />
               </div>
             </div>
-            <Button className={css.buttonSave} type="submit" text="Save" />
+            <Button
+              className={css.buttonSave}
+              type="submit"
+              text="Save"
+              disabled={!formik.isValid}
+            />
           </Form>
         )}
       </Formik>

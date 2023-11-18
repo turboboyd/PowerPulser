@@ -1,20 +1,19 @@
-
 .logo_wrap {
-  
   display: flex;
   gap: 8px;
+  padding-top: 24px;
 }
 
 .logo {
   width: 44px;
   height: 17px;
   stroke: var(--orange);
-  fill: var(--orange)
+  fill: var(--orange);
 }
 
-.logo_white{
+.logo_white {
   stroke: var(--white);
-  fill:var(--white)
+  fill: var(--white);
 }
 .logo_name {
   width: 100px;
@@ -27,13 +26,18 @@
 }
 
 @media screen and (max-width: 768px) {
- 
   .logo {
     width: 36px;
     height: 13px;
   }
-    .logo_name {
+  .logo_name {
     width: 82px;
     height: 12px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .logo_wrap {
+    padding-top: 32px;
   }
 }

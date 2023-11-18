@@ -1,11 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import css from './Button.module.css';
+import css from "./Button.module.css";
 
-const Button = ({ text, className }) => {
-  const buttonClass = `${css.button} ${className || ''}`;
+const Button = ({ text, className, disabled }) => {
+  const buttonClass = `${css.button} ${className || ""}`;
 
-  return <button className={buttonClass}>{text}</button>;
+  return (
+    <button className={buttonClass} disabled={disabled}>
+      {text}
+    </button>
+  );
 };
 
 export default Button;
