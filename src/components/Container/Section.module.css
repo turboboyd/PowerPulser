@@ -3,7 +3,7 @@
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
-  min-height: 812px;
+  padding: 40px 0 80px;
 }
 
 @media (min-width: 375px) {
@@ -15,14 +15,15 @@
 @media (min-width: 768px) {
   .section {
     width: 768px;
-    min-height: 1024px;
+    min-height: 940px;
+    padding: 72px 0 48px;
   }
 }
 
 @media (min-width: 1440px) {
   .section {
     width: 1440px;
-    min-height: 800px;
+    min-height: 716px;
   }
 }
 
@@ -62,12 +63,17 @@
     .AUTH_PAGE_section::after {
       background-image: url("../../images/background/bg-img-tablet-2x-min.jpg");
     }
+    .PRODUCT_section::after {
+      background-image: var(--background-produc),
+        url("../../images/background/bg-products-desktop@2x-min.jpg");
+    }
   }
 }
 
 /* WELCOME_PAGE_section*/
 
 .WELCOME_PAGE_section {
+  min-height: 812px;
   padding: 0 0 483px 0;
   background-position: 77px 241px;
   background-size: 446px 669px;
@@ -78,6 +84,7 @@
 
 @media screen and (min-width: 768px) {
   .WELCOME_PAGE_section {
+    min-height: 1024px;
     padding: 0 0 481px 0;
     background-position: 331px 131px;
     background-size: 670px 1005px;
@@ -88,6 +95,7 @@
 
 @media screen and (min-width: 1440px) {
   .WELCOME_PAGE_section {
+    min-height: 800px;
     padding: 0 0 246px 0;
     background-position: right -152px;
     background-image: var(--desk-background-linear-gradient),
@@ -98,7 +106,7 @@
 /* AUTH_PAGE_section */
 
 .AUTH_PAGE_section {
- 
+  min-height: 812px;
   background-position: 77px 241px;
   background-size: 446px 669px;
   background-image: var(--background-linear-auth-mb),
@@ -108,7 +116,7 @@
 
 @media screen and (min-width: 768px) {
   .AUTH_PAGE_section {
-   
+    min-height: 1024px;
     background-position: 331px 131px;
     background-size: 670px 1005px;
     background-image: var(--background-linear-gradient-mob),
@@ -118,9 +126,25 @@
 
 @media screen and (min-width: 1440px) {
   .AUTH_PAGE_section {
-    
+    min-height: 800px;
     background-position: right -152px;
     background-image: var(--desk-background-linear-gradient),
       url("../../images/background/bg-img-tablet-1x-min.jpg");
+  }
+}
+
+/* PRODUCT_section */
+
+@media screen and (min-width: 1440px) {
+  .PRODUCT_section {
+    background-repeat: no-repeat;
+    background-position: 1012px 0px;
+    background-size: 807px 716px;
+    background-image: var(--background-product),
+      url("../../images/background/bg-products-desktop-1x-min.jpg");
+
+    /* background-size: 807px 716px;
+    background-image: var(--background-produc),
+      url("../../images/background/bg-img-tablet-1x-min.jpg"); */
   }
 }

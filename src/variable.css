@@ -37,6 +37,7 @@
     rgba(4, 4, 4, 0) 70.79%
   );
   --background-linear-auth-mb:linear-gradient(168deg, #040404 14.75%, rgba(4, 4, 4, 0.00) 52.97%), linear-gradient(73deg, #040404 6.11%, rgba(4, 4, 4, 0.00) 66.68%);
+  --background-product: linear-gradient(89deg, #040404 1.1%, rgba(4, 4, 4, 0.00) 70.79%);
 }
 
 

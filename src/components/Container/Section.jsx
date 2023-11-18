@@ -4,6 +4,7 @@ import {
   DIARY_ROUTE,
   SIGN_IN_ROUTE,
   SIGN_UP_ROUTE,
+  PRODUCT_ROUTE,
 } from "../../utils/const";
 import StatisticsInfo from "../StatisticsInfo/StatisticsInfo";
 import css from "./Section.module.css";
@@ -22,7 +23,7 @@ const Section = ({ children }) => {
     [WELCOME_PAGE_ROUTE]: css.WELCOME_PAGE_section,
     [SIGN_UP_ROUTE]: css.AUTH_PAGE_section,
     [SIGN_IN_ROUTE]: css.AUTH_PAGE_section,
-    [DIARY_ROUTE]: css.SIGN_IN_ROUTE_section,
+    [PRODUCT_ROUTE]: css.PRODUCT_section,
   };
   const sectionStyle = `${css.section} ${
     styles[location.pathname] || `${css.section}`
