@@ -7,7 +7,7 @@ import { Formik, Form, Field } from 'formik';
 import customStyles from './ProductFilterSelectStyles';
 import capitalizedWord from '../../utils/capitalizedWord';
 import {selectProductsCategory} from '../../redux/products/productsSelectors';
-import { fetchProducts } from '../../redux/products/productsOperations';
+import { fetchProducts ,fetchProductsCategory  } from '../../redux/products/productsOperations';
 
 // Опции для селекторов
 const options = [
@@ -39,10 +39,13 @@ const options = [
 //   'soft drinks',
 //   'vegetables and herbs',
 // ];
+// // Преобразование категорий для селектора
+// const categoriesList = categories?.map((el) => ({
+//   value: el,
+//   label: capitalizedWord(el),
+// }));
 
 
-
-// Преобразование категорий для селектора
 
 
 // Компонент ProductsFilter
@@ -68,20 +71,22 @@ const ProductsFilter = () => {
     );
   }, [recommended, category, search, dispatch]);
 
+  useEffect(() => {
+    dispatch(fetchProductsCategory());
+  }, [dispatch]);
+  // 
+  // useEffect(() => {
+  //   dispatch(fetchProducts());
+  //   }, [dispatch]);
+
  // Формирование списка категорий для селектора
  const categoriesList = [
   { value: 'all', label: 'All categories' },
   ...categories.map(({ _id, name }) => ({
     value: _id,
-    label: capitalizedWord(name),
+    label: capitalizedWord(name || ''),
   })),
 ];
-
-// // Преобразование категорий для селектора
-// const categoriesList = categories?.map((el) => ({
-//   value: el,
-//   label: capitalizedWord(el),
-// }));
 
 
   // Обработчик отправки формы поиска
