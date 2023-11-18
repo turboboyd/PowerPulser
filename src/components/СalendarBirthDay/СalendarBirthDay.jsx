@@ -3,6 +3,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import CalendarStyles from "./СalendarBirthDay.module.css";
 import Icon from "../ComponIcon/Icon";
+import { selectUser } from "../../redux/auth/authSelectors";
+import { useSelector } from "react-redux";
 
 const CustomInput = forwardRef(
   ({ value, onClick, onChange, onKeyDown }, ref) => {
@@ -48,8 +50,14 @@ const DatePickerStyles = `
 `;
 
 const CalendarComponent = ({ onBirthdayChange }) => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const user = useSelector(selectUser);
+  const initialDate = user?.profileSettings?.birthday
+    ? new Date(user.profileSettings.birthday)
+    : new Date();
+  // const initialDate = new Date();
+  const [selectedDate, setSelectedDate] = useState(initialDate);
   const [calendarOpen, setCalendarOpen] = useState(false);
+  const [validationError, setValidationError] = useState(null);
 
   const toggleCalendar = () => {
     setCalendarOpen(!calendarOpen);
@@ -66,8 +74,9 @@ const CalendarComponent = ({ onBirthdayChange }) => {
     const today = new Date();
 
     if (today.getFullYear() - date.getFullYear() < 18) {
-      setSelectedDate(new Date("2000-01-01"));
+      setValidationError("You must be at least 18 years old.");
     } else {
+      setValidationError(null);
       setSelectedDate(date);
     }
     onBirthdayChange(date);
@@ -90,6 +99,9 @@ const CalendarComponent = ({ onBirthdayChange }) => {
     <div>
       <style>{DatePickerStyles}</style>
       <div className={CalendarStyles.container}>
+        {validationError && (
+          <div style={{ color: "red" }}>{validationError}</div>
+        )}
         <DatePicker
           showYearDropdown
           scrollableYearDropdown

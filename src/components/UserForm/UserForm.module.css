@@ -149,6 +149,9 @@
 .buttonSave {
   padding: 16px 50px;
   width: 144px;
+  &:disabled {
+    opacity: 0.5;
+  }
 }
 
 .errorMessage {
