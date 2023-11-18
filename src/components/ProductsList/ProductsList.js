@@ -9,6 +9,7 @@ import css from './../ExercisesList/ExercisesList.module.css'
 const ProductsList = () => {
   const dispatch = useDispatch()
   const products = useSelector(selectProducts)
+  console.log('products: ', products);
 
   useEffect(() => {
     dispatch(fetchProducts('null'))
