@@ -1,14 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchProducts } from './productsOperations';
-import { handleFulfilled, handlePending, handleRejected } from './productsReducers';
+import { fetchProducts, fetchProductsCategory } from './productsOperations';
+import { handleFulfilled, handleFulfilledCategory, handlePending, handleRejected } from './productsReducers';
 
 const initialState = {
     items: [],
-    // filters: {
-    //     search: "",
-    //     category: "",
-    //     recommended: "",
-    // },
+    category: [],
     getMore: false,
     isLoading: false,
     error: null
@@ -25,8 +21,11 @@ const productsSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(fetchProducts.pending, handlePending)
+            .addCase(fetchProductsCategory.pending, handlePending)
             .addCase(fetchProducts.rejected, handleRejected)
+            .addCase(fetchProductsCategory.rejected, handleRejected)
             .addCase(fetchProducts.fulfilled, handleFulfilled)
+            .addCase(fetchProductsCategory.fulfilled, handleFulfilledCategory)
     }
 });
 
