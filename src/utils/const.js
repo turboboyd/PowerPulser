@@ -21,6 +21,7 @@ export const BACKEND_SIGN_IN_URL = '/api/users/login';
 export const BACKEND_LOGOUT_URL = '/api/users/logout';
 export const BACKEND_REFRESH_URL = '/api/users/current';
 export const BACKEND_PRODUCT_URL = '/api/products';
+export const BACKEND_PRODUCT_CATEGORY_URL = '/api/products/category';
 export const BACKEND_EXERCISES_URL = '/api/exercises';
 export const BACKEND_EXERCISES_FILTER_URL = '/api/exercises/types';
 export const BACKEND_DIARY_URL = '/api/diary';

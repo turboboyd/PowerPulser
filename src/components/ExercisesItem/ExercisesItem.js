@@ -1,11 +1,11 @@
 import css from './ExercisesItem.module.css';
 import Icon from '../ComponIcon/Icon';
-import { useState } from 'react';
+import { forwardRef, useState } from 'react';
 import BasicModalWindow from '../ModalWindow/BasicModalWindow/BasicModalWindow';
 import AddExerciseForm from '../ModalWindow/AddExerciseForm/AddExerciseForm';
 import AddExerciseSuccess from '../ModalWindow/AddExerciseSuccess/AddExerciseSuccess';
 
-const ExercisesItem = ({ exercise }) => {
+const ExercisesItem = forwardRef(({ exercise }, ref) => {
   const [modalExercise, setModalExercise] = useState(false);
   const [modalSuccess, setModalSuccess] = useState(false);
   const [selectedExercise, setSelectedExercise] = useState('');
@@ -25,7 +25,7 @@ const ExercisesItem = ({ exercise }) => {
   };
 
   return (
-    <div className={css.exerciseWrapper}>
+    <div className={css.exerciseWrapper} ref={ref}>
       <div className={css.exerciseCardTopPart}>
         <p className={css.exerciseCardTopDiet}>workout</p>
         <button className={css.exerciseArrow} onClick={handleModalExercise}>
@@ -71,5 +71,5 @@ const ExercisesItem = ({ exercise }) => {
       </ul>
     </div>
   );
-};
+});
 export default ExercisesItem;

@@ -33,6 +33,7 @@
   font-size: 38px;
   font-weight: 500;
   letter-spacing: 0.38px;
+  margin-top: 91px;
   
 }
 
@@ -105,6 +106,7 @@
   }
 
   .title {
+    margin-top: 141px;
     width: 598px;
     font-size: 70px;
     font-weight: 500;
@@ -133,6 +135,9 @@
 /* ==============DESKTOP */
 
 @media screen and (min-width: 1440px) {
+  .title{
+    margin-top: 151px;
+  }
   .wrapper {
     margin-top: 152px;
     margin-right: 76px;
