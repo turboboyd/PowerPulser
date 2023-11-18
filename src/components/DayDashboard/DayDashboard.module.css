@@ -21,7 +21,7 @@
   width: 24px;
   height: 24px;
 
-  background-color: #efa082;
+  background-color: var(--beige);
   border-radius: 50%;
 }
 
@@ -31,9 +31,8 @@
 }
 
 .adviceText {
-  color: rgba(239, 237, 232, 0.3);
+  color: var(--semiwhite);
   font-size: 14px;
-  font-weight: 400;
   line-height: 1.28;
 
   max-width: 303px;

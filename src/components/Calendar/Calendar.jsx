@@ -20,6 +20,7 @@ const CustomInput = forwardRef(({ value, onClick, onChange }, ref) => {
           e.preventDefault();
         }}
         onChange={handleChange}
+        readOnly
         style={{ backgroundColor: "black", color: "white" }}
       />
     </div>
@@ -41,7 +42,7 @@ const DatePickerStyles = `
     }
 `;
 
-const ParentComponent = ({ user, registrationDate }) => {
+const ParentComponent = ({ user, registrationDate, handleDate }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [calendarOpen, setCalendarOpen] = useState(false);
   const userRegistrationDate = new Date(registrationDate);
@@ -58,7 +59,11 @@ const ParentComponent = ({ user, registrationDate }) => {
     return () => {
       document.removeEventListener("keydown", handleEscapeKey);
     };
-  }, []); 
+  }, []);
+
+  useEffect(() => {
+    handleDate(selectedDate);
+  }, [selectedDate, handleDate]);
 
   const handlePrevDay = () => {
     const prevDate = new Date(selectedDate);
@@ -105,7 +110,12 @@ const ParentComponent = ({ user, registrationDate }) => {
           onClick={toggleCalendar}
           calendarClassName={CalendarStyles.customCalendar}
           dayClassName={dayClassName}
-          customInput={<CustomInput value={selectedDate} onChange={(value) => setSelectedDate(value)} />}
+          customInput={
+            <CustomInput
+              value={selectedDate}
+              onChange={(value) => setSelectedDate(value)}
+            />
+          }
           open={calendarOpen}
         />
 
