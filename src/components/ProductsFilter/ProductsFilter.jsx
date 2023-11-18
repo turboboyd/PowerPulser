@@ -6,6 +6,7 @@ import { setFilter } from '../../redux/products/productsSlice';
 import styles from './ProductsFilter.module.css';
 import { Formik, Form, Field } from 'formik';
 import customStyles from './ProductFilterSelectStyles'
+import capitalizedWord from '../../utils/capitalizedWord'
 
 // Опции для селекторов
 const optionsRec = [
@@ -37,20 +38,12 @@ const categories = [
   'vegetables and herbs',
 ];
 
-// Функция для преобразования первой буквы в верхний регистр
-const capitalizeFirstLetter = (string) => {
-  const newString = string.slice(0, 1).toUpperCase() + string.slice(1);
-  return newString;
-};
 
 // Преобразование категорий для селектора
 const categoriesList = categories?.map((el) => ({
   value: el,
-  label: capitalizeFirstLetter(el),
+  label: capitalizedWord(el),
 }));
-
-// Стили для компонентов Select
-
 
 
 // Компонент ProductsFilter
