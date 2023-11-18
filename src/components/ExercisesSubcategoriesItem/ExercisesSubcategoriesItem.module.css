@@ -1,5 +1,12 @@
 .exerciseItemWrap {
   position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 335px;
+  max-height: 206px;
+  border-radius: 12px;
+  overflow: hidden;
+  padding-bottom: 20px;
 }
 
 .exerciseItem {
@@ -12,30 +19,21 @@
 .exerciseItemWrap img {
   width: 100%;
   height: 100%;
-  max-width: 335px;
-  max-height: 206px;
-  object-fit: cover;
   border-radius: 12px;
-  }
+}
 
-@media (min-width: 768px){
-.exerciseItemWrap img {
-    width: 100%;
-    height: 100%;
+@media (min-width: 768px) {
+  .exerciseItemWrap {
     max-width: 224px;
     max-height: 206px;
-    object-fit: cover;
-    border-radius: 12px;
+    padding-bottom: 0;
   }
 }
 
-@media (min-width: 1440px){
-.exerciseItemWrap img {
-    width: 100%;
-    height: 100%;
+@media (min-width: 1440px) {
+  .exerciseItemWrap {
     max-width: 237px;
     max-height: 206px;
-    object-fit: cover;
-    border-radius: 12px;
+    padding-bottom: 0;
   }
 }
