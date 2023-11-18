@@ -48,9 +48,6 @@
       --item-width: 335px;
       --item-height: 206px;
     }
-  .exercisesContainer {
-    overflow-x: auto;
-  }
 }
 
 @media screen and (min-width: 768px) {
