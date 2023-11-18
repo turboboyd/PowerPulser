@@ -1,6 +1,6 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate  } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import useAuth from "./hooks/useAuth";
 import { refreshUser } from "./redux/auth/authOperation";
 import "./App.css";
@@ -13,8 +13,7 @@ function App() {
   const dispatch = useDispatch();
   const { isVerify, isRefreshing } = useAuth();
 
-
-  useEffect(() => { 
+  useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 
@@ -28,7 +27,12 @@ function App() {
                 <Route key={path} path={path} element={Element} exact></Route>
               ))}
             {publicRoutes.map(({ path, Element }) => (
-              <Route key={path} path={path} element={Element} exact />
+              <Route
+                key={path}
+                path={path}
+                element={isVerify ? { Element } : <Navigate to="/diary" />}
+                exact
+              />
             ))}
             <Route path="*" element={<NotFound />} />
           </Route>
@@ -36,6 +40,6 @@ function App() {
       )}
     </>
   );
-};
+}
 
 export default App;
