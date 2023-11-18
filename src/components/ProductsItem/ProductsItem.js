@@ -1,11 +1,11 @@
 import Icon from '../ComponIcon/Icon';
 import css from './../ExercisesItem/ExercisesItem.module.css';
-import { useState } from 'react';
+import { forwardRef, useState } from 'react';
 import BasicModalWindow from '../../components/ModalWindow/BasicModalWindow/BasicModalWindow';
 import AddProductForm from '../ModalWindow/AddProductForm/AddProductForm';
 import AddProductSuccess from '../ModalWindow/AddProductSuccess/AddProductSuccess';
 
-const ProductsItem = ({ product }) => {
+const ProductsItem = forwardRef(({ product }, ref) => {
   const userBloodType = 1;
 
   const [modalProduct, setModalProduct] = useState(false);
@@ -27,7 +27,7 @@ const ProductsItem = ({ product }) => {
   };
 
   return (
-    <div className={css.exerciseWrapper}>
+    <div className={css.exerciseWrapper} ref={ref}>
       <div className={css.productsCardTopPart}>
         <p className={css.exerciseCardTopDiet}>diet</p>
         {product.groupBloodNotAllowed &&
@@ -85,5 +85,5 @@ const ProductsItem = ({ product }) => {
       </ul>
     </div>
   );
-};
+});
 export default ProductsItem;
