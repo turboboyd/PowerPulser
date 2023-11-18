@@ -10,7 +10,8 @@ import StatisticsInfo from "../StatisticsInfo/StatisticsInfo";
 import css from "./Section.module.css";
 import { useLocation } from "react-router-dom";
 
-const Section = ({ children }) => {
+const Section = ({ children, isNotFoundPage }) => {
+  console.log('isNotFoundPage: ', isNotFoundPage);
   const location = useLocation();
 
   const showStatisticsInfoRoutes = [
@@ -25,9 +26,10 @@ const Section = ({ children }) => {
     [SIGN_IN_ROUTE]: css.AUTH_PAGE_section,
     [PRODUCT_ROUTE]: css.PRODUCT_section,
   };
+  
   const sectionStyle = `${css.section} ${
     styles[location.pathname] || `${css.section}`
-  }`;
+  } ${isNotFoundPage ? css.NotFound_section : ""}`;
 
   return (
     <section className={sectionStyle}>
