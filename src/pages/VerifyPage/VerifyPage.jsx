@@ -23,7 +23,7 @@ const VerifyPage = () => {
       navigate(PROFILE_ROUTE);
     }
     if (status === "rejected" && !isVerify) {
-      navigate("/");
+      navigate("/404");
     }
   }, [status, navigate, isVerify]);
 

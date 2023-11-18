@@ -12,7 +12,7 @@ import { authRoutes, publicRoutes } from "../../routes";
 import useAuth from "../../hooks/useAuth";
 
 export default function Layout() {
-  const { isRefreshing } = useAuth()
+  const { isLoading } = useAuth()
   return (
     <div className={css.section}>
       <Header />
@@ -20,7 +20,7 @@ export default function Layout() {
         {/* <Section>
           <Container> */}
             <Suspense fallback={<Loader />}>
-              <Outlet/>
+              {isLoading ? <Loader /> : <Outlet/>}
             </Suspense>
           {/* </Container>
         </Section> */}
