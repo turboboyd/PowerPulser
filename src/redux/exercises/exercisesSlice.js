@@ -1,11 +1,12 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { fetchExercisesFilter, fetchExercisesItemsSelectedFilter } from './exercisesOperations';
 import { operationsType } from './exercisesOperationsType';
-import { handleFulfilledFilter, handlePending, handleRejected } from './exercisesReducers';
+import { handleFulfilledFilter, handleFulfilledItemsSelectedFilter, handlePending, handleRejected } from './exercisesReducers';
 
 const initialState = {
     exercisesFilter: [],
     itemsSelectedFilter: [],
+    getMore: false,
     isLoading: false,
     error: null
 };
@@ -16,7 +17,7 @@ const exercisesSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(fetchExercisesFilter.fulfilled, handleFulfilledFilter)
-            .addCase(fetchExercisesItemsSelectedFilter.fulfilled, handleFulfilledFilter)
+            .addCase(fetchExercisesItemsSelectedFilter.fulfilled, handleFulfilledItemsSelectedFilter)
             .addMatcher(isAnyOf(...operationsType("pending")), handlePending)
             .addMatcher(isAnyOf(...operationsType("rejected")), handleRejected);
     }
