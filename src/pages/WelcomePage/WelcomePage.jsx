@@ -20,10 +20,10 @@ const WelcomePage = () => {
         </div>
         <div className={css.buttonWrapper}>
           <Link className={css.linkSignUp} to="/signup">
-            Sign Up
+            <span className={css.textButton}>Sign Up</span>
           </Link>
           <Link to="/signin" className={css.linkSignIn}>
-            Sign In
+            <span className={css.textButton}> Sign In</span>
           </Link>
         </div>
 
