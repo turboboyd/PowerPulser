@@ -46,29 +46,42 @@
   height: 67px;
 }
 
-.buttonSignUp {
-  width: 136px;
+.linkSignUp {
+    display: flex;
+  align-items: center;
+  justify-content: center;
+   width: 136px;
+   height: 42px;
   background-color: transparent;
   border: 1px solid #efede8;
+  border-radius: 12px;
   opacity: 0.7;
   transition: background-color 0.2s;
 }
 
-.buttonSignIn {
+
+
+.linkSignIn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 130px;
+  height: 42px;
+  border-radius: 12px;
   background-color: transparent;
   border: 1px solid #efede8;
   opacity: 0.7;
   transition: background-color 0.2s;
 }
 
-.buttonSignUp:hover,
-.buttonSignUp:focus {
+.linkSignUp:hover,
+.linkSignUp:focus {
   background-color: #e6533c;
 }
 
-.buttonSignIn:hover,
-.buttonSignIn:focus {
+.linkSignIn:hover,
+.linkSignIn:focus {
   background-color: #e6533c;
 }
 

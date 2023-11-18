@@ -19,11 +19,11 @@ const WelcomePage = () => {
           <Icon className={css.exerciseArrowSvg} iconId="icon-line" />
         </div>
         <div className={css.buttonWrapper}>
-          <Link className={css.link} to="/signup">
-            <Button type="submit" className={css.buttonSignUp} text="Sign Up" />
+          <Link className={css.linkSignUp} to="/signup">
+            Sign Up
           </Link>
-          <Link to="/signin">
-            <Button type="submit" className={css.buttonSignIn} text="Sign In" />
+          <Link to="/signin" className={css.linkSignIn}>
+            Sign In
           </Link>
         </div>
 
