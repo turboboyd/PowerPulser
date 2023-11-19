@@ -5,6 +5,11 @@ import css from './ExercisesSubcategoriesList.module.css';
 import { useSelector, useDispatch } from 'react-redux'; 
 import { fetchExercisesFilter } from '../../redux/exercises/exercisesOperations';
 
+
+const categories = ["Body parts", "Equipment", "Muscles"];
+
+
+
 const ExercisesSubcategoriesList = ({ setShowTitlePage }) => {
   const dispatch = useDispatch();
   const [selectedCategory, setSelectedCategory] = useState('Body parts');
@@ -41,31 +46,41 @@ const ExercisesSubcategoriesList = ({ setShowTitlePage }) => {
   };
 
   useEffect(() => {
-    if (selectedSubcategory) {
-      dispatch(fetchExercisesFilter({ type: selectedSubcategory, page: 1, limit: 10 }));
+    if (selectedCategory) {
+      dispatch(
+        fetchExercisesFilter({ type: selectedCategory, page: 1, limit: 10 })
+      );
     }
-  }, [dispatch, selectedSubcategory]);
+  }, [dispatch, selectedCategory]);
 
 
   return (
     <div>
       {selectedSubcategory ? (
         <div className={css.categoryContainer}>
-          <button type="button" onClick={handleBackButtonClick} className={css.backButton}>
+          <button
+            type="button"
+            onClick={handleBackButtonClick}
+            className={css.backButton}
+          >
             &#8592; Back
           </button>
-          
+
           <h2 className={css.subCatH}>{selectedSubcategory}</h2>
           <ul className={css.categoryUl}>
-            <li onClick={() => setSelectedCategory('Body parts')} className={selectedCategory === 'Body parts' ? `${css.active} ${css.sliderLi}` : css.sliderLi}>
-              Body Parts
-            </li>
-            <li onClick={() => setSelectedCategory('Equipment')} className={selectedCategory === 'Equipment' ? `${css.active} ${css.sliderLi}` : css.sliderLi}>
-              Equipment
-            </li>
-            <li onClick={() => setSelectedCategory('Muscles')} className={selectedCategory === 'Muscles' ? `${css.active} ${css.sliderLi}` : css.sliderLi}>
-              Muscles
-            </li>
+            {categories.map((category) => (
+              <li
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={
+                  selectedCategory === category
+                    ? `${css.active} ${css.sliderLi}`
+                    : css.sliderLi
+                }
+              >
+                {category}
+              </li>
+            ))}
           </ul>
           <ExercisesList selectedSubcategory={selectedSubcategory} />
         </div>
@@ -73,47 +88,71 @@ const ExercisesSubcategoriesList = ({ setShowTitlePage }) => {
         <div>
           <ul className={css.sliderUl}>
             <li
-              onClick={() => setSelectedCategory('Body parts')}
-              className={selectedCategory === 'Body parts' ? `${css.active} ${css.sliderLi}` : css.sliderLi}
+              onClick={() => setSelectedCategory("Body parts")}
+              className={
+                selectedCategory === "Body parts"
+                  ? `${css.active} ${css.sliderLi}`
+                  : css.sliderLi
+              }
             >
               Body Parts
             </li>
             <li
-              onClick={() => setSelectedCategory('Equipment')}
-              className={selectedCategory === 'Equipment' ? `${css.active} ${css.sliderLi}` : css.sliderLi}
+              onClick={() => setSelectedCategory("Equipment")}
+              className={
+                selectedCategory === "Equipment"
+                  ? `${css.active} ${css.sliderLi}`
+                  : css.sliderLi
+              }
             >
               Equipment
             </li>
             <li
-              onClick={() => setSelectedCategory('Muscles')}
-              className={selectedCategory === 'Muscles' ? `${css.active} ${css.sliderLi}` : css.sliderLi}
+              onClick={() => setSelectedCategory("Muscles")}
+              className={
+                selectedCategory === "Muscles"
+                  ? `${css.active} ${css.sliderLi}`
+                  : css.sliderLi
+              }
             >
               Muscles
             </li>
           </ul>
           <div className={css.exercisesContainer}>
-            {filteredExercises && filteredExercises.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((exercise) => (
-              <div key={exercise.name} className={css.exerciseItem}>
-                <ExercisesSubcategoriesItem
-                  exercise={exercise}
-                  style={{ width: ITEM_WIDTH, height: ITEM_HEIGHT }}
-                  onClick={() => handleSubcategoryClick(exercise.name)}
-                />
-              </div>
-            ))}
+            {filteredExercises &&
+              filteredExercises
+                .slice(
+                  (currentPage - 1) * itemsPerPage,
+                  currentPage * itemsPerPage
+                )
+                .map((exercise) => (
+                  <div key={exercise.name} className={css.exerciseItem}>
+                    <ExercisesSubcategoriesItem
+                      exercise={exercise}
+                      style={{ width: ITEM_WIDTH, height: ITEM_HEIGHT }}
+                      onClick={() => handleSubcategoryClick(exercise.name)}
+                    />
+                  </div>
+                ))}
           </div>
           <div className={css.pagination}>
-            {Array.from({ length: totalPages }, (_, index) => (
-              index * itemsPerPage < filteredExercises.length && (
-                <span
-                  key={index + 1}
-                  onClick={() => handlePageChange(index + 1)}
-                  className={currentPage === index + 1 ? `${css.active} ${css.paginationDot} ${css.activeDot}` : css.paginationDot}
-                >
-                  &bull;
-                </span>
-              )
-            ))}
+            {Array.from(
+              { length: totalPages },
+              (_, index) =>
+                index * itemsPerPage < filteredExercises.length && (
+                  <span
+                    key={index + 1}
+                    onClick={() => handlePageChange(index + 1)}
+                    className={
+                      currentPage === index + 1
+                        ? `${css.active} ${css.paginationDot} ${css.activeDot}`
+                        : css.paginationDot
+                    }
+                  >
+                    &bull;
+                  </span>
+                )
+            )}
           </div>
         </div>
       )}
