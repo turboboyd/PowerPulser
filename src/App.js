@@ -30,7 +30,7 @@ function App() {
               <Route
                 key={path}
                 path={path}
-                element={isVerify ? { Element } : <Navigate to="/diary" />}
+                element={!isVerify ?  Element  : <Navigate to="/diary" />}
                 exact
               />
             ))}

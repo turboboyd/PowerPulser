@@ -4,13 +4,17 @@ import { Link, useLocation } from "react-router-dom";
 import css from "./NotFound.module.css";
 import useAuth from "../../hooks/useAuth";
 import Logo from "../../components/Logo/Logo";
+import getLogoLink from "../../utils/getLogoLink";
 
 const NotFound = () => {
-  
-  const { isVerify } = useAuth();
+
+  const { isVerify, user } = useAuth();
   const text = !isVerify ? "Go Home" : "Go Diary";
-  const link = !isVerify ? WELCOME_PAGE_ROUTE : DIARY_ROUTE;
+  console.log('text: ', text);
+  const link = getLogoLink(isVerify, user);
+  console.log('link: ', link);
   const isNotFoundPage = true;
+  console.log('isNotFoundPage: ', isNotFoundPage);
   return (
     <>
       {/* <div className={css.block_error}> */}
