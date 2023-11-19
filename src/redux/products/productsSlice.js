@@ -5,6 +5,11 @@ import { handleFulfilled, handleFulfilledCategory, handlePending, handleRejected
 const initialState = {
     items: [],
     category: [],
+    filters: {
+        search: "",
+        category: "",
+        recommended: "",
+    },
     getMore: false,
     isLoading: false,
     error: null
@@ -14,7 +19,10 @@ const productsSlice = createSlice({
     name: 'products',
     initialState: initialState,
     reducers: {
-        setFilter: (state, { payload }) => {
+        setItems: (state) => {
+            state.items = [];
+        },
+        setFilters: (state, { payload }) => {
             state.filters = payload;
         },
     },
@@ -30,4 +38,4 @@ const productsSlice = createSlice({
 });
 
 export const productsReducer = productsSlice.reducer
-export const { setFilter } = productsSlice.actions;
+export const { setItems, setFilters } = productsSlice.actions;
