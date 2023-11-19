@@ -12,8 +12,9 @@ const ProductsTable = ({ products }) => {
   return (
     <ul className={css.diaryMainList}>
       {products.map(
-        ({ _id, title, category, calories, amount, recommended }, i) => (
-          <li key={_id} className={css.diaryMainItem}>
+        ({ id, title, category, calories, amount, recommended }, i) => {
+          return (
+          <li key={id} className={css.diaryMainItem}>
             <table className={css.table}>
               <tbody className={css.bodyTable}>
                 <tr className={css.element}>
@@ -56,7 +57,7 @@ const ProductsTable = ({ products }) => {
                   <td
                     className={css.trashValue}
                     onClick={() => {
-                      deleteProduct(_id);
+                      deleteProduct(id);
                     }}
                   >
                     <Icon className={css.trashImg} iconId={"Trash"} />
@@ -65,7 +66,7 @@ const ProductsTable = ({ products }) => {
               </tbody>
             </table>
           </li>
-        )
+        )}
       )}
     </ul>
   );
