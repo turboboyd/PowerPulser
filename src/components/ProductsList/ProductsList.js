@@ -9,7 +9,7 @@ import { setItems } from '../../redux/products/productsSlice';
 
 const ProductsList = () => {
   const dispatch = useDispatch();
-  const { products, productsIsLoading, productsGetMore } = useProduct();
+  const { products, filters, productsIsLoading, productsGetMore } = useProduct();
   const [numberPage, setNumberPage] = useState({ page: 1 })
   const observer = useRef();
 
@@ -29,10 +29,11 @@ const ProductsList = () => {
   useEffect(() => {
     const source = axios.CancelToken.source();
     const cancelToken = source.token;
-    dispatch(fetchProducts({ numberPage, cancelToken }))
+    const filterParams = filters
+    dispatch(fetchProducts({ numberPage, filterParams, cancelToken }))
 
     return () => source.cancel();
-  }, [dispatch, numberPage]); 
+  }, [dispatch, numberPage, filters]); 
 
   useEffect(() => {
     return () => {

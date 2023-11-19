@@ -5,16 +5,19 @@ import { fetchProducts ,fetchProductsCategory  } from '../../redux/products/prod
 import styles from './ProductsFilter.module.css';
 import { selectProductsCategory } from '../../redux/products/productsSelectors';
 import { useFormik } from 'formik';
+import useProduct from '../../hooks/useProduct';
+import { setFilters, setItems } from '../../redux/products/productsSlice';
+import useAuth from '../../hooks/useAuth';
 
 
 const ProductsFilter = () => {
   const dispatch = useDispatch();
-  const productCategories = useSelector(selectProductsCategory); // Предположим, что у вас есть функция selectCategories
+  const { category } = useProduct();
+  const { user } = useAuth()
   const formik = useFormik({
     initialValues: { title: '', category: '', recommended: '' },
     onSubmit: values => handleSubmit(values),
   });
-
   // Загрузка категорий при монтировании компонента
   useEffect(() => {
     dispatch(fetchProductsCategory());
@@ -30,10 +33,11 @@ const ProductsFilter = () => {
     );
 
     // Создание объекта для отправки на сервер
-    const payload = Object.fromEntries(filledValues);
-
+    const filterParams = Object.fromEntries(filledValues);
+    dispatch(setItems());
+    dispatch(setFilters(filterParams))
     // Вызов экшена для загрузки продуктов с учетом фильтров
-    dispatch(fetchProducts(payload));
+    // dispatch(fetchProducts({filterParams}));
   };
 
   // Обработка изменения значения полей формы
@@ -89,7 +93,7 @@ const ProductsFilter = () => {
             onChange={handleChange}
           >
             <option value="">Categories</option>
-            {productCategories.map(category => (
+            {category.map(category => (
               <option key={category} value={category}>
                 {category}
               </option>
