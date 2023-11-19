@@ -291,17 +291,7 @@ const UserForm = () => {
                 !formik.dirty ||
                 !formik.values.blood ||
                 !formik.values.sex ||
-                !formik.values.levelActivity ||
-                (() => {
-                  console.log(
-                    "Current birthday value:",
-                    formik.values.birthday
-                  );
-                  return (
-                    !formik.values.birthday ||
-                    isNaN(new Date(formik.values.birthday))
-                  );
-                })()
+                !formik.values.levelActivity
               }
             />
           </Form>

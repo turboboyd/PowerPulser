@@ -19,7 +19,6 @@ const Header = () => {
   const location = useLocation();
   const [isBurgerOpen, setBurgerOpen] = useState(false);
   const { user } = useAuth();
-  console.log("user: ", user);
   const [isNotFoundPage, setIsNotFoundPage] = useState(false);
 
   const handleLogout = useCallback(() => {
