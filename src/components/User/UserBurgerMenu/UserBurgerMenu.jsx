@@ -3,7 +3,12 @@ import Icon from "../../ComponIcon/Icon";
 import UserNav from "../UserNav/UserNav";
 import { CloseBtn } from "../../Button";
 
-const UserBurgerMenu = ({ handleLogout, isBurgerOpen, toggleBurger }) => {
+const UserBurgerMenu = ({
+  handleLogout,
+  isBurgerOpen,
+  toggleBurger,
+  profileSettings,
+}) => {
   return (
     <div
       data-type="burger-nav"
@@ -13,14 +18,13 @@ const UserBurgerMenu = ({ handleLogout, isBurgerOpen, toggleBurger }) => {
     >
       <CloseBtn click={toggleBurger} />
 
-      <nav className={css.user_nav_bureger}>
+      {profileSettings && <nav className={css.user_nav_bureger}>
         <UserNav />
-      </nav>
+      </nav>}
 
       <button onClick={handleLogout} to="/" className={css.logout}>
         Logout <Icon className={css.svg_logout} iconId="Log-out" />
       </button>
-
     </div>
   );
 };
