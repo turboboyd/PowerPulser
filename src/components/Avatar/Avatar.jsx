@@ -11,15 +11,14 @@ import { uploadAvatar } from "../../redux/avatar/avatarOperations";
 const Avatar = () => {
   const user = useSelector(selectUser);
   const avatar = useSelector(selectAvatar);
-  const [avatarUser, setAvatarUser] = useState(avatar);
+  const [avatarUser, setAvatarUser] = useState(user.avatarURL);
   const dispatch = useDispatch();
 
   const userAvatar = (
     <img
       src={avatarUser}
-      width="100%"
       alt="Avatar"
-      style={{ borderRadius: "100%" }}
+      style={{ borderRadius: "100%", width: "100%", height: "100%" }}
     />
   );
   const avatarLogo = <Icon className={css.iconAvatar} iconId={"icon-avatar"} />;
@@ -40,16 +39,13 @@ const Avatar = () => {
     let formData = new FormData();
     formData.append("avatar", file);
 
-    console.log("Selected File:", file);
-    console.log("FormData:", [...formData]);
-
     dispatch(uploadAvatar(formData));
   };
 
   return (
     <>
       <div className={css.avatarWrapper}>
-        <div className={css.avatar}>{avatar ? avatarLogo : userAvatar}</div>
+        <div className={css.avatar}>{avatar ? userAvatar : avatarLogo}</div>
         <form className={css.form}>
           <input
             type="file"
