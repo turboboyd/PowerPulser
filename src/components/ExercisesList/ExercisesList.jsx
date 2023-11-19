@@ -10,12 +10,11 @@ import { setItemsSelectedFilter } from '../../redux/exercises/exercisesSlice';
 const ExercisesList = ({ selectedSubcategory }) => {
   const dispatch = useDispatch();
   const { exercisesItemsSelectFilter } = useExercise();
-  const id = selectedSubcategory;
 
   useEffect(() => {
     const params = {
       page: 1,
-      id: id,
+      id: selectedSubcategory,
     };
 
     const source = axios.CancelToken.source();
@@ -24,8 +23,7 @@ const ExercisesList = ({ selectedSubcategory }) => {
     dispatch(fetchExercisesItemsSelectedFilter({ params, cancelToken }));
 
     return () => source.cancel();
-  }, [id, dispatch]);
-
+  }, [selectedSubcategory, dispatch]);
 
   useEffect(() => {
     return () => {
@@ -35,7 +33,6 @@ const ExercisesList = ({ selectedSubcategory }) => {
 
   return (
     <div className={css.cardContainerBackground}>
-      {/* <WaistBackgroundImage /> */}
       <div className={css.cardContainer}>
         {exercisesItemsSelectFilter.map((exercise) => (
           exercise._id && <ExercisesItem key={exercise._id} exercise={exercise} />
