@@ -12,6 +12,7 @@ import UserBurgerMenu from "../User/UserBurgerMenu/UserBurgerMenu";
 import Container from "../Container/Container";
 import { authRoutes, publicRoutes } from "../../routes";
 import useAuth from "../../hooks/useAuth";
+import { WELCOME_PAGE_ROUTE } from "../../utils/const";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -19,11 +20,12 @@ const Header = () => {
   const location = useLocation();
   const [isBurgerOpen, setBurgerOpen] = useState(false);
   const { user } = useAuth();
+
   const [isNotFoundPage, setIsNotFoundPage] = useState(false);
 
   const handleLogout = useCallback(() => {
     dispatch(logOutUser());
-    navigate("/");
+    navigate(WELCOME_PAGE_ROUTE);
   }, [dispatch, navigate]);
 
   const toggleBurger = useCallback(() => {
