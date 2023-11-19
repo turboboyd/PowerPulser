@@ -24,6 +24,8 @@ const Section = ({ children, isNotFoundPage }) => {
     [SIGN_UP_ROUTE]: css.AUTH_PAGE_section,
     [SIGN_IN_ROUTE]: css.AUTH_PAGE_section,
     [PRODUCT_ROUTE]: css.PRODUCT_section,
+    [PROFILE_ROUTE]: css.PROFILE_section,
+    [DIARY_ROUTE]: css.DIARY_section,
   };
   
   const sectionStyle = `${css.section} ${
