@@ -11,13 +11,14 @@ import UserBar from "../User/UserBar/UserBar";
 import UserBurgerMenu from "../User/UserBurgerMenu/UserBurgerMenu";
 import Container from "../Container/Container";
 import { authRoutes, publicRoutes } from "../../routes";
+import useAuth from "../../hooks/useAuth";
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
   const [isBurgerOpen, setBurgerOpen] = useState(false);
-
+  const { user } = useAuth();
   const [isNotFoundPage, setIsNotFoundPage] = useState(false);
 
   const handleLogout = useCallback(() => {
@@ -53,17 +54,17 @@ const Header = () => {
     };
   }, [handleKeyDown, handleOverlayClick]);
 
-
-
   return (
     <Container className={css.line} onClick={handleOverlayClick}>
       <header className={css.header_user}>
         <Logo isNotFoundPage={isNotFoundPage} />
 
         <div className={css.wrap}>
-          <nav className={css.nav}>
-            <UserNav />
-          </nav>
+          {user.profileSettings && (
+            <nav className={css.nav}>
+              <UserNav />
+            </nav>
+          )}
           <UserBar handleLogout={handleLogout} />
           <button
             data-type="burger-nav"
@@ -79,6 +80,7 @@ const Header = () => {
         handleLogout={handleLogout}
         isBurgerOpen={isBurgerOpen}
         toggleBurger={toggleBurger}
+        profileSettings={user.profileSettings}
       />
     </Container>
   );

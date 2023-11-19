@@ -6,8 +6,10 @@ import css from "./../../components/ExercisesList/ExercisesList.module.css";
 const ProductsPage = () => {
   return (
     <>
-      <TitlePage title="Products" />
-      <ProductsFilter />
+      <div className={css.containerProducts}>
+        <TitlePage title="Products" />
+        <ProductsFilter />
+      </div>
       <ProductsList />
     </>
   );

@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
 import css from "./Logo.module.css";
-import { DIARY_ROUTE, WELCOME_PAGE_ROUTE } from "../../utils/const";
 import Icon from "../ComponIcon/Icon";
 import useAuth from "../../hooks/useAuth";
+import getLogoLink from "../../utils/getLogoLink";
 
 const Logo = ({ isNotFoundPage }) => {
+  const { isVerify, user } = useAuth();
+  const link = getLogoLink(isVerify, user);
 
-  const { isVerify } = useAuth();
-  const link = isVerify ? DIARY_ROUTE : WELCOME_PAGE_ROUTE;
-  
   return (
     <Link className={css.logo_wrap} to={link}>
       <div>

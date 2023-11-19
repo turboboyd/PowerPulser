@@ -7,15 +7,15 @@ import Button from "../Button/Button";
 import RadioButton from "./RadioButton/RadioButton";
 import userFormShemas from "../../utils/shemas/userFormShemas";
 import { updateProfileSettings } from "../../redux/auth/authOperation";
-import { selectUser } from "../../redux/auth/authSelectors";
 import CalendarComponent from "../СalendarBirthDay/СalendarBirthDay";
+import useAuth from "../../hooks/useAuth";
 // import Icon from "../ComponIcon/Icon";
 
-const UseForm = () => {
+const UserForm = () => {
   const dispatch = useDispatch();
-  const user = useSelector(selectUser);
+  const { user } = useAuth();
 
-  const { name, profileSettings } = user;
+  const { name, profileSettings, isLoading } = user;
   const {
     height = 0,
     currentWeight = 0,
@@ -27,7 +27,7 @@ const UseForm = () => {
 
   const birthdayDate = profileSettings
     ? new Date(profileSettings.birthday)
-    : new Date("2000-01-01");
+    : new Date("2022-01-01");
 
   const formattedBirthday = `${birthdayDate.getFullYear()}-${String(
     birthdayDate.getMonth() + 1
@@ -45,26 +45,17 @@ const UseForm = () => {
     levelActivity,
   };
 
-  const handleSubmit = ({
-    name,
-    height,
-    currentWeight,
-    desiredWeight,
-    birthday,
-    blood,
-    sex,
-    levelActivity,
-  }) => {
+  const handleSubmit = (values) => {
     const data = {
-      name,
+      name: values.name,
       profileSettings: {
-        height,
-        currentWeight,
-        desiredWeight,
-        birthday: new Date(birthday).toISOString(),
-        blood,
-        sex,
-        levelActivity,
+        height: values.height,
+        currentWeight: values.currentWeight,
+        desiredWeight: values.desiredWeight,
+        birthday: new Date(values.birthday).toISOString(),
+        blood: values.blood,
+        sex: values.sex,
+        levelActivity: values.levelActivity,
       },
     };
     dispatch(updateProfileSettings(data));
@@ -294,7 +285,14 @@ const UseForm = () => {
               className={css.buttonSave}
               type="submit"
               text="Save"
-              disabled={!formik.isValid}
+              disabled={
+                isLoading ||
+                !formik.isValid ||
+                !formik.dirty ||
+                !formik.values.blood ||
+                !formik.values.sex ||
+                !formik.values.levelActivity
+              }
             />
           </Form>
         )}
@@ -303,4 +301,4 @@ const UseForm = () => {
   );
 };
 
-export default UseForm;
+export default UserForm;

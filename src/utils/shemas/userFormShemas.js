@@ -18,9 +18,13 @@ const userFormShemas = yup.object({
     .number()
     .typeError("Must be a number")
     .positive("Must be positive.")
-    .min(35, "Desired weightmust be at least 35kg")
+    .min(35, "Desired weight must be at least 35kg")
     .required("Desired weight is required"),
-  birthday: yup.date().required("Birthday is required"),
+  birthday: yup
+    .date()
+    .max(new Date(), "Birthday must be in the past")
+    .min(new Date("1900-01-01"), "Birthday must be after 1900-01-01")
+    .required("Birthday is required"),
 });
 
 export default userFormShemas;
