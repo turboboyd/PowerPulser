@@ -2,34 +2,35 @@ import React, { useState, useEffect } from 'react';
 import ExercisesSubcategoriesItem from '../../components/ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
 import ExercisesList from '../../components/ExercisesList/ExercisesList';
 import css from './ExercisesSubcategoriesList.module.css';
-import { useSelector, useDispatch } from 'react-redux'; 
+import { useSelector, useDispatch } from 'react-redux';
 import { fetchExercisesFilter } from '../../redux/exercises/exercisesOperations';
-
+import useExercise from '../../hooks/useExercise';
 
 const categories = ["Body parts", "Equipment", "Muscles"];
-
-
 
 const ExercisesSubcategoriesList = ({ setShowTitlePage }) => {
   const dispatch = useDispatch();
   const [selectedCategory, setSelectedCategory] = useState('Body parts');
   const [selectedSubcategory, setSelectedSubcategoryLocal] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const { exercisesFilter: exercisesFilterHook } = useExercise(); 
 
   const ITEMS_PER_ROW = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--items-per-row'));
   const ITEM_WIDTH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-width'));
   const ITEM_HEIGHT = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-height'));
 
-  const filteredExercises = useSelector((state) => state.exercises.filteredExercises);
+  const exercisesFilterRedux = useSelector((state) => state.exercises.exercisesFilter); 
 
   const itemsPerPage = ITEMS_PER_ROW * ITEMS_PER_ROW;
-  const totalPages = filteredExercises ? Math.ceil(filteredExercises.length / itemsPerPage) : 0;
+  const totalPages = exercisesFilterRedux ? Math.ceil(exercisesFilterRedux.length / itemsPerPage) : 0; 
+  const categoryLiClassName = (category) =>
+    `${selectedCategory === category ? css.active : ''} ${css.sliderLi}`;
 
   const handlePageChange = (page) => {
     const newPage = Math.min(Math.max(1, page), totalPages);
     const newStartIndex = (newPage - 1) * itemsPerPage;
 
-    if (newStartIndex < filteredExercises.length) {
+    if (newStartIndex < exercisesFilterRedux.length) {
       setCurrentPage(newPage);
     }
   };
@@ -53,7 +54,6 @@ const ExercisesSubcategoriesList = ({ setShowTitlePage }) => {
     }
   }, [dispatch, selectedCategory]);
 
-
   return (
     <div>
       {selectedSubcategory ? (
@@ -72,55 +72,30 @@ const ExercisesSubcategoriesList = ({ setShowTitlePage }) => {
               <li
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={
-                  selectedCategory === category
-                    ? `${css.active} ${css.sliderLi}`
-                    : css.sliderLi
-                }
+                className={categoryLiClassName(category)}
               >
                 {category}
               </li>
             ))}
           </ul>
-          <ExercisesList selectedSubcategory={selectedSubcategory} />
+          {selectedSubcategory && <ExercisesList selectedSubcategory={selectedSubcategory} />}
         </div>
       ) : (
         <div>
           <ul className={css.sliderUl}>
-            <li
-              onClick={() => setSelectedCategory("Body parts")}
-              className={
-                selectedCategory === "Body parts"
-                  ? `${css.active} ${css.sliderLi}`
-                  : css.sliderLi
-              }
-            >
-              Body Parts
-            </li>
-            <li
-              onClick={() => setSelectedCategory("Equipment")}
-              className={
-                selectedCategory === "Equipment"
-                  ? `${css.active} ${css.sliderLi}`
-                  : css.sliderLi
-              }
-            >
-              Equipment
-            </li>
-            <li
-              onClick={() => setSelectedCategory("Muscles")}
-              className={
-                selectedCategory === "Muscles"
-                  ? `${css.active} ${css.sliderLi}`
-                  : css.sliderLi
-              }
-            >
-              Muscles
-            </li>
+            {categories.map((category) => (
+              <li
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={categoryLiClassName(category)}
+              >
+                {category}
+              </li>
+            ))}
           </ul>
           <div className={css.exercisesContainer}>
-            {filteredExercises &&
-              filteredExercises
+            {exercisesFilterRedux &&
+              exercisesFilterRedux
                 .slice(
                   (currentPage - 1) * itemsPerPage,
                   currentPage * itemsPerPage
@@ -139,7 +114,7 @@ const ExercisesSubcategoriesList = ({ setShowTitlePage }) => {
             {Array.from(
               { length: totalPages },
               (_, index) =>
-                index * itemsPerPage < filteredExercises.length && (
+                index * itemsPerPage < exercisesFilterRedux.length && (
                   <span
                     key={index + 1}
                     onClick={() => handlePageChange(index + 1)}
@@ -159,6 +134,5 @@ const ExercisesSubcategoriesList = ({ setShowTitlePage }) => {
     </div>
   );
 };
-
 
 export default ExercisesSubcategoriesList;
