@@ -16,7 +16,9 @@ const UserCard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const dailyCalorieIntake = user.profileSettings.bmr;
+
+  const dailyCalorieIntake =
+    user && user.profileSettings ? user.profileSettings.bmr || 0 : 0;
   const handleLogout = useCallback(() => {
     dispatch(logOutUser());
     navigate("/");
