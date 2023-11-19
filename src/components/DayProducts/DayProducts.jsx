@@ -1,5 +1,6 @@
 import React from "react";
 import css from "./DayProducts.module.css";
+import useDiary from "../../hooks/useDiary";
 
 import { PRODUCT_ROUTE } from "../../utils/const";
 import ButtonAddItem from "../ButtonAddItem/ButtonAddItem";
@@ -12,9 +13,9 @@ import {
 } from "../../redux/diary/diarySelectors";
 
 const DayProducts = () => {
+  const { diaryProducts, diaryIsLoading } = useDiary();
   const products = useSelector(selectDiaryProducts);
-  const isLoading = useSelector(selectDiaryIsLoading);
-
+  
   return (
     <div className={css.dayProducts}>
       <div className={css.dayScrollWrap}>
@@ -27,7 +28,7 @@ const DayProducts = () => {
             <p className={css.notFoundPlugText}>Not found products</p>
           </div>
         ) : (
-          <ProductsTable products={products} />
+          <ProductsTable products={diaryProducts} />
         )}
       </div>
     </div>

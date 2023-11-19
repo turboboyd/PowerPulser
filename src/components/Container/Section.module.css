@@ -3,7 +3,6 @@
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
-  padding: 40px 0 80px;
 }
 
 @media (min-width: 375px) {
@@ -16,7 +15,6 @@
   .section {
     width: 768px;
     min-height: 940px;
-    padding: 72px 0 48px;
   }
 }
 
@@ -199,5 +197,41 @@
   }
   .NotFound_section::after {
     width: 669px;
+  }
+}
+
+/* PROFILE_section */
+
+.PROFILE_section {
+  padding: 40px 0 66px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .PROFILE_section {
+    padding: 72px 0 54px 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .PROFILE_section {
+    padding-bottom: 44px;
+  }
+}
+
+/* DIARY_section */
+
+.DIARY_section {
+  padding: 40px 0 80px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .DIARY_section {
+    padding: 72px 0 64px 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .DIARY_section {
+    padding-bottom: 68px;
   }
 }
