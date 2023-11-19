@@ -13,7 +13,8 @@ import RestrictedRoute from "./RestrictedRoute";
 
 function App() {
   const dispatch = useDispatch();
-  const { isVerify, isRefreshing } = useAuth();
+  const { isVerify, isRefreshing, user } = useAuth();
+
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -24,7 +25,7 @@ function App() {
       {!isRefreshing && (
         <Routes>
           <Route path="/" element={<Layout />}>
-            {authRoutes.map(({ path, Element }) => (
+            { authRoutes.map(({ path, Element }) => (
               <Route
                 key={path}
                 path={path}
