@@ -1,10 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import css from "./AuthPage.module.css";
-import BackgroundImage from "../../components/BackgroundImage/BackgroundImage";
 import { SIGN_IN_ROUTE, SIGN_UP_ROUTE } from "../../utils/const";
 import AuthForm from "../../components/Form/AuthForm/AuthForm";
-import { Container, Section } from "../../components/Container";
-import StatisticsInfo from "../../components/StatisticsInfo/StatisticsInfo";
 import Logo from "../../components/Logo/Logo";
 
 const AuthPage = () => {

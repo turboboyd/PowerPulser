@@ -7,6 +7,7 @@ import { fetchExercisesItemsSelectedFilter } from '../../redux/exercises/exercis
 import css from './ExercisesList.module.css'
 import ExercisesItem from '../ExercisesItem/ExercisesItem'
 import Icon from '../ComponIcon/Icon'
+import { setItemsSelectedFilter } from '../../redux/exercises/exercisesSlice';
 
 const ExercisesList = (id) => {
   const dispatch = useDispatch();
@@ -37,6 +38,12 @@ const ExercisesList = (id) => {
 
     return () => source.cancel();
   }, [id, numberPage, dispatch]);
+
+  useEffect(() => {
+    return () => {
+      dispatch(setItemsSelectedFilter());
+    };
+  }, [dispatch]);
 
   return (
     <div>

@@ -7,21 +7,19 @@ import Logo from "../Logo/Logo";
 import UserNav from "../User/UserNav/UserNav";
 import { useDispatch } from "react-redux";
 import { logOutUser } from "../../redux/auth/authOperation";
-import useAuth from "../../hooks/useAuth";
 import UserBar from "../User/UserBar/UserBar";
 import UserBurgerMenu from "../User/UserBurgerMenu/UserBurgerMenu";
 import Container from "../Container/Container";
 import { authRoutes, publicRoutes } from "../../routes";
+import useAuth from "../../hooks/useAuth";
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
   const [isBurgerOpen, setBurgerOpen] = useState(false);
-  const { isVerify } = useAuth();
-
+  const { user } = useAuth();
   const [isNotFoundPage, setIsNotFoundPage] = useState(false);
-
 
   const handleLogout = useCallback(() => {
     dispatch(logOutUser());
@@ -56,44 +54,34 @@ const Header = () => {
     };
   }, [handleKeyDown, handleOverlayClick]);
 
-  useEffect(() => {
-    const allPaths = [...authRoutes, ...publicRoutes].map(
-      (route) => route.path
-    );
-    setIsNotFoundPage(!allPaths.includes(location.pathname));
-  }, [location]);
-
-
   return (
     <Container className={css.line} onClick={handleOverlayClick}>
-      {isVerify && (
-        <header className={isVerify ? css.header_user : css.header_user_not}>
-          <Logo isNotFoundPage={isNotFoundPage} />
-          {isVerify && (
-            <div className={css.wrap}>
-              <nav className={css.nav}>
-                <UserNav />
-              </nav>
-              <UserBar handleLogout={handleLogout} />
-              <button
-                data-type="burger-nav"
-                className={css.burger_btn}
-                onClick={toggleBurger}
-              >
-                <Icon className={css.burger_btn} iconId="Menu" />
-              </button>
-            </div>
-          )}
-        </header>
-      )}
+      <header className={css.header_user}>
+        <Logo isNotFoundPage={isNotFoundPage} />
 
-      {isVerify && (
-        <UserBurgerMenu
-          handleLogout={handleLogout}
-          isBurgerOpen={isBurgerOpen}
-          toggleBurger={toggleBurger}
-        />
-      )}
+        <div className={css.wrap}>
+          {user.profileSettings && (
+            <nav className={css.nav}>
+              <UserNav />
+            </nav>
+          )}
+          <UserBar handleLogout={handleLogout} />
+          <button
+            data-type="burger-nav"
+            className={css.burger_btn}
+            onClick={toggleBurger}
+          >
+            <Icon className={css.burger_btn} iconId="Menu" />
+          </button>
+        </div>
+      </header>
+
+      <UserBurgerMenu
+        handleLogout={handleLogout}
+        isBurgerOpen={isBurgerOpen}
+        toggleBurger={toggleBurger}
+        profileSettings={user.profileSettings}
+      />
     </Container>
   );
 };

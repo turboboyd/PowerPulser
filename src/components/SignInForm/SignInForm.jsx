@@ -25,11 +25,8 @@ const SignInForm = () => {
   const navigate = useNavigate();
 
   const { isVerify, user } = useAuth();
-  console.log("isVerify: ", isVerify);
-  console.log("user: ", user);
 
   const handleSubmit = ({ email, password }, { resetForm }) => {
-    console.log("email, password : ", email, password);
     dispatch(loginUser({ email, password }));
     resetForm();
   };

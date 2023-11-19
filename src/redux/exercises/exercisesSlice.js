@@ -14,6 +14,11 @@ const initialState = {
 const exercisesSlice = createSlice({
     name: 'exercises',
     initialState: initialState,
+    reducers: {
+        setItemsSelectedFilter: (state) => {
+            state.itemsSelectedFilter = [];
+        },
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchExercisesFilter.fulfilled, handleFulfilledFilter)
@@ -23,4 +28,5 @@ const exercisesSlice = createSlice({
     }
 });
 
-export const exercisesReducer = exercisesSlice.reducer
+export const exercisesReducer = exercisesSlice.reducer;
+export const { setItemsSelectedFilter } = exercisesSlice.actions;

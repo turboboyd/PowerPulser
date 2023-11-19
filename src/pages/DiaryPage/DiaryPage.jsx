@@ -18,7 +18,6 @@ const DiaryPage = () => {
   const dispatch = useDispatch();
 
   const [selectedDate, setSelectedDate] = useState(null);
-  const isLoading = useSelector(selectDiaryIsLoading);
 
   useEffect(() => {
     const fetchDate = async () => {
@@ -29,7 +28,6 @@ const DiaryPage = () => {
         await dispatch(fetchAllDiary(date));
       }
     };
-
     fetchDate();
   }, [dispatch, selectedDate]);
 
@@ -39,29 +37,25 @@ const DiaryPage = () => {
   };
 
   return (
-    <Section>
-      <Container>
-          <>
-            <div className={css.diaryPage}>
-              <div className={css.calendarWrap}>
-                <TitlePage title="Diary" />
-                <div className={css.calendar}>
-                  <Calendar handleDate={handleDate} />
-                </div>
-              </div>
-        {isLoading && (
-              <div className={css.sectionWrap}>
-                <DayDashboard />
-                <div>
-                  <DayProducts />
-                  <DayExercises />
-                </div>
-              </div>
-            )}
+    <>
+      <div className={css.diaryPage}>
+        <div className={css.calendarWrap}>
+          <TitlePage title="Diary" />
+          <div className={css.calendar}>
+            <Calendar handleDate={handleDate} />
+          </div>
+        </div>
+        {
+          <div className={css.sectionWrap}>
+            <DayDashboard />
+            <div>
+              <DayProducts />
+              <DayExercises />
             </div>
-          </>
-      </Container>
-    </Section>
+          </div>
+        }
+      </div>
+    </>
   );
 };
 

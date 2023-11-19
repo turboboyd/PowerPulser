@@ -6,10 +6,10 @@
 }
 
 .addButtonTitle {
-  color: #e6533c;
+  color: var(--orange);
 
   font-size: 14px;
-  font-weight: 500; /**/
+  font-weight: 500;
   line-height: 1.28;
 }
 
@@ -17,7 +17,7 @@
   width: 16px;
   height: 16px;
 
-  stroke: #e6533c;
+  stroke: var(--orange);
 }
 
 @media (min-width: 768px) {

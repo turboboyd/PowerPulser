@@ -22,7 +22,7 @@ const DayProducts = () => {
           <h3 className={css.diarySubtitle}>Products</h3>
           <ButtonAddItem titleLink="Add product" titleRoute={PRODUCT_ROUTE} />
         </div>
-        {products.length === 0 && isLoading ? (
+        {products.length === 0 ? (
           <div className={css.notFoundPlugTextWrap}>
             <p className={css.notFoundPlugText}>Not found products</p>
           </div>
