@@ -6,6 +6,7 @@ const initialState = {
     items: [],
     category: [],
     filters: {
+        page: 1,
         search: "",
         category: "",
         recommended: "",
@@ -23,7 +24,7 @@ const productsSlice = createSlice({
             state.items = [];
         },
         setFilters: (state, { payload }) => {
-            state.filters = payload;
+            state.filters = {...state.filters, ...payload};
         },
     },
     extraReducers: (builder) => {
