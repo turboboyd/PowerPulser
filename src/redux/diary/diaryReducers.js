@@ -20,7 +20,7 @@ export const handleFulfilledAddProduct = (state, { payload }) => {
 export const handleFulfilledDeleteProduct = (state, { payload }) => {
     state.error = null;
     state.isLoading = false;
-    const index = state.diaryProducts.findIndex(product => product.id === payload.id);
+    const index = state.diaryProducts.findIndex(product => product._id === payload._id);
     if (index !== -1) {
         state.diaryProducts.splice(index, 1);
     }
@@ -33,7 +33,7 @@ export const handleFulfilledAddExercises = (state, { payload }) => {
 export const handleFulfilledDeleteExercises = (state, { payload }) => {
     state.error = null;
     state.isLoading = false;
-    const index = state.diaryExercises.findIndex(exercises => exercises.id === payload.id);
+    const index = state.diaryExercises.findIndex(exercises => exercises._id === payload._id);
     if (index !== -1) {
         state.diaryExercises.splice(index, 1);
     }

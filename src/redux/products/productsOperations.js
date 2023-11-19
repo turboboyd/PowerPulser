@@ -11,13 +11,11 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts',
                 ...numberPage,
                 ...filterParams,
             };
-            console.log('params', params);
             token.set(tokenState(thunkAPI));
             const paramsURL = Object.keys(params).map(key => `${key}=${params[key]}`).join('&')
             const { data } = await instance.get(`${BACKEND_PRODUCT_URL}?${paramsURL}`, {
                 cancelToken: cancelToken,
             });
-            console.log('data', data);
             return data
         } catch (e) {
             return thunkAPI.rejectWithValue(e.message);
