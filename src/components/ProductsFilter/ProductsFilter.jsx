@@ -18,7 +18,7 @@ const ProductsFilter = () => {
     initialValues: { search: filters.search, category: filters.category, recommended: filters.recommended },
     onSubmit: values => handleSubmit(values),
   });
-  // Загрузка категорий при монтировании компонента
+  
   useEffect(() => {
     dispatch(fetchProductsCategory());
   }, [dispatch]);
