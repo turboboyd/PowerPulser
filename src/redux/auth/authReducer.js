@@ -13,12 +13,14 @@ export const handlePendingUpdateProfileSettings = (state) => {
 };
 export const handleRejectedUpdateProfileSettings = (state, { payload }) => {
   state.isLoading = false;
+  state.isAuthCheck = true;
   state.error = payload;
 };
 export const handleRejected = (state, { payload }) => {
   state.isLoading = false;
   state.error = payload;
   state.isRefreshing = false;
+  state.isAuthCheck = true;
 };
 
 export const handleFulfilledRegistration = (state, { payload }) => {
@@ -27,6 +29,7 @@ export const handleFulfilledRegistration = (state, { payload }) => {
   state.token = payload.token;
   state.isLoading = false;
   state.isRefreshing = false;
+  state.isAuthCheck = true;
 };
 
 export const handleFulfilledLogin = (state, { payload }) => {
@@ -36,6 +39,7 @@ export const handleFulfilledLogin = (state, { payload }) => {
   state.isVerify = true;
   state.isLoading = false;
   state.isRefreshing = false;
+  state.isAuthCheck = true;
 };
 export const handleFulfilledLogOut = (state) => {
   state.user = null;
@@ -44,6 +48,7 @@ export const handleFulfilledLogOut = (state) => {
   state.isLoading = false;
   state.isRefreshing = false;
   state.error = null;
+  state.isAuthCheck = true;
 };
 
 export const handleFulfilledRefresh = (state, { payload }) => {
@@ -52,6 +57,7 @@ export const handleFulfilledRefresh = (state, { payload }) => {
   state.isVerify = true;
   state.isLoading = false;
   state.isRefreshing = false;
+  state.isAuthCheck = true;
 };
 
 export const handleFulfilledVerify = (state, { payload }) => {
@@ -62,6 +68,7 @@ export const handleFulfilledVerify = (state, { payload }) => {
   state.isLoading = false;
   state.isRefreshing = false;
   state.error = null;
+  state.isAuthCheck = true;
 };
 
 export const handleVerifyRejected = (state, { payload }) => {
@@ -74,4 +81,5 @@ export const handleFulfilledUpdateProfileSettings  = (state, { payload }) => {
   state.user = payload.user;
   state.isLoading = false;
   state.error = null;
+  state.isAuthCheck = true;
 };
