@@ -4,6 +4,7 @@ import ProductsFilter from "../../components/ProductsFilter/ProductsFilter";
 import css from "./../../components/ExercisesList/ExercisesList.module.css";
 
 const ProductsPage = () => {
+
   return (
     <>
       <div className={css.containerProducts}>

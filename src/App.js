@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate  } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import useAuth from "./hooks/useAuth";
@@ -8,6 +8,8 @@ import "./App.css";
 import Layout from "./components/Layout/Layout";
 import { authRoutes, publicRoutes } from "./routes";
 import { NotFound } from "./pages";
+import PrivateRoute from "./PrivateRoute";
+import RestrictedRoute from "./RestrictedRoute";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,15 +24,19 @@ function App() {
       {!isRefreshing && (
         <Routes>
           <Route path="/" element={<Layout />}>
-            {isVerify &&
-              authRoutes.map(({ path, Element }) => (
-                <Route key={path} path={path} element={Element} exact></Route>
-              ))}
+            {authRoutes.map(({ path, Element }) => (
+              <Route
+                key={path}
+                path={path}
+                element={<PrivateRoute element={Element} />}
+                exact
+              ></Route>
+            ))}
             {publicRoutes.map(({ path, Element }) => (
               <Route
                 key={path}
                 path={path}
-                element={!isVerify ?  Element  : <Navigate to="/diary" />}
+                element={<RestrictedRoute element={Element} />}
                 exact
               />
             ))}

@@ -24,11 +24,6 @@ const Avatar = () => {
   const avatarLogo = <Icon className={css.iconAvatar} iconId={"icon-avatar"} />;
 
   const handleChangeAvatar = (e) => {
-    // let formData = new FormData();
-    // const file = e.target.files[0];
-
-    // formData.append("avatar", file);
-    // setAvatarUser(file);
     const file = e.target.files[0];
     if (file) {
       const blob = new Blob([file]);
