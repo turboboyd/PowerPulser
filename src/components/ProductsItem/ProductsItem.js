@@ -1,13 +1,14 @@
 import Icon from '../ComponIcon/Icon';
 import css from './../ExercisesItem/ExercisesItem.module.css';
 import { forwardRef, useState } from 'react';
+import useAuth from '../../hooks/useAuth'
 import BasicModalWindow from '../../components/ModalWindow/BasicModalWindow/BasicModalWindow';
 import AddProductForm from '../ModalWindow/AddProductForm/AddProductForm';
 import AddProductSuccess from '../ModalWindow/AddProductSuccess/AddProductSuccess';
 
-const ProductsItem = forwardRef(({ product }, ref) => {
-  const userBloodType = 1;
 
+const ProductsItem = forwardRef(({ product }, ref) => {
+  const { user: {profileSettings: {blood}}} = useAuth();
   const [modalProduct, setModalProduct] = useState(false);
   const [modalSuccess, setModalSuccess] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState('');
@@ -30,8 +31,7 @@ const ProductsItem = forwardRef(({ product }, ref) => {
     <div className={css.exerciseWrapper} ref={ref}>
       <div className={css.productsCardTopPart}>
         <p className={css.exerciseCardTopDiet}>diet</p>
-        {product.groupBloodNotAllowed &&
-        product.groupBloodNotAllowed[userBloodType] ? (
+        {product.groupBloodNotAllowed[blood] ? (
           <div className={css.productRecommended}>
             <p className={css.productRecommendedTrue}></p>
             <p>Recommended</p>

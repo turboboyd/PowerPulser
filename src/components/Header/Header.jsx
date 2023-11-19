@@ -1,4 +1,4 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Navigate } from "react-router-dom";
 import { useCallback, useState, useEffect } from "react";
 import css from "./Header.module.css";
 
@@ -10,21 +10,20 @@ import { logOutUser } from "../../redux/auth/authOperation";
 import UserBar from "../User/UserBar/UserBar";
 import UserBurgerMenu from "../User/UserBurgerMenu/UserBurgerMenu";
 import Container from "../Container/Container";
-import { authRoutes, publicRoutes } from "../../routes";
 import useAuth from "../../hooks/useAuth";
+import { WELCOME_PAGE_ROUTE } from "../../utils/const";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const location = useLocation();
   const [isBurgerOpen, setBurgerOpen] = useState(false);
   const { user } = useAuth();
+
   const [isNotFoundPage, setIsNotFoundPage] = useState(false);
 
   const handleLogout = useCallback(() => {
     dispatch(logOutUser());
-    navigate("/");
-  }, [dispatch, navigate]);
+    <Navigate to={WELCOME_PAGE_ROUTE} />;
+  }, [dispatch]);
 
   const toggleBurger = useCallback(() => {
     setBurgerOpen((prevIsBurgerOpen) => !prevIsBurgerOpen);

@@ -6,15 +6,16 @@ import { deleteProductDiary } from "../../redux/diary/diaryOperations";
 const ProductsTable = ({ products }) => {
   const dispatch = useDispatch();
 
-  const deleteProduct = (id) => {
-    dispatch(deleteProductDiary(id));
+  const deleteProduct = (_id) => {
+    dispatch(deleteProductDiary(_id));
   };
+
   return (
     <ul className={css.diaryMainList}>
       {products.map(
-        ({ id, title, category, calories, amount, recommended }, i) => {
+        ({_id, title, category, calories, amount, recommended }, i) => {
           return (
-          <li key={id} className={css.diaryMainItem}>
+          <li key={_id} className={css.diaryMainItem}>
             <table className={css.table}>
               <tbody className={css.bodyTable}>
                 <tr className={css.element}>
@@ -57,7 +58,7 @@ const ProductsTable = ({ products }) => {
                   <td
                     className={css.trashValue}
                     onClick={() => {
-                      deleteProduct(id);
+                      deleteProduct(_id);
                     }}
                   >
                     <Icon className={css.trashImg} iconId={"Trash"} />

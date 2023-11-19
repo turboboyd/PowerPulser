@@ -1,50 +1,41 @@
 import sprite from '../../images/svg/InlineSprite.svg';
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchProducts ,fetchProductsCategory  } from '../../redux/products/productsOperations';
+import { useDispatch } from 'react-redux';
+import { fetchProductsCategory  } from '../../redux/products/productsOperations';
 import styles from './ProductsFilter.module.css';
-import { selectProductsCategory } from '../../redux/products/productsSelectors';
+
 import { useFormik } from 'formik';
+import useProduct from '../../hooks/useProduct';
+import { setFilters, setItems } from '../../redux/products/productsSlice';
 
 
 const ProductsFilter = () => {
   const dispatch = useDispatch();
-  const productCategories = useSelector(selectProductsCategory); // Предположим, что у вас есть функция selectCategories
+
+  const { category, filters } = useProduct();
+  
   const formik = useFormik({
-    initialValues: { title: '', category: '', recommended: '' },
+    initialValues: { search: filters.search, category: filters.category, recommended: filters.recommended },
     onSubmit: values => handleSubmit(values),
   });
-
-  // Загрузка категорий при монтировании компонента
+  
   useEffect(() => {
     dispatch(fetchProductsCategory());
   }, [dispatch]);
 
-  // Обработка отправки формы
-  const handleSubmit = (values = formik.values) => {
-    const { initialValues } = formik;
 
-    // Фильтрация значений, которые изменились
-    const filledValues = Object.entries(values).filter(
-      ([key, value]) => value !== initialValues[key]
-    );
-
-    // Создание объекта для отправки на сервер
-    const payload = Object.fromEntries(filledValues);
-
-    // Вызов экшена для загрузки продуктов с учетом фильтров
-    dispatch(fetchProducts(payload));
+  const handleSubmit = (paramsSearch) => {
+    dispatch(setItems());
+    dispatch(setFilters({ page: 1, ...paramsSearch }))
   };
 
-  // Обработка изменения значения полей формы
   const handleChange = e => {
     formik.handleChange(e);
     const { initialValues, values } = formik;
 
-    // Если значение поля изменилось, подготовить данные и выполнить отправку формы
     if (e.target.value !== initialValues[e.target.value]) {
-      const prePayload = { ...values, [e.target.name]: e.target.value };
-      handleSubmit(prePayload);
+      const paramsSearch = { ...values, [e.target.name]: e.target.value };
+      handleSubmit(paramsSearch);
     }
   };
 
@@ -55,17 +46,17 @@ const ProductsFilter = () => {
           <input
             className={styles.prodFilterSearchField}
             type="search"
-            name="title"
+            name="search"
             placeholder="Search"
-            value={formik.values.title}
+            value={formik.values.search}
             onChange={formik.handleChange}
           />
-          {formik.initialValues.title !== formik.values.title && (
+          {formik.initialValues.search !== formik.values.search && (
             <button
               className={styles.prodSearchCancelBtn}
               type="button"
               onClick={() => {
-                formik.setFieldValue('title', '');
+                formik.setFieldValue('search', '');
                 formik.handleSubmit();
               }}
             >
@@ -89,7 +80,7 @@ const ProductsFilter = () => {
             onChange={handleChange}
           >
             <option value="">Categories</option>
-            {productCategories.map(category => (
+            {category.map(category => (
               <option key={category} value={category}>
                 {category}
               </option>
