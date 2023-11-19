@@ -3,13 +3,6 @@
   height: 100vh;
   margin: 0 auto;
 }
-.block_error {
-  background-color: var(--orange);
-  width: 240px;
-  min-height: 812px;
-  padding: 24px 20px;
-  color: var(--white);
-}
 
 .title_one {
   margin-top: 213px;
@@ -20,6 +13,7 @@
 }
 
 .text_error {
+  width: 200px;
   margin-top: 14px;
   font-size: 14px;
   line-height: 1.29;
@@ -51,11 +45,7 @@
 /* -----------------Tablet-------------------- */
 
 @media (min-width: 768px) {
-  .block_error {
-    width: 420px;
-    min-height: 1024px;
-    padding: 32px;
-  }
+
   .notFoundContainer {
     width: 768px;
   }
@@ -78,6 +68,7 @@
   }
 
   .text_error {
+    width: 356px;
     margin-top: 28px;
     font-size: 16px;
     line-height: 1.5;
@@ -96,12 +87,10 @@
   .notFoundContainer {
     width: 1440px;
   }
-
-  .block_error {
-    width: 670px;
-    min-height: 800px;
-    padding: 32px 96px;
+  .text_error{
+    width: 477px;
   }
+
 
   .title_one {
     margin-top: 170px;
