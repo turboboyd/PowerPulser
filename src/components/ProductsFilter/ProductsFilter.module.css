@@ -1,122 +1,141 @@
-.products-filter-label {
-  position: relative;
-}
 
-.products-filter-search {
-  width: 320px;
-  background-color: transparent;
-  color: var(--white-color);
-  border-radius: 12px;
-  border: 1px solid rgba(239, 237, 232, 0.3);
-  font-size: 14px;
-}
-
-/* Media queries */
-@media screen and (min-width: 375px) {
-  .products-filter-search {
-    box-sizing: border-box;
-    width: 335px;
-    height: 46px;
-    padding: 14px;
-    padding-right: 68px;
-    background-color: transparent;
-    color: var(--white-color);
-    font-size: 14px;
-    line-height: 18px;
-    border-radius: 12px;
-    border: 1px solid rgba(239, 237, 232, 0.3);
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .products-filter-search {
-    height: 52px;
-    width: 236px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .products-filter-search {
-    width: 236px;
-    font-size: 16px;
-    line-height: 24px;
-  }
-}
-.products-btn-clouse,
-.products-btn-search {
-  background: transparent;
-  border-color: transparent;
-  position: absolute;
-  top: calc(50% - 20px / 2);
-}
-
-.products-btn-clouse {
-  right: 40px;
-}
-
-.products-btn-search {
-  right: 14px;
-}
-
-.products-svg-clouse,
-.products-svg-search {
-  stroke: #e6533c;
-  width: 18px;
-  height: 18px;
-}
-
-.products-filter-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 40px;
-}
-
-@media screen and (min-width: 375px) {
-  .products-filter-list {
-    margin-bottom: 40px;
-    margin-top: 40px;
+.prodFilterForm {
+  width: 335px;
+    margin-block: 40px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 16px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .products-filter-list {
-    margin-bottom: 32px;
-    margin-top: 32px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .products-filter-list {
-    margin-bottom: 28px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 16px;
-    justify-content: flex-end;
-    margin-left: auto;
-    margin-top: 0;
-  }
-}
-
-
-.select-wrapper {
-  @media screen and (min-width: 375px) {
-    width: 158px;
-    height: 46px;
-  }
+    
 
   @media screen and (min-width: 768px) {
-    width: 173px;
-    height: 52px;
+    width: 664px;
+      margin-block: 32px;
+      flex-direction: row;
   }
 
   @media screen and (min-width: 1440px) {
-    width: 192px;
+    
+      margin-left: auto;
+      margin-top: 0px;
   }
 }
 
+.prodFilterSearchBox {
+  position: relative;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    width: 236px;
+    flex-shrink: 0;
+  }
+}
+
+.prodFilterSearchField {
+  width: 100%;
+  padding: 14px;
+  background: transparent;
+  color: #efede8;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.3);
+
+  @media screen and (min-width: 768px) {
+    height: 52px;
+    font-size: 16px;
+    line-height: calc(24 / 16);
+  }
+
+  &:focus-visible {
+    border-color: #e6533c;
+  }
+
+  &::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  
+}
+
+.prodSearchCancelBtn {
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+  padding: 0px;
+  border-color: transparent;
+  background: transparent;
+}
+
+.prodSearchIcon {
+  width: 18px;
+  height: 18px;
+  stroke: #e6533c;
+}
+
+.prodSearchSubmitBtn {
+  composes: prodSearchCancelBtn;
+  right: 14px;
+}
+
+.prodFilterSelectsWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.prodFilterCategorySlct {
+  width: 146px;
+  padding: 14px;
+  text-transform: capitalize;
+  text-overflow: ellipsis;
+  color: #efede8;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+  background: transparent;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.3);
+
+  @media screen and (min-width: 768px) {
+    width: 192px;
+    height: 52px;
+    font-size: 16px;
+    line-height: calc(24 / 16);
+  }
+
+  & option {
+    width: 146px;
+    text-transform: capitalize;
+    font-size: 14px;
+    line-height: calc(18 / 14);
+    background: #1c1c1c;
+
+
+    @media screen and (min-width: 768px) {
+      width: 192px;
+      font-size: 16px;
+      line-height: calc(24 / 16);
+    }
+  }
+}
+
+.prodFilterRecSlct {
+  composes: prodFilterCategorySlct;
+  width: 173px;
+
+  @media screen and (min-width: 768px) {
+    width: 204px;
+  }
+
+  & option {
+    width: 173px;
+
+    @media screen and (min-width: 768px) {
+      width: 204px;
+    }
+  }
+}
