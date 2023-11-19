@@ -5,12 +5,12 @@ import { fetchProducts } from './../../redux/products/productsOperations'
 import useProduct from '../../hooks/useProduct'
 import ProductsItem from '../ProductsItem/ProductsItem'
 import css from './../ExercisesList/ExercisesList.module.css'
+import { setItems } from '../../redux/products/productsSlice';
 
 const ProductsList = () => {
   const dispatch = useDispatch();
   const { products, productsIsLoading, productsGetMore } = useProduct();
   const [numberPage, setNumberPage] = useState({ page: 1 })
-
   const observer = useRef();
 
   const lastElementRef = useCallback(node => {
@@ -29,12 +29,17 @@ const ProductsList = () => {
   useEffect(() => {
     const source = axios.CancelToken.source();
     const cancelToken = source.token;
-
     dispatch(fetchProducts({ numberPage, cancelToken }))
 
     return () => source.cancel();
-  }, [numberPage, dispatch]);
+  }, [dispatch, numberPage]); 
 
+  useEffect(() => {
+    return () => {
+      dispatch(setItems());
+    };
+  }, [dispatch]);
+  
   return (
     <div className={css.cardContainer}>
       {products.map((product, index) => {

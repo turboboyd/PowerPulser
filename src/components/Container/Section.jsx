@@ -11,7 +11,7 @@ import css from "./Section.module.css";
 import { useLocation } from "react-router-dom";
 
 const Section = ({ children, isNotFoundPage }) => {
-  console.log('isNotFoundPage: ', isNotFoundPage);
+  // console.log('isNotFoundPage: ', isNotFoundPage);
   const location = useLocation();
 
   const showStatisticsInfoRoutes = [

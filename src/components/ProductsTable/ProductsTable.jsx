@@ -9,7 +9,6 @@ const ProductsTable = ({ products }) => {
   const deleteProduct = (id) => {
     dispatch(deleteProductDiary(id));
   };
-console.log(products);
   return (
     <ul className={css.diaryMainList}>
       {products.map(
