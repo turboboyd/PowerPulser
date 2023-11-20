@@ -38,7 +38,7 @@ const ExercisesSubcategoriesList = ({ setShowTitlePage }) => {
   const handleSubcategoryClick = (subcategory) => {
     setSelectedSubcategoryLocal(subcategory);
     setShowTitlePage(false);
-    dispatch(fetchExercisesFilter({ type: subcategory, page: 1, limit: 10 }));
+    dispatch(fetchExercisesFilter({ type: subcategory, page: 1, limit: 1000 }));
   };
 
   const handleBackButtonClick = () => {
@@ -49,7 +49,7 @@ const ExercisesSubcategoriesList = ({ setShowTitlePage }) => {
   useEffect(() => {
     if (selectedCategory) {
       dispatch(
-        fetchExercisesFilter({ type: selectedCategory, page: 1, limit: 10 })
+        fetchExercisesFilter({ type: selectedCategory, page: 1, limit: 1000 })
       );
     }
   }, [dispatch, selectedCategory]);
