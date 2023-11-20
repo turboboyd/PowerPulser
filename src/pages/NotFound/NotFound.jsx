@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import css from "./NotFound.module.css";
 import useAuth from "../../hooks/useAuth";
 import Logo from "../../components/Logo/Logo";

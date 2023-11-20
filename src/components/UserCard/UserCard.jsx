@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import Avatar from "../Avatar/Avatar";
 import StatisticsItem from "../StatisticsItem/StatisticsItem";
@@ -9,7 +9,6 @@ import Icon from "../ComponIcon/Icon";
 import css from "./UserCard.module.css";
 
 import { logOutUser } from "../../redux/auth/authOperation";
-import { selectUser } from "../../redux/auth/authSelectors";
 
 const UserCard = ({ userInfo }) => {
   const dispatch = useDispatch();
