@@ -36,6 +36,10 @@ export const authRoutes = [
     path: EXERCISES_ROUTE,
     Element: <ExercisesPage />,
   },
+  {
+    path: EXERCISES_ROUTE + "/:id",
+    Element: <ExercisesPage />,
+  },
 ];
 
 export const publicRoutes = [
