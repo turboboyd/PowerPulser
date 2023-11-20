@@ -6,12 +6,12 @@ import {
   SIGN_UP_ROUTE,
   PRODUCT_ROUTE,
   EXERCISES_ROUTE,
-} from "../../utils/const";
-import StatisticsInfo from "../StatisticsInfo/StatisticsInfo";
-import css from "./Section.module.css";
-import { useLocation } from "react-router-dom";
+} from '../../utils/const';
+import StatisticsInfo from '../StatisticsInfo/StatisticsInfo';
+import css from './Section.module.css';
+import { useLocation } from 'react-router-dom';
 
-const Section = ({ children, isNotFoundPage }) => {
+const Section = ({ children }) => {
   const location = useLocation();
 
   const showStatisticsInfoRoutes = [
@@ -28,16 +28,13 @@ const Section = ({ children, isNotFoundPage }) => {
     [PROFILE_ROUTE]: css.PROFILE_section,
     [DIARY_ROUTE]: css.DIARY_section,
     [EXERCISES_ROUTE]: css.EXERCISES_section,
-    [EXERCISES_ROUTE + "/:id"]: css.NONE,
+    [EXERCISES_ROUTE + '/:id']: css.NONE,
   };
-  
-  const sectionStyle = `${css.section} ${
-    styles[location.pathname] || `${css.section}`
-  } ${isNotFoundPage ? css.NotFound_section : ""}`;
 
+  const sectionStyle = styles[location.pathname] || css.NotFound_section;
 
   return (
-    <section className={sectionStyle}>
+    <section className={`${css.section}  ${sectionStyle}`}>
       {children}
       {showStatisticsInfoRoutes.includes(location.pathname) && (
         <StatisticsInfo />

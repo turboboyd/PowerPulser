@@ -13,7 +13,9 @@
   border-radius: var(--border-radius);
 }
 
-
+.active{
+  background-color: red;
+}
 
 @media screen and (max-width: 1439px) {
   .user_list {
