@@ -14,7 +14,7 @@ const ExercisesSubcategoriesList = ({ setShowTitlePage }) => {
   const [selectedCategory, setSelectedCategory] = useState('Body parts');
   const [selectedSubcategory, setSelectedSubcategoryLocal] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const { exercisesFilter: exercisesFilterHook } = useExercise(); 
+
 
   const ITEMS_PER_ROW = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--items-per-row'));
   const ITEM_WIDTH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-width'));

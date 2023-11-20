@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import Icon from "../ComponIcon/Icon";
 import css from "./Avatar.module.css";
 

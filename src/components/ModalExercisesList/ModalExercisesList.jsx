@@ -1,5 +1,6 @@
 import css from './ModalExercisesList.module.css';
 import capitalizedWord from '../../utils/capitalizedWord';
+import PropTypes from 'prop-types';
 
 const ModalExercisesList = ({ exercise }) => {
   return (
@@ -30,6 +31,15 @@ const ModalExercisesList = ({ exercise }) => {
       </li>
     </ul>
   );
+};
+
+ModalExercisesList.propTypes = {
+  exercise: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    bodyPart: PropTypes.string.isRequired,
+    target: PropTypes.string.isRequired,
+    equipment: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default ModalExercisesList;
