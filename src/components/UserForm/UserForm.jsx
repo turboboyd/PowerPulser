@@ -1,15 +1,17 @@
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { Formik, Field, Form } from "formik";
+import { useDispatch } from "react-redux";
+import PropTypes from "prop-types";
 
-import { useDispatch, useSelector } from "react-redux";
-
-import css from "./UserForm.module.css";
 import Button from "../Button/Button";
 import RadioButton from "./RadioButton/RadioButton";
+import ErrorMessages from "./ErrorMessages/ErrorMessages";
+import CalendarComponent from "../СalendarBirthDay/СalendarBirthDay";
+
 import userFormShemas from "../../utils/shemas/userFormShemas";
 import { updateProfileSettings } from "../../redux/auth/authOperation";
-import CalendarComponent from "../СalendarBirthDay/СalendarBirthDay";
 import useAuth from "../../hooks/useAuth";
-// import Icon from "../ComponIcon/Icon";
+
+import css from "./UserForm.module.css";
 
 const UserForm = () => {
   const dispatch = useDispatch();
@@ -150,31 +152,7 @@ const UserForm = () => {
                 </div>
               </div>
             </div>
-            <ErrorMessage
-              className={css.errorMessage}
-              name="name"
-              component="div"
-            />
-            <ErrorMessage
-              className={css.errorMessage}
-              name="height"
-              component="div"
-            />
-            <ErrorMessage
-              className={css.errorMessage}
-              name="currentWeight"
-              component="div"
-            />
-            <ErrorMessage
-              className={css.errorMessage}
-              name="desiredWeight"
-              component="div"
-            />
-            <ErrorMessage
-              className={css.errorMessage}
-              name="birthday"
-              component="div"
-            />
+            <ErrorMessages />
             {/* RadioButton */}
             <p className={`${css.titleName} ${css.titleBlood}`}>Blood</p>
             <div className={css.radioWrapper}>
@@ -302,3 +280,19 @@ const UserForm = () => {
 };
 
 export default UserForm;
+
+UserForm.propTypes = {
+  user: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    profileSettings: PropTypes.shape({
+      height: PropTypes.number.isRequired,
+      currentWeight: PropTypes.number.isRequired,
+      desiredWeight: PropTypes.number.isRequired,
+      birthday: PropTypes.string.isRequired,
+      blood: PropTypes.number.isRequired,
+      sex: PropTypes.string.isRequired,
+      levelActivity: PropTypes.number.isRequired,
+    }).isRequired,
+  }).isRequired,
+};

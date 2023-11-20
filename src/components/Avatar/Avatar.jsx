@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import Icon from "../ComponIcon/Icon";
-import css from "./Avatar.module.css";
 
-import { useSelector, useDispatch } from "react-redux";
 import { uploadAvatar } from "../../redux/avatar/avatarOperations";
 import { setAvatarURL } from "../../redux/auth/authSlice";
+
+import css from "./Avatar.module.css";
 
 const Avatar = ({ name, avatarURL }) => {
   const storedAvatarURL = useSelector((state) => state.auth.avatarURL);

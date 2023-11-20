@@ -1,29 +1,28 @@
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+
 import TitlePage from "../../components/TitlePage/TitlePage";
 import UserForm from "../../components/UserForm/UserForm";
 import UserCard from "../../components/UserCard/UserCard";
 
+import useAuth from "../../hooks/useAuth";
 import css from "./ProfilePage.module.css";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { selectUser } from "../../redux/auth/authSelectors";
-import { useSelector } from "react-redux";
-import { useState } from "react";
 
 const ProfilePage = () => {
-  const userInfo = useSelector(selectUser);
-  const dispatch = useDispatch();
-  const [avatarURL, setAvatarURL] = useState(userInfo.avatarURL);
+  const { user } = useAuth();
+  const avatar = user.avatarURL;
+  const [avatarURL, setAvatarURL] = useState(avatar);
 
   useEffect(() => {
-    setAvatarURL(userInfo.avatarURL);
-  }, [userInfo.avatarURL]);
+    setAvatarURL(avatar);
+  }, [avatar]);
 
   return (
     <>
       <TitlePage title="Profile Settings" className={css.title} />
       <div className={css.container}>
-        <UserForm />
-        <UserCard userInfo={userInfo} />
+        <UserForm user={user} />
+        <UserCard user={user} />
       </div>
     </>
   );
