@@ -23,11 +23,14 @@ import {
 } from "./authReducer";
 import { operationsType } from "./authOperationsType";
 
+import { uploadAvatar } from "../avatar/avatarOperations";
+
 const contactsInitialState = {
   user: {
     email: "",
     name: "",
     registrDate: "",
+    avatarURL: "",
     profileSettings: {
       height: "",
       currentWeight: "",
@@ -51,6 +54,11 @@ const contactsInitialState = {
 export const authSlice = createSlice({
   name: "auth",
   initialState: contactsInitialState,
+  reducers: {
+    setAvatarURL: (state, action) => {
+      state.user.avatarURL = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(registrationUser.fulfilled, handleFulfilledRegistration)
@@ -71,10 +79,14 @@ export const authSlice = createSlice({
         updateProfileSettings.rejected,
         handleRejectedUpdateProfileSettings
       )
+      .addCase(uploadAvatar.fulfilled, (state, action) => {
+        state.avatarURL = action.payload; // Оновлення URL аватара при завершенні завдання
+      })
       .addCase(verifyUser.rejected, handleVerifyRejected)
       .addMatcher(isAnyOf(...operationsType("pending")), handlePending)
       .addMatcher(isAnyOf(...operationsType("rejected")), handleRejected);
   },
 });
 
+export const { setAvatarURL } = authSlice.actions;
 export const authReducer = authSlice.reducer;
