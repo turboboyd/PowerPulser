@@ -9,7 +9,8 @@ import { Navigate } from "react-router-dom";
 const ExercisesPage = () => {
   const [selectedSubcategory] = useState(null);
   const [showTitlePage, setShowTitlePage] = useState(true);
-  const { isVerify, isAuthCheck, user } = useAuth;
+  const { isVerify, isAuthCheck, user, status } = useAuth();
+  console.log('status: ', status);
   
   console.log('user: ', user);
 

@@ -5,6 +5,7 @@ export const handlePending = (state) => {
 export const handlePendingRefresh = (state) => {
   state.isLoading = true;
   state.isRefreshing = true;
+  state.status = "pending";
 };
 export const handlePendingUpdateProfileSettings = (state) => {
   state.isLoading = true;
@@ -58,6 +59,7 @@ export const handleFulfilledRefresh = (state, { payload }) => {
   state.isLoading = false;
   state.isRefreshing = false;
   state.isAuthCheck = true;
+  
 };
 
 export const handleFulfilledVerify = (state, { payload }) => {
