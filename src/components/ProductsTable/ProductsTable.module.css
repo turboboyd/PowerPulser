@@ -2,9 +2,6 @@
   margin-bottom: 40px;
 }
 
-.table {
-}
-
 .element {
   display: flex;
   flex-direction: column;
@@ -45,8 +42,6 @@
 
 .nameValue {
   padding: 10px 14px;
-
-  width: 290px;
 
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.3);
@@ -100,6 +95,11 @@
 
 .nameTrash {
   visibility: hidden;
+}
+@media (max-width: 375px) {
+  .elementWrap .nameValue {
+    width: 100%;
+  }
 }
 
 @media screen and (min-width: 768px) {
