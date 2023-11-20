@@ -7,7 +7,6 @@ import useAuth from "../../hooks/useAuth";
 import { Container, Section } from "../Container";
 import { authRoutes, publicRoutes } from "../../routes";
 
-
 export default function Layout() {
   const location = useLocation();
   const [isNotFoundPage, setIsNotFoundPage] = useState(false);
@@ -25,13 +24,13 @@ export default function Layout() {
         <Header isNotFoundPage={isNotFoundPage} />
       )}
       <main>
-        <Section isNotFoundPage={isNotFoundPage}>
-          <Container>
-            <Suspense fallback={<Loader />}>
+        <Suspense fallback={<Loader />}>
+          <Section isNotFoundPage={isNotFoundPage}>
+            <Container>
               <Outlet />
-            </Suspense>
-          </Container>
-        </Section>
+            </Container>
+          </Section>
+        </Suspense>
       </main>
     </>
   );
