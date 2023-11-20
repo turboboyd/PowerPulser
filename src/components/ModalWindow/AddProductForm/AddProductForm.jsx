@@ -31,10 +31,10 @@ const AddProductForm = ({
     calories,
   };
   const handleAddToDiary = () => {
+    dispatch(addProductDiary(productToDiary));
     handleModalProduct();
     handleModalSuccess();
     handleSelectedProduct(productToDiary);
-    dispatch(addProductDiary(productToDiary));
   };
 
   return (

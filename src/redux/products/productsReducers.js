@@ -1,4 +1,5 @@
 export const handlePending = (state) => {
+    state.getMore = false;
     state.isLoading = true;
     state.error = null;
 };

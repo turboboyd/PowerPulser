@@ -6,6 +6,7 @@ const getLogoLink = (isVerify, user) => {
       ? DIARY_ROUTE
       : PROFILE_ROUTE
     : WELCOME_PAGE_ROUTE;
+    
 };
 
 export default getLogoLink;

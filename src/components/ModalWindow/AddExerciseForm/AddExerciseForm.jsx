@@ -17,6 +17,8 @@ const AddExerciseForm = ({
 
   const dispatch = useDispatch();
 
+  console.log(exercise);
+
   let date = new Date();
   const formattedDate = formatDate(date);
   const exerciseToDiary = {
@@ -27,10 +29,11 @@ const AddExerciseForm = ({
   };
 
   const handleAddToDiary = () => {
+    dispatch(addExercisesDiary(exerciseToDiary));
     handleModalExercise();
     handleModalSuccess();
     handleSelectedExercise(exerciseToDiary);
-    dispatch(addExercisesDiary(exerciseToDiary));
+    console.log(exerciseToDiary);
   };
 
   return (

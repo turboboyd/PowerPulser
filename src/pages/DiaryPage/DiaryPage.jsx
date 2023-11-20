@@ -12,9 +12,11 @@ import { fetchAllDiary } from "../../redux/diary/diaryOperations";
 import { useEffect, useState } from "react";
 import formatDate from "../../utils/formatData";
 
+import useAuth from "../../hooks/useAuth";
+
 const DiaryPage = () => {
   const dispatch = useDispatch();
-
+  const { user } = useAuth();
   const [selectedDate, setSelectedDate] = useState(null);
 
   useEffect(() => {
@@ -35,25 +37,27 @@ const DiaryPage = () => {
   };
 
   return (
-    <>
       <div className={css.diaryPage}>
         <div className={css.calendarWrap}>
           <TitlePage title="Diary" />
           <div className={css.calendar}>
             <DaySwitch handleDate={handleDate} />
+
+      <div className={css.calendarWrap}>
+        <TitlePage title="Diary" />
+        <div className={css.calendar}>
+          <Calendar handleDate={handleDate} />
+        </div>
+      </div>
+    
+        <div className={css.sectionWrap}>
+          <DayDashboard />
+          <div>
+            <DayProducts />
+            <DayExercises />
           </div>
         </div>
-        {
-          <div className={css.sectionWrap}>
-            <DayDashboard />
-            <div>
-              <DayProducts />
-              <DayExercises />
-            </div>
-          </div>
-        }
-      </div>
-    </>
+   </div>
   );
 };
 

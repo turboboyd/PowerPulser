@@ -1,43 +1,29 @@
-import { useDispatch } from 'react-redux';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useEffect } from 'react';
+import css from './ExercisesList.module.css'; 
 import useExercise from '../../hooks/useExercise';
-import axios from "axios";
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
 import { fetchExercisesItemsSelectedFilter } from '../../redux/exercises/exercisesOperations';
-
-import css from './ExercisesList.module.css'
-import ExercisesItem from '../ExercisesItem/ExercisesItem'
-import Icon from '../ComponIcon/Icon'
+import ExercisesItem from '../ExercisesItem/ExercisesItem';
 import { setItemsSelectedFilter } from '../../redux/exercises/exercisesSlice';
 
-const ExercisesList = (id) => {
+const ExercisesList = ({ selectedSubcategory }) => {
   const dispatch = useDispatch();
-  const { exercisesItemsSelectFilter, exercisesIsLoading, exercisesGetMore, } = useExercise();
-  const [numberPage, setNumberPage] = useState(1);
-
-  const observer = useRef();
-  const lastElementRef = useCallback(node => {
-    if (exercisesIsLoading) return;
-    if (observer.current) observer.current.disconnect()
-    observer.current = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting && exercisesGetMore) {
-        setNumberPage(prevNumberPage => prevNumberPage + 1)
-      }
-    })
-    if (node) observer.current.observe(node)
-  }, [exercisesIsLoading, exercisesGetMore])
+  const { exercisesItemsSelectFilter } = useExercise();
 
   useEffect(() => {
     const params = {
-      page: numberPage,
-      id: id,
-  }
+      page: 1,
+      id: selectedSubcategory,
+    };
+
     const source = axios.CancelToken.source();
     const cancelToken = source.token;
 
-    dispatch(fetchExercisesItemsSelectedFilter({ params, cancelToken }))
+    dispatch(fetchExercisesItemsSelectedFilter({ params, cancelToken }));
 
     return () => source.cancel();
-  }, [id, numberPage, dispatch]);
+  }, [selectedSubcategory, dispatch]);
 
   useEffect(() => {
     return () => {
@@ -46,21 +32,14 @@ const ExercisesList = (id) => {
   }, [dispatch]);
 
   return (
-    <div>
-      <div>
-        <button className={css.exerciseArrow}>
-          Back
-          <Icon className={css.exerciseArrowSvg} iconId="Arrow-back" />
-        </button>
-        <h3 className={css.exercisesTitle}>Waist</h3>
-      </div>
+    <div className={css.cardContainerBackground}>
       <div className={css.cardContainer}>
-        {exercisesItemsSelectFilter.map((exercise) => {
-          return <ExercisesItem ref={lastElementRef} key={exercise._id} exercise={exercise} />
-        })}
+        {exercisesItemsSelectFilter.map((exercise) => (
+          exercise._id && <ExercisesItem key={exercise._id} exercise={exercise} />
+        ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ExercisesList
+export default ExercisesList;

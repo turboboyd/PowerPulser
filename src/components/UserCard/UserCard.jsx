@@ -1,5 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useCallback, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import Avatar from "../Avatar/Avatar";
 import StatisticsItem from "../StatisticsItem/StatisticsItem";
@@ -7,12 +8,17 @@ import Icon from "../ComponIcon/Icon";
 
 import css from "./UserCard.module.css";
 
-import { useDispatch } from "react-redux";
 import { logOutUser } from "../../redux/auth/authOperation";
+import { selectUser } from "../../redux/auth/authSelectors";
 
 const UserCard = () => {
+  const user = useSelector(selectUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+
+  const dailyCalorieIntake =
+    user && user.profileSettings ? user.profileSettings.bmr || 0 : 0;
   const handleLogout = useCallback(() => {
     dispatch(logOutUser());
     navigate("/");
@@ -26,13 +32,13 @@ const UserCard = () => {
           <StatisticsItem
             className={css.statistics}
             statisticsName={"Daily calorie intake"}
-            statisticsValue={"0"}
+            statisticsValue={dailyCalorieIntake}
             statisticsIcon={"Fluent_food"}
             statisticPrimary={true}
           />
           <StatisticsItem
             statisticsName={"Daily norm of sports"}
-            statisticsValue={"0 min"}
+            statisticsValue={"110 min"}
             statisticsIcon={"Dumbbell"}
             statisticPrimary={true}
           />
