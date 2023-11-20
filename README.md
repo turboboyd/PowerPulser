@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+# React homework template
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Этот проект был создан при помощи
+[Create React App](https://github.com/facebook/create-react-app). Для знакомства
+и настройки дополнительных возможностей
+[обратись к документации](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## Available Scripts
+## Создание репозитория по шаблону
 
-In the project directory, you can run:
+Используй этот репозиторий организации GoIT как шаблон для создания репозитория
+своего проекта. Для этого нажми на кнопку `«Use this template»` и выбери опцию
+`«Create a new repository»`, как показано на изображении.
 
-### `npm start`
+![Creating repo from a template step 1](./assets/template-step-1.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+На следующем шаге откроется страница создания нового репозитория. Заполни поле
+его имени, убедись что репозиторий публичный, после чего нажми кнопку
+`«Create repository from template»`.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![Creating repo from a template step 2](./assets/template-step-2.png)
 
-### `npm test`
+После того как репозиторий будет создан, необходимо перейти в настройки
+созданного репозитория на вкладку `Settings` > `Actions` > `General` как
+показано на изображении.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Settings GitHub Actions permissions step 1](./assets/gh-actions-perm-1.png)
 
-### `npm run build`
+Проскролив страницу до самого конца, в секции `«Workflow permissions»` выбери
+опцию `«Read and write permissions»` и поставь галочку в чекбоксе. Это
+необходимо для автоматизации процесса деплоя проекта.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Settings GitHub Actions permissions step 2](./assets/gh-actions-perm-2.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Теперь у тебя есть личный репозиторий проекта, со структурой файлов и папок
+репозитория-шаблона. Далее работай с ним как с любым другим личным репозиторием,
+клонируй его себе на компьютер, пиши код, делай коммиты и отправляй их на
+GitHub.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Подготовка к работе
 
-### `npm run eject`
+1. Убедись что на компьютере установлена LTS-версия Node.js.
+   [Скачай и установи](https://nodejs.org/en/) её если необходимо.
+2. Установи базовые зависимости проекта командой `npm install`.
+3. Запусти режим разработки, выполнив команду `npm start`.
+4. Перейди в браузере по адресу [http://localhost:3000](http://localhost:3000).
+   Эта страница будет автоматически перезагружаться после сохранения изменений в
+   файлах проекта.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Деплой
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Продакшн версия проекта будет автоматически проходить линтинг, собираться и
+деплоиться на GitHub Pages, в ветку `gh-pages`, каждый раз когда обновляется
+ветка `main`. Например, после прямого пуша или принятого пул-реквеста. Для этого
+необходимо в файле `package.json` отредактировать поле `homepage`, заменив
+`your_username` и `your_repo_name` на свои, и отправить изменения на GitHub.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```json
+"homepage": "https://your_username.github.io/your_repo_name/"
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Далее необходимо зайти в настройки GitHub-репозитория (`Settings` > `Pages`) и
+выставить раздачу продакшн версии файлов из папки `/root` ветки `gh-pages`, если
+это небыло сделано автоматически.
 
-## Learn More
+![GitHub Pages settings](./assets/repo-settings.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Статус деплоя
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Статус деплоя крайнего коммита отображается иконкой возле его идентификатора.
 
-### Code Splitting
+- **Желтый цвет** - выполняется сборка и деплой проекта.
+- **Зеленый цвет** - деплой завершился успешно.
+- **Красный цвет** - во время линтинга, сборки или деплоя произошла ошибка.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Более детальную информацию о статусе можно посмотреть кликнув по иконке, и в
+выпадающем окне перейти по ссылке `Details`.
 
-### Analyzing the Bundle Size
+![Deployment status](./assets/deploy-status.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Живая страница
 
-### Making a Progressive Web App
+Через какое-то время, обычно пару минут, живую страницу можно будет посмотреть
+по адресу указанному в отредактированном свойстве `homepage`. Например, вот
+ссылка на живую версию для этого репозитория
+[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Если открывается пустая страница, убедись что во вкладке `Console` нет ошибок
+связанных с неправильными путями к CSS и JS файлам проекта (**404**). Скорее
+всего у тебя неправильное значение свойства `homepage` в файле `package.json`.
 
-### Advanced Configuration
+### Маршрутизация
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Если приложение использует библиотеку `react-router-dom` для маршрутизации,
+необходимо дополнительно настроить компонент `<BrowserRouter>`, передав в пропе
+`basename` точное название твоего репозитория. Слеш в начале строки обязателен.
 
-### Deployment
+```jsx
+<BrowserRouter basename="/your_repo_name">
+  <App />
+</BrowserRouter>
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Как это работает
 
-### `npm run build` fails to minify
+![How it works](./assets/how-it-works.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. После каждого пуша в ветку `main` GitHub-репозитория, запускается специальный
+   скрипт (GitHub Action) из файла `.github/workflows/deploy.yml`.
+2. Все файлы репозитория копируются на сервер, где проект инициализируется и
+   проходит линтинг и сборку перед деплоем.
+3. Если все шаги прошли успешно, собранная продакшн версия файлов проекта
+   отправляется в ветку `gh-pages`. В противном случае, в логе выполнения
+   скрипта будет указано в чем проблема.
