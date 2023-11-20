@@ -1,3 +1,4 @@
+import useAuth from 'hooks/useAuth';
 import {
   WELCOME_PAGE_ROUTE,
   PROFILE_ROUTE,
@@ -10,16 +11,20 @@ import {
 import StatisticsInfo from '../StatisticsInfo/StatisticsInfo';
 import css from './Section.module.css';
 import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import useExercise from 'hooks/useExercise';
 
 const Section = ({ children }) => {
   const location = useLocation();
-
+  const { id } = useParams();
+  const { exercisesItemsSelectFilter } = useExercise();
+  console.log('exercisesItemsSelectFilter: ', exercisesItemsSelectFilter);
   const showStatisticsInfoRoutes = [
     WELCOME_PAGE_ROUTE,
     SIGN_UP_ROUTE,
     SIGN_IN_ROUTE,
   ];
-
+    useAuth()
   const styles = {
     [WELCOME_PAGE_ROUTE]: css.WELCOME_PAGE_section,
     [SIGN_UP_ROUTE]: css.AUTH_PAGE_section,
@@ -28,7 +33,7 @@ const Section = ({ children }) => {
     [PROFILE_ROUTE]: css.PROFILE_section,
     [DIARY_ROUTE]: css.DIARY_section,
     [EXERCISES_ROUTE]: css.EXERCISES_section,
-    [EXERCISES_ROUTE + '/:id']: css.NONE,
+    [`${EXERCISES_ROUTE}/${id}`]: css.EXERCISES_categot_section,
   };
 
   const sectionStyle = styles[location.pathname] || css.NotFound_section;

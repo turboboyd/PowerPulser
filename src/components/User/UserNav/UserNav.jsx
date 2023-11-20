@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import {
   DIARY_ROUTE,
   PRODUCT_ROUTE,
@@ -15,15 +15,11 @@ const routes = [
 const UserNav = () => {
   return (
     <ul className={css.user_list}>
-      {routes.map(route => (
+      {routes.map((route) => (
         <li key={route.name} className={css.user_item}>
-          <NavLink
-            className={css.link}
-            to={route.path}
-            activeClassName={css.active}
-          >
+          <Link className={css.link} to={route.path}>
             {route.name}
-          </NavLink>
+          </Link>
         </li>
       ))}
     </ul>
