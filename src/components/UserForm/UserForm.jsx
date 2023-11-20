@@ -160,10 +160,7 @@ const UserForm = () => {
               name="height"
               component="div"
             />
-            <ErrorMessage
-              className={css.errorMessage}
-              name="currentWeight"
-              component="div"
+            <ErrorMessage name="currentWeight"
             />
             <ErrorMessage
               className={css.errorMessage}
@@ -288,10 +285,7 @@ const UserForm = () => {
               disabled={
                 isLoading ||
                 !formik.isValid ||
-                !formik.dirty ||
-                !formik.values.blood ||
-                !formik.values.sex ||
-                !formik.values.levelActivity
+                !formik.dirty
               }
             />
           </Form>
