@@ -1,6 +1,7 @@
-import sprite from '../../images/svg/InlineSprite.svg';
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
+import { useSearchParams } from "react-router-dom";
+import sprite from '../../images/svg/InlineSprite.svg';
 import { fetchProductsCategory  } from '../../redux/products/productsOperations';
 import styles from './ProductsFilter.module.css';
 
@@ -11,17 +12,31 @@ import { setFilters, setItems } from '../../redux/products/productsSlice';
 
 const ProductsFilter = () => {
   const dispatch = useDispatch();
-
+  const [searchParams, setSearchParams] = useSearchParams();
   const { category, filters } = useProduct();
   
+  const params = useMemo(
+    () => Object.fromEntries([...searchParams]),
+    [searchParams])
+
+  const isEmptyFilters = filters.search !== '' || filters.category !== '' || filters.recommended !== '';
+  const isEmptyParams = Object.keys(params).length === 0;
+
   const formik = useFormik({
-    initialValues: { search: filters.search, category: filters.category, recommended: filters.recommended },
+    initialValues: {
+      search: params.search || filters.search,
+      category: params.category || filters.category,
+      recommended: params.recommended || filters.recommended
+    },
     onSubmit: values => handleSubmit(values),
   });
   
   useEffect(() => {
+    if (isEmptyParams && isEmptyFilters) {
+      setSearchParams({search: filters.search, category: filters.category, recommended: filters.recommended})
+    }
     dispatch(fetchProductsCategory());
-  }, [dispatch]);
+  }, [dispatch, isEmptyFilters, isEmptyParams, filters.search, filters.category, filters.recommended, setSearchParams]);
 
 
   const handleSubmit = (paramsSearch) => {
@@ -36,6 +51,7 @@ const ProductsFilter = () => {
     if (e.target.value !== initialValues[e.target.value]) {
       const paramsSearch = { ...values, [e.target.name]: e.target.value };
       handleSubmit(paramsSearch);
+      setSearchParams(paramsSearch)
     }
   };
 
@@ -60,7 +76,7 @@ const ProductsFilter = () => {
                 formik.handleSubmit();
               }}
             >
-              <svg className={styles.prodSearchIcon }>
+              <svg className={styles.prodSearchIcon}>
                 <use href={`${sprite}#Close`}></use>
               </svg>
             </button>
