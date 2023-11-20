@@ -1,14 +1,17 @@
 import Icon from '../ComponIcon/Icon';
 import css from './../ExercisesItem/ExercisesItem.module.css';
 import { forwardRef, useState } from 'react';
-import useAuth from '../../hooks/useAuth'
+import useAuth from '../../hooks/useAuth';
 import BasicModalWindow from '../../components/ModalWindow/BasicModalWindow/BasicModalWindow';
 import AddProductForm from '../ModalWindow/AddProductForm/AddProductForm';
 import AddProductSuccess from '../ModalWindow/AddProductSuccess/AddProductSuccess';
 
-
 const ProductsItem = forwardRef(({ product }, ref) => {
-  const { user: {profileSettings: {blood}}} = useAuth();
+  const {
+    user: {
+      profileSettings: { blood },
+    },
+  } = useAuth();
   const [modalProduct, setModalProduct] = useState(false);
   const [modalSuccess, setModalSuccess] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState('');
@@ -74,7 +77,7 @@ const ProductsItem = forwardRef(({ product }, ref) => {
           Calories:
           <span>{product.calories}</span>
         </li>
-        <li>
+        <li className={css.productCategory}>
           Category:
           <span className={css.exerciseCardItem}>{product.category}</span>
         </li>
