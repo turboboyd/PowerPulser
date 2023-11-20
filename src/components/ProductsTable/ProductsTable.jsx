@@ -12,7 +12,7 @@ const ProductsTable = ({ products }) => {
   return (
     <ul className={css.diaryMainList}>
       {products.map(
-        ({ id, title, category, calories, amount, recommended }, i) => {
+        ({ id, title, category, calories, amount, recommended }) => {
           return (
           <li key={id} className={css.diaryMainItem}>
             <table className={css.table}>

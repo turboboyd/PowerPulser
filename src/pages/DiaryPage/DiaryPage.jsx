@@ -1,18 +1,16 @@
 import css from "./DiaryPage.module.css";
 
 import TitlePage from "../../components/TitlePage/TitlePage";
-import { Container, Section } from "../../components/Container";
 
 import DayDashboard from "../../components/DayDashboard/DayDashboard";
 import DayExercises from "../../components/DayExercises/DayExercises";
 import DayProducts from "../../components/DayProducts/DayProducts";
-import Calendar from "../../components/Calendar/Calendar";
+import DaySwitch from "../../components/DaySwitch/DaySwitch";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchAllDiary } from "../../redux/diary/diaryOperations";
 import { useEffect, useState } from "react";
 import formatDate from "../../utils/formatData";
-import { selectDiaryIsLoading } from "../../redux/diary/diarySelectors";
 
 const DiaryPage = () => {
   const dispatch = useDispatch();
@@ -42,7 +40,7 @@ const DiaryPage = () => {
         <div className={css.calendarWrap}>
           <TitlePage title="Diary" />
           <div className={css.calendar}>
-            <Calendar handleDate={handleDate} />
+            <DaySwitch handleDate={handleDate} />
           </div>
         </div>
         {
