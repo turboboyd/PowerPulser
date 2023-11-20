@@ -5,6 +5,7 @@ import css from './ExercisesSubcategoriesList.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchExercisesFilter } from '../../redux/exercises/exercisesOperations';
 import useExercise from '../../hooks/useExercise';
+import PropTypes from 'prop-types';
 
 const categories = ["Body parts", "Equipment", "Muscles"];
 
@@ -38,7 +39,7 @@ const ExercisesSubcategoriesList = ({ setShowTitlePage }) => {
   const handleSubcategoryClick = (subcategory) => {
     setSelectedSubcategoryLocal(subcategory);
     setShowTitlePage(false);
-    dispatch(fetchExercisesFilter({ type: subcategory, page: 1, limit: 10 }));
+    dispatch(fetchExercisesFilter({ type: subcategory, page: 1, limit: 1000 }));
   };
 
   const handleBackButtonClick = () => {
@@ -49,7 +50,7 @@ const ExercisesSubcategoriesList = ({ setShowTitlePage }) => {
   useEffect(() => {
     if (selectedCategory) {
       dispatch(
-        fetchExercisesFilter({ type: selectedCategory, page: 1, limit: 10 })
+        fetchExercisesFilter({ type: selectedCategory, page: 1, limit: 1000 })
       );
     }
   }, [dispatch, selectedCategory]);
