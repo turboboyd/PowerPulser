@@ -135,4 +135,7 @@ const ExercisesSubcategoriesList = ({ setShowTitlePage }) => {
   );
 };
 
+ExercisesSubcategoriesList.propTypes = {
+  setShowTitlePage: PropTypes.func.isRequired,
+};
 export default ExercisesSubcategoriesList;
