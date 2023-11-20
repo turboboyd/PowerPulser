@@ -1,14 +1,14 @@
 import { useSelector } from "react-redux";
 import { selectUser } from "../redux/auth/authSelectors";
 import {
-  selectDiaryExercises,
+  // selectDiaryExercises,
   selectDiaryProducts,
 } from "../redux/diary/diarySelectors";
 
 const useStatistics = () => {
   const user = useSelector(selectUser);
   const products = useSelector(selectDiaryProducts);
-  const execrcises = useSelector(selectDiaryExercises);
+  // const execrcises = useSelector(selectDiaryExercises);
 
   const dailyCalorieIntake = user.profileSettings?.bmr ?? "0";
   const caloriesConsumed = products.reduce(
