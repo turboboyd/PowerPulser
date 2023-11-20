@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import css from './ExercisesList.module.css'; 
 import useExercise from '../../hooks/useExercise';
 import axios from 'axios';
@@ -7,14 +8,14 @@ import { fetchExercisesItemsSelectedFilter } from '../../redux/exercises/exercis
 import ExercisesItem from '../ExercisesItem/ExercisesItem';
 import { setItemsSelectedFilter } from '../../redux/exercises/exercisesSlice';
 
-const ExercisesList = ({ selectedSubcategory }) => {
+const ExercisesList = ({ id }) => {
   const dispatch = useDispatch();
   const { exercisesItemsSelectFilter } = useExercise();
 
   useEffect(() => {
     const params = {
       page: 1,
-      id: selectedSubcategory,
+      id: id,
     };
 
     const source = axios.CancelToken.source();
@@ -23,7 +24,7 @@ const ExercisesList = ({ selectedSubcategory }) => {
     dispatch(fetchExercisesItemsSelectedFilter({ params, cancelToken }));
 
     return () => source.cancel();
-  }, [selectedSubcategory, dispatch]);
+  }, [id, dispatch]);
 
   useEffect(() => {
     return () => {
@@ -42,4 +43,7 @@ const ExercisesList = ({ selectedSubcategory }) => {
   );
 };
 
+ExercisesList.propTypes = {
+  selectedSubcategory: PropTypes.string.isRequired, 
+};
 export default ExercisesList;
