@@ -1,4 +1,5 @@
 import css from './ExercisesItem.module.css';
+import PropTypes from 'prop-types';
 import Icon from '../ComponIcon/Icon';
 import { forwardRef, useState } from 'react';
 import BasicModalWindow from '../ModalWindow/BasicModalWindow/BasicModalWindow';
@@ -72,4 +73,13 @@ const ExercisesItem = forwardRef(({ exercise }, ref) => {
     </div>
   );
 });
+
+ExercisesItem.propTypes = {
+  exercise: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    burnedCalories: PropTypes.number.isRequired,
+    bodyPart: PropTypes.string.isRequired,
+    target: PropTypes.string.isRequired,
+    }).isRequired,
+};
 export default ExercisesItem;

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import css from './ExercisesList.module.css'; 
 import useExercise from '../../hooks/useExercise';
 import axios from 'axios';
@@ -42,4 +43,7 @@ const ExercisesList = ({ selectedSubcategory }) => {
   );
 };
 
+ExercisesList.propTypes = {
+  selectedSubcategory: PropTypes.string.isRequired, 
+};
 export default ExercisesList;

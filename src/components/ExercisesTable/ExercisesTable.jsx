@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import PropTypes from "prop-types";
 import css from "./ExercisesTable.module.css";
 
 import Icon from "../ComponIcon/Icon";
@@ -74,6 +75,20 @@ const ExercisesTable = ({ execrcises }) => {
       </ul>
     </>
   );
+};
+
+ExercisesTable.propTypes = {
+  execrcises: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      bodyPart: PropTypes.string.isRequired,
+      equipment: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      target: PropTypes.string.isRequired,
+      burnedCalories: PropTypes.number.isRequired,
+      time: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
 
 export default ExercisesTable;

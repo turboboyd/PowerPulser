@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useNavigate, useResolvedPath } from 'react-router-dom';
 import css from './ExercisesCategories.module.css'
 import { CATEGORIES_FILTER, EXERCISES_ROUTE, WELCOME_PAGE_ROUTE } from '../../utils/const';
@@ -45,4 +46,9 @@ const ExercisesCategories = ({ category: initialCategory, setCategory }) => {
           </ul>  
         )
 }
+
+ExercisesCategories.propTypes = {
+  category: PropTypes.string,
+  setCategory: PropTypes.func.isRequired, 
+};
 export default ExercisesCategories;
