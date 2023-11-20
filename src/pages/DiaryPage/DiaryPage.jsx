@@ -12,20 +12,19 @@ import { fetchAllDiary } from "../../redux/diary/diaryOperations";
 import { useEffect, useState } from "react";
 import formatDate from "../../utils/formatData";
 
-import useAuth from "../../hooks/useAuth";
 
 const DiaryPage = () => {
   const dispatch = useDispatch();
-  const { user } = useAuth();
   const [selectedDate, setSelectedDate] = useState(null);
 
+  
   useEffect(() => {
-    const fetchDate = async () => {
+    const fetchDate = () => {
       if (selectedDate) {
         const date = {
           date: selectedDate,
         };
-        await dispatch(fetchAllDiary(date));
+        dispatch(fetchAllDiary(date));
       }
     };
     fetchDate();

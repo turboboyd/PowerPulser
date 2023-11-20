@@ -32,6 +32,9 @@
   line-height: 1.28;
 }
 
+@media (max-width: 375px) {
+}
+
 @media (min-width: 768px) {
   .dayProducts {
     max-width: 704px;
