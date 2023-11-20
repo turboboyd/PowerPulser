@@ -28,11 +28,13 @@ const Section = ({ children, isNotFoundPage }) => {
     [PROFILE_ROUTE]: css.PROFILE_section,
     [DIARY_ROUTE]: css.DIARY_section,
     [EXERCISES_ROUTE]: css.EXERCISES_section,
+    [EXERCISES_ROUTE + "/:id"]: css.NONE,
   };
   
   const sectionStyle = `${css.section} ${
     styles[location.pathname] || `${css.section}`
   } ${isNotFoundPage ? css.NotFound_section : ""}`;
+
 
   return (
     <section className={sectionStyle}>
