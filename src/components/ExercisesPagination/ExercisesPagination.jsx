@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types';
 import useExercise from '../../hooks/useExercise';
 import css from './ExercisesPagination.module.css'
 
@@ -13,7 +14,7 @@ function ExercisesPagination({currentPage, setCurrentPage, selectedCategory, lim
     })
     const totalItem = Object.values(currentTotalItem[0])
     const item = totalItem[0]
-   
+
     const totalPages = exercisesFilter ? Math.ceil((item / limit)) : 0;
     const handlePageChange = (page) => {
         const newPage = Math.min(Math.max(1, page), totalPages);
@@ -26,7 +27,7 @@ function ExercisesPagination({currentPage, setCurrentPage, selectedCategory, lim
     const visiblePagination = (limit !== item)
     return (
         <>
-         {visiblePagination && <div className={css.pagination}>
+        {visiblePagination && <div className={css.pagination}>
             {Array.from(
                 { length: totalPages },
                 (_, index) =>
@@ -47,6 +48,13 @@ function ExercisesPagination({currentPage, setCurrentPage, selectedCategory, lim
         </div>}
         </>
     );
+};
+
+ExercisesPagination.propTypes = {
+    currentPage: PropTypes.number.isRequired,
+    setCurrentPage: PropTypes.func.isRequired,
+    selectedCategory: PropTypes.string.isRequired,
+    limit: PropTypes.number.isRequired,
 };
 
 export default ExercisesPagination

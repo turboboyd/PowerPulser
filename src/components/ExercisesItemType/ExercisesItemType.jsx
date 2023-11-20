@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types';
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import useExercise from "../../hooks/useExercise";
@@ -57,4 +58,10 @@ function ExercisesItemType({ type = 'Body parts', page, limit, setLimit }) {
   );
 };
 
+ExercisesItemType.propTypes = {
+  type: PropTypes.string,
+  page: PropTypes.number,
+  limit: PropTypes.number,
+  setLimit: PropTypes.func,
+};
 export default ExercisesItemType

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import css from './ExercisesFilter.module.css';
 
 function ExercisesFilter({selectedCategory, setSelectedCategory, setCurrentPage}) {
@@ -30,6 +31,12 @@ function ExercisesFilter({selectedCategory, setSelectedCategory, setCurrentPage}
             </ul>
         </div>
     );
+};
+
+ExercisesFilter.propTypes = {
+    selectedCategory: PropTypes.string.isRequired,
+    setSelectedCategory: PropTypes.func.isRequired,
+    setCurrentPage: PropTypes.func.isRequired,
 };
 
 export default ExercisesFilter
