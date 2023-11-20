@@ -2,27 +2,32 @@ import React, { useState, useEffect } from 'react';
 import ExercisesSubcategoriesItem from '../../components/ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
 import ExercisesList from '../../components/ExercisesList/ExercisesList';
 import css from './ExercisesSubcategoriesList.module.css';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 import { fetchExercisesFilter } from '../../redux/exercises/exercisesOperations';
 import useExercise from '../../hooks/useExercise';
+import { EXERCISES_ROUTE } from '../../utils/const';
 
 const categories = ["Body parts", "Equipment", "Muscles"];
 
 const ExercisesSubcategoriesList = ({ setShowTitlePage }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  
   const [selectedCategory, setSelectedCategory] = useState('Body parts');
   const [selectedSubcategory, setSelectedSubcategoryLocal] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const { exercisesFilter: exercisesFilterHook } = useExercise(); 
+  // const { exercisesFilter: exercisesFilterHook } = useExercise(); 
 
   const ITEMS_PER_ROW = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--items-per-row'));
   const ITEM_WIDTH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-width'));
   const ITEM_HEIGHT = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-height'));
 
-  const exercisesFilterRedux = useSelector((state) => state.exercises.exercisesFilter); 
+  // const exercisesFilterRedux = useSelector((state) => state.exercises.exercisesFilter); 
+  const { exercisesFilter } = useExercise();
 
   const itemsPerPage = ITEMS_PER_ROW * ITEMS_PER_ROW;
-  const totalPages = exercisesFilterRedux ? Math.ceil(exercisesFilterRedux.length / itemsPerPage) : 0; 
+  const totalPages = exercisesFilter ? Math.ceil(exercisesFilter.length / itemsPerPage) : 0; 
   const categoryLiClassName = (category) =>
     `${selectedCategory === category ? css.active : ''} ${css.sliderLi}`;
 
@@ -30,15 +35,17 @@ const ExercisesSubcategoriesList = ({ setShowTitlePage }) => {
     const newPage = Math.min(Math.max(1, page), totalPages);
     const newStartIndex = (newPage - 1) * itemsPerPage;
 
-    if (newStartIndex < exercisesFilterRedux.length) {
+    if (newStartIndex < exercisesFilter.length) {
       setCurrentPage(newPage);
     }
   };
 
-  const handleSubcategoryClick = (subcategory) => {
-    setSelectedSubcategoryLocal(subcategory);
-    setShowTitlePage(false);
-    dispatch(fetchExercisesFilter({ type: subcategory, page: 1, limit: 10 }));
+  const handleSubcategoryClick = (id) => {
+    console.log(id);
+    navigate(`${EXERCISES_ROUTE}/${id}`);
+    // setSelectedSubcategoryLocal(subcategory);
+    // setShowTitlePage(false);
+    // dispatch(fetchExercisesFilter({ type: subcategory, page: 1, limit: 10 }));
   };
 
   const handleBackButtonClick = () => {
@@ -94,8 +101,8 @@ const ExercisesSubcategoriesList = ({ setShowTitlePage }) => {
             ))}
           </ul>
           <div className={css.exercisesContainer}>
-            {exercisesFilterRedux &&
-              exercisesFilterRedux
+            {exercisesFilter &&
+              exercisesFilter
                 .slice(
                   (currentPage - 1) * itemsPerPage,
                   currentPage * itemsPerPage
@@ -105,7 +112,7 @@ const ExercisesSubcategoriesList = ({ setShowTitlePage }) => {
                     <ExercisesSubcategoriesItem
                       exercise={exercise}
                       style={{ width: ITEM_WIDTH, height: ITEM_HEIGHT }}
-                      onClick={() => handleSubcategoryClick(exercise.name)}
+                      onClick={() => handleSubcategoryClick(exercise._id)}
                     />
                   </div>
                 ))}
@@ -114,7 +121,7 @@ const ExercisesSubcategoriesList = ({ setShowTitlePage }) => {
             {Array.from(
               { length: totalPages },
               (_, index) =>
-                index * itemsPerPage < exercisesFilterRedux.length && (
+                index * itemsPerPage < exercisesFilter.length && (
                   <span
                     key={index + 1}
                     onClick={() => handlePageChange(index + 1)}

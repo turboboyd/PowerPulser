@@ -18,6 +18,7 @@ import {
   VerifyPage,
   AuthPage,
 } from "./pages";
+import ExercisesList from "./components/ExercisesList/ExercisesList";
 
 export const authRoutes = [
   {
@@ -35,6 +36,10 @@ export const authRoutes = [
   {
     path: EXERCISES_ROUTE,
     Element: <ExercisesPage />,
+  },
+  {
+    path: EXERCISES_ROUTE + "/:id",
+    Element: <ExercisesList />,
   },
 ];
 

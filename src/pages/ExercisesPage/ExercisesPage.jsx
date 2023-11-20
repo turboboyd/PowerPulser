@@ -6,19 +6,19 @@ import ExercisesSubcategoriesList from "../../components/ExercisesSubcategoriesL
 
 
 const ExercisesPage = () => {
-  const [selectedSubcategory] = useState(null);
+  // const [selectedSubcategory] = useState(null);
   const [showTitlePage, setShowTitlePage] = useState(true);
 
 
   return (
     <>
-      {showTitlePage && <TitlePage title="Exercises" />}
+      {/* {showTitlePage && <TitlePage title="Exercises" />} */}
       <ExercisesSubcategoriesList setShowTitlePage={setShowTitlePage} />
-      {selectedSubcategory && (
+      {/* {selectedSubcategory && (
         <div className={css.cardContainerBackground}>
           <ExercisesList selectedSubcategory={selectedSubcategory} />
         </div>
-      )}
+      )} */}
     </>
   );
 };
