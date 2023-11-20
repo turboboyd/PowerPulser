@@ -1,3 +1,6 @@
+import { toast } from "react-toastify";
+import notifyOptions from "../../utils/NotifyOptions";
+import "react-toastify/dist/ReactToastify.css";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { BACKEND_AVATAR_URL } from "../../utils/const";
 import { configAxios } from "../services/configAxios";
@@ -19,6 +22,7 @@ export const uploadAvatar = createAsyncThunk(
 
       return data;
     } catch (error) {
+      toast.error("Oops... Something went wrong! Try again!", notifyOptions);
       thunkAPI.rejectWithValue(error.message);
     }
   }

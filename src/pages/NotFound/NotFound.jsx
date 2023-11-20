@@ -9,6 +9,7 @@ const NotFound = () => {
   const text = !isVerify ? "Go Home" : "Go Diary";
   const link = getLogoLink(isVerify, user);
   const isNotFoundPage = true;
+  console.log('isNotFoundPage: ', isNotFoundPage);
   return (
     <>
       {/* <div className={css.block_error}> */}

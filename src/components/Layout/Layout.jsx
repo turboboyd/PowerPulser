@@ -12,12 +12,12 @@ export default function Layout() {
   const [isNotFoundPage, setIsNotFoundPage] = useState(false);
   const { isVerify } = useAuth();
 
-  useEffect(() => {
-    const allPaths = [...authRoutes, ...publicRoutes].map(
-      (route) => route.path
-    );
-    setIsNotFoundPage(!allPaths.includes(location.pathname));
-  }, [location]);
+  // useEffect(() => {
+  //   const allPaths = [...authRoutes, ...publicRoutes].map(
+  //     (route) => route.path
+  //   );
+  //   setIsNotFoundPage(!allPaths.includes(location.pathname));
+  // }, [location]);
   return (
     <>
       {isVerify && !isNotFoundPage && (

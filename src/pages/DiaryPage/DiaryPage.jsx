@@ -8,15 +8,16 @@ import DayExercises from "../../components/DayExercises/DayExercises";
 import DayProducts from "../../components/DayProducts/DayProducts";
 import Calendar from "../../components/Calendar/Calendar";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchAllDiary } from "../../redux/diary/diaryOperations";
 import { useEffect, useState } from "react";
 import formatDate from "../../utils/formatData";
-import { selectDiaryIsLoading } from "../../redux/diary/diarySelectors";
+
+import useAuth from "../../hooks/useAuth";
 
 const DiaryPage = () => {
   const dispatch = useDispatch();
-
+  const { user } = useAuth();
   const [selectedDate, setSelectedDate] = useState(null);
 
   useEffect(() => {
