@@ -3,27 +3,17 @@ import css from "./DayDashboard.module.css";
 import Icon from "../ComponIcon/Icon";
 import StatisticsItem from "../StatisticsItem/StatisticsItem";
 
-import { useSelector } from "react-redux";
-import { selectUser } from "../../redux/auth/authSelectors";
-import {
-  selectDiaryExercises,
-  selectDiaryProducts,
-} from "../../redux/diary/diarySelectors";
+import useStatistics from "../../hooks/useStatistics";
 
 const DayDashboard = () => {
-  const user = useSelector(selectUser);
-  const products = useSelector(selectDiaryProducts);
-  const execrcises = useSelector(selectDiaryExercises);
-
-  const dailyCalorieIntake = user.profileSettings.bmr;
-  const caloriesConsumed = products.reduce(
-    (sum, product) => sum + product.calories,
-    0
-  );
-  const caloriesRemaining = dailyCalorieIntake - caloriesConsumed;
-  const dailyPhysicalActivity = 110;
-  const caloriesBurned = 850; //неправильно треба пігрузити вправи!!!!!!!!!!
-  const sportsRemaining = 180 - dailyPhysicalActivity; //неправильно треба пігрузити вправи!!!!!!!!!!
+  const {
+    dailyCalorieIntake,
+    caloriesConsumed,
+    caloriesRemaining,
+    dailyPhysicalActivity,
+    caloriesBurned,
+    sportsRemaining,
+  } = useStatistics();
 
   const isCaloriesRemaining = caloriesConsumed < dailyCalorieIntake;
   const isSportsRemaining = sportsRemaining > 0;

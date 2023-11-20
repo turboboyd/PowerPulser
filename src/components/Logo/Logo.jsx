@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import css from './Logo.module.css';
-import Icon from '../ComponIcon/Icon';
-import useAuth from '../../hooks/useAuth';
-import getLogoLink from '../../utils/getLogoLink';
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import css from "./Logo.module.css";
+import Icon from "../ComponIcon/Icon";
+import useAuth from "../../hooks/useAuth";
+import getLogoLink from "../../utils/getLogoLink";
 
 const Logo = ({ isNotFoundPage }) => {
   const { isVerify, user } = useAuth();
@@ -14,7 +14,7 @@ const Logo = ({ isNotFoundPage }) => {
       <motion.div
         className="heartbeat-element"
         animate={{ scale: [1, 1.2, 1] }}
-        transition={{ duration: 1, repeat: Infinity, repeatType: 'reverse' }}
+        transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
       >
         <Icon
           className={
