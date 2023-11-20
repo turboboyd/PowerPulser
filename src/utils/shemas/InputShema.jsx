@@ -1,7 +1,8 @@
-import { object, number } from 'yup';
+import * as Yup from 'yup';
 
-const InputSchema = object({
-  grams: number().positive().required('Grams are required'),
+const InputShema = Yup.object().shape({
+  title: Yup.string().required('Required field'),
+  grams: Yup.number().required('Required field').positive().integer(),
 });
 
-export default InputSchema;
+export default InputShema;

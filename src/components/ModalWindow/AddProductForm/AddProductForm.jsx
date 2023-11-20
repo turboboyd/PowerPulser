@@ -5,6 +5,7 @@ import css from './AddProductForm.module.css';
 import formatDate from '../../../utils/formatData';
 import { addProductDiary } from '../../../redux/diary/diaryOperations';
 import { Formik, Form, Field } from 'formik';
+import InputShema from '../../../utils/shemas/InputShema';
 
 const AddProductForm = ({
   product,
@@ -46,10 +47,24 @@ const AddProductForm = ({
 
   return (
     <div className={css.container}>
-      <Formik initialValues={initialValues} onSubmit={handleAddToDiary}>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={InputShema}
+        onSubmit={handleAddToDiary}
+      >
         <Form>
-          <Field type="text" />
-          <Field type="number" />
+          <div className={css.inputContainer}>
+            <label htmlFor="title">
+              <Field
+                type="text"
+                name="title"
+                className={css.button}
+                disabled={amount > 0 ? false : true}
+              />
+            </label>
+            <Field type="number" name="grams" />
+          </div>
+          <button type="submit">Submit</button>
         </Form>
       </Formik>
       {/* <form>
