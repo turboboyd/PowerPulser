@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import * as Yup from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../redux/auth/authOperation';
+import { useNavigate } from 'react-router-dom';
+
+import { useEffect } from 'react';
+import { SIGN_UP_ROUTE } from '../../utils/const'; 
+import useAuth from '../../hooks/useAuth';
 
 import Logo from '../../components/Logo/Logo';
 import css from './ChangePassword.module.css'; 
@@ -19,31 +26,55 @@ const validationSchema = Yup.object({
 });
 
 const ChangePassword = () => {
-   const [successMessage, setSuccessMessage] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-  const handleSubmit = async (values) => {
-    const { email } = values;
+    const { isVerify, user } = useAuth();
 
-      try {
-        const response = await fetch('RESET_API_ENDPOINT', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email }),
-        });
+    //  const handleSubmit = ({ email }, { resetForm }) => {
+    //    dispatch(loginUser({ email }));
+    //    resetForm();
+    //  };
+    
+    
+    // useEffect(() => {
+    //   if (isVerify) {
+    //     setSuccessMessage(
+    //       'We sent you a link to your email. Please follow it to reset your password.'
+    //       );
+    //   }
+    //   if (!isVerify && user.profile_settings) {
+    //     setSuccessMessage(
+    //         'We sent you a link to your email. Please follow it to reset your password.'
+    //     );
+    //   }
+    // }, [isVerify, navigate, user.profile_settings]);
+    
 
-        if (response.ok) {
-          setSuccessMessage(
-            'We sent you a link to your email. Please follow it to reset your password.'
-          );
-        } else {
-          console.error(
-            'Failed to initiate password reset:',
-            response.statusText
-          );
-        }
-      } catch (error) {
-        console.error('An error occurred:', error);
+
+  const handleSubmit = async ({ email }) => {
+
+    try {
+      const response = await fetch('RESET_API_ENDPOINT', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        setSuccessMessage(
+          'We sent you a link to your email. Please follow it to reset your password.'
+        );
+      } else {
+        console.error(
+          'Failed to initiate password reset:',
+          response.statusText
+        );
       }
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
   };
 
   return (
