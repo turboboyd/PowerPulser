@@ -1,0 +1,42 @@
+.buttonWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.button {
+  background-color: var(--orange);
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+}
+
+.icon {
+  width: 7px;
+  height: 8px;
+}
+
+.text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--semiwhite);
+  text-align: center;
+  margin-top: 8px;
+}
+
+@media (min-width: 768px) {
+  .text {
+    margin-bottom: 0;
+  }
+}
+
+.textCalories {
+  color: var(--orange);
+  margin-left: 8px;
+}

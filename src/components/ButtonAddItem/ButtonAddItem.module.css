@@ -1,0 +1,28 @@
+.addButtonLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.addButtonTitle {
+  color: var(--orange);
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.28;
+}
+
+.addButtonImg {
+  width: 16px;
+  height: 16px;
+
+  stroke: var(--orange);
+}
+
+@media (min-width: 768px) {
+  .addButtonTitle {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}

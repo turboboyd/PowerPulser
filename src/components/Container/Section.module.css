@@ -1,0 +1,254 @@
+.section {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+@media (min-width: 375px) {
+  .section {
+    width: 375px;
+  }
+}
+
+@media (min-width: 768px) {
+  .section {
+    width: 768px;
+    min-height: 940px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .section {
+    width: 1440px;
+    min-height: 716px;
+  }
+}
+
+/* media */
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .WELCOME_PAGE_section::after {
+    background-image: url("../../images/background/bg-img-mobile-2x-min.jpg");
+  }
+  .AUTH_PAGE_section::after {
+    background-image: url("../../images/background/bg-img-mobile-2x-min.jpg");
+  }
+  .PRODUCT_section ::after {
+    background-image: url("../../images/background/bg-products-desktop@2x-min.jpg");
+  }
+}
+
+@media screen and (min-width: 768px) {
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .WELCOME_PAGE_section::after {
+      background-image: url("../../images/background/bg-img-tablet-2x-min.jpg");
+    }
+    .AUTH_PAGE_section::after {
+      background-image: url("../../images/background/bg-img-tablet-2x-min.jpg");
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .WELCOME_PAGE_section::after {
+      background-image: url("../../images/background/bg-img-tablet-2x-min.jpg");
+    }
+    .AUTH_PAGE_section::after {
+      background-image: url("../../images/background/bg-img-tablet-2x-min.jpg");
+    }
+    .PRODUCT_section::after {
+      background-image: var(--background-produc),
+        url("../../images/background/bg-products-desktop@2x-min.jpg");
+    }
+  }
+}
+
+/* WELCOME_PAGE_section*/
+
+.WELCOME_PAGE_section {
+  min-height: 812px;
+  padding: 0 0 483px 0;
+  background-position: 77px 241px;
+  background-size: 446px 669px;
+  background-image: var(--background-linear-gradient-mob),
+    url("../../images/background/bg-img-mobile-1x-min.jpg");
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 768px) {
+  .WELCOME_PAGE_section {
+    min-height: 1024px;
+    padding: 0 0 481px 0;
+    background-position: 331px 131px;
+    background-size: 670px 1005px;
+    background-image: var(--background-linear-gradient-mob),
+      url("../../images/background/bg-img-tablet-1x-min.jpg");
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .WELCOME_PAGE_section {
+    min-height: 800px;
+    padding: 0 0 246px 0;
+    background-position: right -152px;
+    background-image: var(--desk-background-linear-gradient),
+      url("../../images/background/bg-img-tablet-1x-min.jpg");
+  }
+}
+
+/* AUTH_PAGE_section */
+
+.AUTH_PAGE_section {
+  padding: 0;
+  min-height: 812px;
+  background-position: 77px 241px;
+  background-size: 446px 669px;
+  background-image: var(--background-linear-auth-mb),
+    url("../../images/background/bg-img-mobile-1x-min.jpg");
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 768px) {
+  .AUTH_PAGE_section {
+    min-height: 1024px;
+    background-position: 331px 131px;
+    background-size: 670px 1005px;
+    background-image: var(--background-linear-gradient-mob),
+      url("../../images/background/bg-img-tablet-1x-min.jpg");
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .AUTH_PAGE_section {
+    min-height: 800px;
+    background-position: right -152px;
+    background-image: var(--desk-background-linear-gradient),
+      url("../../images/background/bg-img-tablet-1x-min.jpg");
+  }
+}
+
+/* PRODUCT_section */
+
+@media screen and (min-width: 1440px) {
+  .PRODUCT_section {
+    background-repeat: no-repeat;
+    background-position: 1012px 0px;
+    background-size: 807px 716px;
+    background-image: var(--background-product),
+      url("../../images/background/bg-products-desktop-1x-min.jpg");
+  }
+}
+
+.NotFound_section {
+  z-index: 0;
+  min-height: 812px;
+  padding: 0 0 250px 0;
+  background-position: 107px 241px;
+  background-size: 446px 669px;
+  background-image: var(--background-linear-gradient-mob),
+    url("../../images/background/bg-img-mobile-1x-min.jpg");
+  background-repeat: no-repeat;
+}
+.NotFound_section::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 55%;
+  height: 100%;
+  background-color: var(--orange);
+}
+
+@media screen and (min-width: 375px) {
+  .NotFound_section::after {
+    width: 240px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .NotFound_section {
+    min-height: 1024px;
+    padding: 0 0 309px 0;
+    background-position: 331px 131px;
+    background-size: 670px 1005px;
+    background-image: var(--background-linear-gradient-mob),
+      url("../../images/background/bg-img-tablet-1x-min.jpg");
+  }
+  .NotFound_section::after {
+    width: 420px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .NotFound_section {
+    min-height: 800px;
+    padding: 0 0 246px 0;
+    background-position: right -152px;
+    background-image: var(--desk-background-linear-gradient),
+      url("../../images/background/bg-img-tablet-1x-min.jpg");
+  }
+  .NotFound_section::after {
+    width: 669px;
+  }
+}
+
+/* PROFILE_section */
+
+.PROFILE_section {
+  padding: 40px 0 66px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .PROFILE_section {
+    padding: 72px 0 54px 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .PROFILE_section {
+    padding-bottom: 44px;
+  }
+}
+
+/* DIARY_section */
+
+.DIARY_section {
+  padding: 40px 0 80px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .DIARY_section {
+    padding: 72px 0 64px 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .DIARY_section {
+    padding-bottom: 68px;
+  }
+}
+
+/* EXERCISES_section */
+.EXERCISES_section {
+  padding: 40px 0 83px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .EXERCISES_section {
+    padding: 78px 0 32px 0;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .EXERCISES_section {
+    padding:72px 0 46px 0;
+  }
+}

@@ -1,0 +1,32 @@
+.datePicker {
+  align-items: center;
+  width: 160px;
+  padding: 14px;
+  gap: 10px;
+  border-radius: 12px;
+  border: var(--border-input);
+  background-color: transparent;
+  color: var(--white);
+  outline: none;
+}
+:root {
+  --black-color: #000000;
+  --e6533c-color: #e6533c;
+  --custom-icon-color: #f5f1f1;
+}
+
+.customCalendar {
+  background-color: var(--e6533c-color);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.iconCalendar {
+  position: absolute;
+  left: 126px;
+  bottom: 19px;
+  cursor: pointer;
+
+  width: 18px;
+  height: 18px;
+}

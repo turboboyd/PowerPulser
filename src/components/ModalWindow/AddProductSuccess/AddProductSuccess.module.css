@@ -1,0 +1,118 @@
+.container {
+  padding: 48px 80px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+@media (min-width: 375px) {
+  .container {
+    padding: 48px 89px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 64px 136px;
+  }
+}
+
+.image {
+  width: 123px;
+  height: 84px;
+  margin-bottom: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .image {
+    height: 84px;
+    margin-bottom: 32px;
+  }
+}
+.title {
+  margin: 0 auto;
+  margin-bottom: 16px;
+  color: var(--white);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.33;
+}
+
+.text {
+  font-size: 14px;
+  line-height: 1.29;
+  color: var(--semiwhite);
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .text {
+    margin-bottom: 32px;
+  }
+}
+
+.textCalories {
+  color: var(--orange);
+}
+
+.button {
+  padding: 12px 24px;
+  background-color: var(--orange);
+  color: var(--white);
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.125;
+  margin-bottom: 16px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background-color: var(--orange-1);
+  }
+
+  &:focus {
+    background-color: var(--orange-1);
+  }
+}
+
+@media (min-width: 375px) {
+  .button {
+    padding: 12px 32px;
+  }
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 14px 32px;
+  }
+}
+
+.linkWrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  color: var(--semiwhite);
+  transition: scale 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:focus,
+  &:hover {
+    color: var(--orange);
+    scale: 1.2;
+  }
+}
+
+.link {
+  font-size: 14px;
+  line-height: 1.29;
+}
+
+.iconArrow {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  scale: 1;
+}

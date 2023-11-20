@@ -1,0 +1,29 @@
+.button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background-color: transparent;
+  border: none;
+}
+
+.button svg:hover,
+.button svg:focus {
+  stroke: var(--orange);
+  scale: 1.2;
+}
+
+.iconClose {
+  width: 22px;
+  height: 22px;
+  stroke: var(--white);
+  scale: 1;
+  transition: scale 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 768px) {
+  .iconClose {
+    width: 26px;
+    height: 26px;
+  }
+}

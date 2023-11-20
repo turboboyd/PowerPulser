@@ -1,0 +1,28 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(22, 22, 22, 0.5);
+  z-index: 100;
+}
+
+.modalWrapper {
+  border: var(--border-solid-color);
+  position: absolute;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  border-radius: 12px;
+  background-color: #10100f;
+}
+
+@media (min-width: 768px) {
+  .modalWrapper {
+    height: auto;
+  }
+}
