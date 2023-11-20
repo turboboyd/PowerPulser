@@ -1,4 +1,5 @@
 import css from './AddProductSuccess.module.css';
+import PropTypes from 'prop-types';
 import foodIcon from '../../../images/foodIcon.png';
 import { NavLink } from 'react-router-dom';
 import { DIARY_ROUTE } from '../../../utils/const';
@@ -29,6 +30,13 @@ const AddProductSuccess = ({ handleModalSuccess, selectedProduct }) => {
       </div>
     </div>
   );
+};
+
+AddProductSuccess.propTypes = {
+  handleModalSuccess: PropTypes.func.isRequired,
+  selectedProduct: PropTypes.shape({
+    calories: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default AddProductSuccess;
