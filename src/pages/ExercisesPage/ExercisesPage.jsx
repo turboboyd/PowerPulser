@@ -10,7 +10,7 @@ import { PROFILE_ROUTE } from "../../utils/const";
 const ExercisesPage = () => {
   const [selectedSubcategory] = useState(null);
   const [showTitlePage, setShowTitlePage] = useState(true);
-  const { isVerify, isAuthCheck, user, status } = useAuth();
+  const {user } = useAuth();
 
 
   if (!user || user.profileSettings === null) {

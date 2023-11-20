@@ -11,18 +11,15 @@ export default function Layout() {
   const location = useLocation();
   const [isNotFoundPage, setIsNotFoundPage] = useState(false);
   const { isVerify } = useAuth();
+  const isAuthRoute = (path, authRoutes) =>
+    authRoutes.some((route) => route.path === path);
 
-  // useEffect(() => {
-  //   const allPaths = [...authRoutes, ...publicRoutes].map(
-  //     (route) => route.path
-  //   );
-  //   setIsNotFoundPage(!allPaths.includes(location.pathname));
-  // }, [location]);
+  const shouldRenderHeader =
+    isVerify && isAuthRoute(location.pathname, authRoutes);
+  console.log("shouldRenderHeader: ", shouldRenderHeader);
   return (
     <>
-      {isVerify && !isNotFoundPage && (
-        <Header isNotFoundPage={isNotFoundPage} />
-      )}
+      {shouldRenderHeader && <Header isNotFoundPage={isNotFoundPage} />}
       <main>
         <Suspense fallback={<Loader />}>
           <Section isNotFoundPage={isNotFoundPage}>
