@@ -1,4 +1,5 @@
 import css from './BasicModalWindow.module.css';
+import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
 import CloseButton from '../../CloseButton/CloseButton';
@@ -35,6 +36,11 @@ const BasicModalWindow = ({ children, handleModalToggle }) => {
     </div>,
     modalRoot
   );
+};
+
+BasicModalWindow.propTypes = {
+  children: PropTypes.node.isRequired,
+  handleModalToggle: PropTypes.func.isRequired,
 };
 
 export default BasicModalWindow;
