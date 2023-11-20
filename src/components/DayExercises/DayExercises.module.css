@@ -32,21 +32,6 @@
   line-height: 1.28;
 }
 
-.notFoundPlugTextWrap {
-  min-height: 335px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.notFoundPlugText {
-  color: var(--semiwhite);
-
-  font-size: 14px;
-  line-height: 1.28;
-}
-
 @media (min-width: 768px) {
   .dayExecrcises {
     max-width: 704px;
@@ -61,15 +46,6 @@
 
   .diaryNav {
     margin-bottom: 16px;
-  }
-
-  .notFoundPlugTextWrap {
-    min-height: 155px;
-  }
-
-  .notFoundPlugText {
-    font-size: 16px;
-    line-height: 1.5;
   }
 }
 

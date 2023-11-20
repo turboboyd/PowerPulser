@@ -1,27 +1,23 @@
 .diaryPage {
   display: flex;
   flex-direction: column;
-  padding-top: 40px;
-  padding-bottom: 40px;
 }
 
 .calendarWrap {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 @media (min-width: 768px) {
   .diaryPage {
     position: relative;
-
-    padding-top: 72px;
-    padding-bottom: 0px;
   }
 
   .calendar {
     position: absolute;
-    top: 52px;
-    right: 0;
+    top: -10px;
+    right: 0px;
   }
 
   .sectionWrap {
@@ -30,6 +26,7 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    position: relative;
   }
 }
 
