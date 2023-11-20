@@ -12,10 +12,12 @@ import { fetchAllDiary } from "../../redux/diary/diaryOperations";
 import { useEffect, useState } from "react";
 import formatDate from "../../utils/formatData";
 
+
 const DiaryPage = () => {
   const dispatch = useDispatch();
   const [selectedDate, setSelectedDate] = useState(null);
 
+  
   useEffect(() => {
     const fetchDate = () => {
       if (selectedDate) {

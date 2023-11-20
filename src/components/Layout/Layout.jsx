@@ -6,23 +6,20 @@ import css from "./Layout.module.css";
 import useAuth from "../../hooks/useAuth";
 import { Container, Section } from "../Container";
 import { authRoutes, publicRoutes } from "../../routes";
+import UserCheck from "../../utils/UserCheck";
 
 export default function Layout() {
   const location = useLocation();
   const [isNotFoundPage, setIsNotFoundPage] = useState(false);
   const { isVerify } = useAuth();
+  const isAuthRoute = (path, authRoutes) => authRoutes.some((route) => route.path === path);
 
-  // useEffect(() => {
-  //   const allPaths = [...authRoutes, ...publicRoutes].map(
-  //     (route) => route.path
-  //   );
-  //   setIsNotFoundPage(!allPaths.includes(location.pathname));
-  // }, [location]);
+  const shouldRenderHeader =isVerify && isAuthRoute(location.pathname, authRoutes);
+  const shouldRenderUserCheck = isAuthRoute(location.pathname, authRoutes);
   return (
     <>
-      {isVerify && !isNotFoundPage && (
-        <Header isNotFoundPage={isNotFoundPage} />
-      )}
+      {shouldRenderHeader && <Header isNotFoundPage={isNotFoundPage} />}
+      {shouldRenderUserCheck && <UserCheck />}
       <main>
         <Suspense fallback={<Loader />}>
           <Section isNotFoundPage={isNotFoundPage}>
