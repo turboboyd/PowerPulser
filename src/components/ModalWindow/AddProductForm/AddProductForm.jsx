@@ -4,6 +4,7 @@ import useDiary from '../../../hooks/useDiary';
 import css from './AddProductForm.module.css';
 import formatDate from '../../../utils/formatData';
 import { addProductDiary } from '../../../redux/diary/diaryOperations';
+import { Formik, Form, Field } from 'formik';
 
 const AddProductForm = ({
   product,
@@ -17,6 +18,11 @@ const AddProductForm = ({
 
   const { diaryError } = useDiary();
 
+  const initialValues = {
+    title: '',
+    grams: '',
+  };
+
   const handleAmountGrams = (element) => setAmount(element.target.value);
   const calories = Math.round((amount * product.calories) / 100);
   let date = new Date();
@@ -27,21 +33,26 @@ const AddProductForm = ({
     amount,
     calories,
   };
-  const handleAddToDiary = () => {
+  const handleAddToDiary = async () => {
     dispatch(addProductDiary(productToDiary));
-
     if (diaryError) {
       console.log('Server error. Try again later');
     } else {
-      handleModalProduct();
-      handleModalSuccess();
-      handleSelectedProduct(productToDiary);
+      await handleModalProduct();
+      await handleModalSuccess();
+      await handleSelectedProduct(productToDiary);
     }
   };
 
   return (
     <div className={css.container}>
-      <form>
+      <Formik initialValues={initialValues} onSubmit={handleAddToDiary}>
+        <Form>
+          <Field type="text" />
+          <Field type="number" />
+        </Form>
+      </Formik>
+      {/* <form>
         <div className={css.inputContainer}>
           <label htmlFor="title">
             <input
@@ -56,7 +67,7 @@ const AddProductForm = ({
           <input
             className={css.inputGrams}
             id="grams"
-            type="text"
+            type="number"
             value={amount}
             placeholder="grams"
             onChange={handleAmountGrams}
@@ -83,7 +94,7 @@ const AddProductForm = ({
             Cancel
           </button>
         </div>
-      </form>
+      </form> */}
     </div>
   );
 };
