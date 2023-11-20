@@ -1,0 +1,268 @@
+:root {
+  --items-per-row: 5;
+  --item-width: 335px;
+  --item-height: 206px;
+}
+/* .categoryContainer {
+  margin-top: 10px;
+} */
+
+.categoryUl {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+  cursor: pointer;
+  justify-content: flex-start;
+  margin-left: auto;
+  /* margin-top: 15px; */
+}
+
+.backButton {
+  background-color: black;
+  color: rgba(239, 237, 232, 0.4);
+  width: 70px;
+  height: 18px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.28;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.subCatH {
+  margin-top: 10px;
+  width: 100%;
+  height: 28px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.16;
+}
+.sliderUl {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 25px;
+  cursor: pointer;
+  /* margin-top: 20px;
+  margin-bottom: 40px; */
+}
+
+.sliderLi {
+  cursor: pointer;
+  font-weight: 400;
+  line-height: 1.28;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  color: rgba(239, 237, 232, 1);
+  position: relative;
+}
+
+.sliderLi::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: rgba(230, 83, 60, 1);
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sliderLi.active::after {
+  opacity: 1;
+}
+
+@media screen and (min-width: 375px) {
+  :root {
+    --item-width: 335px;
+    --item-height: 206px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --item-width: 224px;
+    --item-height: 206px;
+  }
+
+  .categoryUl {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    cursor: pointer;
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+
+  .subCatH {
+    margin-top: 15px;
+    height: 44px;
+    font-size: 32px;
+    line-height: 1.38;
+  }
+  .exercisesContainer {
+    display: flex;
+    height: 700px;
+    gap: 32px 15px;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .exercisesContainer::after {
+    content: "";
+    flex-basis: calc(var(--item-height) + 20px);
+    min-height: var(--item-height);
+  }
+  .exerciseItem {
+    width: calc(33.3333% - 16px);
+    margin-bottom: 20px;
+  }
+
+  .sliderContainer {
+    display: flex;
+    gap: 32px;
+    overflow: auto;
+  }
+
+  .sliderUl {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 32px;
+    cursor: pointer;
+    justify-content: flex-end;
+    margin-left: auto;
+    /* margin-bottom: 20px; */
+  }
+
+  .sliderLi {
+    cursor: pointer;
+    font-weight: 400;
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    color: rgba(239, 237, 232, 1);
+    position: relative;
+  }
+
+  .sliderLi::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: rgba(230, 83, 60, 1);
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .sliderLi.active::after {
+    opacity: 1;
+  }
+
+  .pagination span {
+    cursor: pointer;
+    margin-right: 8px;
+    padding: 0;
+    font-size: 8px;
+    color: rgba(247, 245, 240, 0.1);
+    background-color: rgba(247, 245, 240, 0.1);
+  }
+  .pagination {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    margin-top: 40px;
+    margin-left: 50%;
+  }
+  .pagination span:hover {
+    background-color: rgba(230, 83, 60, 1);
+  }
+
+  .pagination span.active {
+    background-color: rgba(230, 83, 60, 1);
+    font-weight: bold;
+  }
+
+  .paginationDot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+  }
+
+  .activeDot {
+    background-color: rgba(230, 83, 60, 1);
+    border: 1px solid rgba(230, 83, 60, 1);
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --item-width: 237px;
+    --item-height: 206px;
+  }
+
+  .exercisesContainer {
+    display: flex;
+    height: 475px;
+    gap: 32px 15px;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .exercisesContainer::after {
+    content: "";
+    flex-basis: calc(var(--item-height) + 20px);
+    min-height: var(--item-height);
+  }
+
+  .exerciseItem {
+    width: calc(20% - 32px);
+    margin-bottom: 20px;
+  }
+
+  .sliderLi {
+    cursor: pointer;
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    color: rgba(239, 237, 232, 1);
+    position: relative;
+  }
+
+  .sliderLi::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: rgba(230, 83, 60, 1);
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .sliderLi.active::after {
+    opacity: 1;
+  }
+  .pagination {
+    margin-top: 32px;
+  }
+}

@@ -13,12 +13,12 @@ import {
   WelcomePage,
   DiaryPage,
   ExercisesPage,
+  ExercisesCategoryPage,
   ProductsPage,
   ProfilePage,
   VerifyPage,
   AuthPage,
 } from "./pages";
-import ExercisesList from "./components/ExercisesList/ExercisesList";
 
 export const authRoutes = [
   {
@@ -39,7 +39,7 @@ export const authRoutes = [
   },
   {
     path: EXERCISES_ROUTE + "/:id",
-    Element: <ExercisesList />,
+    Element: <ExercisesCategoryPage />,
   },
 ];
 
