@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://turboboyd.github.io/power_pulse_tp/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
     "@testing-library/jest-dom": "^5.17.0",
@@ -10,6 +11,7 @@
     "axios": "^1.6.1",
     "formik": "^2.4.5",
     "framer-motion": "^10.16.5",
+    "gh-pages": "^6.1.0",
     "lottie-react": "^2.4.0",
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
