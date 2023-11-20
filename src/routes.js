@@ -13,6 +13,7 @@ import {
   WelcomePage,
   DiaryPage,
   ExercisesPage,
+  ExercisesCategoryPage,
   ProductsPage,
   ProfilePage,
   VerifyPage,
@@ -38,7 +39,7 @@ export const authRoutes = [
   },
   {
     path: EXERCISES_ROUTE + "/:id",
-    Element: <ExercisesPage />,
+    Element: <ExercisesCategoryPage />,
   },
 ];
 
