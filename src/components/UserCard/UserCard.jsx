@@ -11,14 +11,13 @@ import css from "./UserCard.module.css";
 import { logOutUser } from "../../redux/auth/authOperation";
 import { selectUser } from "../../redux/auth/authSelectors";
 
-const UserCard = () => {
-  const user = useSelector(selectUser);
+const UserCard = ({ userInfo }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const { name, avatarURL, profileSettings } = userInfo;
 
   const dailyCalorieIntake =
-    user && user.profileSettings ? user.profileSettings.bmr || 0 : 0;
+    userInfo && profileSettings ? profileSettings.bmr || 0 : 0;
   const handleLogout = useCallback(() => {
     dispatch(logOutUser());
     navigate("/");
@@ -27,7 +26,7 @@ const UserCard = () => {
   return (
     <>
       <div className={css.avatarWrapper}>
-        <Avatar />
+        <Avatar name={name} avatarURL={avatarURL} />
         <div className={css.statisticsWrapper}>
           <StatisticsItem
             className={css.statistics}

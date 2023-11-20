@@ -10,9 +10,11 @@ import { tokenState } from "../services/tokenState";
 
 export const uploadAvatar = createAsyncThunk(
   "avatar/uploadAvatar",
-  async (formData, thunkAPI) => {
+  async (file, thunkAPI) => {
     try {
       token.set(tokenState(thunkAPI));
+      let formData = new FormData();
+      formData.append("avatar", file);
 
       const { data } = await instance.patch(
         BACKEND_AVATAR_URL,
