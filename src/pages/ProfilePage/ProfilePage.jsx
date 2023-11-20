@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 
 import TitlePage from '../../components/TitlePage/TitlePage';
 import UserForm from '../../components/UserForm/UserForm';
@@ -11,7 +10,7 @@ import css from './ProfilePage.module.css';
 const ProfilePage = () => {
   const { user } = useAuth();
   const avatar = user.avatarURL;
-  const [avatarURL, setAvatarURL] = useState(avatar);
+  const [, setAvatarURL] = useState(avatar);
 
   useEffect(() => {
     setAvatarURL(avatar);
