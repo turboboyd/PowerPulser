@@ -1,22 +1,18 @@
-import { useState } from "react";
-
 import Icon from "../ComponIcon/Icon";
 import css from "./Avatar.module.css";
 
-import { selectUser } from "../../redux/auth/authSelectors";
-import { selectAvatar } from "../../redux/avatar/avatarSelectors";
 import { useSelector, useDispatch } from "react-redux";
 import { uploadAvatar } from "../../redux/avatar/avatarOperations";
+import { setAvatarURL } from "../../redux/auth/authSlice";
 
-const Avatar = () => {
-  const user = useSelector(selectUser);
-  const avatar = useSelector(selectAvatar);
-  const [avatarUser, setAvatarUser] = useState(user.avatarURL);
+const Avatar = ({ name, avatarURL }) => {
+  const storedAvatarURL = useSelector((state) => state.auth.avatarURL);
   const dispatch = useDispatch();
+  const hasAvatar = storedAvatarURL;
 
   const userAvatar = (
     <img
-      src={avatarUser}
+      src={avatarURL}
       alt="Avatar"
       style={{ borderRadius: "100%", width: "100%", height: "100%" }}
     />
@@ -28,19 +24,16 @@ const Avatar = () => {
     if (file) {
       const blob = new Blob([file]);
       const objectURL = URL.createObjectURL(blob);
-      setAvatarUser(objectURL);
+      dispatch(setAvatarURL(objectURL));
     }
 
-    let formData = new FormData();
-    formData.append("avatar", file);
-
-    dispatch(uploadAvatar(formData));
+    dispatch(uploadAvatar(file));
   };
 
   return (
     <>
       <div className={css.avatarWrapper}>
-        <div className={css.avatar}>{avatar ? userAvatar : avatarLogo}</div>
+        <div className={css.avatar}>{hasAvatar ? userAvatar : avatarLogo}</div>
         <form className={css.form}>
           <input
             type="file"
@@ -53,7 +46,7 @@ const Avatar = () => {
             <Icon className={css.iconUpload} iconId={"icon-add-avatar"} />
           </label>
         </form>
-        <p className={css.textUserName}>{user.name}</p>
+        <p className={css.textUserName}>{name}</p>
         <p className={css.textUser}>User</p>
       </div>
     </>

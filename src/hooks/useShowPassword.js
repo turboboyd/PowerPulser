@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import  { useCallback, useState } from "react";
 
 const useShowPassword = () => {
   const [showPassword, setShowPassword] = useState(false);

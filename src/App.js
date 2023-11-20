@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import useAuth from "./hooks/useAuth";
@@ -13,7 +13,7 @@ import RestrictedRoute from "./RestrictedRoute";
 
 function App() {
   const dispatch = useDispatch();
-  const { isVerify, isRefreshing, user } = useAuth();
+  const { isRefreshing} = useAuth();
 
 
   useEffect(() => {

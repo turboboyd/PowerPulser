@@ -148,6 +148,13 @@
   line-height: 1.5;
 }
 
+.productCategory {
+  max-width: 130px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 @media (min-width: 768px) {
   .exerciseWrapper {
     margin-bottom: 0px;

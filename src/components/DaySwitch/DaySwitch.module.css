@@ -1,0 +1,61 @@
+.daySwitch {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.inputWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  cursor: pointer;
+}
+
+.calendarInput {
+  color: #efede8;
+
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.11;
+  background: inherit;
+  outline: none;
+  border: none;
+
+  width: 97px;
+}
+
+.calendarIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.currentDate {
+  border-radius: 50px;
+  color: #efede8;
+  font-size: 14px;
+}
+
+.chevronIconWrap {
+  display: flex;
+}
+
+.chevronIcon {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.chevronIcon:is(:hover, :active) {
+  fill-opacity: 0.2;
+}
+
+.chevronLeftIcon {
+  transform: scaleX(-1);
+}
+
+@media (min-width: 768px) {
+  .daySwitch {
+    gap: 40px;
+  }
+}

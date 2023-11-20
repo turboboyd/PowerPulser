@@ -7,23 +7,23 @@ import { Navigate } from "react-router-dom";
 import ExercisesFilter from "../../components/ExercisesFilter/ExercisesFilter";
 import ExercisesItemType from "../../components/ExercisesItemType/ExercisesItemType";
 import ExercisesPagination from "../../components/ExercisesPagination/ExercisesPagination";
+import { PROFILE_ROUTE } from "../../utils/const";
 
 const ExercisesPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('Body parts');
   const [currentPage, setCurrentPage] = useState(1);
   const [limit, setLimit] = useState()
+  const { user } = useAuth();
 
-  const { isVerify, isAuthCheck, isLoading, user, status } = useAuth();
+  if (!user || user.profileSettings === null) {
 
-  if (!user) {
-    return <Navigate to="/" />;
+    return <Navigate to={PROFILE_ROUTE} />;
   }
-
   return (
     <>
       <div className={css.wrapperTopLine}>
         <TitlePage title="Exercises" />
-        <ExercisesFilter selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} setCurrentPage={ setCurrentPage} />
+        <ExercisesFilter selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} setCurrentPage={setCurrentPage} />
       </div>
       <ExercisesItemType type={selectedCategory} page={currentPage} limit={limit} setLimit={setLimit} />
       <ExercisesPagination currentPage={currentPage} setCurrentPage={setCurrentPage} selectedCategory={selectedCategory} limit={limit} />

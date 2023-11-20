@@ -1,14 +1,9 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import useDiary from '../../../hooks/useDiary';
 import css from './AddProductForm.module.css';
+import formatDate from '../../../utils/formatData';
 import { addProductDiary } from '../../../redux/diary/diaryOperations';
-
-const formatDate = (date) => {
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const year = date.getFullYear();
-  return `${year}-${month}-${day}`;
-};
 
 const AddProductForm = ({
   product,
@@ -19,6 +14,8 @@ const AddProductForm = ({
   const [amount, setAmount] = useState('');
 
   const dispatch = useDispatch();
+
+  const { diaryError } = useDiary();
 
   const handleAmountGrams = (element) => setAmount(element.target.value);
   const calories = Math.round((amount * product.calories) / 100);
@@ -32,9 +29,14 @@ const AddProductForm = ({
   };
   const handleAddToDiary = () => {
     dispatch(addProductDiary(productToDiary));
-    handleModalProduct();
-    handleModalSuccess();
-    handleSelectedProduct(productToDiary);
+
+    if (diaryError) {
+      console.log('Server error. Try again later');
+    } else {
+      handleModalProduct();
+      handleModalSuccess();
+      handleSelectedProduct(productToDiary);
+    }
   };
 
   return (
@@ -68,7 +70,7 @@ const AddProductForm = ({
           <button
             className={css.button}
             disabled={amount > 0 ? false : true}
-            type="button"
+            type="submit"
             onClick={handleAddToDiary}
           >
             Add to diary

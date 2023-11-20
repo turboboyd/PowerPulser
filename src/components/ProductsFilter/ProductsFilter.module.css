@@ -1,24 +1,21 @@
-
 .prodFilterForm {
   width: 335px;
-    margin-block: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    
+  margin-block: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
 
   @media screen and (min-width: 768px) {
     width: 664px;
-      margin-block: 32px;
-      flex-direction: row;
+    margin-block: 32px;
+    flex-direction: row;
   }
 
   @media screen and (min-width: 1440px) {
-    
-      margin-left: auto;
-      margin-top: 0px;
+    margin-left: auto;
+    margin-top: 0px;
   }
 }
 
@@ -61,7 +58,6 @@
     -webkit-text-fill-color: #efede8;
     caret-color: #efede8;
   }
-  
 }
 
 .prodSearchCancelBtn {
@@ -118,7 +114,6 @@
     font-size: 14px;
     line-height: calc(18 / 14);
     background: #1c1c1c;
-
 
     @media screen and (min-width: 768px) {
       width: 192px;

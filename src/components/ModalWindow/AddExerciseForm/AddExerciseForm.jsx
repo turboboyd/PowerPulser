@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import useDiary from '../../../hooks/useDiary';
 import css from './AddExerciseForm.module.css';
 import Timer from '../../Timer/Timer';
 import formatDate from '../../../utils/formatData';
@@ -17,7 +18,7 @@ const AddExerciseForm = ({
 
   const dispatch = useDispatch();
 
-  console.log(exercise);
+  const { diaryError } = useDiary();
 
   let date = new Date();
   const formattedDate = formatDate(date);
@@ -30,10 +31,13 @@ const AddExerciseForm = ({
 
   const handleAddToDiary = () => {
     dispatch(addExercisesDiary(exerciseToDiary));
-    handleModalExercise();
-    handleModalSuccess();
-    handleSelectedExercise(exerciseToDiary);
-    console.log(exerciseToDiary);
+    if (diaryError) {
+      console.log('Server error. Try again later');
+    } else {
+      handleModalExercise();
+      handleModalSuccess();
+      handleSelectedExercise(exerciseToDiary);
+    }
   };
 
   return (
@@ -65,7 +69,8 @@ const AddExerciseForm = ({
           <ModalExercisesList exercise={exercise} />
           <button
             className={css.button}
-            type="button"
+            type="submit"
+            disabled={exerciseTime > 0 ? false : true}
             onClick={handleAddToDiary}
           >
             Add to diary

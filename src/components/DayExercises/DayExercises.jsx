@@ -1,12 +1,13 @@
 import css from "./DayExercises.module.css";
-import ButtonAddItem from "../ButtonAddItem/ButtonAddItem";
+import useDiary from "../../hooks/useDiary";
+
 import { EXERCISES_ROUTE } from "../../utils/const";
+import ButtonAddItem from "../ButtonAddItem/ButtonAddItem";
 import ExercisesTable from "../ExercisesTable/ExercisesTable";
-import { useSelector } from "react-redux";
-import { selectDiaryExercises } from "../../redux/diary/diarySelectors";
+import EmptyList from "../EmptyList/EmptyList";
 
 const DayExercises = () => {
-  const execrcises = useSelector(selectDiaryExercises);
+  const { diaryExercises } = useDiary();
 
   return (
     <>
@@ -19,12 +20,10 @@ const DayExercises = () => {
               titleRoute={EXERCISES_ROUTE}
             />
           </div>
-          {execrcises.length === 0 ? (
-            <div className={css.notFoundPlugTextWrap}>
-              <p className={css.notFoundPlugText}>Not found exercises</p>
-            </div>
+          {diaryExercises.length === 0 ? (
+            <EmptyList listName={"exercises"} />
           ) : (
-            <ExercisesTable execrcises={execrcises} />
+            <ExercisesTable execrcises={diaryExercises} />
           )}
         </div>
       </div>
