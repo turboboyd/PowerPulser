@@ -1,4 +1,4 @@
-import { useNavigate, useLocation, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useCallback, useState, useEffect } from "react";
 import css from "./Header.module.css";
 
@@ -56,7 +56,10 @@ const Header = () => {
   return (
     <Container className={css.line} onClick={handleOverlayClick}>
       <header className={css.header_user}>
-        <Logo isNotFoundPage={isNotFoundPage} />
+        <Logo
+          isNotFoundPage={isNotFoundPage}
+          setIsNotFoundPage={setIsNotFoundPage}
+        />
 
         <div className={css.wrap}>
           {user.profileSettings && (
