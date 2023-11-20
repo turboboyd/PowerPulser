@@ -1,6 +1,6 @@
 import { Formik, Field, Form, ErrorMessage } from "formik";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import css from "./UserForm.module.css";
 import Button from "../Button/Button";
