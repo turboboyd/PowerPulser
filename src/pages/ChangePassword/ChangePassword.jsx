@@ -7,7 +7,10 @@ import { useNavigate } from 'react-router-dom';
 
 import { useEffect } from 'react';
 import { SIGN_UP_ROUTE } from '../../utils/const'; 
+<<<<<<< Updated upstream
 import useAuth from '../../hooks/useAuth';
+=======
+>>>>>>> Stashed changes
 
 import Logo from '../../components/Logo/Logo';
 import css from './ChangePassword.module.css'; 
@@ -30,8 +33,11 @@ const ChangePassword = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+<<<<<<< Updated upstream
     const { isVerify, user } = useAuth();
 
+=======
+>>>>>>> Stashed changes
     //  const handleSubmit = ({ email }, { resetForm }) => {
     //    dispatch(loginUser({ email }));
     //    resetForm();
@@ -54,6 +60,10 @@ const ChangePassword = () => {
 
 
   const handleSubmit = async ({ email }) => {
+<<<<<<< Updated upstream
+=======
+       dispatch(loginUser({ email }));
+>>>>>>> Stashed changes
 
     try {
       const response = await fetch('RESET_API_ENDPOINT', {
