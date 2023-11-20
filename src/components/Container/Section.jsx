@@ -5,6 +5,7 @@ import {
   SIGN_IN_ROUTE,
   SIGN_UP_ROUTE,
   PRODUCT_ROUTE,
+  EXERCISES_ROUTE,
 } from "../../utils/const";
 import StatisticsInfo from "../StatisticsInfo/StatisticsInfo";
 import css from "./Section.module.css";
@@ -26,6 +27,7 @@ const Section = ({ children, isNotFoundPage }) => {
     [PRODUCT_ROUTE]: css.PRODUCT_section,
     [PROFILE_ROUTE]: css.PROFILE_section,
     [DIARY_ROUTE]: css.DIARY_section,
+    [EXERCISES_ROUTE]: css.EXERCISES_section,
   };
   
   const sectionStyle = `${css.section} ${
