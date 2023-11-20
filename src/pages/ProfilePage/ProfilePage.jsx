@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
-import TitlePage from "../../components/TitlePage/TitlePage";
-import UserForm from "../../components/UserForm/UserForm";
-import UserCard from "../../components/UserCard/UserCard";
+import TitlePage from '../../components/TitlePage/TitlePage';
+import UserForm from '../../components/UserForm/UserForm';
+import UserCard from '../../components/UserCard/UserCard';
 
-import useAuth from "../../hooks/useAuth";
-import css from "./ProfilePage.module.css";
+import useAuth from '../../hooks/useAuth';
+import css from './ProfilePage.module.css';
 
 const ProfilePage = () => {
   const { user } = useAuth();

@@ -40,6 +40,7 @@ const ProductsFilter = () => {
 
 
   const handleSubmit = (paramsSearch) => {
+    setSearchParams(paramsSearch)
     dispatch(setItems());
     dispatch(setFilters({ page: 1, ...paramsSearch }))
   };
@@ -47,11 +48,9 @@ const ProductsFilter = () => {
   const handleChange = e => {
     formik.handleChange(e);
     const { initialValues, values } = formik;
-
     if (e.target.value !== initialValues[e.target.value]) {
       const paramsSearch = { ...values, [e.target.name]: e.target.value };
       handleSubmit(paramsSearch);
-      setSearchParams(paramsSearch)
     }
   };
 
@@ -61,7 +60,7 @@ const ProductsFilter = () => {
         <div className={styles.prodFilterSearchBox}>
           <input
             className={styles.prodFilterSearchField}
-            type="search"
+            type="text"
             name="search"
             placeholder="Search"
             value={formik.values.search}

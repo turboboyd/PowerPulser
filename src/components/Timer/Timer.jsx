@@ -1,5 +1,6 @@
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Icon from '../ComponIcon/Icon';
 import css from './Timer.module.css';
 import formatTimeTimer from '../../utils/formatTimeTimer';
@@ -73,6 +74,15 @@ const Timer = ({
       </div>
     </>
   );
+};
+
+Timer.propTypes = {
+  burnedCalories: PropTypes.number.isRequired,
+  time: PropTypes.number.isRequired,
+  dynamicCalories: PropTypes.number.isRequired,
+  setDynamicCalories: PropTypes.func.isRequired,
+  exerciseTime: PropTypes.number.isRequired,
+  setExerciseTime: PropTypes.func.isRequired,
 };
 
 export default Timer;

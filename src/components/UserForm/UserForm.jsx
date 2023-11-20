@@ -1,17 +1,17 @@
-import { Formik, Field, Form } from "formik";
-import { useDispatch } from "react-redux";
-import PropTypes from "prop-types";
+import { Formik, Field, Form } from 'formik';
+import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import Button from "../Button/Button";
-import RadioButton from "./RadioButton/RadioButton";
-import ErrorMessages from "./ErrorMessages/ErrorMessages";
-import CalendarComponent from "../СalendarBirthDay/СalendarBirthDay";
+import Button from '../Button/Button';
+import RadioButton from './RadioButton/RadioButton';
+import ErrorMessages from './ErrorMessages/ErrorMessages';
+import CalendarComponent from '../СalendarBirthDay/СalendarBirthDay';
 
-import userFormShemas from "../../utils/shemas/userFormShemas";
-import { updateProfileSettings } from "../../redux/auth/authOperation";
-import useAuth from "../../hooks/useAuth";
+import userFormShemas from '../../utils/shemas/userFormShemas';
+import { updateProfileSettings } from '../../redux/auth/authOperation';
+import useAuth from '../../hooks/useAuth';
 
-import css from "./UserForm.module.css";
+import css from './UserForm.module.css';
 
 const UserForm = () => {
   const dispatch = useDispatch();
@@ -23,17 +23,17 @@ const UserForm = () => {
     currentWeight = 0,
     desiredWeight = 0,
     blood = 0,
-    sex = "",
+    sex = '',
     levelActivity = 0,
   } = profileSettings || {};
 
   const birthdayDate = profileSettings
     ? new Date(profileSettings.birthday)
-    : new Date("2022-01-01");
+    : new Date('2022-01-01');
 
   const formattedBirthday = `${birthdayDate.getFullYear()}-${String(
     birthdayDate.getMonth() + 1
-  ).padStart(2, "0")}-${String(birthdayDate.getDate()).padStart(2, "0")}`;
+  ).padStart(2, '0')}-${String(birthdayDate.getDate()).padStart(2, '0')}`;
 
   const initialValues = {
     name,
@@ -47,7 +47,7 @@ const UserForm = () => {
     levelActivity,
   };
 
-  const handleSubmit = (values) => {
+  const handleSubmit = values => {
     const data = {
       name: values.name,
       profileSettings: {
@@ -71,7 +71,7 @@ const UserForm = () => {
         validationSchema={userFormShemas}
         onSubmit={handleSubmit}
       >
-        {(formik) => (
+        {formik => (
           <Form>
             <div className={css.formWrapper}>
               <div>
@@ -93,7 +93,7 @@ const UserForm = () => {
                 />
               </div>
             </div>
-            {/* input Field */}{" "}
+            {/* input Field */}{' '}
             <div className={css.inputContainer}>
               <div className={css.inputWrapper}>
                 <div className={css.fieldContainer}>
@@ -139,14 +139,14 @@ const UserForm = () => {
 
                 <div
                   className={css.fieldContainer}
-                  style={{ position: "relative" }}
+                  style={{ position: 'relative' }}
                 >
                   <label className={css.labelInput} htmlFor="birthday"></label>
                   <CalendarComponent
-                    minDate={new Date("1900-01-01")}
+                    minDate={new Date('1900-01-01')}
                     selected={formik.values.birthday}
-                    onBirthdayChange={(date) =>
-                      formik.setFieldValue("birthday", date)
+                    onBirthdayChange={date =>
+                      formik.setFieldValue('birthday', date)
                     }
                   />
                 </div>
@@ -164,7 +164,7 @@ const UserForm = () => {
                     id="1"
                     label="1"
                     checked={formik.values.blood === 1}
-                    onChange={() => formik.setFieldValue("blood", 1)}
+                    onChange={() => formik.setFieldValue('blood', 1)}
                   />
 
                   <RadioButton
@@ -173,7 +173,7 @@ const UserForm = () => {
                     id="2"
                     label="2"
                     checked={formik.values.blood === 2}
-                    onChange={() => formik.setFieldValue("blood", 2)}
+                    onChange={() => formik.setFieldValue('blood', 2)}
                   />
 
                   <RadioButton
@@ -182,7 +182,7 @@ const UserForm = () => {
                     id="3"
                     label="3"
                     checked={formik.values.blood === 3}
-                    onChange={() => formik.setFieldValue("blood", 3)}
+                    onChange={() => formik.setFieldValue('blood', 3)}
                   />
 
                   <RadioButton
@@ -191,7 +191,7 @@ const UserForm = () => {
                     id="4"
                     label="4"
                     checked={formik.values.blood === 4}
-                    onChange={() => formik.setFieldValue("blood", 4)}
+                    onChange={() => formik.setFieldValue('blood', 4)}
                   />
                 </div>
                 <div className={css.radioSexContainer}>
@@ -200,16 +200,16 @@ const UserForm = () => {
                     id="male"
                     value="male"
                     label="Male"
-                    checked={formik.values.sex === "male"}
-                    onChange={() => formik.setFieldValue("sex", "male")}
+                    checked={formik.values.sex === 'male'}
+                    onChange={() => formik.setFieldValue('sex', 'male')}
                   />
                   <RadioButton
                     name="sex"
                     id="female"
                     value="female"
                     label="Female"
-                    checked={formik.values.sex === "female"}
-                    onChange={() => formik.setFieldValue("sex", "female")}
+                    checked={formik.values.sex === 'female'}
+                    onChange={() => formik.setFieldValue('sex', 'female')}
                   />
                 </div>
               </div>
@@ -221,7 +221,7 @@ const UserForm = () => {
                   value={1}
                   label="Sedentary lifestyle (little or no physical activity)"
                   checked={formik.values.levelActivity === 1}
-                  onChange={() => formik.setFieldValue("levelActivity", 1)}
+                  onChange={() => formik.setFieldValue('levelActivity', 1)}
                 />
                 <RadioButton
                   className={css.levelInput}
@@ -230,7 +230,7 @@ const UserForm = () => {
                   id="levelActivity2"
                   label="Light activity (light exercises/sports 1-3 days per week)"
                   checked={formik.values.levelActivity === 2}
-                  onChange={() => formik.setFieldValue("levelActivity", 2)}
+                  onChange={() => formik.setFieldValue('levelActivity', 2)}
                 />
                 <RadioButton
                   name="levelActivity"
@@ -238,7 +238,7 @@ const UserForm = () => {
                   id="levelActivity3"
                   label="Moderately active (moderate exercises/sports 3-5 days per week)"
                   checked={formik.values.levelActivity === 3}
-                  onChange={() => formik.setFieldValue("levelActivity", 3)}
+                  onChange={() => formik.setFieldValue('levelActivity', 3)}
                 />
                 <RadioButton
                   name="levelActivity"
@@ -246,7 +246,7 @@ const UserForm = () => {
                   id="levelActivity4"
                   label="Very active (intense exercises/sports 6-7 days per week)"
                   checked={formik.values.levelActivity === 4}
-                  onChange={() => formik.setFieldValue("levelActivity", 4)}
+                  onChange={() => formik.setFieldValue('levelActivity', 4)}
                 />
                 <RadioButton
                   name="levelActivity"
@@ -255,7 +255,7 @@ const UserForm = () => {
                   label="Extremely active (very strenuous exercises/sports and physical
                 work)"
                   checked={formik.values.levelActivity === 5}
-                  onChange={() => formik.setFieldValue("levelActivity", 5)}
+                  onChange={() => formik.setFieldValue('levelActivity', 5)}
                 />
               </div>
             </div>
