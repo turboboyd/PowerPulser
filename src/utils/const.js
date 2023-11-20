@@ -5,6 +5,9 @@ export const WELCOME_ROUTE = '/welcome';
 export const SIGN_UP_ROUTE = '/signup';
 export const SIGN_IN_ROUTE = '/signin';
 
+// export const NEW_PASSWORD_ROUTE = '/password';
+export const CONFIRM_PASSWORD_ROUTE = '/email';
+
 export const DIARY_ROUTE = '/diary';
 export const PRODUCT_ROUTE = '/products';
 export const EXERCISES_ROUTE = '/exercises';

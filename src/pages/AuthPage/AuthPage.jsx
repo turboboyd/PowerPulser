@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import css from "./AuthPage.module.css";
-import { SIGN_IN_ROUTE, SIGN_UP_ROUTE } from "../../utils/const";
+import { SIGN_IN_ROUTE, SIGN_UP_ROUTE, CONFIRM_PASSWORD_ROUTE } from '../../utils/const';
 import AuthForm from "../../components/Form/AuthForm/AuthForm";
 import Logo from "../../components/Logo/Logo";
 
@@ -14,6 +14,8 @@ const AuthPage = () => {
     ? "Welcome! Please enter your credentials to login to the platform:"
     : " Thank you for your interest in our platform. To complete the registration process, please provide us with the following information.";
 
+  const remindPassword = CONFIRM_PASSWORD_ROUTE;
+  
   return (
     <>
       <Logo />
@@ -24,6 +26,10 @@ const AuthPage = () => {
         <p className={css.textHint}>Don’t have an account?</p>
         <Link className={css.link} to={link}>
           {titleLink}
+        </Link>
+        <p className={css.textHint}>Forget password?</p>
+        <Link className={css.link} to={remindPassword}>
+          <span>Remind password</span>
         </Link>
       </div>
     </>
