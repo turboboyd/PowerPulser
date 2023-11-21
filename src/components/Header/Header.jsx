@@ -17,7 +17,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const [isBurgerOpen, setBurgerOpen] = useState(false);
   const { user } = useAuth();
-
+  
   const [isNotFoundPage, setIsNotFoundPage] = useState(false);
 
   const handleLogout = useCallback(() => {

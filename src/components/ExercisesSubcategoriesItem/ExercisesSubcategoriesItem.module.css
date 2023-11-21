@@ -15,6 +15,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: rgba(239, 237, 232, 1);
 }
 
 .exerciseItemWrap img {
@@ -29,6 +33,12 @@
     height: 206px;
     padding-bottom: 0;
   }
+}
+.exerciseItem {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.33;
+  color: rgba(239, 237, 232, 1);
 }
 
 @media (min-width: 1440px) {

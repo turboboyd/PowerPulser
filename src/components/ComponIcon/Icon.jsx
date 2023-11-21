@@ -1,4 +1,6 @@
-import sprite from "../../images/svg/InlineSprite.svg";
+import React from 'react';
+import PropTypes from 'prop-types';
+import sprite from '../../images/svg/InlineSprite.svg';
 
 function Icon({ className, iconId, onClick }) {
   return (
@@ -7,5 +9,11 @@ function Icon({ className, iconId, onClick }) {
     </svg>
   );
 }
+
+Icon.propTypes = {
+  className: PropTypes.string,
+  iconId: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+};
 
 export default Icon;

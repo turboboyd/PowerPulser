@@ -46,8 +46,8 @@
   display: flex;
   gap: 25px;
   cursor: pointer;
-  /* margin-top: 20px;
-  margin-bottom: 40px; */
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .sliderLi {
@@ -146,6 +146,8 @@
   .sliderLi {
     cursor: pointer;
     font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
     font-family: "Roboto", sans-serif;
     text-decoration: none;
     color: rgba(239, 237, 232, 1);
@@ -234,6 +236,9 @@
     margin-bottom: 20px;
   }
 
+    .sliderUl {
+    margin-bottom: 64px;
+    }
   .sliderLi {
     cursor: pointer;
     font-weight: 400;
