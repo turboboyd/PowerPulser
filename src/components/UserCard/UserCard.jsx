@@ -31,7 +31,7 @@ const UserCard = ({ user }) => {
           <StatisticsItem
             className={css.statistics}
             statisticsName={"Daily calorie intake"}
-            statisticsValue={dailyCalorieIntake}
+            statisticsValue={`${dailyCalorieIntake}`}
             statisticsIcon={"Fluent_food"}
             statisticPrimary={true}
           />

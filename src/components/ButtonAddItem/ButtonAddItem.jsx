@@ -8,11 +8,15 @@ const ButtonAddItem = ({ titleLink, titleRoute }) => {
   return (
     <>
       <NavLink className={css.addButtonLink} to={titleRoute}>
-        <p className={css.addButtonTitle}>{titleLink}</p>
-        <Icon className={css.addButtonImg} iconId={"Arrow"} />
+        {titleLink}
+        <Icon className={css.addButtonImg} iconId={'Arrow'} />
       </NavLink>
     </>
   );
+};
+
+ButtonAddItem.propTypes = {
+  titleLink: PropTypes.string.isRequired,
 };
 
 export default ButtonAddItem;

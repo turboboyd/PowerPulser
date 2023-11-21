@@ -89,8 +89,17 @@
 }
 
 .trashImg {
+  cursor: pointer;
   width: 20px;
   height: 20px;
+  stroke: var(--orange-1);
+
+  transition: all 0.3s ease;
+}
+
+.trashImg:is(:hover, :focus) {
+  stroke: #a82b2b;
+  transform: scale(1.1);
 }
 
 .nameTrash {

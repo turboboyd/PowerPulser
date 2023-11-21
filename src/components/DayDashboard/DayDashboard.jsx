@@ -1,9 +1,9 @@
-import css from "./DayDashboard.module.css";
+import css from './DayDashboard.module.css';
 
-import Icon from "../ComponIcon/Icon";
-import StatisticsItem from "../StatisticsItem/StatisticsItem";
+import Icon from '../ComponIcon/Icon';
+import StatisticsItem from '../StatisticsItem/StatisticsItem';
 
-import useStatistics from "../../hooks/useStatistics";
+import useStatistics from '../../hooks/useStatistics';
 
 const DayDashboard = () => {
   const {
@@ -15,56 +15,58 @@ const DayDashboard = () => {
     sportsRemaining,
   } = useStatistics();
 
-  const isCaloriesRemaining = caloriesConsumed < dailyCalorieIntake;
-  const isSportsRemaining = sportsRemaining > 0;
+  const isCaloriesRemaining =
+    caloriesConsumed < dailyCalorieIntake ? `positive` : `negative`;
+  const isSportsRemaining =
+    sportsRemaining > 0 ? `positive` : `negative`;
 
   return (
     <div className={css.dayDashboard}>
       <ul className={css.statisticList}>
         <StatisticsItem
-          statisticsName={"Daily calorie intake"}
-          statisticsValue={dailyCalorieIntake}
-          statisticsIcon={"Fluent_food"}
+          statisticsName={'Daily calorie intake'}
+          statisticsValue={`${dailyCalorieIntake}`}
+          statisticsIcon={'Fluent_food'}
           statisticPrimary
         />
         <StatisticsItem
-          statisticsName={"Daily physical activity"}
+          statisticsName={'Daily physical activity'}
           statisticsValue={`${dailyPhysicalActivity} min`}
-          statisticsIcon={"Dumbbell"}
+          statisticsIcon={'Dumbbell'}
           statisticPrimary
         />
         <StatisticsItem
-          statisticsName={"Сalories consumed"}
-          statisticsValue={caloriesConsumed}
-          statisticsIcon={"Apple"}
+          statisticsName={'Сalories consumed'}
+          statisticsValue={`${caloriesConsumed}`}
+          statisticsIcon={'Apple'}
         />
         <StatisticsItem
-          statisticsName={"Сalories burned"}
-          statisticsValue={caloriesBurned}
-          statisticsIcon={"Calories"}
+          statisticsName={'Сalories burned'}
+          statisticsValue={`${caloriesBurned}`}
+          statisticsIcon={'Calories'}
         />
         <StatisticsItem
-          statisticsName={"Calories remaining"}
-          statisticsValue={caloriesRemaining}
-          statisticsIcon={"Bubble"}
-          isFulfilledNorm={isCaloriesRemaining}
+          statisticsName={'Calories remaining'}
+          statisticsValue={`${caloriesRemaining}`}
+          statisticsIcon={'Bubble'}
+          fulfilledNorm={isCaloriesRemaining}
         />
         <StatisticsItem
-          statisticsName={"Sports remaining"}
+          statisticsName={'Sports remaining'}
           statisticsValue={
-            isSportsRemaining
+            isSportsRemaining === 'positive'
               ? `+${sportsRemaining} min`
               : `${sportsRemaining} min`
           }
-          statisticsIcon={"Runner"}
-          isFulfilledNorm={isSportsRemaining}
+          statisticsIcon={'Runner'}
+          fulfilledNorm={isSportsRemaining}
         />
       </ul>
       <div className={css.adviceWrap}>
         <div className={css.adviceIconWrap}>
           <Icon
             className={css.exclamationIcon}
-            iconId={"tabler:exclamation-mark"}
+            iconId={'tabler:exclamation-mark'}
           />
         </div>
         <p className={css.adviceText}>
