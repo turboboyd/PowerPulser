@@ -6,6 +6,7 @@ import { instance } from "../services/instanceAPI";
 import { token } from "../services/tokenAPI";
 import {
   BACKEND_LOGOUT_URL,
+  BACKEND_PASSWORD_EMAIL_URL,
   BACKEND_PROFILE_URL,
   BACKEND_REFRESH_URL,
   BACKEND_SIGN_IN_URL,
@@ -13,6 +14,7 @@ import {
   BACKEND_VERIFY_URL,
 } from "../../utils/const";
 import { tokenState } from "../services/tokenState";
+
 
 export const registrationUser = createAsyncThunk(
   "auth/registrationUser",
@@ -134,6 +136,45 @@ export const updateProfileSettings = createAsyncThunk(
       return data;
     } catch (error) {
       toast.error("Oops... Something went wrong! Try again!", notifyOptions);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+
+
+// password
+export const emailResetUser = createAsyncThunk(
+  'auth/loginUser',
+  async (credentials, thunkAPI) => {
+    // credentials: {
+    //     email: string;
+    // };
+    try {
+      const { data } = await instance.post(BACKEND_PASSWORD_EMAIL_URL, credentials);
+      token.set(data.token);
+      return data;
+    } catch (error) {
+      toast.error('Oops... Something went wrong! Try again!', notifyOptions);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+
+export const passwordResetUser = createAsyncThunk(
+  'auth/loginUser',
+  async (credentials, thunkAPI) => {
+    // credentials: {
+    //     email: string;
+    //     password: string;
+    // };
+    try {
+      const { data } = await instance.post(BACKEND_SIGN_IN_URL, credentials);
+      token.set(data.token);
+      return data;
+    } catch (error) {
+      toast.error('Oops... Something went wrong! Try again!', notifyOptions);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

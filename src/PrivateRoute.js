@@ -7,6 +7,7 @@ const PrivateRoute = ({ element, redirectTo = "/" }) => {
   const link = getLogoLink(isVerify, user);
   const shouldRedirect = !isVerify && isAuthCheck;
 
+  
   return shouldRedirect ? <Navigate to={link} /> : element;
 };
 
