@@ -32,6 +32,7 @@ function App() {
                 element={<PrivateRoute element={Element} />}
                 exact
               ></Route>
+              
             ))}
             {publicRoutes.map(({ path, Element }) => (
               <Route
