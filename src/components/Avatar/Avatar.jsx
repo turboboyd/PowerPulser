@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import Icon from '../ComponIcon/Icon';
 
@@ -8,9 +8,7 @@ import { setAvatarURL } from '../../redux/auth/authSlice';
 import css from './Avatar.module.css';
 
 const Avatar = ({ name, avatarURL }) => {
-  const storedAvatarURL = useSelector(state => state.auth.avatarURL);
   const dispatch = useDispatch();
-  const hasAvatar = storedAvatarURL;
 
   const userAvatar = (
     <img
@@ -35,7 +33,7 @@ const Avatar = ({ name, avatarURL }) => {
   return (
     <>
       <div className={css.avatarWrapper}>
-        <div className={css.avatar}>{hasAvatar ? userAvatar : avatarLogo}</div>
+        <div className={css.avatar}>{avatarURL ? userAvatar : avatarLogo}</div>
         <form className={css.form}>
           <input
             type="file"
