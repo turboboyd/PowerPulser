@@ -1,16 +1,15 @@
-export const handlePending = (state) => {
+export const handlePending = state => {
   state.isLoading = true;
 };
 
-export const handlePendingRefresh = (state) => {
+export const handlePendingRefresh = state => {
   state.isLoading = true;
   state.isRefreshing = true;
-  state.status = "pending";
+  state.status = 'pending';
 };
-export const handlePendingUpdateProfileSettings = (state) => {
+export const handlePendingUpdateProfileSettings = state => {
   state.isLoading = true;
   state.error = null;
-
 };
 export const handleRejectedUpdateProfileSettings = (state, { payload }) => {
   state.isLoading = false;
@@ -42,7 +41,7 @@ export const handleFulfilledLogin = (state, { payload }) => {
   state.isRefreshing = false;
   state.isAuthCheck = true;
 };
-export const handleFulfilledLogOut = (state) => {
+export const handleFulfilledLogOut = state => {
   state.user = null;
   state.token = null;
   state.isVerify = false;
@@ -59,13 +58,13 @@ export const handleFulfilledRefresh = (state, { payload }) => {
   state.isLoading = false;
   state.isRefreshing = false;
   state.isAuthCheck = true;
-  
+  state.status = 'fulfilled';
 };
 
 export const handleFulfilledVerify = (state, { payload }) => {
   state.user = payload.user;
   state.token = payload.token;
-  state.status = "fulfilled";
+  state.status = 'fulfilled';
   state.isVerify = true;
   state.isLoading = false;
   state.isRefreshing = false;
@@ -76,21 +75,27 @@ export const handleFulfilledVerify = (state, { payload }) => {
 export const handleVerifyRejected = (state, { payload }) => {
   state.error = payload;
   state.isLoading = false;
-  state.status = "rejected";
+  state.status = 'rejected';
 };
 
-export const handleFulfilledUpdateProfileSettings  = (state, { payload }) => {
+export const handleFulfilledUpdateProfileSettings = (state, { payload }) => {
   state.user = payload.user;
   state.isLoading = false;
   state.error = null;
   state.isAuthCheck = true;
 };
 
-
-
 // password
 
-export const handleFulfilledResetEmail = (state) => {
+export const handleFulfilledResetEmail = state => {
+  state.status = 'fulfilled';
+  state.isLoading = false;
+  state.isRefreshing = false;
+  state.error = null;
+  state.isAuthCheck = true;
+};
+
+export const handleFulfilledResetPassword = state => {
   state.status = 'fulfilled';
   state.isLoading = false;
   state.isRefreshing = false;
