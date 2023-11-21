@@ -11,7 +11,7 @@ import { fetchExercisesFilter } from '../../redux/exercises/exercisesOperations'
 import { EXERCISES_ROUTE } from '../../utils/const';
 
 
-function ExercisesItemType({ type = 'Body parts', page, limit, setLimit }) {
+function ExercisesItemType({ type = 'Body parts', page, limit , setLimit }) {
   const { exercisesFilter, exercisesIsLoading } = useExercise();
   // const [limit, setLimit] = useState(0)
   const navigate = useNavigate()
@@ -20,14 +20,25 @@ function ExercisesItemType({ type = 'Body parts', page, limit, setLimit }) {
   const ITEM_WIDTH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-width'));
   const ITEM_HEIGHT = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-height'));
 
+
+
   useEffect(() => {
-  const windowWidth = window.innerWidth;
-  if ((windowWidth >= 1440) || (windowWidth < 768)) {
-    setLimit(10) 
-    } else {
-    setLimit(9)
-  }
-  }, [setLimit])
+    const handleResize = () => {
+      const windowWidth = window.innerWidth;
+      if ((windowWidth >= 1440) || (windowWidth < 768)) {
+        setLimit(10);
+      } else {
+        setLimit(9);
+      }
+    };
+    handleResize();
+
+    window.addEventListener('resize', handleResize); 
+
+    return () => {
+      window.removeEventListener('resize', handleResize); 
+    };
+  }, [setLimit]);
 
   useEffect(() => {
     dispatch(fetchExercisesFilter({ type, page, limit }))
