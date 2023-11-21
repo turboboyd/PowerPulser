@@ -38,6 +38,9 @@
   line-height: 1.16;
   margin-bottom: 20px;
 }
+.cardContainer {
+  margin-top: 20px;
+}
 
 @media (min-width: 768px) {
   .cardContainer {
