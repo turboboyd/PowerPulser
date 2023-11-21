@@ -1,17 +1,21 @@
 import React, { useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
 import css from './PasswordForm.module.css';
 import Button from '../../Button/Button';
 import Icon from '../../ComponIcon/Icon';
 import renderFormField from '../FormField/renderFormField';
-import { emailResetUser, loginUser } from '../../../redux/auth/authOperation';
+import {
+  emailResetUser,
+  passwordResetUser,
+} from '../../../redux/auth/authOperation';
 import { SignUpSchema, SignInSchema } from '../../../utils/shemas';
 import useAuth from '../../../hooks/useAuth';
 import { DIARY_ROUTE, PROFILE_ROUTE } from '../../../utils/const';
 import useShowPassword from '../../../hooks/useShowPassword';
 import PropTypes from 'prop-types';
+
 
 const initialValuesEmail = {
   email: '',
@@ -24,6 +28,8 @@ const initialValuesPassword = {
 const PasswordForm = ({ resetPassword, textBtn }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { id } = useParams();
+
   const { showPassword, handleClick } = useShowPassword();
 
   const { isVerify, user } = useAuth();
@@ -34,7 +40,7 @@ const PasswordForm = ({ resetPassword, textBtn }) => {
   };
 
   const handleSubmitPassword = ({ password }, { resetForm }) => {
-    dispatch(loginUser({ password }));
+    dispatch(passwordResetUser({ password, token: id }));
     resetForm();
   };
 
@@ -61,7 +67,7 @@ const PasswordForm = ({ resetPassword, textBtn }) => {
     <>
       <Formik
         initialValues={initialValues}
-        validationSchema={validationSchema}
+        // validationSchema={validationSchema}
         onSubmit={handleSubmit}
         innerRef={formikRef}
       >

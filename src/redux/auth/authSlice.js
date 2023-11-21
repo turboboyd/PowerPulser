@@ -6,6 +6,8 @@ import {
   refreshUser,
   verifyUser,
   updateProfileSettings,
+  emailResetUser,
+  passwordResetUser,
 } from './authOperation';
 import {
   handleFulfilledRegistration,
@@ -20,6 +22,8 @@ import {
   handlePendingUpdateProfileSettings,
   handleRejectedUpdateProfileSettings,
   handlePendingRefresh,
+  handleFulfilledResetEmail,
+  handleFulfilledResetPassword,
 } from './authReducer';
 import { operationsType } from './authOperationsType';
 
@@ -66,7 +70,8 @@ export const authSlice = createSlice({
       .addCase(loginUser.fulfilled, handleFulfilledLogin)
       .addCase(logOutUser.fulfilled, handleFulfilledLogOut)
       .addCase(refreshUser.fulfilled, handleFulfilledRefresh)
-      // .addCase(emailResetUser.fulfilled, handleFulfilledResetEmail)
+      .addCase(emailResetUser.fulfilled, handleFulfilledResetEmail)
+      .addCase(passwordResetUser.fulfilled, handleFulfilledResetPassword)
       .addCase(
         updateProfileSettings.pending,
         handlePendingUpdateProfileSettings
