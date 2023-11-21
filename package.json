@@ -1,8 +1,8 @@
 {
-  "name": "react-homework-template",
+  "name": "power-pulse-tp",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://turboboyd.github.io/power_pulse_tp/",
+  "homepage": "https://turboboyd.github.io/power-pulse-tp",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
     "@testing-library/jest-dom": "^5.16.3",
