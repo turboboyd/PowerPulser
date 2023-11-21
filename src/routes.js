@@ -21,7 +21,7 @@ import {
   AuthPage,
   PasswordPage,
 } from './pages';
-import RestrictedRoute from 'RestrictedRoute';
+
 
 export const authRoutes = [
   {
