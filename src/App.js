@@ -8,8 +8,7 @@ import "./App.css";
 import Layout from "./components/Layout/Layout";
 import { authRoutes, publicRoutes } from "./routes";
 import { NotFound } from "./pages";
-import PrivateRoute from "./PrivateRoute";
-import RestrictedRoute from "./RestrictedRoute";
+
 
 function App() {
   const dispatch = useDispatch();
