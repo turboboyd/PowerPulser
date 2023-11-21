@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import useDiary from '../../../hooks/useDiary';
 import css from './AddExerciseForm.module.css';
 import Timer from '../../Timer/Timer';
@@ -79,6 +80,18 @@ const AddExerciseForm = ({
       </div>
     </div>
   );
+};
+
+AddExerciseForm.propTypes = {
+  handleModalExercise: PropTypes.func.isRequired,
+  handleModalSuccess: PropTypes.func.isRequired,
+  handleSelectedExercise: PropTypes.func.isRequired,
+  exercise: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    gifUrl: PropTypes.string.isRequired,
+    burnedCalories: PropTypes.number.isRequired,
+    time: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default AddExerciseForm;

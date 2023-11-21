@@ -1,18 +1,20 @@
-import { Link } from "react-router-dom";
-import css from "./NotFound.module.css";
-import useAuth from "../../hooks/useAuth";
-import Logo from "../../components/Logo/Logo";
-import getLogoLink from "../../utils/getLogoLink";
+import { Link } from 'react-router-dom';
+import css from './NotFound.module.css';
+import useAuth from '../../hooks/useAuth';
+import Logo from '../../components/Logo/Logo';
+import getLogoLink from '../../utils/getLogoLink';
 
 const NotFound = () => {
   const { isVerify, user } = useAuth();
-  const text = !isVerify ? "Go Home" : "Go Diary";
+  const text = isVerify
+    ? user.profileSettings
+      ? 'Go Diary'
+      : 'Go Profile'
+    : 'Go Home';
   const link = getLogoLink(isVerify, user);
   const isNotFoundPage = true;
-  console.log('isNotFoundPage: ', isNotFoundPage);
   return (
     <>
-      {/* <div className={css.block_error}> */}
       <Logo isNotFoundPage={isNotFoundPage} />
       <h1 className={css.title_one}>404</h1>
       <p className={css.text_error}>
@@ -24,7 +26,6 @@ const NotFound = () => {
       <Link className={css.link_goHome} to={link}>
         {text}
       </Link>
-      {/* </div> */}
     </>
   );
 };

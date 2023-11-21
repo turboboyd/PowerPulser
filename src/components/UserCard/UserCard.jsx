@@ -1,22 +1,23 @@
 import { useNavigate } from "react-router-dom";
 import { useCallback } from "react";
 import { useDispatch } from "react-redux";
+import PropTypes from "prop-types";
 
 import Avatar from "../Avatar/Avatar";
 import StatisticsItem from "../StatisticsItem/StatisticsItem";
 import Icon from "../ComponIcon/Icon";
 
-import css from "./UserCard.module.css";
-
 import { logOutUser } from "../../redux/auth/authOperation";
 
-const UserCard = ({ userInfo }) => {
+import css from "./UserCard.module.css";
+
+const UserCard = ({ user }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { name, avatarURL, profileSettings } = userInfo;
+  const { name, avatarURL, profileSettings } = user;
 
   const dailyCalorieIntake =
-    userInfo && profileSettings ? profileSettings.bmr || 0 : 0;
+    user && profileSettings ? profileSettings.bmr || 0 : 0;
   const handleLogout = useCallback(() => {
     dispatch(logOutUser());
     navigate("/");
@@ -58,3 +59,13 @@ const UserCard = ({ userInfo }) => {
 };
 
 export default UserCard;
+
+UserCard.propTypes = {
+  user: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    profileSettings: PropTypes.shape({
+      bmr: PropTypes.number,
+    }).isRequired,
+    avatarURL: PropTypes.string,
+  }).isRequired,
+};

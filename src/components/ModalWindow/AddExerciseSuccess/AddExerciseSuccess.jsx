@@ -1,6 +1,6 @@
 import css from './AddExerciseSuccess.module.css';
 import thumb from '../../../images/thumbIcon.png';
-
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { DIARY_ROUTE } from '../../../utils/const';
 import Icon from '../../ComponIcon/Icon';
@@ -33,6 +33,14 @@ const AddExerciseSuccess = ({ handleModalSuccess, selectedExercise }) => {
       </div>
     </div>
   );
+};
+
+AddExerciseSuccess.propTypes = {
+  handleModalSuccess: PropTypes.func.isRequired,
+  selectedExercise: PropTypes.shape({
+    time: PropTypes.number.isRequired,
+    calories: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default AddExerciseSuccess;
