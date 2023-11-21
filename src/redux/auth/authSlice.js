@@ -68,7 +68,7 @@ export const authSlice = createSlice({
       .addCase(loginUser.fulfilled, handleFulfilledLogin)
       .addCase(logOutUser.fulfilled, handleFulfilledLogOut)
       .addCase(refreshUser.fulfilled, handleFulfilledRefresh)
-      .addCase(emailResetUser.fulfilled, handleFulfilledResetEmail)
+      // .addCase(emailResetUser.fulfilled, handleFulfilledResetEmail)
       .addCase(
         updateProfileSettings.pending,
         handlePendingUpdateProfileSettings
