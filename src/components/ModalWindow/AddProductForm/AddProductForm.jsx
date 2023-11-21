@@ -6,6 +6,7 @@ import css from './AddProductForm.module.css';
 import formatDate from '../../../utils/formatData';
 import { addProductDiary } from '../../../redux/diary/diaryOperations';
 import InputShema from '../../../utils/shemas/InputShema';
+import capitalizedWord from 'utils/capitalizedWord';
 
 const AddProductForm = ({
   product,
@@ -20,12 +21,12 @@ const AddProductForm = ({
     amount: '',
   };
 
-  const calculateCalories = (amount) =>
+  const calculateCalories = amount =>
     Math.round((amount * product.calories) / 100);
 
   const formattedDate = formatDate(new Date());
 
-  const handleAddToDiary = (values) => {
+  const handleAddToDiary = values => {
     const productToDiary = {
       date: formattedDate,
       product: product._id,
@@ -51,7 +52,7 @@ const AddProductForm = ({
         validationSchema={InputShema}
         onSubmit={handleAddToDiary}
       >
-        {(formik) => (
+        {formik => (
           <Form>
             <div className={css.inputContainer}>
               <label htmlFor="title">
@@ -60,7 +61,7 @@ const AddProductForm = ({
                   id="title"
                   type="text"
                   name="title"
-                  value={product.title}
+                  value={capitalizedWord(product.title)}
                   disabled
                 />
               </label>

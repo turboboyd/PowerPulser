@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Icon from '../ComponIcon/Icon';
 import css from './Timer.module.css';
 import formatTimeTimer from '../../utils/formatTimeTimer';
+import { te } from 'date-fns/locale';
 
 const Timer = ({
   burnedCalories,
@@ -24,11 +25,15 @@ const Timer = ({
 
   const handleBurnedCalories = ({ remainingTime }) => {
     const duration = Number(time) * 60;
-    setExerciseTime(duration - remainingTime);
+    console.log(typeof duration);
+    const exTime = Number(duration - remainingTime);
+    setExerciseTime(exTime);
+    console.log(typeof exTime);
     const dynamicBurnedCalories = Math.floor(
       (exerciseTime * burnedCalories) / duration
     );
-    setDynamicCalories(parseInt(dynamicBurnedCalories, 10));
+    setDynamicCalories(dynamicBurnedCalories);
+    console.log(typeof dynamicBurnedCalories);
   };
 
   useEffect(() => {
