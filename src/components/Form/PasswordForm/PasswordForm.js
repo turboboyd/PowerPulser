@@ -23,19 +23,19 @@ const initialValuesSignIn = {
   password: '',
 };
 
-const PasswordForm = ({ resetPassword, title }) => {
+const PasswordForm = ({ resetPassword, title, textBtn }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { showPassword, handleClick } = useShowPassword();
 
   const { isVerify, user } = useAuth();
 
-  const handleSubmitSignUp = ({ name, email, password }, { resetForm }) => {
-    dispatch(registrationUser({ name, email, password }));
+  const handleSubmitEmail = ({ email }, { resetForm }) => {
+    dispatch(registrationUser({ email }));
     resetForm();
   };
 
-  const handleSubmitSignIn = ({ email, password }, { resetForm }) => {
+  const handleSubmitPassword = ({ email, password }, { resetForm }) => {
     dispatch(loginUser({ email, password }));
     resetForm();
   };
@@ -53,9 +53,11 @@ const PasswordForm = ({ resetPassword, title }) => {
     }
   }, [resetPassword, isVerify, navigate, user]);
 
-  const initialValues = resetPassword ? initialValuesSignUp : initialValuesSignIn;
+  const initialValues = resetPassword
+    ? initialValuesSignUp
+    : initialValuesSignIn;
   const validationSchema = resetPassword ? SignUpSchema : SignInSchema;
-  const handleSubmit = resetPassword ? handleSubmitSignUp : handleSubmitSignIn;
+  const handleSubmit = resetPassword ? handleSubmitEmail : handleSubmitPassword;
 
   return (
     <>
@@ -69,36 +71,59 @@ const PasswordForm = ({ resetPassword, title }) => {
           <Form className={css.form}>
             <div className={css.formWrapper}>
               {resetPassword &&
-                renderFormField('name', 'text', 'Name', formik, 'Success name')}
-              {renderFormField(
-                'email',
-                'email',
-                'Email',
-                formik,
-                'Success email'
-              )}
-              <div style={{ position: 'relative' }}>
-                {renderFormField(
-                  'password',
-                  showPassword ? 'text' : 'password',
-                  'Password',
+                renderFormField(
+                  'email',
+                  'email',
+                  'Email',
                   formik,
-                  'Success password',
-                  true
+                  'Success email'
                 )}
-                <button
-                  className={css.buttonEye}
-                  type="button"
-                  onClick={handleClick}
-                >
-                  <Icon
-                    className={css.svgEye}
-                    iconId={showPassword ? 'icon-eye' : 'icon-eye-off'}
-                  />
-                </button>
-              </div>
+              {!resetPassword && (
+                <div style={{ position: 'relative' }}>
+                  {renderFormField(
+                    'password',
+                    showPassword ? 'text' : 'password',
+                    'Password',
+                    formik,
+                    'Success password',
+                    true
+                  )}
+                  <button
+                    className={css.buttonEye}
+                    type="button"
+                    onClick={handleClick}
+                  >
+                    <Icon
+                      className={css.svgEye}
+                      iconId={showPassword ? 'icon-eye' : 'icon-eye-off'}
+                    />
+                  </button>
+                </div>
+              )}
+              {!resetPassword && (
+                <div style={{ position: 'relative' }}>
+                  {renderFormField(
+                    'password',
+                    showPassword ? 'text' : 'password',
+                    'Password',
+                    formik,
+                    'Success password',
+                    true
+                  )}
+                  <button
+                    className={css.buttonEye}
+                    type="button"
+                    onClick={handleClick}
+                  >
+                    <Icon
+                      className={css.svgEye}
+                      iconId={showPassword ? 'icon-eye' : 'icon-eye-off'}
+                    />
+                  </button>
+                </div>
+              )}
             </div>
-            <Button text={title} />
+            <Button text={textBtn} />
           </Form>
         )}
       </Formik>

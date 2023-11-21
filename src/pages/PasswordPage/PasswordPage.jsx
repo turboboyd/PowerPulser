@@ -11,20 +11,24 @@ const PasswordPage = () => {
   const text = resetPassword
     ? `Enter your email and we'll send you a link to reset your password.`
     : ' Your new password must be different from previous used passwords.';
-
+    const textBtn = resetPassword ? 'Send' : 'Reset Password';
 
   return (
     <>
       <Logo />
       <h1 className={css.title}>{title}</h1>
       <p className={css.text}>{text}</p>
-      <PasswordForm resetPassword={resetPassword} title={title} />
-      <div className={css.textWrapper}>
+      <PasswordForm
+        resetPassword={resetPassword}
+        textBtn={textBtn}
+        title={title}
+      />
+      {resetPassword && <div className={css.textWrapper}>
         <p className={css.textHint}>Back to </p>
         <Link className={css.link} to={SIGN_IN_ROUTE}>
           Login
         </Link>
-      </div>
+      </div>}
     </>
   );
 };

@@ -1,28 +1,27 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { Formik, Form } from "formik";
-import css from "./AuthForm.module.css";
-import Button from "../../Button/Button";
-import Icon from "../../ComponIcon/Icon";
-import renderFormField from "../FormField/renderFormField";
-import { loginUser, registrationUser } from "../../../redux/auth/authOperation";
-import { SignUpSchema, SignInSchema } from "../../../utils/shemas";
-import useAuth from "../../../hooks/useAuth";
-import { DIARY_ROUTE, PROFILE_ROUTE } from "../../../utils/const";
-import useShowPassword from "../../../hooks/useShowPassword";
-
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Formik, Form } from 'formik';
+import css from './AuthForm.module.css';
+import Button from '../../Button/Button';
+import Icon from '../../ComponIcon/Icon';
+import renderFormField from '../FormField/renderFormField';
+import { loginUser, registrationUser } from '../../../redux/auth/authOperation';
+import { SignUpSchema, SignInSchema } from '../../../utils/shemas';
+import useAuth from '../../../hooks/useAuth';
+import { DIARY_ROUTE, PASSWORD_ROUTE, PROFILE_ROUTE } from '../../../utils/const';
+import useShowPassword from '../../../hooks/useShowPassword';
 
 const initialValuesSignUp = {
-  name: "",
-  email: "",
-  password: "",
+  name: '',
+  email: '',
+  password: '',
 };
 
 const initialValuesSignIn = {
-  email: "",
-  password: "",
+  email: '',
+  password: '',
 };
 
 const AuthForm = ({ isSignUp, title }) => {
@@ -67,27 +66,28 @@ const AuthForm = ({ isSignUp, title }) => {
         onSubmit={handleSubmit}
         innerRef={formikRef}
       >
-        {(formik) => (
+        {formik => (
           <Form className={css.form}>
             <div className={css.formWrapper}>
               {isSignUp &&
-                renderFormField("name", "text", "Name", formik, "Success name")}
+                renderFormField('name', 'text', 'Name', formik, 'Success name')}
               {renderFormField(
-                "email",
-                "email",
-                "Email",
+                'email',
+                'email',
+                'Email',
                 formik,
-                "Success email"
+                'Success email'
               )}
-              <div style={{ position: "relative" }}>
+              <div style={{ position: 'relative' }}>
                 {renderFormField(
-                  "password",
-                  showPassword ? "text" : "password",
-                  "Password",
+                  'password',
+                  showPassword ? 'text' : 'password',
+                  'Password',
                   formik,
-                  "Success password",
+                  'Success password',
                   true
                 )}
+                {!isSignUp && <Link to={PASSWORD_ROUTE} className={css.link}>Forget your password</Link>}
                 <button
                   className={css.buttonEye}
                   type="button"
@@ -95,7 +95,7 @@ const AuthForm = ({ isSignUp, title }) => {
                 >
                   <Icon
                     className={css.svgEye}
-                    iconId={showPassword ? "icon-eye" : "icon-eye-off"}
+                    iconId={showPassword ? 'icon-eye' : 'icon-eye-off'}
                   />
                 </button>
               </div>

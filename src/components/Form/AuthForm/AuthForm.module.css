@@ -24,40 +24,6 @@
   }
 }
 
-.svgError {
-  display: none;
-  width: 16px;
-  height: 16px;
-  fill: var(--border-error);
-}
-.fieldWrapper.error .svgError {
-  display: block;
-}
-
-.svgSuccess {
-  /* display: none; */
-  width: 16px;
-  height: 16px;
-  fill: var(--border-success);
-}
-
-.errorMessage {
-  margin-left: 4px;
-  font-feature-settings: "clig" off, "liga" off;
-  font-size: 12px;
-  letter-spacing: 0.12px;
-  color: var(--error);
-  line-height: 1.16;
-}
-
-.successMessage {
-  margin-left: 4px;
-  font-feature-settings: "clig" off, "liga" off;
-  font-size: 12px;
-  letter-spacing: 0.12px;
-  color: var(--success);
-  line-height: 1.16;
-}
 
 .buttonEye {
   position: absolute;
@@ -71,4 +37,11 @@
   width: 20px;
   height: 20px;
   stroke: var(--white);
+}
+
+.link {
+  font-size: 12px;
+  font-feature-settings: "clig" off, "liga" off;
+  line-height: 1.5;
+  text-decoration-line: underline;
 }
