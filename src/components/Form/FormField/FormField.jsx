@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { Field, ErrorMessage } from "formik";
 import Icon from "../../ComponIcon/Icon";
 import css from "./FormField.module.css";
@@ -52,3 +53,11 @@ const FormField = ({
 
 
 export default FormField;
+FormField.propTypes = {
+  fieldName: PropTypes.string.isRequired,
+  fieldType: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  formik: PropTypes.object.isRequired,
+  successMessage: PropTypes.string.isRequired,
+  isPassword: PropTypes.bool,
+};

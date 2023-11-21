@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import PropTypes from 'prop-types';
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Formik, Form } from "formik";
@@ -108,3 +109,8 @@ const AuthForm = ({ isSignUp, title }) => {
 };
 
 export default AuthForm;
+
+AuthForm.propTypes = {
+  isSignUp: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
+};
