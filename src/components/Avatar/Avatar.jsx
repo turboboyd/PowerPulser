@@ -1,12 +1,14 @@
-import Icon from "../ComponIcon/Icon";
-import css from "./Avatar.module.css";
+import { useSelector, useDispatch } from 'react-redux';
 
-import { useSelector, useDispatch } from "react-redux";
-import { uploadAvatar } from "../../redux/avatar/avatarOperations";
-import { setAvatarURL } from "../../redux/auth/authSlice";
+import Icon from '../ComponIcon/Icon';
+
+import { uploadAvatar } from '../../redux/avatar/avatarOperations';
+import { setAvatarURL } from '../../redux/auth/authSlice';
+
+import css from './Avatar.module.css';
 
 const Avatar = ({ name, avatarURL }) => {
-  const storedAvatarURL = useSelector((state) => state.auth.avatarURL);
+  const storedAvatarURL = useSelector(state => state.auth.avatarURL);
   const dispatch = useDispatch();
   const hasAvatar = storedAvatarURL;
 
@@ -14,12 +16,12 @@ const Avatar = ({ name, avatarURL }) => {
     <img
       src={avatarURL}
       alt="Avatar"
-      style={{ borderRadius: "100%", width: "100%", height: "100%" }}
+      style={{ borderRadius: '100%', width: '100%', height: '100%' }}
     />
   );
-  const avatarLogo = <Icon className={css.iconAvatar} iconId={"icon-avatar"} />;
+  const avatarLogo = <Icon className={css.iconAvatar} iconId={'icon-avatar'} />;
 
-  const handleChangeAvatar = (e) => {
+  const handleChangeAvatar = e => {
     const file = e.target.files[0];
     if (file) {
       const blob = new Blob([file]);
@@ -39,11 +41,11 @@ const Avatar = ({ name, avatarURL }) => {
             type="file"
             name="file"
             id="inputFile"
-            style={{ display: "none" }}
+            style={{ display: 'none' }}
             onChange={handleChangeAvatar}
           />
-          <label htmlFor="inputFile" style={{ cursor: "pointer" }}>
-            <Icon className={css.iconUpload} iconId={"icon-add-avatar"} />
+          <label htmlFor="inputFile" style={{ cursor: 'pointer' }}>
+            <Icon className={css.iconUpload} iconId={'icon-add-avatar'} />
           </label>
         </form>
         <p className={css.textUserName}>{name}</p>
