@@ -28,8 +28,7 @@ function App() {
             { authRoutes.map(({ path, Element }) => (
               <Route
                 key={path}
-                path={path}
-                element={<PrivateRoute element={Element} />}
+
                 exact
               ></Route>
             ))}
@@ -37,7 +36,7 @@ function App() {
               <Route
                 key={path}
                 path={path}
-                element={<RestrictedRoute element={Element} />}
+                element={Element}
                 exact
               />
             ))}

@@ -8,7 +8,7 @@ import {
   SIGN_IN_ROUTE,
   VERIFY_ROUTE,
   PASSWORD_ROUTE,
-} from "./utils/const";
+} from './utils/const';
 
 import {
   WelcomePage,
@@ -20,7 +20,8 @@ import {
   VerifyPage,
   AuthPage,
   PasswordPage,
-} from "./pages";
+} from './pages';
+import RestrictedRoute from 'RestrictedRoute';
 
 export const authRoutes = [
   {
@@ -40,7 +41,7 @@ export const authRoutes = [
     Element: <ExercisesPage />,
   },
   {
-    path: EXERCISES_ROUTE + "/:id",
+    path: EXERCISES_ROUTE + '/:id',
     Element: <ExercisesCategoryPage />,
   },
 ];
@@ -48,19 +49,35 @@ export const authRoutes = [
 export const publicRoutes = [
   {
     path: WELCOME_PAGE_ROUTE,
-    Element: <WelcomePage />,
+    Element: (
+      <RestrictedRoute>
+        <WelcomePage />
+      </RestrictedRoute>
+    ),
   },
   {
     path: SIGN_UP_ROUTE,
-    Element: <AuthPage />,
+    Element: (
+      <RestrictedRoute>
+        <AuthPage />
+      </RestrictedRoute>
+    ),
   },
   {
     path: SIGN_IN_ROUTE,
-    Element: <AuthPage />,
+    Element: (
+      <RestrictedRoute>
+        <AuthPage />
+      </RestrictedRoute>
+    ),
   },
   {
     path: VERIFY_ROUTE + '/:id',
-    Element: <VerifyPage />,
+    Element: (
+      <RestrictedRoute>
+        <VerifyPage />
+      </RestrictedRoute>
+    ),
   },
   {
     path: PASSWORD_ROUTE,
