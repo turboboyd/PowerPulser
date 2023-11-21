@@ -49,35 +49,19 @@ export const authRoutes = [
 export const publicRoutes = [
   {
     path: WELCOME_PAGE_ROUTE,
-    Element: (
-      <RestrictedRoute>
-        <WelcomePage />
-      </RestrictedRoute>
-    ),
+    Element: <WelcomePage />,
   },
   {
     path: SIGN_UP_ROUTE,
-    Element: (
-      <RestrictedRoute>
-        <AuthPage />
-      </RestrictedRoute>
-    ),
+    Element: <AuthPage />,
   },
   {
     path: SIGN_IN_ROUTE,
-    Element: (
-      <RestrictedRoute>
-        <AuthPage />
-      </RestrictedRoute>
-    ),
+    Element: <AuthPage />,
   },
   {
     path: VERIFY_ROUTE + '/:id',
-    Element: (
-      <RestrictedRoute>
-        <VerifyPage />
-      </RestrictedRoute>
-    ),
+    Element: <VerifyPage />,
   },
   {
     path: PASSWORD_ROUTE,
