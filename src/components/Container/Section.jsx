@@ -13,6 +13,7 @@ import css from './Section.module.css';
 import { useLocation } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import useExercise from 'hooks/useExercise';
+import PropTypes from 'prop-types';
 
 const Section = ({ children }) => {
   const location = useLocation();
@@ -49,3 +50,8 @@ const Section = ({ children }) => {
 };
 
 export default Section;
+
+
+Section.propTypes = {
+  children: PropTypes.node.isRequired,
+};
