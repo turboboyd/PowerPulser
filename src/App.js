@@ -8,8 +8,7 @@ import "./App.css";
 import Layout from "./components/Layout/Layout";
 import { authRoutes, publicRoutes } from "./routes";
 import { NotFound } from "./pages";
-import PrivateRoute from "./PrivateRoute";
-import RestrictedRoute from "./RestrictedRoute";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -28,8 +27,7 @@ function App() {
             { authRoutes.map(({ path, Element }) => (
               <Route
                 key={path}
-                path={path}
-                element={<PrivateRoute element={Element} />}
+
                 exact
               ></Route>
               
@@ -38,7 +36,7 @@ function App() {
               <Route
                 key={path}
                 path={path}
-                element={<RestrictedRoute element={Element} />}
+                element={Element}
                 exact
               />
             ))}
