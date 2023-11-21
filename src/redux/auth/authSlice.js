@@ -6,7 +6,6 @@ import {
   refreshUser,
   verifyUser,
   updateProfileSettings,
-  // emailResetUser,
 } from './authOperation';
 import {
   handleFulfilledRegistration,
@@ -21,7 +20,6 @@ import {
   handlePendingUpdateProfileSettings,
   handleRejectedUpdateProfileSettings,
   handlePendingRefresh,
-  // handleFulfilledResetEmail,
 } from './authReducer';
 import { operationsType } from './authOperationsType';
 
@@ -83,7 +81,7 @@ export const authSlice = createSlice({
         handleRejectedUpdateProfileSettings
       )
       .addCase(uploadAvatar.fulfilled, (state, action) => {
-        state.avatarURL = action.payload; // Оновлення URL аватара при завершенні завдання
+        state.avatarURL = action.payload;
       })
       .addCase(verifyUser.rejected, handleVerifyRejected)
       .addMatcher(isAnyOf(...operationsType('pending')), handlePending)
