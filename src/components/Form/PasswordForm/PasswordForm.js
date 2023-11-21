@@ -11,19 +11,17 @@ import { SignUpSchema, SignInSchema } from '../../../utils/shemas';
 import useAuth from '../../../hooks/useAuth';
 import { DIARY_ROUTE, PROFILE_ROUTE } from '../../../utils/const';
 import useShowPassword from '../../../hooks/useShowPassword';
+import PropTypes from 'prop-types';
 
-const initialValuesSignUp = {
-  name: '',
+const initialValuesEmail = {
   email: '',
+};
+
+const initialValuesPassword = {
   password: '',
 };
 
-const initialValuesSignIn = {
-  email: '',
-  password: '',
-};
-
-const PasswordForm = ({ resetPassword, title, textBtn }) => {
+const PasswordForm = ({ resetPassword, textBtn }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { showPassword, handleClick } = useShowPassword();
@@ -35,8 +33,8 @@ const PasswordForm = ({ resetPassword, title, textBtn }) => {
     resetForm();
   };
 
-  const handleSubmitPassword = ({ email, password }, { resetForm }) => {
-    dispatch(loginUser({ email, password }));
+  const handleSubmitPassword = ({ password }, { resetForm }) => {
+    dispatch(loginUser({ password }));
     resetForm();
   };
 
@@ -54,8 +52,8 @@ const PasswordForm = ({ resetPassword, title, textBtn }) => {
   }, [resetPassword, isVerify, navigate, user]);
 
   const initialValues = resetPassword
-    ? initialValuesSignUp
-    : initialValuesSignIn;
+    ? initialValuesEmail
+    : initialValuesPassword;
   const validationSchema = resetPassword ? SignUpSchema : SignInSchema;
   const handleSubmit = resetPassword ? handleSubmitEmail : handleSubmitPassword;
 
@@ -132,3 +130,8 @@ const PasswordForm = ({ resetPassword, title, textBtn }) => {
 };
 
 export default PasswordForm;
+
+PasswordForm.propTypes = {
+  resetPassword: PropTypes.bool,
+  textBtn: PropTypes.string,
+};
