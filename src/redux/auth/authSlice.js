@@ -6,7 +6,7 @@ import {
   refreshUser,
   verifyUser,
   updateProfileSettings,
-  emailResetUser,
+  // emailResetUser,
 } from './authOperation';
 import {
   handleFulfilledRegistration,
@@ -21,7 +21,7 @@ import {
   handlePendingUpdateProfileSettings,
   handleRejectedUpdateProfileSettings,
   handlePendingRefresh,
-  handleFulfilledResetEmail,
+  // handleFulfilledResetEmail,
 } from './authReducer';
 import { operationsType } from './authOperationsType';
 

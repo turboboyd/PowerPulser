@@ -6,7 +6,7 @@ import css from './PasswordForm.module.css';
 import Button from '../../Button/Button';
 import Icon from '../../ComponIcon/Icon';
 import renderFormField from '../FormField/renderFormField';
-import { emailResetUser, loginUser, registrationUser } from '../../../redux/auth/authOperation';
+import { emailResetUser, loginUser } from '../../../redux/auth/authOperation';
 import { SignUpSchema, SignInSchema } from '../../../utils/shemas';
 import useAuth from '../../../hooks/useAuth';
 import { DIARY_ROUTE, PROFILE_ROUTE } from '../../../utils/const';
