@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import useExercise from '../../hooks/useExercise';
 import css from './ExercisesPagination.module.css'
 
