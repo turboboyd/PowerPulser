@@ -3,25 +3,32 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-}
 
-.addButtonTitle {
   color: var(--orange);
+  stroke: var(--orange);
 
   font-size: 14px;
   font-weight: 500;
   line-height: 1.28;
+
+  transition: all 0.3s ease;
+  margin-right: 8px;
 }
 
 .addButtonImg {
   width: 16px;
   height: 16px;
+}
 
-  stroke: var(--orange);
+.addButtonLink:hover,
+.addButtonLink:focus {
+  stroke: var(--white);
+  color: var(--white);
+  transform: scale(1.1);
 }
 
 @media (min-width: 768px) {
-  .addButtonTitle {
+  .addButtonLink {
     font-size: 16px;
     line-height: 1.5;
   }

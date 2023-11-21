@@ -1,5 +1,6 @@
 .dayProducts {
   margin-top: 40px;
+
   padding: 16px 8px 16px 16px;
 
   max-width: 335px;
@@ -14,6 +15,7 @@
 .dayScrollWrap {
   overflow-y: auto;
   max-height: 1032px;
+  padding-bottom: 8px;
 }
 
 .diaryNav {
@@ -38,13 +40,13 @@
 @media (min-width: 768px) {
   .dayProducts {
     max-width: 704px;
-    max-height: 234px;
+    max-height: 240px;
 
     margin-top: 0px;
   }
 
   .dayScrollWrap {
-    max-height: 207px;
+    max-height: 210px;
   }
 
   .diaryNav {
