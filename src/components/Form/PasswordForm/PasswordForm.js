@@ -10,11 +10,12 @@ import {
   emailResetUser,
   passwordResetUser,
 } from '../../../redux/auth/authOperation';
-import { SignUpSchema, SignInSchema } from '../../../utils/shemas';
+
 import useAuth from '../../../hooks/useAuth';
 import { DIARY_ROUTE, PROFILE_ROUTE } from '../../../utils/const';
 import useShowPassword from '../../../hooks/useShowPassword';
 import PropTypes from 'prop-types';
+import { EmailSchema, PasswordSchema } from 'utils/shemas';
 
 
 const initialValuesEmail = {
@@ -60,14 +61,14 @@ const PasswordForm = ({ resetPassword, textBtn }) => {
   const initialValues = resetPassword
     ? initialValuesEmail
     : initialValuesPassword;
-  const validationSchema = resetPassword ? SignUpSchema : SignInSchema;
+  const validationSchema = resetPassword ? EmailSchema : PasswordSchema;
   const handleSubmit = resetPassword ? handleSubmitEmail : handleSubmitPassword;
 
   return (
     <>
       <Formik
         initialValues={initialValues}
-        // validationSchema={validationSchema}
+        validationSchema={validationSchema}
         onSubmit={handleSubmit}
         innerRef={formikRef}
       >
