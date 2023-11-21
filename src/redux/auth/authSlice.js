@@ -1,4 +1,4 @@
-import { createSlice, isAnyOf } from "@reduxjs/toolkit";
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import {
   registrationUser,
   loginUser,
@@ -23,20 +23,20 @@ import {
   handlePendingRefresh,
   handleFulfilledResetEmail,
 } from './authReducer';
-import { operationsType } from "./authOperationsType";
+import { operationsType } from './authOperationsType';
 
-import { uploadAvatar } from "../avatar/avatarOperations";
+import { uploadAvatar } from '../avatar/avatarOperations';
 
 const contactsInitialState = {
   user: {
-    email: "",
-    name: "",
-    registrDate: "",
-    avatarURL: "",
+    email: '',
+    name: '',
+    registrDate: '',
+    avatarURL: '',
     profileSettings: {
-      height: "",
-      currentWeight: "",
-      desiredWeight: "",
+      height: '',
+      currentWeight: '',
+      desiredWeight: '',
       birthday: null,
       blood: null,
       levelActivity: null,
@@ -45,7 +45,7 @@ const contactsInitialState = {
     },
   },
   status: null,
-  token: "",
+  token: '',
   isVerify: false,
   isAuthCheck: false,
   isLoading: false,
@@ -54,40 +54,40 @@ const contactsInitialState = {
 };
 
 export const authSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState: contactsInitialState,
   reducers: {
     setAvatarURL: (state, action) => {
       state.user.avatarURL = action.payload;
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
       .addCase(registrationUser.fulfilled, handleFulfilledRegistration)
       .addCase(verifyUser.fulfilled, handleFulfilledVerify)
       .addCase(loginUser.fulfilled, handleFulfilledLogin)
       .addCase(logOutUser.fulfilled, handleFulfilledLogOut)
       .addCase(refreshUser.fulfilled, handleFulfilledRefresh)
-      .addCase(emailResetUser.fulfilled,handleFulfilledResetEmail)
-        .addCase(
-          updateProfileSettings.pending,
-          handlePendingUpdateProfileSettings
-        )
-        .addCase(refreshUser.pending, handlePendingRefresh)
-        .addCase(
-          updateProfileSettings.fulfilled,
-          handleFulfilledUpdateProfileSettings
-        )
-        .addCase(
-          updateProfileSettings.rejected,
-          handleRejectedUpdateProfileSettings
-        )
-        .addCase(uploadAvatar.fulfilled, (state, action) => {
-          state.avatarURL = action.payload; // Оновлення URL аватара при завершенні завдання
-        })
-        .addCase(verifyUser.rejected, handleVerifyRejected)
-        .addMatcher(isAnyOf(...operationsType('pending')), handlePending)
-        .addMatcher(isAnyOf(...operationsType('rejected')), handleRejected);
+      .addCase(emailResetUser.fulfilled, handleFulfilledResetEmail)
+      .addCase(
+        updateProfileSettings.pending,
+        handlePendingUpdateProfileSettings
+      )
+      .addCase(refreshUser.pending, handlePendingRefresh)
+      .addCase(
+        updateProfileSettings.fulfilled,
+        handleFulfilledUpdateProfileSettings
+      )
+      .addCase(
+        updateProfileSettings.rejected,
+        handleRejectedUpdateProfileSettings
+      )
+      .addCase(uploadAvatar.fulfilled, (state, action) => {
+        state.avatarURL = action.payload; // Оновлення URL аватара при завершенні завдання
+      })
+      .addCase(verifyUser.rejected, handleVerifyRejected)
+      .addMatcher(isAnyOf(...operationsType('pending')), handlePending)
+      .addMatcher(isAnyOf(...operationsType('rejected')), handleRejected);
   },
 });
 

@@ -90,7 +90,7 @@ export const handleFulfilledUpdateProfileSettings  = (state, { payload }) => {
 
 // password
 
-export const handleFulfilledResetEmail = (state, { payload }) => {
+export const handleFulfilledResetEmail = (state) => {
   state.status = 'fulfilled';
   state.isLoading = false;
   state.isRefreshing = false;
