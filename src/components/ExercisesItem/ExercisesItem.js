@@ -8,19 +8,19 @@ import AddExerciseSuccess from '../ModalWindow/AddExerciseSuccess/AddExerciseSuc
 const ExercisesItem = forwardRef(({ exercise }, ref) => {
   const [modalExercise, setModalExercise] = useState(false);
   const [modalSuccess, setModalSuccess] = useState(false);
-  const [selectedExercise, setSelectedExercise] = useState('');
+  const [selectedExercise, setSelectedExercise] = useState({});
 
   const handleModalExercise = () => {
-    setModalExercise((state) => !state);
+    setModalExercise(state => !state);
     document.body.classList.toggle('body-scroll-lock');
   };
 
   const handleModalSuccess = () => {
-    setModalSuccess((state) => !state);
+    setModalSuccess(state => !state);
     document.body.classList.toggle('body-scroll-lock');
   };
 
-  const handleSelectedExercise = (data) => {
+  const handleSelectedExercise = data => {
     setSelectedExercise(data);
   };
 

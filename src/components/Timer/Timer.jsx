@@ -18,13 +18,14 @@ const Timer = ({
   const [restTime, setRestTime] = useState('');
 
   const handleToggleTimer = () => {
-    setIsTimerPlaying((prevState) => !prevState);
-    setKey((prevKey) => prevKey + 1);
+    setIsTimerPlaying(prevState => !prevState);
+    setKey(prevKey => prevKey + 1);
   };
 
   const handleBurnedCalories = ({ remainingTime }) => {
     const duration = Number(time) * 60;
-    setExerciseTime(duration - remainingTime);
+    const exTime = Number(duration - remainingTime);
+    setExerciseTime(exTime);
     const dynamicBurnedCalories = Math.floor(
       (exerciseTime * burnedCalories) / duration
     );
@@ -34,7 +35,7 @@ const Timer = ({
   useEffect(() => {
     if (isTimerPlaying) {
       const timer = setInterval(() => {
-        setRestTime((prevTime) => prevTime - 1);
+        setRestTime(prevTime => prevTime - 1);
       }, 1000);
 
       return () => clearInterval(timer);
@@ -53,7 +54,7 @@ const Timer = ({
           strokeWidth={4}
           trailColor=" rgba(239, 237, 232, 0.3)"
           initialRemainingTime={time * 60 + restTime}
-          onUpdate={(remainingTime) => {
+          onUpdate={remainingTime => {
             handleBurnedCalories({ remainingTime });
           }}
         >
@@ -79,7 +80,7 @@ const Timer = ({
 Timer.propTypes = {
   burnedCalories: PropTypes.number.isRequired,
   time: PropTypes.number.isRequired,
-  dynamicCalories: PropTypes.number.isRequired,
+  dynamicCalories: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   setDynamicCalories: PropTypes.func.isRequired,
   exerciseTime: PropTypes.number.isRequired,
   setExerciseTime: PropTypes.func.isRequired,
