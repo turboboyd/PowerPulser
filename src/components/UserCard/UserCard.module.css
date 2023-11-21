@@ -44,7 +44,7 @@
 }
 
 .warningText {
-  font-family: Roboto;
+  font-family: "Roboto";
   font-size: 14px;
   font-weight: 400;
   line-height: 1.29;
@@ -68,7 +68,7 @@
   align-items: center;
   margin-left: auto;
   gap: 8px;
-  font-family: Roboto;
+  font-family: "Roboto";
   font-size: 14px;
   font-style: normal;
   font-weight: 400;

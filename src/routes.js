@@ -7,6 +7,7 @@ import {
   SIGN_UP_ROUTE,
   SIGN_IN_ROUTE,
   VERIFY_ROUTE,
+  PASSWORD_ROUTE,
 } from "./utils/const";
 
 import {
@@ -18,6 +19,7 @@ import {
   ProfilePage,
   VerifyPage,
   AuthPage,
+  PasswordPage,
 } from "./pages";
 
 export const authRoutes = [
@@ -57,7 +59,15 @@ export const publicRoutes = [
     Element: <AuthPage />,
   },
   {
-    path: VERIFY_ROUTE + "/:id",
+    path: VERIFY_ROUTE + '/:id',
     Element: <VerifyPage />,
+  },
+  {
+    path: PASSWORD_ROUTE,
+    Element: <PasswordPage />,
+  },
+  {
+    path: PASSWORD_ROUTE + '/:id',
+    Element: <PasswordPage />,
   },
 ];

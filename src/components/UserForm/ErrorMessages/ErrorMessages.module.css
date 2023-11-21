@@ -1,0 +1,10 @@
+.errorMessage {
+  margin-top: 4px;
+  margin-left: 4px;
+  margin-bottom: 4px;
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 12px;
+  letter-spacing: 0.12px;
+  color: var(--error);
+  line-height: 1.16;
+}
