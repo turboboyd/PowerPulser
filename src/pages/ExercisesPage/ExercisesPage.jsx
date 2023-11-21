@@ -6,23 +6,24 @@ import ExercisesFilter from "../../components/ExercisesFilter/ExercisesFilter";
 import ExercisesItemType from "../../components/ExercisesItemType/ExercisesItemType";
 import ExercisesPagination from "../../components/ExercisesPagination/ExercisesPagination";
 import { ExercisesCategoryPage } from "pages";
-
-
-
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { EXERCISES_ROUTE } from "utils/const";
+import { useEffect } from "react";
 
 const ExercisesPage = () => {
+  const location = useLocation();
+  
   const [selectedCategory, setSelectedCategory] = useState('Body parts');
   const [currentPage, setCurrentPage] = useState(1);
-  const [visible, setVisible] = useState(true);
-  const [limit, setLimit] = useState()
+  const [path, setPath] = useState(EXERCISES_ROUTE);
+  const [limit, setLimit] = useState();
 
-
-    const location = useLocation();
-    const isEXERCISESPage = location.pathname === EXERCISES_ROUTE;
-    console.log('isEXERCISESPage: ', isEXERCISESPage);
-
+  useEffect(() => {
+    const currentPath = location.pathname
+    setPath(currentPath)
+  },[location.pathname])
+  
+  const isEXERCISESPage = path === EXERCISES_ROUTE;
 
   return (
     <>
@@ -32,6 +33,7 @@ const ExercisesPage = () => {
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
           setCurrentPage={setCurrentPage}
+          setPath={setPath}
         />
       </div>
       {isEXERCISESPage ? (
@@ -50,7 +52,7 @@ const ExercisesPage = () => {
           />
         </>
       ) : (
-        <ExercisesCategoryPage setVisible={setVisible} />
+        <ExercisesCategoryPage />
       )}
     </>
   );
