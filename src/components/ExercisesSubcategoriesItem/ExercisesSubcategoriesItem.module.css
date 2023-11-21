@@ -33,12 +33,13 @@
     height: 206px;
     padding-bottom: 0;
   }
-}
+
 .exerciseItem {
   font-size: 24px;
   font-weight: 400;
   line-height: 1.33;
   color: rgba(239, 237, 232, 1);
+}
 }
 
 @media (min-width: 1440px) {
@@ -47,4 +48,9 @@
     height: 206px;
     padding-bottom: 0;
   }
+
+    .exerciseItem {
+      font-size: 23px;
+      line-height: 1.5;
+    }
 }
