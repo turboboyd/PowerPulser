@@ -85,3 +85,15 @@ export const handleFulfilledUpdateProfileSettings  = (state, { payload }) => {
   state.error = null;
   state.isAuthCheck = true;
 };
+
+
+
+// password
+
+export const handleFulfilledResetEmail = (state, { payload }) => {
+  state.status = 'fulfilled';
+  state.isLoading = false;
+  state.isRefreshing = false;
+  state.error = null;
+  state.isAuthCheck = true;
+};

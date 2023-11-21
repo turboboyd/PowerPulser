@@ -6,7 +6,8 @@ import {
   refreshUser,
   verifyUser,
   updateProfileSettings,
-} from "./authOperation";
+  emailResetUser,
+} from './authOperation';
 import {
   handleFulfilledRegistration,
   handleFulfilledLogin,
@@ -20,7 +21,8 @@ import {
   handlePendingUpdateProfileSettings,
   handleRejectedUpdateProfileSettings,
   handlePendingRefresh,
-} from "./authReducer";
+  handleFulfilledResetEmail,
+} from './authReducer';
 import { operationsType } from "./authOperationsType";
 
 import { uploadAvatar } from "../avatar/avatarOperations";
@@ -66,25 +68,26 @@ export const authSlice = createSlice({
       .addCase(loginUser.fulfilled, handleFulfilledLogin)
       .addCase(logOutUser.fulfilled, handleFulfilledLogOut)
       .addCase(refreshUser.fulfilled, handleFulfilledRefresh)
-      .addCase(
-        updateProfileSettings.pending,
-        handlePendingUpdateProfileSettings
-      )
-      .addCase(refreshUser.pending, handlePendingRefresh)
-      .addCase(
-        updateProfileSettings.fulfilled,
-        handleFulfilledUpdateProfileSettings
-      )
-      .addCase(
-        updateProfileSettings.rejected,
-        handleRejectedUpdateProfileSettings
-      )
-      .addCase(uploadAvatar.fulfilled, (state, action) => {
-        state.avatarURL = action.payload; // Оновлення URL аватара при завершенні завдання
-      })
-      .addCase(verifyUser.rejected, handleVerifyRejected)
-      .addMatcher(isAnyOf(...operationsType("pending")), handlePending)
-      .addMatcher(isAnyOf(...operationsType("rejected")), handleRejected);
+      .addCase(emailResetUser.fulfilled,handleFulfilledResetEmail)
+        .addCase(
+          updateProfileSettings.pending,
+          handlePendingUpdateProfileSettings
+        )
+        .addCase(refreshUser.pending, handlePendingRefresh)
+        .addCase(
+          updateProfileSettings.fulfilled,
+          handleFulfilledUpdateProfileSettings
+        )
+        .addCase(
+          updateProfileSettings.rejected,
+          handleRejectedUpdateProfileSettings
+        )
+        .addCase(uploadAvatar.fulfilled, (state, action) => {
+          state.avatarURL = action.payload; // Оновлення URL аватара при завершенні завдання
+        })
+        .addCase(verifyUser.rejected, handleVerifyRejected)
+        .addMatcher(isAnyOf(...operationsType('pending')), handlePending)
+        .addMatcher(isAnyOf(...operationsType('rejected')), handleRejected);
   },
 });
 
