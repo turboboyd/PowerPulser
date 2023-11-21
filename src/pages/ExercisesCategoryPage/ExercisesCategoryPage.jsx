@@ -1,19 +1,15 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 // import ExercisesFilter from "../../components/ExercisesFilter/ExercisesFilter";
 import ExercisesList from "../../components/ExercisesList/ExercisesList";
 import TitlePage from "../../components/TitlePage/TitlePage";
 
 
-function ExercisesCategoryPage() {
+function ExercisesCategoryPage({setVisible}) {
   const { id } = useParams();
-//  console.log(id )
+  id ?? setVisible(false)
   return (
     <>
-      <div>
-        <TitlePage title="Exercises" />
-        {/* <ExercisesFilter/> */}
-      </div>
       <ExercisesList id={id} />
     </>
   );

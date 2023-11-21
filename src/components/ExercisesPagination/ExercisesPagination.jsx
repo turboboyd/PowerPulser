@@ -2,7 +2,7 @@ import React from 'react'
 import useExercise from '../../hooks/useExercise';
 import css from './ExercisesPagination.module.css'
 
-function ExercisesPagination({currentPage, setCurrentPage, selectedCategory, limit}) {
+function ExercisesPagination({currentPage, setCurrentPage, selectedCategory, limit }) {
     const { exercisesFilter } = useExercise();
     const totalItemArray = [{ 'body parts': 10 }, { 'muscles': 19 }, { 'equipment': 28 }]
     const currentCategory = selectedCategory.toLowerCase()
