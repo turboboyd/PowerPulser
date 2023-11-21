@@ -1,16 +1,16 @@
+import React from "react";
+import { NavLink } from "react-router-dom";
+import css from "./ButtonAddItem.module.css";
+import Icon from "../ComponIcon/Icon";
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import css from './ButtonAddItem.module.css';
-
-import Icon from '../ComponIcon/Icon';
 
 const ButtonAddItem = ({ titleLink, titleRoute }) => {
   return (
     <>
-      <Link className={css.addButtonLink} to={titleRoute}>
+      <NavLink className={css.addButtonLink} to={titleRoute}>
         {titleLink}
         <Icon className={css.addButtonImg} iconId={'Arrow'} />
-      </Link>
+      </NavLink>
     </>
   );
 };
@@ -20,3 +20,9 @@ ButtonAddItem.propTypes = {
 };
 
 export default ButtonAddItem;
+
+
+ButtonAddItem.propTypes = {
+  titleLink: PropTypes.string.isRequired,
+  titleRoute: PropTypes.string.isRequired,
+};

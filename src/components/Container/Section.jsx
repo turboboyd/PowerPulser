@@ -7,6 +7,7 @@ import {
   SIGN_UP_ROUTE,
   PRODUCT_ROUTE,
   EXERCISES_ROUTE,
+  PASSWORD_ROUTE,
 } from '../../utils/const';
 import StatisticsInfo from '../StatisticsInfo/StatisticsInfo';
 import css from './Section.module.css';
@@ -24,12 +25,15 @@ const Section = ({ children }) => {
     WELCOME_PAGE_ROUTE,
     SIGN_UP_ROUTE,
     SIGN_IN_ROUTE,
+    PASSWORD_ROUTE,
   ];
     useAuth()
   const styles = {
     [WELCOME_PAGE_ROUTE]: css.WELCOME_PAGE_section,
     [SIGN_UP_ROUTE]: css.AUTH_PAGE_section,
     [SIGN_IN_ROUTE]: css.AUTH_PAGE_section,
+    [PASSWORD_ROUTE]: css.AUTH_PAGE_section,
+    [`${PASSWORD_ROUTE}/${id}`]: css.AUTH_PAGE_section,
     [PRODUCT_ROUTE]: css.PRODUCT_section,
     [PROFILE_ROUTE]: css.PROFILE_section,
     [DIARY_ROUTE]: css.DIARY_section,

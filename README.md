@@ -1,4 +1,29 @@
-# React homework template
+# PowerPulse
+
+![Welcome page](./public/welcome-page.png)
+
+PowerPulse is a fitness app for transforming your body shape and lifestyle.
+
+## About project
+
+With the help of this project, people can keep track of their weight, engage in
+sports, and lead a healthy lifestyle.
+
+## Technologies used:
+
+- HTML/CSS
+- Framer Motion
+- JavaScript
+- React
+- Redux Toolkit
+- Pagination
+
+## Live page
+
+The live page can be accessed through the following link:
+https://turboboyd.github.io/power_pulse_tp/
+
+## React homework template
 
 Этот проект был создан при помощи
 [Create React App](https://github.com/facebook/create-react-app). Для знакомства
