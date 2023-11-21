@@ -15,7 +15,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter basename="/power_pulse_tp">
+        <BrowserRouter basename="/PowerPulser">
           <App />
           <ToastContainer />
         </BrowserRouter>

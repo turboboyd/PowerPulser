@@ -8,7 +8,7 @@ import {
   SIGN_IN_ROUTE,
   VERIFY_ROUTE,
   PASSWORD_ROUTE,
-} from "./utils/const";
+} from './utils/const';
 
 import {
   WelcomePage,
@@ -20,7 +20,8 @@ import {
   VerifyPage,
   AuthPage,
   PasswordPage,
-} from "./pages";
+} from './pages';
+
 
 export const authRoutes = [
   {
@@ -41,7 +42,7 @@ export const authRoutes = [
   },
   {
     path: EXERCISES_ROUTE + '/:id',
-    Element: <ExercisesPage />,
+    Element: <ExercisesCategoryPage />,
   },
 ];
 
