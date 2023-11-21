@@ -17,6 +17,9 @@ jobs:
           npm run lint:js
           npm run build
 
+          
+          cp ./build/index.html ./build/404.html
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
