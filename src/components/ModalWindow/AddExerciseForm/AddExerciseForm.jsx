@@ -38,7 +38,6 @@ const AddExerciseForm = ({
       handleModalExercise();
       handleModalSuccess();
       handleSelectedExercise(exerciseToDiary);
-      console.log(exerciseToDiary);
     }
   };
 
