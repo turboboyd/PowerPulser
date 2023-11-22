@@ -32,8 +32,9 @@ const AddExerciseForm = ({
 
   const handleAddToDiary = () => {
     dispatch(addExercisesDiary(exerciseToDiary));
-    if (diaryError) {
-      console.log('Server error. Try again later');
+    console.log(diaryError)
+    if (diaryError || exerciseToDiary.calories === 0) {
+      return
     } else {
       handleModalExercise();
       handleModalSuccess();

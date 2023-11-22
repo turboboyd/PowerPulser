@@ -1,11 +1,12 @@
 import { useDispatch } from 'react-redux';
+import { nanoid } from 'nanoid';
 import Icon from '../ComponIcon/Icon';
 import css from './ProductsTable.module.css';
 import { deleteProductDiary } from '../../redux/diary/diaryOperations';
 import capitalizedWord from 'utils/capitalizedWord';
 import PropTypes from 'prop-types';
 
-const ProductsTable = ({ products }) => {
+const ProductsTable = ({products}) => {
   const dispatch = useDispatch();
 
   const deleteProduct = id => {
@@ -17,7 +18,7 @@ const ProductsTable = ({ products }) => {
       {products.map(
         ({ _id, title, category, calories, amount, recommended }, i) => {
           return (
-            <li key={_id} className={css.diaryMainItem}>
+            <li key={nanoid()} className={css.diaryMainItem}>
               <table className={css.table}>
                 <tbody className={css.bodyTable}>
                   <tr className={css.element}>
