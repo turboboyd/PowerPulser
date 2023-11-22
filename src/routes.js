@@ -14,7 +14,6 @@ import {
   WelcomePage,
   DiaryPage,
   ExercisesPage,
-  ExercisesCategoryPage,
   ProductsPage,
   ProfilePage,
   VerifyPage,
