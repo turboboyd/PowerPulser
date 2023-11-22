@@ -16,7 +16,7 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts',
             const { data } = await instance.get(`${BACKEND_PRODUCT_URL}?${paramsURL}`, {
                 cancelToken: cancelToken,
             });
-            return data
+            return data.data
         } catch (e) {
             return thunkAPI.rejectWithValue(e.message);
         }

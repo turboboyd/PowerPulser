@@ -47,7 +47,6 @@ const ExercisesPage = () => {
           <ExercisesPagination
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
-            selectedCategory={selectedCategory}
             limit={limit}
           />
         </>

@@ -6,6 +6,7 @@ import { handleFulfilledFilter, handleFulfilledItemsSelectedFilter, handlePendin
 const initialState = {
     exercisesFilter: [],
     itemsSelectedFilter: [],
+    totalRecords: '',
     getMore: false,
     isLoading: false,
     error: null

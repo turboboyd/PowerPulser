@@ -14,7 +14,6 @@ export const fetchExercisesFilter = createAsyncThunk('exercises/fetchExercisesFi
         token.set(tokenState(thunkAPI));
         const paramsURL = Object.keys(params).map(key => `${key}=${params[key]}`).join('&')
         const {data} = await instance.get(`${BACKEND_EXERCISES_FILTER_URL}?${paramsURL}`);
-
         return data;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
