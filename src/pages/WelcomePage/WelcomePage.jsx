@@ -2,11 +2,8 @@ import { Link } from "react-router-dom";
 import css from "./WelcomPage.module.css";
 import Icon from "../../components/ComponIcon/Icon";
 import Logo from "../../components/Logo/Logo";
-import useAuth from "../../hooks/useAuth";
 
 const WelcomePage = () => {
-  const {isVerify} = useAuth()
-  console.log('isVerify: ', isVerify);
   return (
     <>
       <Logo />

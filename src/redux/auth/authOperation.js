@@ -31,6 +31,9 @@ export const registrationUser = createAsyncThunk(
       );
       return data;
     } catch (error) {
+      if (error.response.status === 409) {
+        toast.error('User with this email address already exists. Please try Sign In.', notifyOptions);
+      }
       toast.error('Oops... Something went wrong! Try again!', notifyOptions);
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -78,7 +81,7 @@ export const loginUser = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      toast.error('Oops... Something went wrong! Try again!', notifyOptions);
+      toast.error('Incorrect email address or password.', notifyOptions);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -92,6 +95,8 @@ export const refreshUser = createAsyncThunk(
       const { data } = await instance.get(BACKEND_REFRESH_URL);
       return data;
     } catch (error) {
+      console.log(error)
+      toast.error('User is not authorised.', notifyOptions);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

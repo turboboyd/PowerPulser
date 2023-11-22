@@ -10,7 +10,7 @@ const Loader = () => {
         left: "50%",
         transform: "translate(-50%, -50%)",
         backgroundColor: 'transparent',
-        zIndex: 1,
+        zIndex: 10,
       }}
     >
       <Lottie
