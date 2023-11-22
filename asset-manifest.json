@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/PowerPulser/static/css/main.2020b9ae.css",
-    "main.js": "/PowerPulser/static/js/main.be866ae1.js",
+    "main.css": "/PowerPulser/static/css/main.e3c2a4d1.css",
+    "main.js": "/PowerPulser/static/js/main.3e463920.js",
     "static/css/302.8177d80c.chunk.css": "/PowerPulser/static/css/302.8177d80c.chunk.css",
     "static/js/302.c72a277f.chunk.js": "/PowerPulser/static/js/302.c72a277f.chunk.js",
     "static/css/355.04308807.chunk.css": "/PowerPulser/static/css/355.04308807.chunk.css",
@@ -34,8 +34,8 @@
     "static/media/bg-img-mobile-1x-min.jpg": "/PowerPulser/static/media/bg-img-mobile-1x-min.7249529ac06dba1efe07.jpg",
     "static/media/thumbIcon.png": "/PowerPulser/static/media/thumbIcon.06ff8a8bdc626f0847f6.png",
     "index.html": "/PowerPulser/index.html",
-    "main.2020b9ae.css.map": "/PowerPulser/static/css/main.2020b9ae.css.map",
-    "main.be866ae1.js.map": "/PowerPulser/static/js/main.be866ae1.js.map",
+    "main.e3c2a4d1.css.map": "/PowerPulser/static/css/main.e3c2a4d1.css.map",
+    "main.3e463920.js.map": "/PowerPulser/static/js/main.3e463920.js.map",
     "302.8177d80c.chunk.css.map": "/PowerPulser/static/css/302.8177d80c.chunk.css.map",
     "302.c72a277f.chunk.js.map": "/PowerPulser/static/js/302.c72a277f.chunk.js.map",
     "355.04308807.chunk.css.map": "/PowerPulser/static/css/355.04308807.chunk.css.map",
@@ -60,7 +60,7 @@
     "44.4397142e.chunk.js.map": "/PowerPulser/static/js/44.4397142e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2020b9ae.css",
-    "static/js/main.be866ae1.js"
+    "static/css/main.e3c2a4d1.css",
+    "static/js/main.3e463920.js"
   ]
 }
