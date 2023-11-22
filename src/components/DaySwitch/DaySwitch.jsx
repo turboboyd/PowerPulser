@@ -71,10 +71,6 @@ const DaySwitch = ({ handleDate }) => {
     setSelectedDate(date);
   };
 
-  const toggleCalendar = () => {
-    setCalendarOpen(prevCalendarOpen => !prevCalendarOpen);
-  };
-
   const currentDayClassName = date => {
     if (date.toDateString() === new Date().toDateString()) {
       return `${css.currentDate}`;
@@ -82,20 +78,16 @@ const DaySwitch = ({ handleDate }) => {
     return null;
   };
 
-  const handleIconClick = toggleFn => {
+  const handleIconClick = () => {
     const inputElement = document.querySelector(`.${css.calendarInput}`);
     inputElement.click();
-    toggleFn();
   };
 
   return (
     <div>
       <style>{DatePickerStyles}</style>
       <div className={css.daySwitch}>
-        <div
-          className={css.inputWrap}
-          onClick={() => handleIconClick(toggleCalendar)}
-        >
+        <div className={css.inputWrap} onClick={handleIconClick}>
           <DatePicker
             showYearDropdown
             scrollableYearDropdown
@@ -112,11 +104,7 @@ const DaySwitch = ({ handleDate }) => {
             onClickOutside={() => setCalendarOpen(false)}
           />
           <div>
-            <Icon
-              className={css.calendarIcon}
-              iconId={'Calendar'}
-              onClick={handleIconClick}
-            />
+            <Icon className={css.calendarIcon} iconId={'Calendar'} />
           </div>
         </div>
         <div className={css.chevronIconWrap}>
