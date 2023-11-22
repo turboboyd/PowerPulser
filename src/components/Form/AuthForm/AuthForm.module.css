@@ -1,30 +1,42 @@
+/* Общие стили для формы */
 .form {
   width: 100%;
+}
 
-  @media screen and (min-width: 768px) {
+/* Медиа-правило для экранов шириной 768px и более */
+@media screen and (min-width: 768px) {
+  .form {
     width: 364px;
   }
 }
 
+/* Стили для обертки формы */
 .formWrapper {
   margin-bottom: 28px;
+}
 
-  @media screen and (min-width: 768px) {
+/* Медиа-правило для экранов шириной 768px и более */
+@media screen and (min-width: 768px) {
+  .formWrapper {
     margin-bottom: 64px;
   }
 }
 
-
+/* Стили для обертки сообщения */
 .messageWrapper {
   display: flex;
   align-items: center;
   margin-bottom: 2px;
-  @media screen and (min-width: 768px) {
+}
+
+/* Медиа-правило для экранов шириной 768px и более */
+@media screen and (min-width: 768px) {
+  .messageWrapper {
     margin-bottom: 4px;
   }
 }
 
-
+/* Стили для кнопки глаза */
 .buttonEye {
   position: absolute;
   top: 15px;
@@ -33,12 +45,14 @@
   border: none;
 }
 
+/* Стили для SVG глаза */
 .svgEye {
   width: 20px;
   height: 20px;
   stroke: var(--white);
 }
 
+/* Стили для ссылки */
 .link {
   font-size: 12px;
   font-feature-settings: "clig" off, "liga" off;
