@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PowerPulser/static/css/main.e3c2a4d1.css",
-    "main.js": "/PowerPulser/static/js/main.5aa6c046.js",
+    "main.js": "/PowerPulser/static/js/main.4c0c9da1.js",
     "static/css/302.8177d80c.chunk.css": "/PowerPulser/static/css/302.8177d80c.chunk.css",
     "static/js/302.c72a277f.chunk.js": "/PowerPulser/static/js/302.c72a277f.chunk.js",
     "static/css/355.04308807.chunk.css": "/PowerPulser/static/css/355.04308807.chunk.css",
@@ -14,8 +14,8 @@
     "static/js/569.edc4d30c.chunk.js": "/PowerPulser/static/js/569.edc4d30c.chunk.js",
     "static/css/666.567d9f6f.chunk.css": "/PowerPulser/static/css/666.567d9f6f.chunk.css",
     "static/js/666.535b62f2.chunk.js": "/PowerPulser/static/js/666.535b62f2.chunk.js",
-    "static/css/11.279b52c2.chunk.css": "/PowerPulser/static/css/11.279b52c2.chunk.css",
-    "static/js/11.973d17b3.chunk.js": "/PowerPulser/static/js/11.973d17b3.chunk.js",
+    "static/css/670.dcdb38ee.chunk.css": "/PowerPulser/static/css/670.dcdb38ee.chunk.css",
+    "static/js/670.9119acc1.chunk.js": "/PowerPulser/static/js/670.9119acc1.chunk.js",
     "static/css/342.d774178a.chunk.css": "/PowerPulser/static/css/342.d774178a.chunk.css",
     "static/js/342.9e6ac9da.chunk.js": "/PowerPulser/static/js/342.9e6ac9da.chunk.js",
     "static/js/9.69d32eb3.chunk.js": "/PowerPulser/static/js/9.69d32eb3.chunk.js",
@@ -35,7 +35,7 @@
     "static/media/thumbIcon.png": "/PowerPulser/static/media/thumbIcon.06ff8a8bdc626f0847f6.png",
     "index.html": "/PowerPulser/index.html",
     "main.e3c2a4d1.css.map": "/PowerPulser/static/css/main.e3c2a4d1.css.map",
-    "main.5aa6c046.js.map": "/PowerPulser/static/js/main.5aa6c046.js.map",
+    "main.4c0c9da1.js.map": "/PowerPulser/static/js/main.4c0c9da1.js.map",
     "302.8177d80c.chunk.css.map": "/PowerPulser/static/css/302.8177d80c.chunk.css.map",
     "302.c72a277f.chunk.js.map": "/PowerPulser/static/js/302.c72a277f.chunk.js.map",
     "355.04308807.chunk.css.map": "/PowerPulser/static/css/355.04308807.chunk.css.map",
@@ -48,8 +48,8 @@
     "569.edc4d30c.chunk.js.map": "/PowerPulser/static/js/569.edc4d30c.chunk.js.map",
     "666.567d9f6f.chunk.css.map": "/PowerPulser/static/css/666.567d9f6f.chunk.css.map",
     "666.535b62f2.chunk.js.map": "/PowerPulser/static/js/666.535b62f2.chunk.js.map",
-    "11.279b52c2.chunk.css.map": "/PowerPulser/static/css/11.279b52c2.chunk.css.map",
-    "11.973d17b3.chunk.js.map": "/PowerPulser/static/js/11.973d17b3.chunk.js.map",
+    "670.dcdb38ee.chunk.css.map": "/PowerPulser/static/css/670.dcdb38ee.chunk.css.map",
+    "670.9119acc1.chunk.js.map": "/PowerPulser/static/js/670.9119acc1.chunk.js.map",
     "342.d774178a.chunk.css.map": "/PowerPulser/static/css/342.d774178a.chunk.css.map",
     "342.9e6ac9da.chunk.js.map": "/PowerPulser/static/js/342.9e6ac9da.chunk.js.map",
     "9.69d32eb3.chunk.js.map": "/PowerPulser/static/js/9.69d32eb3.chunk.js.map",
@@ -61,6 +61,6 @@
   },
   "entrypoints": [
     "static/css/main.e3c2a4d1.css",
-    "static/js/main.5aa6c046.js"
+    "static/js/main.4c0c9da1.js"
   ]
 }
