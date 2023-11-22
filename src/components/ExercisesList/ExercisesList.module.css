@@ -46,6 +46,7 @@
     align-items: flex-start;
     overflow-x: hidden;
     overflow-y: scroll;
+    align-items: flex-start;
     height: 500px;
     gap: 32px 16px;
     scrollbar-width: thin;
