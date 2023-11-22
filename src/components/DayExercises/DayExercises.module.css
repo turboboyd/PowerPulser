@@ -35,7 +35,7 @@
 @media (min-width: 768px) {
   .dayExecrcises {
     max-width: 704px;
-    max-height: 234px;
+    height: 234px;
 
     margin-top: 32px;
   }

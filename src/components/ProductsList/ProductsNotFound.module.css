@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding-top: 24px;
+  gap: 16px;
+
+  @media (min-width: 768px) {
+    padding-top: 84px;
+    width: 580px;
+  }
+}
+
+.text {
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.29;
+  color: var(--semiwhite);
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.warningText {
+  color: var(--orange);
+}
