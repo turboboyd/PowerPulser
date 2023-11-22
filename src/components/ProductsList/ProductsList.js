@@ -8,6 +8,7 @@ import ProductsItem from '../ProductsItem/ProductsItem';
 import css from './../ExercisesList/ExercisesList.module.css';
 import { setFilters, setItems } from '../../redux/products/productsSlice';
 import Loader from '../Loader/Loader';
+import ProductsNotFound from './ProductsNotFound';
 
 const ProductsList = () => {
   const dispatch = useDispatch();
@@ -27,10 +28,10 @@ const ProductsList = () => {
       params.recommended !== filters.recommended);
 
   const lastElementRef = useCallback(
-    (node) => {
+    node => {
       if (productsIsLoading) return;
       if (observer.current) observer.current.disconnect();
-      observer.current = new IntersectionObserver((entries) => {
+      observer.current = new IntersectionObserver(entries => {
         if (entries[0].isIntersecting && productsGetMore) {
           let currentPage = filters.page + 1;
           dispatch(setFilters({ page: currentPage }));
@@ -64,6 +65,7 @@ const ProductsList = () => {
   return (
     <>
       {productsIsLoading && filters.page === 1 && <Loader />}
+      {products.length === 0 && !productsIsLoading && <ProductsNotFound />}
       <div className={css.cardContainer}>
         {products.map((product, index) => {
           if (products.length === index + 1) {
