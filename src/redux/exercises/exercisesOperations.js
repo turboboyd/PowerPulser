@@ -32,6 +32,7 @@ export const fetchExercisesItemsSelectedFilter = createAsyncThunk('exercises/fet
         const { data } = await instance.get(`${BACKEND_EXERCISES_URL}?${paramsURL}`,{
                 cancelToken: cancelToken,
         });
+
         return data;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);

@@ -23,7 +23,7 @@ const DayExercises = () => {
           {diaryExercises.length === 0 ? (
             <EmptyList listName={"exercises"} />
           ) : (
-            <ExercisesTable execrcises={diaryExercises} />
+            <ExercisesTable exercises={diaryExercises} />
           )}
         </div>
       </div>

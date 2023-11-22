@@ -13,8 +13,8 @@ export const handleFulfilledFilter = (state, { payload }) => {
     state.error = null;
 };
 export const handleFulfilledItemsSelectedFilter = (state, { payload }) => {
+    state.getMore = payload.data.length > 0
     state.itemsSelectedFilter.push(...payload.data);
-    state.getMore = payload.length > 0
     state.isLoading = false;
     state.error = null;
 };
