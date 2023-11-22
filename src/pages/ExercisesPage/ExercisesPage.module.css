@@ -1,5 +1,12 @@
 .wrapperTopLine {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .wrapperTopLine {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 64px;
+  }
 }

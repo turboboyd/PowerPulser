@@ -72,6 +72,7 @@ const AddProductForm = ({
                 type="text"
                 name="amount"
                 placeholder="grams"
+                autoFocus
               />
             </div>
             <p className={css.text}>
