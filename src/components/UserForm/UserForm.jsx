@@ -61,7 +61,6 @@ const UserForm = () => {
       },
     };
     dispatch(updateProfileSettings(data));
-    console.log(data);
   };
 
   return (
