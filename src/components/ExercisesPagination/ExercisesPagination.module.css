@@ -142,24 +142,6 @@
     font-size: 32px;
     line-height: 1.38;
   }
-  /* .exercisesContainer {
-    display: flex;
-    height: 700px;
-    gap: 32px 15px;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  } */
-
-  /* .exercisesContainer::after {
-    content: '';
-    flex-basis: calc(var(--item-height) + 20px);
-    min-height: var(--item-height);
-  }
-  .exerciseItem {
-    width: calc(33.3333% - 16px);
-    margin-bottom: 20px;
-  } */
 
   .sliderContainer {
     display: flex;
