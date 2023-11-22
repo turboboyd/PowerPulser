@@ -40,7 +40,7 @@
 @media (min-width: 768px) {
   .dayProducts {
     max-width: 704px;
-    max-height: 240px;
+    height: 240px;
 
     margin-top: 0px;
   }
