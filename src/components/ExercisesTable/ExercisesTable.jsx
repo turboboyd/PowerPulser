@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { nanoid } from 'nanoid';
 import css from './ExercisesTable.module.css';
 import capitalizedWord from 'utils/capitalizedWord';
 import PropTypes from 'prop-types';
@@ -18,7 +19,7 @@ const ExercisesTable = ({ exercises }) => {
       <ul className={css.diaryMainList}>
         {exercises.map(
           ({ _id, bodyPart, equipment, name, target, calories, time }) => (
-            <li key={_id} className={css.diaryMainItem}>
+            <li key={nanoid()} className={css.diaryMainItem}>
               <table className={css.table}>
                 <tbody className={css.bodyTable}>
                   <tr className={css.element}>

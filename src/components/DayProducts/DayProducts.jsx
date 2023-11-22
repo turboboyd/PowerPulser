@@ -6,10 +6,9 @@ import ButtonAddItem from "../ButtonAddItem/ButtonAddItem";
 import ProductsTable from "../ProductsTable/ProductsTable";
 import EmptyList from "../EmptyList/EmptyList";
 
-
 const DayProducts = () => {
-  const { diaryProducts } = useDiary();
 
+  const { diaryProducts } = useDiary();
   return (
     <div className={css.dayProducts}>
       <div className={css.dayScrollWrap}>
@@ -20,7 +19,7 @@ const DayProducts = () => {
         {diaryProducts.length === 0 ? (
           <EmptyList listName={"products"} />
         ) : (
-          <ProductsTable products={diaryProducts} />
+            <ProductsTable products={diaryProducts} />
         )}
       </div>
     </div>
