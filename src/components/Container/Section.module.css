@@ -3,6 +3,7 @@
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
+  padding: 24px 0 0 0;
 }
 
 @media (min-width: 375px) {
@@ -13,6 +14,7 @@
 
 @media (min-width: 768px) {
   .section {
+    padding: 32px 0 0 0;
     width: 768px;
     min-height: 940px;
   }
@@ -78,7 +80,7 @@
 
 .WELCOME_PAGE_section {
   min-height: 812px;
-  padding: 0 0 483px 0;
+  padding: 24px 0 483px 0;
   background-position: 77px 241px;
   background-size: 446px 669px;
   background-image: var(--background-linear-gradient-mob),
@@ -89,7 +91,7 @@
 @media screen and (min-width: 768px) {
   .WELCOME_PAGE_section {
     min-height: 1024px;
-    padding: 0 0 481px 0;
+    padding: 32px 0 481px 0;
     background-position: 331px 131px;
     background-size: 670px 1005px;
     background-image: var(--background-linear-gradient-mob),
@@ -110,7 +112,7 @@
 /* AUTH_PAGE_section */
 
 .AUTH_PAGE_section {
-  padding: 0;
+  padding: 24px 0 0 0;
   min-height: 812px;
   background-position: 77px 241px;
   background-size: 446px 669px;
@@ -121,6 +123,7 @@
 
 @media screen and (min-width: 768px) {
   .AUTH_PAGE_section {
+    padding: 32px 0 0 0;
     min-height: 1024px;
     background-position: 331px 131px;
     background-size: 670px 1005px;
@@ -138,12 +141,10 @@
   }
 }
 
-
-
 .NotFound_section {
   z-index: 0;
   min-height: 812px;
-  padding: 0 0 250px 0;
+  padding: 24px 0 250px 0;
   background-position: 107px 241px;
   background-size: 446px 669px;
   background-image: var(--background-linear-gradient-mob),
@@ -162,6 +163,9 @@
 }
 
 @media screen and (min-width: 375px) {
+  .NotFound_section {
+    padding: 32px 0 0 0;
+  }
   .NotFound_section::after {
     width: 240px;
   }
@@ -169,7 +173,7 @@
 @media screen and (min-width: 768px) {
   .NotFound_section {
     min-height: 1024px;
-    padding: 0 0 309px 0;
+    padding: 32px 0 309px 0;
     background-position: 331px 131px;
     background-size: 670px 1005px;
     background-image: var(--background-linear-gradient-mob),
@@ -196,7 +200,7 @@
 /* PROFILE_section */
 
 .PROFILE_section {
-    border-top: var(--border-section-header);
+  border-top: var(--border-section-header);
   padding: 40px 0 66px 0;
 }
 
@@ -215,7 +219,7 @@
 /* DIARY_section */
 
 .DIARY_section {
-    border-top: var(--border-section-header);
+  border-top: var(--border-section-header);
   padding: 40px 0 80px 0;
 }
 
@@ -233,7 +237,7 @@
 
 /* EXERCISES_section */
 .EXERCISES_section {
-    border-top: var(--border-section-header);
+  border-top: var(--border-section-header);
   padding: 40px 0 83px 0;
 }
 
@@ -273,7 +277,6 @@
       url('../../images/background/bg-img-tablet-1x-min.jpg');
   }
 }
-
 
 /* PRODUCT_section */
 .PRODUCT_section {

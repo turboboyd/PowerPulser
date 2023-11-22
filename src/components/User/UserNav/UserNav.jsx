@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink, useLocation } from 'react-router-dom';
 import {
   DIARY_ROUTE,
   PRODUCT_ROUTE,
@@ -13,13 +13,20 @@ const routes = [
 ];
 
 const UserNav = () => {
+
+  const location = useLocation();
   return (
     <ul className={css.user_list}>
-      {routes.map((route) => (
+      {routes.map(route => (
         <li key={route.name} className={css.user_item}>
-          <Link className={css.link} to={route.path}>
+          <NavLink
+            className={`${css.link} ${
+              location.pathname === route.path ? css.activeLink : ''
+            }`}
+            to={route.path}
+          >
             {route.name}
-          </Link>
+          </NavLink>
         </li>
       ))}
     </ul>
