@@ -82,7 +82,7 @@ Timer.propTypes = {
   time: PropTypes.number.isRequired,
   dynamicCalories: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   setDynamicCalories: PropTypes.func.isRequired,
-  exerciseTime: PropTypes.number.isRequired,
+  exerciseTime: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   setExerciseTime: PropTypes.func.isRequired,
 };
 
