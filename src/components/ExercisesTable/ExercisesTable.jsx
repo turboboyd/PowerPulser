@@ -58,7 +58,7 @@ const ExercisesTable = ({ execrcises }) => {
                     <td
                       className={css.trashValue}
                       onClick={() => {
-                        dispatch(deleteExercise(_id));
+                        deleteExercise(_id);
                       }}
                     >
                       <Icon className={css.trashImg} iconId={'Trash'} />
