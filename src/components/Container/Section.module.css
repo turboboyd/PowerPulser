@@ -187,7 +187,7 @@
 @media screen and (min-width: 1440px) {
   .NotFound_section {
     min-height: 800px;
-    padding: 0 0 246px 0;
+    padding: 32px 0 246px 0;
     background-position: right -152px;
     background-image: var(--desk-background-linear-gradient),
       url('../../images/background/bg-img-tablet-1x-min.jpg');
