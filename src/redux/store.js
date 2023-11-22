@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -8,14 +8,14 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from "redux-persist";
+} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { authReducer } from './auth/authSlice'
-import { avatarReducer } from "./avatar/avatarSlice";
-import { diaryReducer } from "./diary/diarySlice";
-import { exercisesReducer } from "./exercises/exercisesSlice";
+import { authReducer } from './auth/authSlice';
+import { avatarReducer } from './avatar/avatarSlice';
+import { diaryReducer } from './diary/diarySlice';
+import { exercisesReducer } from './exercises/exercisesSlice';
 import { productsReducer } from './products/productsSlice';
-
+import { statisticsReducer } from './statistics/statisticsSlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -25,13 +25,14 @@ const authPersistConfig = {
 
 export const store = configureStore({
   reducer: {
+    statistics: statisticsReducer,
     products: productsReducer,
     exercises: exercisesReducer,
     diary: diaryReducer,
     avatar: avatarReducer,
     auth: persistReducer(authPersistConfig, authReducer),
   },
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],

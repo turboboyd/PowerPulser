@@ -6,8 +6,6 @@ export const SIGN_UP_ROUTE = '/signup';
 export const SIGN_IN_ROUTE = '/signin';
 export const PASSWORD_ROUTE = '/password';
 
-
-
 export const DIARY_ROUTE = '/diary';
 export const PRODUCT_ROUTE = '/products';
 export const EXERCISES_ROUTE = '/exercises';
@@ -33,6 +31,6 @@ export const BACKEND_DIARY_EXERCISES_URL = '/api/diary/exercises';
 export const BACKEND_PROFILE_URL = '/api/profileSettings';
 export const BACKEND_AVATAR_URL = '/api/users/avatar';
 export const BACKEND_PASSWORD_EMAIL_URL = '/api/users/changePassword';
-
+export const BACKEND_STATISTICS = '/api/statistics';
 
 export const CATEGORIES_FILTER = ['Body parts', 'Muscles', 'Equipment'];
