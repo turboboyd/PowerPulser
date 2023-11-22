@@ -42,7 +42,7 @@ export const authRoutes = [
   },
   {
     path: EXERCISES_ROUTE + '/:id',
-    Element: <ExercisesCategoryPage />,
+    Element: <ExercisesPage />,
   },
 ];
 
