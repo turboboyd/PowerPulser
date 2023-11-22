@@ -6,10 +6,15 @@
 }
 
 .iconSettings {
+  stroke: var(--white);
+  stroke-opacity: 0.3;
   width: 28px;
   height: 28px;
 }
-
+.activeIcon{
+   stroke: var(--orange);
+   stroke-opacity: 1;
+}
 .svg_logout {
   width: 20px;
   height: 20px;

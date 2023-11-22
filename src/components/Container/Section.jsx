@@ -18,7 +18,6 @@ import PropTypes from 'prop-types';
 const Section = ({ children }) => {
   const location = useLocation();
   const { id } = useParams();
-  // const { exercisesItemsSelectFilter } = useExercise();
   const showStatisticsInfoRoutes = [
     WELCOME_PAGE_ROUTE,
     SIGN_UP_ROUTE,
