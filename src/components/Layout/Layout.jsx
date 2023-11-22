@@ -11,7 +11,6 @@ import { EXERCISES_ROUTE } from "utils/const";
 
 export default function Layout() {
   const { id } = useParams();
-  console.log('id: ', id);
 
   const location = useLocation();
   const [isNotFoundPage, setIsNotFoundPage] = useState(false);
