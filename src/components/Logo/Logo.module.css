@@ -1,15 +1,18 @@
 .logo_wrap {
   display: flex;
   gap: 8px;
-  padding-top: 24px;
-}
 
+}
+.logo_wrap_not{
+    padding-top: 24px;
+}
 .logo {
   width: 44px;
   height: 17px;
   stroke: var(--orange);
   fill: var(--orange);
 }
+
 
 .logo_white {
   stroke: var(--white);
@@ -37,7 +40,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .logo_wrap {
+  .logo_wrap_not{
     padding-top: 32px;
   }
 }

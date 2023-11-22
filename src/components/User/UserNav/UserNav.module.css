@@ -13,7 +13,10 @@
   border-radius: var(--border-radius);
 }
 
-
+.link.activeLink {
+  border: 1px solid transparent;
+  background-color: var(--orange);
+}
 
 @media screen and (max-width: 1439px) {
   .user_list {
@@ -29,6 +32,10 @@
     border: var(--border-solid-color);
     border-radius: var(--border-radius);
   }
+  .link.activeLink {
+    border: 1px solid var(--white);
+  }
+
   .link:hover,
   .link:focus {
     border: 1px solid var(--white);
@@ -54,26 +61,18 @@
   display: block;
 }
 
-
 @media screen and (max-width: 1439px) {
-  
   /* .user_nav {
     display: none;
   } */
-
-
 }
 
 @media screen and (max-width: 768px) {
-
   .iconSettings {
     width: 24px;
     height: 24px;
   }
-  
 }
-
-
 
 /* .svg{
   width:32px;

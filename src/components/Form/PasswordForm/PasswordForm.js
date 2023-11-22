@@ -17,13 +17,13 @@ import useShowPassword from '../../../hooks/useShowPassword';
 import PropTypes from 'prop-types';
 import { EmailSchema, PasswordSchema } from 'utils/shemas';
 
-
 const initialValuesEmail = {
   email: '',
 };
 
 const initialValuesPassword = {
   password: '',
+  confirmPassword: '',
 };
 
 const PasswordForm = ({ resetPassword, textBtn }) => {
@@ -40,9 +40,17 @@ const PasswordForm = ({ resetPassword, textBtn }) => {
     resetForm();
   };
 
-  const handleSubmitPassword = ({ password }, { resetForm }) => {
-    dispatch(passwordResetUser({ password, token: id }));
-    resetForm();
+  const handleSubmitPassword = (
+    { password, confirmPassword },
+    { resetForm }
+  ) => {
+    if (password === confirmPassword) {
+      dispatch(passwordResetUser({ password, token: id }));
+      resetForm();
+    } else {
+      // You can handle the case where passwords do not match, e.g., show an error message.
+      console.error('Passwords do not match');
+    }
   };
 
   const formikRef = useRef();
@@ -108,7 +116,7 @@ const PasswordForm = ({ resetPassword, textBtn }) => {
               {!resetPassword && (
                 <div style={{ position: 'relative' }}>
                   {renderFormField(
-                    'password',
+                    'confirmPassword',
                     showPassword ? 'text' : 'password',
                     'Password',
                     formik,

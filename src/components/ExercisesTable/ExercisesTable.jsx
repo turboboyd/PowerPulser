@@ -6,17 +6,17 @@ import PropTypes from 'prop-types';
 import Icon from '../ComponIcon/Icon';
 import { deleteExercisesDiary } from '../../redux/diary/diaryOperations';
 
-const ExercisesTable = ({ execrcises }) => {
+const ExercisesTable = ({ exercises }) => {
   const dispatch = useDispatch();
 
-  const deleteExercise = id => {
-    dispatch(deleteExercisesDiary(id));
+  const deleteExercise = (_id) => {
+    dispatch(deleteExercisesDiary(_id));
   };
 
   return (
     <>
       <ul className={css.diaryMainList}>
-        {execrcises.map(
+        {exercises.map(
           ({ _id, bodyPart, equipment, name, target, calories, time }) => (
             <li key={_id} className={css.diaryMainItem}>
               <table className={css.table}>
@@ -57,9 +57,7 @@ const ExercisesTable = ({ execrcises }) => {
                     </th>
                     <td
                       className={css.trashValue}
-                      onClick={() => {
-                        dispatch(deleteExercise(_id));
-                      }}
+                      onClick={() => deleteExercise(_id)}
                     >
                       <Icon className={css.trashImg} iconId={'Trash'} />
                     </td>
@@ -75,7 +73,7 @@ const ExercisesTable = ({ execrcises }) => {
 };
 
 ExercisesTable.propTypes = {
-  execrcises: PropTypes.array.isRequired,
+  exercises: PropTypes.array.isRequired,
 };
 
 export default ExercisesTable;
