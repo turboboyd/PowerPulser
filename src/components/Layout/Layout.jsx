@@ -5,7 +5,7 @@ import Loader from "../Loader/Loader";
 
 import useAuth from "../../hooks/useAuth";
 import { Container, Section } from "../Container";
-import { publicRoutes, } from "../../routes";
+import { authRoutes, publicRoutes, } from "../../routes";
 import UserCheck from "../../utils/UserCheck";
 
 export default function Layout() {
@@ -15,7 +15,7 @@ export default function Layout() {
   const isAuthRoute = (path, publicRoutes) => publicRoutes.some((route) => route.path === path);
 
 
-  const shouldRenderHeader =isVerify && !isAuthRoute(location.pathname, publicRoutes);
+  const shouldRenderHeader =isVerify && isAuthRoute(location.pathname, authRoutes);
   const shouldRenderUserCheck = !isAuthRoute(location.pathname, publicRoutes);
   return (
     <>
