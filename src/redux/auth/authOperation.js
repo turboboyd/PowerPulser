@@ -140,7 +140,7 @@ export const updateProfileSettings = createAsyncThunk(
   }
 );
 
-// password
+// -------------------- password ----------------------- //
 export const emailResetUser = createAsyncThunk(
   'auth/emailResetUser',
   async (credentials, thunkAPI) => {

@@ -62,7 +62,7 @@ export const deleteProductDiary = createAsyncThunk(
         `${BACKEND_DIARY_PRODUCTS_URL}/${idProduct}`
       );
       toast.success(
-        "Product successfully deleteded from diary!",
+        "Product successfully deleted from diary!",
         notifyOptions
       );
       return data;
@@ -107,7 +107,7 @@ export const deleteExercisesDiary = createAsyncThunk(
       const { data } = await instance.delete(
         `${BACKEND_DIARY_EXERCISES_URL}/${idExercises}`
       );
-      toast.success("Exercises successfully deleteded!", notifyOptions);
+      toast.success("Exercises successfully deleted!", notifyOptions);
       return data;
     } catch (error) {
       toast.error("Oops... Something went wrong! Try again!", notifyOptions);

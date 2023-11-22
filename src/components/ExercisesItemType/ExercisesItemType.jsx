@@ -2,8 +2,6 @@ import React, { useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import useExercise from "../../hooks/useExercise";
-import Loader from "../../components/Loader/Loader";
-
 
 import ExercisesSubcategoriesItem from '../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
 import css from './ExercisesItemType.module.css'
@@ -11,16 +9,12 @@ import { fetchExercisesFilter } from '../../redux/exercises/exercisesOperations'
 import { EXERCISES_ROUTE } from '../../utils/const';
 
 
-function ExercisesItemType({ type = 'Body parts', page, limit , setLimit }) {
-  const { exercisesFilter, exercisesIsLoading } = useExercise();
-  // const [limit, setLimit] = useState(0)
+function ExercisesItemType({ type, page, limit , setLimit }) {
+  const { exercisesFilter } = useExercise();
   const navigate = useNavigate()
   const dispatch = useDispatch();
-
   const ITEM_WIDTH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-width'));
   const ITEM_HEIGHT = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--item-height'));
-
-
 
   useEffect(() => {
     const handleResize = () => {
@@ -50,7 +44,6 @@ function ExercisesItemType({ type = 'Body parts', page, limit , setLimit }) {
 
   return (
     <>
-      { exercisesIsLoading && <Loader />}
       <div className={css.exercisesContainer}>
         {exercisesFilter &&
           exercisesFilter

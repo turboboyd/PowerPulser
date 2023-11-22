@@ -7,6 +7,7 @@ const initialState = {
     exercisesFilter: [],
     itemsSelectedFilter: [],
     totalRecords: '',
+    page: 1,
     getMore: false,
     isLoading: false,
     error: null
@@ -19,6 +20,9 @@ const exercisesSlice = createSlice({
         setItemsSelectedFilter: (state) => {
             state.itemsSelectedFilter = [];
         },
+        setPage: (state, { payload }) => {
+            state.page = payload;
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -30,4 +34,4 @@ const exercisesSlice = createSlice({
 });
 
 export const exercisesReducer = exercisesSlice.reducer;
-export const { setItemsSelectedFilter } = exercisesSlice.actions;
+export const { setItemsSelectedFilter, setPage } = exercisesSlice.actions;
