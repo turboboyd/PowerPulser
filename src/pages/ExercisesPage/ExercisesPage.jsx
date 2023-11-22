@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from 'react-router-dom';
 import TitlePage from "../../components/TitlePage/TitlePage";
-import css from './ExercisesPage.module.css'
-
+import BackLink from "components/BackLink/BackLink";
 import ExercisesFilter from "../../components/ExercisesFilter/ExercisesFilter";
 import ExercisesItemType from "../../components/ExercisesItemType/ExercisesItemType";
 import ExercisesPagination from "../../components/ExercisesPagination/ExercisesPagination";
 import { ExercisesCategoryPage } from "pages";
-import { useLocation } from 'react-router-dom';
 import { EXERCISES_ROUTE } from "utils/const";
-import { useEffect } from "react";
+import css from './ExercisesPage.module.css'
+import useExercise from "hooks/useExercise";
+import Loader from "components/Loader/Loader";
 
 const ExercisesPage = () => {
   const location = useLocation();
-  
+  const { exercisesIsLoading, exercisesPage } = useExercise();
   const [selectedCategory, setSelectedCategory] = useState('Body parts');
   const [currentPage, setCurrentPage] = useState(1);
   const [path, setPath] = useState(EXERCISES_ROUTE);
@@ -21,14 +22,16 @@ const ExercisesPage = () => {
   useEffect(() => {
     const currentPath = location.pathname
     setPath(currentPath)
-  },[location.pathname])
+  }, [location.pathname])
   
   const isEXERCISESPage = path === EXERCISES_ROUTE;
 
   return (
     <>
+      { exercisesIsLoading && exercisesPage === 1 && <Loader />}
+      {!isEXERCISESPage && <BackLink/>}
       <div className={css.wrapperTopLine}>
-        <TitlePage title="Exercises" />
+        <TitlePage title={isEXERCISESPage ? 'Exercises' : selectedCategory} />
         <ExercisesFilter
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}

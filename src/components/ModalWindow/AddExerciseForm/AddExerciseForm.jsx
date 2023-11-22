@@ -15,7 +15,7 @@ const AddExerciseForm = ({
   exercise,
 }) => {
   const [dynamicCalories, setDynamicCalories] = useState('');
-  const [exerciseTime, setExerciseTime] = useState('');
+  const [exerciseTime, setExerciseTime] = useState(0);
 
   const dispatch = useDispatch();
 
