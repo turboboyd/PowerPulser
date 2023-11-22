@@ -43,7 +43,7 @@
   .cardContainer {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-content: flex-start;
     overflow-x: hidden;
     overflow-y: scroll;
     align-items: flex-start;
