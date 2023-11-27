@@ -21,6 +21,7 @@ const ProductsList = () => {
     () => Object.fromEntries([...searchParams]),
     [searchParams]
   );
+
   const isEmptyParams =
     Object.keys(params).length > 0 &&
     (params.search !== filters.search ||
@@ -48,6 +49,7 @@ const ProductsList = () => {
     const filterParams = filters;
     if (isEmptyParams) {
       dispatch(setFilters({ ...params }));
+      console.log('isEmptyParams IF');
     }
 
     dispatch(fetchProducts({ filterParams, cancelToken }));
@@ -61,11 +63,11 @@ const ProductsList = () => {
       dispatch(setFilters({ page: 1 }));
     };
   }, [dispatch]);
-
+  
   return (
     <>
       {productsIsLoading && filters.page === 1 && <Loader />}
-      {products.length === 0 && !productsIsLoading && <ProductsNotFound />}
+      {!productsIsLoading && products.length === 0 && <ProductsNotFound />}
       <div className={css.cardContainer}>
         {products.map((product, index) => {
           if (products.length === index + 1) {

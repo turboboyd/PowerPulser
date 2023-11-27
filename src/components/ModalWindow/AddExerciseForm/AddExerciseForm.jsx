@@ -72,7 +72,7 @@ const AddExerciseForm = ({
           <button
             className={css.button}
             type="submit"
-            disabled={exerciseTime > 0 ? false : true}
+            disabled={dynamicCalories !== 0 ? false : true}
             onClick={handleAddToDiary}
           >
             Add to diary

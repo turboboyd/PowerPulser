@@ -66,7 +66,7 @@ const ProductsFilter = () => {
             value={formik.values.search}
             onChange={formik.handleChange}
           />
-          {formik.initialValues.search !== formik.values.search && (
+          {formik.values.search !== '' && (
             <button
               className={styles.prodSearchCancelBtn}
               type="button"
