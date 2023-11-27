@@ -29,8 +29,10 @@ export const registrationUser = createAsyncThunk(
         'A confirmation has been sent to your email. Please confirm your email!',
         notifyOptions
       );
+      console.log(data);
       return data;
     } catch (error) {
+      console.log(error);
       toast.error('Oops... Something went wrong! Try again!', notifyOptions);
       return thunkAPI.rejectWithValue(error.message);
     }

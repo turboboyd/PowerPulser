@@ -25,7 +25,6 @@ const ExercisesPage = () => {
   }, [location.pathname])
   
   const isEXERCISESPage = path === EXERCISES_ROUTE;
-  console.log(isEXERCISESPage)
 
   return (
     <>

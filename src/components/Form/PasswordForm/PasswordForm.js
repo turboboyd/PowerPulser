@@ -136,7 +136,7 @@ const PasswordForm = ({ resetPassword, textBtn }) => {
                 </div>
               )}
             </div>
-            <Button text={textBtn} />
+            <Button text={textBtn} className={css.buttonSend} />
           </Form>
         )}
       </Formik>
