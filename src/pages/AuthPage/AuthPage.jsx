@@ -21,7 +21,7 @@ const AuthPage = () => {
       <p className={css.text}>{text}</p>
       <AuthForm isSignUp={isLoginPage} title={title} />
       <div className={css.textWrapper}>
-        <p className={css.textHint}>Don’t have an account?</p>
+        <p className={css.textHint}>{!isLoginPage? `Don’t have an account?` : `Already have an account?`}</p>
         <Link className={css.link} to={link}>
           {titleLink}
         </Link>

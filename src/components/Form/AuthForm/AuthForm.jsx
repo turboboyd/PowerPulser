@@ -66,7 +66,8 @@ const AuthForm = ({ isSignUp, title }) => {
         onSubmit={handleSubmit}
         innerRef={formikRef}
       >
-        {formik => (
+        {({ isValid, dirty, ...formik }) => (
+          
           <Form className={css.form}>
             <div className={css.formWrapper}>
               {isSignUp &&
@@ -87,7 +88,7 @@ const AuthForm = ({ isSignUp, title }) => {
                   'Success password',
                   true
                 )}
-                {!isSignUp && <Link to={PASSWORD_ROUTE} className={css.link}>Forget your password</Link>}
+                {!isSignUp && <Link to={PASSWORD_ROUTE} className={css.link}>Forget your password?</Link>}
                 <button
                   className={css.buttonEye}
                   type="button"
@@ -100,7 +101,7 @@ const AuthForm = ({ isSignUp, title }) => {
                 </button>
               </div>
             </div>
-            <Button text={title} />
+            <Button className={css.authButton} text={title} disabled={!(isValid && dirty)} />
           </Form>
         )}
       </Formik>

@@ -4,7 +4,7 @@ import { emailRegex, passwordRegex } from "./Regex";
 
 
 const SignUpSchema = Yup.object().shape({
-  name: Yup.string().required("Required field"),
+  name: Yup.string().matches(/^\S.*\S$/, "Leading and trailing spaces are not allowed").required("Required field"),
   email: Yup.string()
     .matches(emailRegex, "Invalid email format")
     .required("Required field"),

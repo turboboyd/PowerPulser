@@ -4,7 +4,7 @@ const eighteenYearsAgo = new Date();
 eighteenYearsAgo.setFullYear(eighteenYearsAgo.getFullYear() - 18);
 
 const userFormShemas = yup.object({
-  name: yup.string().required('Name is required'),
+  name: yup.string().matches(/^\S.*\S$/, "Leading and trailing spaces are not allowed").required('Name is required'),
   height: yup
     .number('Number')
     .typeError('Must be a number')

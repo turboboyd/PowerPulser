@@ -1,102 +1,143 @@
 .formWrapper {
   margin-top: 20px;
+}
 
-  @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .formWrapper {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     margin-top: 40px;
-    width: 700px;
+    width: 100%;
+    gap: 14px;
   }
-  @media screen and (min-width: 768px) {
+
+  .titleName {
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.29;
+  }
+
+  .inputContainer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .labelInput {
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.29;
+  }
+
+  .topFieldWrapper {
+    position: 'relative';
+    width: 50%;
+  }
+
+  .radioBloodContainer {
+    margin-right: 32px;
+  }
+
+  .levelActivityWrapper {
     margin-top: 32px;
+    margin-bottom: 38px;
   }
+}
+
+@media screen and (min-width: 1440px) {
+  .formContainer {
+    padding-right: 64px;
+  }
+
+  .input {
+    font-size: 16;
+    line-height: 1.5;
+  }
+
+  .radioWrapper {
+    flex-direction: column;
+  }
+
+  .levelActivityWrapper {
+    margin-bottom: 48px;
+  }
+}
+
+.topFieldWrapper {
+  position: 'relative';
+  margin-bottom: 14px;
+  width: 100%;
 }
 
 .titleName {
   margin-bottom: 4px;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
   color: rgba(239, 237, 232, 0.5);
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 8px;
-    font-size: 14px;
-    line-height: 1.29;
-  }
 }
 
 .input {
   align-items: center;
-  width: 335px;
+  width: 100%;
   padding: 14px;
   gap: 10px;
-  font-family: "Roboto";
-  font-size: 14;
+  font-family: 'Roboto';
   line-height: 1.28;
   border-radius: 12px;
   border: var(--border-input);
   background-color: transparent;
   color: var(--white);
   outline: none;
+  transition: border-color var(--transition);
+}
 
-  @media screen and (min-width: 1440px) {
-    font-size: 16;
-    line-height: 1.5;
-  }
+.input:not(.inputEmail):focus-visible,
+.input:not(.inputEmail):hover {
+  border-color: var(--orange);
+}
+
+.error input:not(:last-child) {
+  border-color: var(--error);
 }
 
 .inputEmail {
-  margin-top: 14px;
   color: rgba(239, 237, 232, 0.6);
 }
 
 .inputContainer {
-  @media screen and (min-width: 768px) and (max-width: 1439px) {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-  }
-  @media screen and (min-width: 1440px) {
-    display: flex;
-    gap: 32px;
-  }
+  width: 100%;
+  gap: 14px;
 }
 
 .inputWrapper {
   display: inline-flex;
   align-items: flex-end;
-  margin-top: 14px;
+  margin-bottom: 14px;
+  width: 100%;
   gap: 14px;
 }
 
 .fieldContainer {
-  @media screen and (min-width: 1440px) {
-    display: flex;
-    flex-direction: column;
-  }
+  position: relative;
+  width: 50%;
 }
 
 .labelInput {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
   color: rgba(239, 237, 232, 0.5);
-  @media screen and (min-width: 768px) {
-    margin-bottom: 8px;
-    font-size: 14px;
-    line-height: 1.29;
-  }
 }
 
 .field {
   align-items: center;
-  width: 160px;
+  width: 100%;
   padding: 14px;
   gap: 10px;
   border-radius: 12px;
@@ -104,23 +145,16 @@
   background-color: transparent;
   color: var(--white);
   outline: none;
-
-  @media screen and (min-width: 768px) {
-    margin-top: 8px;
-  }
+  transition: border-color var(--transition);
+}
+.field:focus-visible,
+.field:hover {
+  border-color: var(--orange);
 }
 
 .radioWrapper {
   display: flex;
   flex-wrap: wrap;
-
-  @media screen and (min-width: 1440px) {
-    flex-direction: column;
-  }
-}
-
-.titleBlood {
-  margin-top: 20px;
 }
 .radioContainer {
   display: flex;
@@ -128,10 +162,6 @@
 .radioBloodContainer {
   display: flex;
   margin-right: 20px;
-
-  @media screen and (min-width: 768px) {
-    margin-right: 32px;
-  }
 }
 
 .radioSexContainer {
@@ -141,15 +171,6 @@
 .levelActivityWrapper {
   margin-top: 40px;
   margin-bottom: 40px;
-
-  @media screen and (min-width: 768px) {
-    margin-top: 32px;
-    margin-bottom: 38px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    margin-bottom: 48px;
-  }
 }
 
 .levelInput {
@@ -159,7 +180,8 @@
 .buttonSave {
   padding: 16px 50px;
   width: 144px;
-  &:disabled {
-    opacity: 0.5;
-  }
+}
+
+.buttonSave:disabled {
+  opacity: 0.5;
 }

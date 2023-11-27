@@ -1,18 +1,22 @@
 .button {
-    background-color: var(--orange);
-    border: none;
-    border-radius: var(--border-radius);
-    padding: 16px 32px;
+  background-color: var(--orange);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 16px 32px;
 
-
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1.125;
-    color:var(--white);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.125;
+  color: var(--white);
 }
 
 @media screen and (min-width: 768px) {
-    .button {
-        font-size: 20px;
-    }
+  .button {
+    font-size: 20px;
+  }
+}
+
+.button:disabled {
+  color: rgba(239, 237, 232, 0.6);
+  cursor: not-allowed;
 }

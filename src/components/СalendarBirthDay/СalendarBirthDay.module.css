@@ -1,6 +1,12 @@
+:root {
+  --black-color: #000000;
+  --e6533c-color: #ef8964;
+  --custom-icon-color: #f5f1f1;
+}
+
 .datePicker {
   align-items: center;
-  width: 160px;
+  width: 100%;
   padding: 14px;
   gap: 10px;
   border-radius: 12px;
@@ -8,11 +14,29 @@
   background-color: transparent;
   color: var(--white);
   outline: none;
+  transition: border-color var(--transition);
 }
-:root {
-  --black-color: #000000;
-  --e6533c-color: #ef8964;
-  --custom-icon-color: #f5f1f1;
+
+.datePicker:focus-visible,
+.datePicker:hover {
+  border-color: var(--orange);
+}
+
+.containerCalendar {
+  position: relative;
+}
+
+.textCalendarError {
+  position: absolute;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-size: 12px;
+  letter-spacing: 0.12px;
+  color: var(--error);
+  line-height: 1.16;
+}
+
+.datePickerError {
+  border: var(--border-error);
 }
 
 .customCalendar {
@@ -23,8 +47,8 @@
 
 .iconCalendar {
   position: absolute;
-  left: 126px;
-  bottom: 19px;
+  top: 14px;
+  right: 14px;
   cursor: pointer;
 
   width: 18px;
