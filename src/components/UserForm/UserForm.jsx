@@ -64,7 +64,7 @@ const UserForm = () => {
   };
 
   return (
-    <>
+    <div className={css.formContainer}>
       <Formik
         initialValues={initialValues}
         validationSchema={userFormShemas}
@@ -72,30 +72,34 @@ const UserForm = () => {
       >
         {formik => (
           <Form>
-            <div className={css.formWrapper}>
-              <div>
-                <p className={css.titleName}>Basic info</p>
+            <div className={`${css.formWrapper} ${formik.touched['name'] && formik.errors['name'] && `${css.error}`}` }>
+              {/* <p className={css.titleName}>Basic info</p> */}
+              <div className={css.topFieldWrapper}>
+                <label className={css.labelInput} htmlFor="name">Name</label>
                 <Field
                   className={css.input}
                   name="name"
                   type="text"
+                  id="name"
                   placeholder="Your name"
                 />
+                 <ErrorMessages nameField="name"/>
               </div>
-              <div>
+              <div className={css.topFieldWrapper}>
+                <label className={css.labelInput} htmlFor="email">Email</label>
                 <Field
                   className={`${css.input} ${css.inputEmail}`}
                   type="text"
                   name="email"
+                  id="email"
                   readOnly
                   disabled
                 />
               </div>
             </div>
-            {/* input Field */}{' '}
             <div className={css.inputContainer}>
               <div className={css.inputWrapper}>
-                <div className={css.fieldContainer}>
+                <div className={`${css.fieldContainer} ${formik.touched['height'] && formik.errors['height'] && `${css.error}`}`}>
                   <label className={css.labelInput} htmlFor="height">
                     Height
                   </label>
@@ -106,9 +110,10 @@ const UserForm = () => {
                     id="height"
                     placeholder=""
                   />
+                 <ErrorMessages nameField="height"/>
                 </div>
 
-                <div className={css.fieldContainer}>
+                <div className={`${css.fieldContainer} ${formik.touched['currentWeight'] && formik.errors['currentWeight'] && `${css.error}`}`}>
                   <label className={css.labelInput} htmlFor="currentWeight">
                     Current Weight
                   </label>
@@ -119,11 +124,12 @@ const UserForm = () => {
                     id="currentWeight"
                     placeholder=""
                   />
+                 <ErrorMessages nameField="currentWeight"/>
                 </div>
               </div>
 
               <div className={css.inputWrapper}>
-                <div className={css.fieldContainer}>
+                <div className={`${css.fieldContainer} ${formik.touched['desiredWeight'] && formik.errors['desiredWeight'] && `${css.error}`}`}>
                   <label className={css.labelInput} htmlFor="desiredWeight">
                     Desired Weight
                   </label>
@@ -134,13 +140,14 @@ const UserForm = () => {
                     id="desiredWeight"
                     placeholder=""
                   />
+                 <ErrorMessages nameField="desiredWeight"/>
                 </div>
 
                 <div
                   className={css.fieldContainer}
                   style={{ position: 'relative' }}
                 >
-                  <label className={css.labelInput} htmlFor="birthday"></label>
+                  <label className={css.labelInput} htmlFor="birthday">Birthday</label>
                   <CalendarComponent
                     minDate={new Date('1900-01-01')}
                     selected={formik.values.birthday}
@@ -151,8 +158,6 @@ const UserForm = () => {
                 </div>
               </div>
             </div>
-            <ErrorMessages />
-            {/* RadioButton */}
             <p className={`${css.titleName} ${css.titleBlood}`}>Blood</p>
             <div className={css.radioWrapper}>
               <div className={css.radioContainer}>
@@ -274,7 +279,7 @@ const UserForm = () => {
           </Form>
         )}
       </Formik>
-    </>
+    </div>
   );
 };
 

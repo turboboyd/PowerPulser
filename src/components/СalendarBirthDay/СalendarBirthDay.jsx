@@ -8,7 +8,7 @@ import CalendarStyles from './СalendarBirthDay.module.css';
 import DatePickerStyles from './DatePickerStyles';
 
 const CustomInput = forwardRef(
-  ({ value, onClick, onChange, onKeyDown }, ref) => {
+  ({ value, onClick, onChange, onKeyDown, error }, ref) => {
     const handleChange = e => {
       onChange(e.target.value);
     };
@@ -17,7 +17,7 @@ const CustomInput = forwardRef(
       <div style={{ backgroundColor: 'black', color: 'white' }}>
         <input
           ref={ref}
-          className={CalendarStyles.datePicker}
+          className={`${CalendarStyles.datePicker} ${error && CalendarStyles.datePickerError}`}
           value={value}
           onClick={e => {
             onClick();
@@ -81,10 +81,7 @@ const CalendarComponent = ({ onBirthdayChange }) => {
   return (
     <div>
       <style>{DatePickerStyles}</style>
-      <div className={CalendarStyles.container}>
-        {validationError && (
-          <div style={{ color: 'red' }}>{validationError}</div>
-        )}
+      <div className={CalendarStyles.containerCalendar}>
         <DatePicker
           showYearDropdown
           scrollableYearDropdown
@@ -96,13 +93,16 @@ const CalendarComponent = ({ onBirthdayChange }) => {
           maxDate={new Date()}
           calendarClassName={CalendarStyles.customCalendar}
           dayClassName={dayClassName}
-          customInput={<CustomInput onKeyDown={handleKeyDown} />}
+          customInput={<CustomInput onKeyDown={handleKeyDown} error={validationError} />}
         />
         <Icon
           className={CalendarStyles.iconCalendar}
           iconId="icon-calendar-white"
           onClick={handleIconClick}
         />
+        {validationError && (
+          <div className={CalendarStyles.textCalendarError}>{validationError}</div>
+        )}
       </div>
     </div>
   );

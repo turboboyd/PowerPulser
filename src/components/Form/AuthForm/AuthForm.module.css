@@ -2,11 +2,16 @@
 .form {
   width: 100%;
 }
-
+.authButton {
+  padding: 12px 40px;
+}
 /* Медиа-правило для экранов шириной 768px и более */
 @media screen and (min-width: 768px) {
   .form {
     width: 364px;
+  }
+  .authButton {
+    padding: 16px 60px;
   }
 }
 
@@ -55,7 +60,7 @@
 /* Стили для ссылки */
 .link {
   font-size: 12px;
-  font-feature-settings: "clig" off, "liga" off;
+  font-feature-settings: 'clig' off, 'liga' off;
   line-height: 1.5;
   text-decoration-line: underline;
 }
