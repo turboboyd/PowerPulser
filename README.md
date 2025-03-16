@@ -21,7 +21,7 @@ sports, and lead a healthy lifestyle.
 ## Live page
 
 The live page can be accessed through the following link:
-[https://turboboyd.github.io/power_pulse_tp/](https://turboboyd.github.io/PowerPulser/)
+https://turboboyd.github.io/PowerPulser/
 
 ## Project Team
 
